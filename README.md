@@ -11,3 +11,7 @@ Primero, debes estar en la carpeta del repositorio (donde hiciste `git clone`), 
 ```
 git pull
 ```
+
+## Sintaxis Markdown
+
+- [Documentación Markdown](https://www.markdownguide.org/cheat-sheet/)
