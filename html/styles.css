@@ -57,7 +57,7 @@ a {
     margin: 0px auto;
     font-size:15px;
     font-family:Arial;
-    width:140px;
+    width:200px;
     height:50px;
     border-width:1px;
     color:#fff;
@@ -76,3 +76,57 @@ a {
     background: linear-gradient(#408c99, #599bb3);
   }
                 
+/* Botón azul */
+
+
+.blueButton {
+    /* display -> inline = misma línea
+    block = salto de línea */
+    display: block;
+    /* Espaciados
+    padding = espacio interno
+    margin = espacio alrededor (del elemento) */
+    padding: 10px;
+    margin: 10px auto;
+    /* Tamaño y tipo de fuente */
+    font-size:15px;
+    font-family:Arial, Helvetica, sans-serif;
+    /* Ancho y alto */
+    width:200px;
+    height:50px;
+    /* borde: ancho, color, radio, sombra */
+    border-width:1px;
+    border-color:#337bc4;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    box-shadow: 3px 4px 0px 0px #1564ad;
+    /* Formato de texto 
+    color, negritas, centrado, sombra */
+    color:#fff;
+    
+    text-align: center;
+    text-shadow: 0px 1px 0px #528ecc;
+    /* Color de fondo
+    Gradiente lineal */
+    background:linear-gradient(#79bbff, #378de5);
+  }
+  /* Estilo por defecto en el enlace */
+  .blueButton:link{
+    font-weight:bold;
+  }
+  /* Estilo al colocar cursor encima (hover) */
+  .blueButton:hover {
+    top: 1px; /* hace que el botón se mueva un poco */
+    background: linear-gradient(#378de5, #79bbff);
+  }
+  /* Estilo cuando hemos visitado (abierto) el enlace */
+  .blueButton:visited {
+    color: lightgray;
+  }
+  /* Estilo cuando está activo el enlace 
+  mientras se está haciendo click (sin soltar)*/
+  .blueButton:active {
+    color: black;
+  }          
