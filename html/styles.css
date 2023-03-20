@@ -158,3 +158,12 @@ a {
     background: linear-gradient(#634b30, #7d5d3b);
   }
                 
+/* HTML Images */
+
+.myimg{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+    /* width: 200px; */
+}
