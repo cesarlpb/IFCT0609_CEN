@@ -19,17 +19,26 @@
     
     <img id="banner" src="./img/banner.png" alt="HTML, CSS, JS" usemap="#mymap">
     <map name="mymap">
-        <area shape="rect" coords="20,20,180,180" alt="HTML 5" title="Haz click para ver HTML 5" href="./html.html">
-        <area shape="rect" coords="230,20,370,180" alt="CSS 3" title="Haz click para ver CSS 3" href="./css.html">
-        <area shape="rect" coords="430,20,570,180" alt="JS" title="Haz click para ver JS" href="./js.html">
+        <area shape="rect" coords="20,20,180,180" alt="HTML 5" title="Haz click para ver HTML 5" href="./html.html" onclick="html()">
+        <area shape="rect" coords="230,20,370,180" alt="CSS 3" title="Haz click para ver CSS 3" href="./css.html" onclick="css()">
+        <area shape="rect" coords="430,20,570,180" alt="JS" title="Haz click para ver JS" href="./js.html" onclick="js()">
       </map>
-    <h2>Areas</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, maiores!</p>
-    <!-- <h2>Tema cualquiera 3</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, maiores!</p> -->
+    
+    <script>
+    function html() {
+        alert("Clicaste HTML!");
+    }
+    function css() {
+        alert("Clicaste CSS!");
+    }
+    function js() {
+        alert("Clicaste JS!");
+    }
+    </script>
     
     <hr>
 
     <strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_images_imagemap.asp" target="_blank">HTML Image Maps</a>
-
+<!-- Normalmente, los <script> van aquí -->
+</body>
 </html>
