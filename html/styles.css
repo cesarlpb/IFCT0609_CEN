@@ -190,8 +190,8 @@ mientras se está haciendo click (sin soltar)*/
 }
 .myh2 {
   width: 300px;
-  color: black;
-  background-color: lightgray;
+  color: aliceblue;
+  /* background-color: lightgray; */
   padding: 10px;
 }
 #para-1{
@@ -215,11 +215,22 @@ mientras se está haciendo click (sin soltar)*/
   background-repeat: no-repeat;
   color:black;
 }
-
+.mypara, #mydiv{
+  width: 425px;
+  border: 0;
+  color: aliceblue;
+}
+#mydiv{
+  margin: 0;
+}
 body {
-  background-image: url('./img/bg.jpeg');
+  background-image: url('./img/bg_capa.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-size: 100%;
+  background-position: center;
+}
+/* Selector más específico para el <a> */
+.mypara a {
+  color: aliceblue;
 }
