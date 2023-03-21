@@ -85,14 +85,13 @@ a {
   box-shadow: 0px 10px 14px -7px #276873;
   text-shadow: 0px 1px 0px #3d768a;
   background:linear-gradient(#599bb3, #408c99);
-  }
+}
   
 .buttonClass:hover {
   background: linear-gradient(#408c99, #599bb3);
 }
                 
 /* Botón azul */
-
 
 .blueButton {
   /* display -> inline = misma línea
@@ -146,7 +145,6 @@ mientras se está haciendo click (sin soltar)*/
   color: black;
 }          
 
-
 .brownButton {
   display: inline-block;
   text-align: center;
@@ -180,5 +178,6 @@ mientras se está haciendo click (sin soltar)*/
   border: 1px solid black;
   padding: 20px;
   margin: 10px;
-  /* width: 200px; */
+  border-radius: 10px;
+  width: 150px;
 }
