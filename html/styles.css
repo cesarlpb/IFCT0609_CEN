@@ -181,3 +181,13 @@ mientras se está haciendo click (sin soltar)*/
   border-radius: 10px;
   width: 150px;
 }
+
+/* HTML Background Images */
+
+body {
+  background-image: url('./img/bg.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100%;
+}
