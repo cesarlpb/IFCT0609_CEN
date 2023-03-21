@@ -184,6 +184,38 @@ mientras se está haciendo click (sin soltar)*/
 
 /* HTML Background Images */
 
+/* Párrafos */
+#myh1 {
+  color: aliceblue;
+}
+.myh2 {
+  width: 300px;
+  color: black;
+  background-color: lightgray;
+  padding: 10px;
+}
+#para-1{
+  width: 425px;
+  border: 0px;
+  background-image: url('./img/paisaje.jpeg'); 
+  background-repeat: no-repeat;
+  color:aliceblue;
+}
+#para-2 {
+  width: 425px;
+  border: 0px;
+  background-image: url('./img/paisaje_0.9.png'); 
+  background-repeat: no-repeat;
+  color:aliceblue;
+}
+#para-3 {
+  width: 425px;
+  border: 0px;
+  background-image: url('./img/paisaje_0.5.png'); 
+  background-repeat: no-repeat;
+  color:black;
+}
+
 body {
   background-image: url('./img/bg.jpeg');
   background-repeat: no-repeat;
