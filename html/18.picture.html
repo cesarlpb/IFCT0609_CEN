@@ -8,17 +8,26 @@
     <title>picture</title>
 </head>
 <body>
-    <h1>picture</h1>
+    <h1 id="myh1">picture</h1>
     
     <div>
         <p>picture nos permite personalizar qué imágenes presentamos según dispositivo o tamaño de pantalla.</p>
     </div>
     
-    <h2>Tema cualquiera 1</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, maiores!</p>
+    <h2 class="myh2">HTML 5</h2>
+    
+    <div id="mydiv2">
+        <!-- Recordad que hay que colocar la condición de mayor tamaño primero -->
+        <picture>
+            <source media="(min-width: 1000px)" srcset="./img/2560px.png" width="1800px">
+            <source media="(min-width: 450px)" srcset="./img/400px.png">
+            <img src="./img/html.png">
+        </picture>
+    </div>
+      
     
     <hr>
-    <strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_images_picture.asp" target="_blank">picture</a>
+    <p class="mypara"><strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_images_picture.asp" target="_blank">picture</a></p>
     
 </body>
 </html>
