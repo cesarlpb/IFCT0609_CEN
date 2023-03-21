@@ -1,169 +1,184 @@
 /* Hoja de estilos externa */
 body { 
-    background-color: beige; 
-    font-family:Arial, Helvetica, sans-serif;
+  background-color: beige; 
+  font-family:Arial, Helvetica, sans-serif;
 }
 h1 { color: brown; }
 h2 { 
-    color: #0092be; 
-    font-size: large;
-    text-decoration: underline;
+  color: #0092be; 
+  font-size: large;
+  text-decoration: underline;
 }
 p { 
-    color:rgb(75, 75, 75); 
-    
-    /* Podemos poner ancho, estilo y color
-    de borde por separado: */
-    /* 
-    border-width: 1px;
-    border-style: dotted;
-    border-color: lightgray; 
-    */
+  /* un valor -> 4 lados */
+  padding: 20px;
+  
+  /* dos valores: 
+  arriba/abajo izq/der */
+  /* padding: 10px 20px; */
 
-    /* O podemos utilizar border: */
-    border: 2px solid burlywood;
+  /* tres valores:
+  arriba izq/der abajo */
+  /* padding: 10px 20px 30px; */
 
-    border-radius: 10px;
+  /* cuatro valores
+  arriba der abajo izq */
+  /* padding: 10px 20px 30px 40px; */
+
+  color:rgb(75, 75, 75); 
+  
+  /* Podemos poner ancho, estilo y color
+  de borde por separado: */
+  /* 
+  border-width: 1px;
+  border-style: dotted;
+  border-color: lightgray; 
+  */
+
+  /* O podemos utilizar border: */
+  border: 2px solid burlywood;
+
+  border-radius: 10px;
 }
 div {
-    background-color: #e3e3e3;
-    border: 2px solid brown;
-    padding: 20px;
-    margin: 10px;
+  background-color: #e3e3e3;
+  border: 2px solid brown;
+  padding: 20px;
+  margin: 10px;
 }
 a {
-    color: #e34e26;
-    /* text-decoration: none; */
+  color: #e34e26;
+  /* text-decoration: none; */
 }
 /* Usamos el id "mybtn" */
 #mybtn {
-    display: block;
-    border: 1px solid brown;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 10px;
-    background-color: burlywood;
-    padding: 10px;
-    margin: 10px auto;
-    width: 250px;
+  display: block;
+  border: 1px solid brown;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  background-color: burlywood;
+  padding: 10px;
+  margin: 10px auto;
+  width: 250px;
 }
 
 /* Usando una clase de https://cssbuttongenerator.com/ */
 
 .buttonClass {
-    display: block;
-    padding: 20px;
-    margin: 0px auto;
-    font-size:15px;
-    font-family:Arial;
-    width:200px;
-    height:50px;
-    border-width:1px;
-    color:#fff;
-    border-color:#599bb3;
-    font-weight:bold;
-    border-top-left-radius:8px;
-    border-top-right-radius:8px;
-    border-bottom-left-radius:8px;
-    border-bottom-right-radius:8px;
-    box-shadow: 0px 10px 14px -7px #276873;
-    text-shadow: 0px 1px 0px #3d768a;
-    background:linear-gradient(#599bb3, #408c99);
+  display: block;
+  padding: 20px;
+  margin: 0px auto;
+  font-size:15px;
+  font-family:Arial;
+  width:200px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#599bb3;
+  font-weight:bold;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  box-shadow: 0px 10px 14px -7px #276873;
+  text-shadow: 0px 1px 0px #3d768a;
+  background:linear-gradient(#599bb3, #408c99);
   }
   
-  .buttonClass:hover {
-    background: linear-gradient(#408c99, #599bb3);
-  }
+.buttonClass:hover {
+  background: linear-gradient(#408c99, #599bb3);
+}
                 
 /* Botón azul */
 
 
 .blueButton {
-    /* display -> inline = misma línea
-    block = salto de línea */
-    display: block;
-    /* Espaciados
-    padding = espacio interno
-    margin = espacio alrededor (del elemento) */
-    padding: 10px;
-    margin: 10px auto;
-    /* Tamaño y tipo de fuente */
-    font-size:15px;
-    font-family:Arial, Helvetica, sans-serif;
-    /* Ancho y alto */
-    width:200px;
-    height:50px;
-    /* borde: ancho, color, radio, sombra */
-    border-width:1px;
-    border-color:#337bc4;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-    border-bottom-left-radius:5px;
-    border-bottom-right-radius:5px;
-    box-shadow: 3px 4px 0px 0px #1564ad;
-    /* Formato de texto 
-    color, negritas, centrado, sombra */
-    color:#fff;
+  /* display -> inline = misma línea
+  block = salto de línea */
+  display: block;
+  /* Espaciados
+  padding = espacio interno
+  margin = espacio alrededor (del elemento) */
+  padding: 10px;
+  margin: 10px auto;
+  /* Tamaño y tipo de fuente */
+  font-size:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  /* Ancho y alto */
+  width:200px;
+  height:50px;
+  /* borde: ancho, color, radio, sombra */
+  border-width:1px;
+  border-color:#337bc4;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 4px 0px 0px #1564ad;
+  /* Formato de texto 
+  color, negritas, centrado, sombra */
+  color:#fff;
     
-    text-align: center;
-    text-shadow: 0px 1px 0px #528ecc;
-    /* Color de fondo
-    Gradiente lineal */
-    background:linear-gradient(#79bbff, #378de5);
+  text-align: center;
+  text-shadow: 0px 1px 0px #528ecc;
+  /* Color de fondo
+  Gradiente lineal */
+  background:linear-gradient(#79bbff, #378de5);
   }
-  /* Estilo por defecto en el enlace */
-  .blueButton:link{
-    font-weight:bold;
-  }
-  /* Estilo al colocar cursor encima (hover) */
-  .blueButton:hover {
-    top: 1px; /* hace que el botón se mueva un poco */
-    background: linear-gradient(#378de5, #79bbff);
-  }
-  /* Estilo cuando hemos visitado (abierto) el enlace */
-  .blueButton:visited {
-    color: lightgray;
-  }
-  /* Estilo cuando está activo el enlace 
-  mientras se está haciendo click (sin soltar)*/
-  .blueButton:active {
-    color: black;
-  }          
+/* Estilo por defecto en el enlace */
+.blueButton:link{
+  font-weight:bold;
+}
+/* Estilo al colocar cursor encima (hover) */
+.blueButton:hover {
+  top: 1px; /* hace que el botón se mueva un poco */
+  background: linear-gradient(#378de5, #79bbff);
+}
+/* Estilo cuando hemos visitado (abierto) el enlace */
+.blueButton:visited {
+  color: lightgray;
+}
+/* Estilo cuando está activo el enlace 
+mientras se está haciendo click (sin soltar)*/
+.blueButton:active {
+  color: black;
+}          
 
 
 .brownButton {
-    display: inline-block;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size:15px;
-    font-family:Arial;
-    width:100px;
-    /* height:50px; */
-    border-width:1px;
-    color:#ffffff;
-    border-color:#54381e;
-    /* border-radius: 100%; */
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
-    border-bottom-left-radius:10px;
-    border-bottom-right-radius:10px;
-    box-shadow:inset 0px 1px 0px 0px #a6827e;
-    text-shadow:inset 0px 1px 0px #54381e;
-    background:linear-gradient(#7d5d3b, #634b30);
+  display: inline-block;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size:15px;
+  font-family:Arial;
+  width:100px;
+  /* height:50px; */
+  border-width:1px;
+  color:#ffffff;
+  border-color:#54381e;
+  /* border-radius: 100%; */
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:inset 0px 1px 0px 0px #a6827e;
+  text-shadow:inset 0px 1px 0px #54381e;
+  background:linear-gradient(#7d5d3b, #634b30);
   }
   
-  .brownButton:hover {
-    background: linear-gradient(#634b30, #7d5d3b);
-  }
+.brownButton:hover {
+  background: linear-gradient(#634b30, #7d5d3b);
+}
                 
 /* HTML Images */
 
 .myimg{
-    display: inline-block;
-    border: 1px solid black;
-    padding: 20px;
-    margin: 10px;
-    /* width: 200px; */
+  display: inline-block;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  /* width: 200px; */
 }
