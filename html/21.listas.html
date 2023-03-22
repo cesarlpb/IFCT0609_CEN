@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Listas</title>
+    <style>
+        #navbar {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333333;
+        }
+        
+        #navbar li {
+          display: inline-block;
+          /* float: left; */
+        }
+        
+        #navbar li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+        
+        #navbar li a:hover {
+          background-color: #111111;
+        }
+        </style>
 </head>
 <body style="background-image: unset;">
     <h1>Listas</h1>
@@ -30,6 +56,40 @@
                 <li>Milk</li>
             </ul>
         </ul>
+    </ul>
+    
+    <p>disc</p>
+    
+    <ul style="list-style-type:disc;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>square</p>
+    <ul style="list-style-type:square;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>sin viñeta</p>
+    <ul style="list-style-type:none;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>sin viñeta ni padding-left</p>
+    <ul style="list-style-type:none; padding-left: 0;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <h2>navbar</h2>
+    <ul id="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
     </ul>
 
     <h3>ol</h3>
@@ -64,9 +124,6 @@
         <dd>- 2 patatas</dd>
         <dd>- Sal</dd>
     </dl>
-    <h3>navbar</h3>
-
-    <h2>ol</h2>
     
     <h2>Tema cualquiera 3</h2>
     
