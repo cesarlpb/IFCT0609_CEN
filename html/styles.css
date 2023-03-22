@@ -342,10 +342,37 @@ odd == impar  1, 3, 5...
   background: linear-gradient(#6bb6d1, #D6EEEE);
 }
 
-/* #mytable-col th {
-  background-color: rgb(33, 204, 217);
-  color: rgb(14, 38, 58);
+/* Coloreamos columnas */
+#mytable8 td:nth-child(even), #mytable8 th:nth-child(even) {
+  background-color: #D6EEEE;
 }
-#mytable-col td {
-  background-color: rgb(5, 180, 142);
-} */
+#mytable8 td:nth-child(odd), #mytable8 th:nth-child(odd) {
+  background-color: #6bb6d1;
+}
+/* Ante igualdad de "especificidad" en CSS
+gana en prioridad el selector de debajo */
+#mytable8 th:nth-child(even) {
+  background-color: lightgray;
+}
+
+#mytable9, #mytable9 tr, #mytable9 td, #mytable9 th{
+  border: unset;
+}
+#mytable9 {
+  border-collapse: collapse;
+}
+#mytable9 tr {
+  border-bottom: 1px solid black;
+  
+  /* Lo mismo que border en varias líneas */
+  /* border-color: white;
+  border-width: 3px;
+  border-style: dashed; */
+
+  /* Sombra */
+  /* box-shadow: 1px 1px 2px black; */
+
+}
+#mytable9 tr:hover{
+  background-color: #D6EEEE;
+}
