@@ -293,3 +293,13 @@ más px es "más redondo" */
   /* border-collapse: collapse; */
 }
 
+/* Ejemplo de estilos con caption */
+caption{
+  text-align: center; /* por defecto centrado */
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
