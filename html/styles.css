@@ -250,19 +250,24 @@ body {
 
 /* Tablas */
 
+/* celdas <td> y encabezados <th> */
 td, th{
   padding: 10px;
 }
+/* tags de la tabla */
 table, th, td {
   border: 1px solid black;
 }
+/* ids de tabla 1 y tabla 2 */
 #mytable, #mytable2{
   border: 3px solid black;
   border-collapse: collapse;
 }
+/* th de tabla 2 */
 #mytable2 th{
   background-color: #8f7c66;
 } 
+/* celdas <td> de tabla 2 */
 #mytable2 td{
   background-color: #be9c76;
 }
