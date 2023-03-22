@@ -147,8 +147,9 @@
             <td style="width: 25%;">Fran</td>
         </tr>
     </table>
-    <h2>colspan y rowspan</h2>
-
+    
+    <h3>colspan y rowspan</h3>
+    <p>colspan</p>
     <table>
         <tr>
             <th colspan="2">Name</th>
@@ -173,7 +174,47 @@
             <td>Dato 4</td>
         </tr>
     </table>
-    
+    <p>rowspan con th en columna:</p>
+    <table>
+        <tr>
+          <th>Name:</th>
+          <td>Jill</td>
+        </tr>
+        <tr>
+          <th rowspan="2">Phone:</th>
+          <td>555-1234</td>
+        </tr>
+        <tr>
+          <td>555-8745</td>
+      </tr>
+      <tr>
+        <th>Office:</th>
+        <td>555-8745</td>
+      </tr>
+    </table>
+    <p>rowspan con th en fila:</p>
+    <table style="width:100%">
+        <tr>
+            <th>Usuario</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;" rowspan="2">Pepito</td>
+            <td style="width: 50%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore suscipit praesentium quia neque, ipsum quasi illo officia? Qui placeat ipsum nulla? Eos impedit totam, atque illum placeat voluptatibus error aliquid.</td>
+            <td style="width: 25%;">Dato</td>
+        </tr>
+        <tr style="height: 100px;">
+            
+            <td style="width: 50%;">pepito.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td style="width: 25%;">pepito</td>
+        </tr>
+        <tr style="height: 100px;">
+            <td>María</td>
+            <td style="width: 50%;">maria.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td style="width: 25%;">maria</td>
+        </tr>
+    </table>
     <h3>caption</h3>
     <table style="width:100%">
         <caption>Caption</caption>
@@ -189,7 +230,28 @@
           <td>February</td>
           <td>$50</td>
         </tr>
-      </table>
+    </table>
+
+    <h3>padding y spacing</h3>
+    <table id="mytable6">
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+          <td colspan="2">Jill Smith</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td colspan="2">Eve Jackson</td>
+          <td>94</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+    </table>
     <h2>Estilos en tablas</h2>
     
     <hr>

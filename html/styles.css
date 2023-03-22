@@ -303,3 +303,11 @@ caption{
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
+
+/* Padding y spacing */
+#mytable6 th, #mytable6 td {
+  padding: 10px;
+}
+#mytable6 {
+  border-spacing: 10px;
+}
