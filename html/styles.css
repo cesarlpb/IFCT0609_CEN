@@ -376,3 +376,36 @@ gana en prioridad el selector de debajo */
 #mytable9 tr:hover{
   background-color: #D6EEEE;
 }
+
+/* Listas */
+
+p,
+dt {
+    font-weight: bold;
+}
+
+dl,
+dd {
+    font-size: 0.9rem;
+}
+
+dd {
+    margin-bottom: 1em;
+}
+
+#mydl2 div{
+  background-color: unset;
+  border: unset;
+  border-bottom: 1px solid black;
+  padding: 0;
+}
+#mydl2 dt, #mydl2 dd{
+  width: 100px;
+  display: inline-block;
+}
+#mydl2 dd {
+  margin-left: 0;
+}
+#mydl dt::after, #mydl2 dt::after {
+  content: ": ";
+}
