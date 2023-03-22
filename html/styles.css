@@ -259,7 +259,7 @@ table, th, td {
   border: 1px solid black;
 }
 /* ids de tabla 1 y tabla 2 */
-#mytable, #mytable2{
+#mytable, #mytable2 {
   border: 3px solid black;
   border-collapse: collapse;
 }
@@ -271,3 +271,25 @@ table, th, td {
 #mytable2 td{
   background-color: #be9c76;
 }
+/* Tabla 3 */
+#mytable3 th, #mytable3 td{
+  padding:10px;
+}
+#mytable3 th {
+  border-style:dashed;
+  border-width: 2px;
+  border-color: #1564ad;
+}
+#mytable3 td {
+  border-width: 3px;
+  border-color: rgb(87, 137, 156);
+  border-style:dotted;
+}
+/* Redondea todos los bordes
+más px es "más redondo" */
+#mytable3, #mytable3 th, #mytable3 td {
+  border-radius: 5px;
+  /* Si usamos collapse los border salen rectos */
+  /* border-collapse: collapse; */
+}
+
