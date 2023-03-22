@@ -9,6 +9,12 @@ h2 {
   font-size: large;
   text-decoration: underline;
 }
+h3 { 
+  color: #0092be; 
+  font-size: medium;
+  font-weight: normal;
+  text-decoration: underline;
+}
 p { 
   /* un valor -> 4 lados */
   padding: 20px;
@@ -249,4 +255,14 @@ td, th{
 }
 table, th, td {
   border: 1px solid black;
+}
+#mytable, #mytable2{
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+#mytable2 th{
+  background-color: #8f7c66;
+} 
+#mytable2 td{
+  background-color: #be9c76;
 }
