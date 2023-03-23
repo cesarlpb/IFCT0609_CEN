@@ -15,6 +15,7 @@ body {
     min-height: 100%;
     width: auto; 
     height: auto;
+    /* z-index envía el elemento detrás de los demás */
     z-index: -100;
   }
   
@@ -36,9 +37,24 @@ body {
     font-family: Oswald, sans-serif;
     text-shadow: 1px 1px 1px #16a085, 1px 1px 4px #2980b9;
     text-align: center;
+    z-index: 100;
+  }
+  div{
+    border: 0;
+    margin:0;
+    padding: 0;
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 0;
   }
   
-  button {
+  /* button {
     position: relative;
     border-radius: 5px;
     border: 0;
@@ -50,8 +66,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
+  } */
   
-  button:hover {
+  /* button:hover {
     background-color: #3498db;
-  }
+  } */
