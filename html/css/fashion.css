@@ -1,54 +1,62 @@
 @font-face {
     font-family: Roboto Regular;
     src: url("../fonts/Roboto-Regular.ttf")
-  }
-  * {
+}
+@font-face {
+    font-family: Roboto Slab;
+    src: url("../fonts/RobotoSlab-Regular.ttf")
+}
+* {
     box-sizing: border-box;
-  }
-  body {
+}
+body {
     margin: 0;
     background: #000;
     background-size: cover;
-  }
-  video { 
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-  }
-  div#fashion {
+}
+video { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+div#fashion {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  header {
+}
+header {
     position: fixed;
     width: 100%;
     text-align: center;
     color: white;
     transition: .4s;
-  }
-  header:hover {
+}
+header:hover {
     background: rgba(255,255,255,0.8);
     color: #000;
-  }
-  h1 {
+}
+h1 {
     font-family: Roboto Regular, sans-serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2em;
     width: 100%;
     letter-spacing: .5rem;
-  }
-  nav a {
+}
+nav {
+    padding: 1em;
+    font-family: 'Roboto Slab', serif;
+}
+nav a {
     text-decoration: none;
     color: inherit;
     padding: 1rem;
-  }
-  h2 { 
+}
+h2 { 
     font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
     font-size: 8vmin;
     text-align: center;
@@ -56,4 +64,4 @@
     mix-blend-mode: overlay;
     color: #fff;
     font-weight: 100;
-  }
+}
