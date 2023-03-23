@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../img/bg-minimal.png") #fff;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  
+  #video-background {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+  }
+  
+  article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    font-size: 3.6rem;
+    letter-spacing: 3px;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    text-shadow: 1px 1px 1px #16a085, 1px 1px 4px #2980b9;
+    text-align: center;
+  }
+  
+  button {
+    position: relative;
+    border-radius: 5px;
+    border: 0;
+    font-size: 1.5rem;
+    font-family: Oswald, sans-serif;
+    color: #fff;
+    background-color: #2980b9;
+    padding: .4em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  button:hover {
+    background-color: #3498db;
+  }
