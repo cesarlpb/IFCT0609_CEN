@@ -39,7 +39,7 @@ body {
     text-align: center;
     z-index: 100;
   }
-  div{
+  #filtro {
     border: 0;
     margin:0;
     padding: 0;
@@ -54,20 +54,11 @@ body {
     z-index: 0;
   }
   
-  /* button {
-    position: relative;
-    border-radius: 5px;
-    border: 0;
-    font-size: 1.5rem;
-    font-family: Oswald, sans-serif;
-    color: #fff;
-    background-color: #2980b9;
-    padding: .4em;
-    margin-left: auto;
-    margin-right: auto;
+  /* No es una forma ideal de centrar esto: */
+  article img{
+    position: absolute;
+    top: 20%;
+    left: 47%;
     display: block;
-  } */
-  
-  /* button:hover {
-    background-color: #3498db;
-  } */
+    /* margin: 0 auto; */
+  }
