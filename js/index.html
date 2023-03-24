@@ -12,11 +12,28 @@
 <body>
     <h1>Javascript</h1>
     <p id="para">texto</p>
+
+    <div id="para-2"></div>
+    <div id="para-3"></div>
+    
     <!-- Siempre que se pueda se colocan los scripts antes de </body> -->
     <script>
         // alert("Hola!");
+        // Ejemplos
         console.log("Hola desde el body");
         document.getElementById("para").innerText = "Aprendemos JS :)";
+    </script>
+    <script>
+        // innerHTML vs innerText
+        // Cuando innerHTML? 
+        // - Cuando necesitemos crear un elemento HTML dentro de otro
+        // - Cuando queremos 
+        document.getElementById("para-2").innerHTML = "<h2 class='myclass'>Esto es un h2</h2>";
+        // innerText
+        // Cuando?
+        // - Siempre que se pueda
+        // - Solo te pasa texto al elemento que seleccionas <-----
+        document.getElementById("para-3").innerText = "Esto es un texto";
     </script>
     <script src="script.js"></script>
 </body>
