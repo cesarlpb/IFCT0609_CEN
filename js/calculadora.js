@@ -22,6 +22,8 @@ let producto = a * b;
 let division = a / b;
 console.log(a, b, suma, resta, producto, division) // todo bien
 // Escribir al HTML
+document.getElementById("num1").innerText = a;
+document.getElementById("num2").innerText = b;
 document.getElementById("suma").innerText = suma;
 document.getElementById("resta").innerText = resta;
 document.getElementById("producto").innerText = producto;
