@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
+    <script>
+        console.log("Hola desde el head!");
+    </script>
 </head>
 <body>
     <h1>Javascript</h1>
     <p id="para">texto</p>
+    <!-- Siempre que se pueda se colocan los scripts antes de </body> -->
     <script>
         // alert("Hola!");
-        console.log("Hola en consola...");
+        console.log("Hola desde el body");
         document.getElementById("para").innerText = "Aprendemos JS :)";
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
