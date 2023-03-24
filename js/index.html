@@ -16,6 +16,8 @@
     <div id="para-2"></div>
     <div id="para-3"></div>
     
+    <button type="button" onclick="document.write('Clicaste!')">Clickame</button>
+
     <!-- Siempre que se pueda se colocan los scripts antes de </body> -->
     <script>
         // alert("Hola!");
@@ -34,6 +36,12 @@
         // - Siempre que se pueda
         // - Solo te pasa texto al elemento que seleccionas <-----
         document.getElementById("para-3").innerText = "Esto es un texto";
+    </script>
+    <script>
+        // document.write()
+        // - Añade texto al final del documento sin etiqueta
+        // - Si se usa cuando se ha cargado el documento, borra todo y pone lo que tiene write("...")
+        document.write("Nuevo texto")
     </script>
     <script src="script.js"></script>
 </body>
