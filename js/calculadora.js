@@ -26,7 +26,6 @@ document.getElementById("num1").innerText = a;
 document.getElementById("num2").innerText = b;
 
 document.getElementById("suma").innerText = a + " + " + b + " = " + suma;
-
-document.getElementById("resta").innerText = resta;
-document.getElementById("producto").innerText = producto;
-document.getElementById("division").innerText = division;
+document.getElementById("resta").innerText = a + " - " + b + " = " + resta;
+document.getElementById("producto").innerText = a + " * " + b + " = " + producto;
+document.getElementById("division").innerText = a + " ÷ " + b + " = " + division;
