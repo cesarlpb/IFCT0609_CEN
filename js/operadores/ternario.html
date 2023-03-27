@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operador Ternario</title>
+    <title>Operadores Ternario, Nullish Coalescing, Optional Chaining</title>
 </head>
 <body>
-    <p>Ejemplo</p>
+    <h2>Ternario</h2>
+    <p>Permite evaluar una condición y asignar un valor a true y otro a false que se puede usar mediante una variable.</p>
+    <script>
+        let edad = 17;
+        let esMayorDeEdad = (edad < 18) ? "No":"Si";
+        console.log(esMayorDeEdad);
+        edad = 20;
+        esMayorDeEdad = (edad < 18) ? "No":"Si";
+        console.log(esMayorDeEdad)
+    </script>
+    <h2>Nullish</h2>
+    <p>Se usa cuando no "sabemos" si una variable es 'undefined' o null en ese momento.</p>
+    <script>
+        // Queremos poner un mensaje pero podríamos no tener el nombre de usuario en ese momento
+        let username = null; // 'Pepe' -> saldría Hola, Pepe abajo
+        let nombreUsuario = username ?? "usuario";
+        console.log("Hola, " + nombreUsuario)
+    </script>
+    <h2>Optional Chaining</h2>
+    <p>En caso de que sea undefined o null, no tira error.</p>
+    <script>
+        username = undefined;
+        //console.log("El usuario es " + usuario); // tira error porque usuario no ha sido declarado
+        console.log("El usuario es " ?. usuario); // este mensaje no sale
+        let usuario = "usuario";
+        console.log("El usuario es " + usuario);
+    </script>
 </body>
 </html>
