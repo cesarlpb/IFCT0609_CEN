@@ -7,6 +7,24 @@
     <title>Operadores Aritméticos</title>
 </head>
 <body>
-    <p>Ejemplo</p>
+    <p>Operaciones básicas (+, -, *, /) y algunas más.</p>
+    <script>
+        let x = 3;
+        let y = 2;
+        console.log("Suma: ", x+y);
+        console.log("Resta: ", x-y);
+        console.log("Producto: ", x*y);
+        console.log("División: ", x/y);
+        console.log("Potencia: ", x**y);
+        // Operador que devuelve el resto de una división entera
+        // si la división es exacta -> da 0. Ej: 10%5 -> 0
+        console.log("Módulo ", x%y);
+        // También existe --x y ++x 
+        // La diferencia es que al poner operadores se aplica "antes"
+        // la operación pero (muchas veces) solo veríamos diferencia si realizamos
+        // operaciones en la misma declaración 
+        console.log("Incremento: ", x++);
+        console.log("Decremento: ", x--);
+    </script>
 </body>
 </html>
