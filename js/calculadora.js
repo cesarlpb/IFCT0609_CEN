@@ -1,7 +1,7 @@
 // Operaciones básicas
 
 // Pedir dos números al usuario
-    // prompt -> devuelve texto
+    // prompt -> devuelve texto 
 let a = prompt("Introduce un número:")
 let b = prompt("Introduce otro número:")
 console.log(typeof(a)) // a es string
