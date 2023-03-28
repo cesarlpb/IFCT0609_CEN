@@ -43,6 +43,9 @@
     </script>
     <h2>Date</h2>
     <ul>
+        <p id="date"></p>
+        <p id="horaActual" style="border: 1px solid black; width: 100px; text-align: center;"></p>
+        <hr>
         <li><code>getDate()</code>      Días de 1 a 31</li>
         <p id="getDate"></p>
         <li><code>getDay()</code>       Día de la semana del 0 al 6</li>
@@ -65,6 +68,35 @@
 
     <script>
         let fecha =  new Date()
+        document.getElementById("date").innerText = fecha
+        
+        let dia = fecha.getDate()
+        let diaSemana = fecha.getDay()
+        let año = fecha.getFullYear()
+        let hora = fecha.getHours()
+        let milisegundos = fecha.getMilliseconds()
+        let minutos = fecha.getMinutes()
+        let mes = fecha.getMonth()
+        let segundos = fecha.getSeconds()
+        let unixTime = fecha.getTime()
+
+        document.getElementById("getDate").innerText = dia
+        document.getElementById("getDay").innerText = diaSemana
+        document.getElementById("getFullYear").innerText = año
+        document.getElementById("getHours").innerText = hora
+        document.getElementById("getMilliseconds").innerText = milisegundos
+        document.getElementById("getMinutes").innerText = minutos
+        document.getElementById("getMonth").innerText = mes
+        document.getElementById("getSeconds").innerText = segundos
+        document.getElementById("getTime").innerText = unixTime
+
+        // función para actualizar hora cada segundo
+        setInterval(function(){
+            let date = new Date()
+            console.log(date.toLocaleTimeString()) 
+            let horaActual = date.toLocaleTimeString() // hh:mm:ss
+            document.getElementById("horaActual").innerText = horaActual
+        }, 1000); // <---- milisegundos
     </script>
 
     <h2>Date a Number</h2>
