@@ -41,8 +41,36 @@
         document.getElementById("fixed").innerText = "toFixed: " + (3.1415926535897932384626433).toFixed(3);
         document.getElementById("precision").innerText = "toPrecision: " + (3.1415926535897932384626433).toPrecision(4);
     </script>
+    <h2>Date</h2>
+    <ul>
+        <li><code>getDate()</code>      Días de 1 a 31</li>
+        <p id="getDate"></p>
+        <li><code>getDay()</code>       Día de la semana del 0 al 6</li>
+        <p id="getDay"></p>
+        <li><code>getFullYear()</code>  Año en formato yyyy</li>
+        <p id="getFullYear"></p>
+        <li><code>getHours()</code>     Hora en formato 0-23</li>
+        <p id="getHours"></p>
+        <li><code>getMilliseconds()</code>  Milisegundos en formato 0-999</li>
+        <p id="getMilliseconds"></p>
+        <li><code>getMinutes()</code>   Minutos en formato 0-59</li>
+        <p id="getMinutes"></p>
+        <li><code>getMonth()</code>     Mes en formato 0-11</li>
+        <p id="getMonth"></p>
+        <li><code>getSeconds()</code>   Segundos en formato 0-59</li>
+        <p id="getSeconds"></p>
+        <li><code>getTime()</code>      Milisegundos desde el 1 de eneero de 1970</li>
+        <p id="getTime"></p>
+    </ul>
+
+    <script>
+        let fecha =  new Date()
+    </script>
+
     <h2>Date a Number</h2>
     <h2>Number a Date</h2>
+    <h2>Date a String</h2>
+
     <h2>Boolean a Number</h2>
     <h2>Number a Boolean</h2>
 </body>
