@@ -100,10 +100,22 @@
     </script>
 
     <h2>Date a Number</h2>
+    <p><code>getTime()</code> para pasar la fecha a Unix Time</p>
+    <p><a href="https://unixtime.org/" target="_blank">¿Qué es Unix Time?</a></p>
     <h2>Number a Date</h2>
+    <p id="unixTime"></p>
+    <p id="unixTimeAFecha"></p>
+    <script>
+        let fecha2 = new Date().getTime() // unix time -> int
+        let unixTimeAFecha = new Date(fecha2)
+        document.getElementById("unixTime").innerText = fecha2
+        document.getElementById("unixTimeAFecha").innerText = unixTimeAFecha
+    </script>
     <h2>Date a String</h2>
-
+    <p>Por defecto, si imprimimos una fecha sale como String.</p>
     <h2>Boolean a Number</h2>
+    <p><code>false</code>se transforma a 0 y <code>true</code>se convierte a 1.</p>
     <h2>Number a Boolean</h2>
+    <p>Conviertes todos los números a <code>true</code> y el cero a <code>false</code>.</p>
 </body>
 </html>
