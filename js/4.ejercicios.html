@@ -14,8 +14,20 @@
         <p id="fechaObjetivo"></p>
         <p id="dias"></p>
     </div>
-    <script src="scripts/ej1.js"></script>
-    <p>2. Programa para calcular multiplicación y división a partir de datos que ingresa el usuario.</p>
+    <!-- <script src="scripts/ej1.js"></script> -->
+    <p>2. Programa para calcular multiplicación a partir de datos que ingresa el usuario.</p>
+    <form id="form1">
+        <label for="numero1">Introduce un número:</label>
+        <input type="number" name="numero1" id="numero1" required>
+        <br>
+        <br>
+        <label for="numero2">Introduce otro número:</label>
+        <input type="number" name="numero2" id="numero2" required>
+        <br>
+        <br>
+        <input type="submit" id="submitBtn" value="Producto" onclick="ej2()">
+    </form>
+    <p id="producto"></p>
     <script src="scripts/ej2.js"></script>
     <p>3. Extendemos la calculadora anterior a +, -, *, /, exponente, raiz cuadrada, etc.</p>
     <script src="scripts/ej3.js"></script>
