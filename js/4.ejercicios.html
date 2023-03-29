@@ -30,6 +30,21 @@
     <p id="producto"></p>
     <script src="scripts/ej2.js"></script>
     <p>3. Extendemos la calculadora anterior a +, -, *, /, exponente, raiz cuadrada, etc.</p>
+    <form id="form2">
+        <label for="numero3">Introduce un número:</label>
+        <input type="number" name="numero3" step="0.1" id="numero3" required>
+        <br>
+        <br>
+        <label for="numero4">Introduce otro número:</label>
+        <input type="number" name="numero4" step="0.1" id="numero4" required>
+        <br>
+        <br>
+        <input type="submit" id="submitBtn2" value="Suma" onclick="suma()">
+        <input type="submit" id="submitBtn3" value="Resta" onclick="resta()">
+        <input type="submit" id="submitBtn4" value="Producto" onclick="prod()">
+        <input type="submit" id="submitBtn5" value="División" onclick="divi()">
+    </form>
+    <p id="resultado"></p>
     <script src="scripts/ej3.js"></script>
 </body>
 </html>
