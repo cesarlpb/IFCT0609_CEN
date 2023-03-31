@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
     <title>Bootstrap</title>
 </head>
 <body class="bg bg-light p-3">
@@ -19,7 +20,9 @@
           </ul>
         </header>
       </div>
+    <div class="divider-3"></div>
     <h1 class="text-dark">Bootstrap</h1>
+    <div class="divider-3"></div>
     <h2>Colores</h2>
     <p class="text-primary">.text-primary</p>
     <p class="text-primary-emphasis">.text-primary-emphasis</p>
@@ -47,7 +50,8 @@
     <p class="text-white bg-dark">.text-white</p>
     <p class="text-black-50 bg-white">.text-black-50</p>
     <p class="text-white-50 bg-dark">.text-white-50</p>
-
+    
+    <div class="divider-2"></div>
     <h2>Texto</h2>
     <p class="text-start">Izquierda</p>
     <p class="text-center">Centrado</p>
@@ -59,12 +63,14 @@
     <p class="text-lg-center">Al centro en lg ≥992px</p>
     <p class="text-xl-center">Al centro en xl ≥1200px</p>
     <p class="text-xxl-center">Al centro en xxl ≥1400p</p>
-
+    
+    <div class="divider-2"></div>
     <h3>lowercase y uppercase</h3>
     <p class="text-lowercase">ASDF</p>
     <p class="text-uppercase">asdf</p>
     <p class="text-capitalize">esto es un título</p>
-
+    
+    <div class="divider-2"></div>
     <h3>Tamaños de fuente</h3>
     <p class="fs-1">.fs-1 text</p>
     <p>Texto</p>
@@ -79,6 +85,7 @@
     <p class="fs-6">.fs-6 text</p>
     <p>Texto</p>
     
+    <div class="divider-2"></div>
     <h3>bold, italics y normal</h3>
     <p class="fw-bold">Bold text.</p>
     <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
@@ -90,6 +97,7 @@
     <p class="fst-italic">Italic text.</p>
     <p class="fst-normal">Text with normal font style</p>
     
+    <div class="divider-2"></div>
     <h3>Tamaños de línea</h3>
     <p class="lh-1">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
     <p class="lh-sm">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
@@ -105,6 +113,144 @@
     <p class="text-decoration-underline">This text has a line underneath it.</p>
     <p class="text-decoration-line-through">This text has a line going through it.</p>
     <a href="#" class="text-decoration-none">This link has its text decoration removed</a>
+    
+    <div class="divider-2"></div>
+    <h2>Botones</h2>
+    <button type="button" class="btn">Botón de clase base sin estilos</button>
 
+    <h3>Variantes</h3>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+    
+    <div class="divider-2"></div>
+    <h3>Inputs</h3>
+    <a class="btn btn-primary" href="#" role="button">Texto enlace</a>
+    <button class="btn btn-primary" type="submit">Botón</button>
+    <input class="btn btn-primary" type="button" value="Input">
+    <input class="btn btn-primary" type="submit" value="¡Lo quiero!">
+    <input class="btn btn-primary" type="reset" value="Reset">
+    
+    <div class="divider-2"></div>
+    <h3>Botones con bordes</h3>
+
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+    <div class="divider-2"></div>
+    <h3>Color de fondo y outline</h3>
+    <button type="button" class="btn btn-info btn-outline-dark">Info con borde</button>
+    <div class="divider-2"></div>
+    <h3>Large, small</h3>
+    <div>
+    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+    </div>
+    <div class="my-2">
+    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+    </div>
+    <div class="divider-2"></div>
+    <h3>Estilo personalizado</h3>
+    <button class="btn btn-primary" 
+    style="font-size: 1.25rem; 
+    text-decoration: underline; 
+    padding: 20px; 
+    width: 300px; 
+    margin: 0 auto; 
+    display: block;">
+        Botón personalizado
+    </button>
+    <div class="divider-2"></div>
+    <h3>Deshabilitar botones</h3>
+    <button type="button" class="" disabled>Botón por defecto</button>
+    <button type="button" class="btn btn-primary" disabled>Botón con btn btn-primary</button>
+    <button type="button" class="btn btn-secondary" disabled>Button</button>
+    <button type="button" class="btn btn-outline-primary" disabled>Primary button</button>
+    <button type="button" class="btn btn-outline-secondary" disabled>Button</button>
+    <div class="divider-2"></div>
+    <h3>Botones en grid</h3>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="d-grid gap-2 d-sm-block">
+        <button class="btn btn-primary" type="button">d-sm-block</button>
+        <button class="btn btn-primary" type="button">d-sm-block</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="d-grid gap-2 col-12 mx-auto">
+        <button class="btn btn-primary" type="button">col</button>
+        <button class="btn btn-primary" type="button">col</button>
+    </div>
+    <div class="divider-2"></div>
+    <h3>flex</h3>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end justify-content-lg-center">
+        <button class="btn btn-primary me-md-2" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+    <div class="divider-2"></div>
+    <h3>col</h3>
+    <p>sin wrap</p>
+    <div class="row">
+        <button class="d-inline-block m-0 col-6 btn btn-success" type="button">col 6</button>
+        <button class="d-inline-block m-0 col-6 btn btn-success" type="button">col 6</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="row">
+        <button class="d-inline-block m-0 col-4 btn btn-success" type="button">col 4</button>
+        <button class="d-inline-block m-0 col-4 btn btn-success" type="button">col 4</button>
+        <button class="d-inline-block m-0 col-4 btn btn-success" type="button">col 4</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="row">
+        <button class="d-inline-block m-0 col-3 btn btn-success" type="button">col 3</button>
+        <button class="d-inline-block m-0 col-3 btn btn-success" type="button">col 3</button>
+        <button class="d-inline-block m-0 col-3 btn btn-success" type="button">col 3</button>
+        <button class="d-inline-block m-0 col-3 btn btn-success" type="button">col 3</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="row">
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+        <button class="d-inline-block m-0 col-2 btn btn-success" type="button">col 2</button>
+    </div>
+    
+    <div class="divider-1"></div>
+    <div class="row">
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+        <button class="d-inline-block m-0 col-1 btn btn-success" type="button">col 1</button>
+    </div>
+    <div class="divider-1"></div>
+    <div class="col-3 mx-auto">
+        <button class="btn btn-primary" type="button">col 3</button>
+        <button class="btn btn-primary" type="button">col 3</button>
+    </div>
 </body>
 </html>
