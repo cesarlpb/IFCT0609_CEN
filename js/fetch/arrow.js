@@ -1,5 +1,10 @@
 // arrow functions == forma corta de crear fn
 
+// función -> myFunction() == llamada (call)
+//                            invocación (invoke)
+//                            callback
+// Ejecutas la función
+
 // version estándar:
 const suma = function sumar(num1, num2){
     return num1 + num2
