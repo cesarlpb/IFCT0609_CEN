@@ -22,6 +22,26 @@
         <br><br>
         <button onclick="pedirUnTodo()">Pedir todo</button>
     </div>
+
+    <div>
+        <h2>Crear todo</h2>
+        
+        <p id="nuevoTodo"></p>
+
+        <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
+            <label for="titulo">Escribe un título:</label>
+            <br>
+            <input type="text" id="titulo">
+            <br><br>
+            <label for="idUsuario">Introduce tu id de usuario:</label>
+            <input type="number" min="1" max=1000 step="1" id="idUsuario">
+            <br><br>
+            <label for="estaCompletado">¿Está completado?</label>
+            <input type="checkbox" id="estaCompletado">
+            <br><br>
+            <button onclick="crearTodo()">Crear todo</button>
+        </div>
+    </div>
     <script src="./fetch/0.fetch.js"></script>
 </body>
 </html>

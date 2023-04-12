@@ -1,4 +1,5 @@
 // fetch -> https://www.geeksforgeeks.org/javascript-fetch-method/
+// Usamos este API: https://jsonplaceholder.typicode.com/guide/
 
 // GET
 // petición para "conseguir" un recurso (objeto con datos -> enlaces, img, JSON con objetos, etc.)
@@ -42,4 +43,24 @@ function pedirUnTodo(){
 // - Crear un recurso nuevo (una entrada en un blog, un post, etc.)
 // - Editar un recurso
 
+function crearTodo(){
+    let titulo = document.getElementById("titulo").value;                   // texto - string
+    let idUsuario = document.getElementById("idUsuario").valueAsNumber;     // Number
+    let estaCompletado = document.getElementById("estaCompletado").checked; // Boolean
+    
+    let elemento = document.getElementById("nuevoTodo") // <p> donde escribimos el resultado de la petición
 
+    fetch('https://jsonplaceholder.typicode.com/todos', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: titulo,            // título - title -> String
+          userId: idUsuario,        // userId - número -> Number
+          completed: estaCompletado,// completed - si esta completado -> Boolean
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => elemento.innerText = JSON.stringify(json));
+}
