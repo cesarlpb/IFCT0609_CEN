@@ -19,11 +19,22 @@ function pedirListaTodos(){
 // GET de un recurso
 
 function pedirUnTodo(){
-    // El endpoint cuando pedimos un recurso acaba en /id -> id == número, empieza en 1
-    let response = fetch("https://jsonplaceholder.typicode.com/todos/1")
+    let todoId = document.getElementById("todoId").value
+    if (todoId == "" || todoId == "0"){
+        todoId = "1"
+    }
+    
     let elemento = document.getElementById("todo")
-    response.then(response => response.json())
-        .then(json => elemento.innerText = JSON.stringify(json) )
+
+    if(todoId > 0 && todoId <= 200){
+        // El endpoint cuando pedimos un recurso acaba en /id -> id == número, empieza en 1
+        // concatenamos el id al final -> 1, 2, ..., 200
+        let response = fetch("https://jsonplaceholder.typicode.com/todos/" + todoId)
+        response.then(response => response.json())
+            .then(json => elemento.innerText = JSON.stringify(json) )
+    } else {
+        elemento.innerText = "El id no es válido. Debe estar entre 1 y 200."
+    }
 }
 
 // POST
