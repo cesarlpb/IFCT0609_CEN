@@ -14,7 +14,7 @@
         <button onclick="pedirListaTodos()">Pedir lista</button>
     </div>
     <div>
-        <h2>Pedir Todo</h2>
+        <h2>Pedir Un Todo</h2>
         <p id="todo"></p>
         <label for="todoId">Indica el id del todo:</label>
         <br>
@@ -23,12 +23,12 @@
         <button onclick="pedirUnTodo()">Pedir todo</button>
     </div>
 
-    <div>
+    <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
         <h2>Crear todo</h2>
         
         <p id="nuevoTodo"></p>
 
-        <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
+        <div>
             <label for="titulo">Escribe un título:</label>
             <br>
             <input type="text" id="titulo">
@@ -40,8 +40,30 @@
             <input type="checkbox" id="estaCompletado">
             <br><br>
             <button onclick="crearTodo()">Crear todo</button>
-        </div>
+        </div> 
     </div>
+
+    <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
+        <h2>Editar Todo</h2>
+        
+        <p id="editarTodo"></p>
+
+        <label for="todoId2">Indica el id del todo a editar:</label>
+        <br>
+        <input type="number" id="todoId2" min="1" max="200" step="1">
+        <br><br>
+        <label for="titulo2">Introduce el título nuevo:</label>
+        <input type="text" id="titulo2">
+        <br>
+        <label for="userId2">Introduce userId nuevo:&nbsp;&nbsp;</label>
+        <input type="number" id="userId2" step="1">
+        <br><br>
+        <label for="estaCompletado2">¿Este todo está completado?</label>
+        <input type="checkbox" id="estaCompletado2">
+        <br><br>
+        <button onclick="editarTodo()">Editar todo</button>
+    </div>
+
     <script src="./fetch/0.fetch.js"></script>
 </body>
 </html>
