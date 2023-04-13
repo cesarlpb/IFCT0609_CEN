@@ -100,7 +100,7 @@ function editarTodo(){
       }
 
       // PATCH
-      // reemplaza el código original por una version actualizada con tarea adicional
+      // reemplaza o parchea el objeto original por una version actualizada con tarea adicional
       fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'PATCH',
   body: JSON.stringify({
