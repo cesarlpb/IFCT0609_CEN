@@ -19,3 +19,24 @@ function comprobarHorarioLaboral(){
     let elemento = document.getElementById("resultado8")
     elemento.innerText = mensaje
 }
+
+function comprobarHorarioLaboral2(){
+    let date = new Date()
+    let horaActual = date.getHours();
+    let minutosActuales = date.getMinutes();
+    let mensaje = ""
+    //Horario: 9 a 17.30
+    if ( horaActual >= 9 && horaActual < 18){
+        if ( horaActual == 17 && minutosActuales >= 30 ){
+            mensaje = "Puedes salir :)"
+        }
+        else {
+            mensaje = "Aún no :("
+        }
+    } else {
+        mensaje = "No es horario laboral"
+    }
+    console.log(mensaje)
+    let elemento = document.getElementById("resultado8")
+    elemento.innerText = mensaje
+}
