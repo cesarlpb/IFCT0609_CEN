@@ -18,9 +18,13 @@ git pull
 
 # Javascript
 
+### Diagrama de Variables, Scope y Bucle If
+![Diagrama de Variables, Scope y Bucle If](./js/diagramas/if-scope-y-variables.png)
+
 ## API
 
-- Diagrama sobre el funcionamiento de APIs y los request / responses con `fetch()` de Javascript:
+### Diagrama sobre el funcionamiento de APIs y los request / responses con `fetch()` de Javascript
+
 ![Diagrama API y JS](./js/diagramas/api.png)
 
 APIs que hemos utilizado:
