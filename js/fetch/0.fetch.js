@@ -132,3 +132,20 @@ function editarParcialTodo(){
     .then((response) => response.json())
     .then((json) => elemento.innerText = JSON.stringify(json));
 }
+
+function borrarTodo(){
+  let todoId = document.getElementById("todoId4").value
+  let elemento = document.getElementById("borrarTodo");
+
+  fetch('https://jsonplaceholder.typicode.com/todos/' + todoId, {
+    method: 'DELETE',
+  })
+  .then((response) => response.json())
+  .then((json) => {
+    if (JSON.stringify(json) == "{}"){
+      elemento.innerText = "El todo con id " + todoId + " se ha borrado."
+    } else {
+      elemento.innerText = JSON.stringify(json)
+    }
+  });
+}

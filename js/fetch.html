@@ -8,12 +8,14 @@
 </head>
 <body style="text-align: center;">
     <h1>Fetch</h1>
-    <div>
+
+    <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
         <h2>Pedir Lista</h2>
         <p id="listaTodos"></p>
         <button onclick="pedirListaTodos()">Pedir lista</button>
     </div>
-    <div>
+
+    <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
         <h2>Pedir Un Todo</h2>
         <p id="todo"></p>
         <label for="todoId">Indica el id del todo:</label>
@@ -83,6 +85,18 @@
         <input type="checkbox" id="estaCompletado3">
         <br><br>
         <button onclick="editarParcialTodo()">Editar parcialmente todo</button>
+    </div>
+
+    <div style="border:1px solid black; padding: 10px; width: 50%; margin: 10px auto;">
+        <h2>Borrar Un Todo</h2>
+
+        <p id="borrarTodo"></p>
+        
+        <label for="todoId">Indica el id del todo a borrar:</label>
+        <br>
+        <input type="number" id="todoId4" min="1" max="200" step="1">
+        <br><br>
+        <button onclick="borrarTodo()">Borrar todo</button>
     </div>
 
     <script src="./fetch/0.fetch.js"></script>
