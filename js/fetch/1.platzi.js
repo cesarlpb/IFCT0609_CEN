@@ -25,7 +25,16 @@ function getProductos(limit, offset){
 }
 // GET un producto
 // id
-
+function getProducto(id){
+    if ( id < 1 ){
+        id = 1
+    } else if ( id > 200 ){
+        id = 200
+    }
+    fetch('https://api.escuelajs.co/api/v1/products/' + id)
+    .then(response => response.json())
+    .then(json => console.log(json))
+}
 // POST crear producto
 
 // PUT editar producto
