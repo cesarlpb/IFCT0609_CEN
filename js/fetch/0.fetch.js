@@ -101,14 +101,56 @@ function editarTodo(){
 
       // PATCH
       // reemplaza o parchea el objeto original por una version actualizada con tarea adicional
-      fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'PATCH',
-  body: JSON.stringify({
-    title: 'foo',
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+     /*
+- Muy parecido a PUT
+- Añadimos bucle if para verificar que datos vamos a editar con patch
+- Enviamos solamente lo que vayamos a editar
+*/
+
+function editarParcialTodo(){
+        let todoId = document.getElementById("todoId3").value
+        let titulo = document.getElementById("titulo3").value
+        let estaCompletado = document.getElementById("estaCompletado3").checked // checkbox
+        let userId = document.getElementById("userId3").valueAsNumber
+      
+        let elemento = document.getElementById("editarParcialTodo");
+      
+        let objeto = {}
+       
+        // Hay que validar que los campos que actualizamos no están en blanco en el formulario
+        if (titulo) {
+          objeto = { id: todoId, title: titulo }
+        } else if (estaCompletado) {
+          objeto = { id: todoId, completed: estaCompletado }
+        } else if (userId) {
+          objeto = { id: todoId, userId: userId }
+        }
+        // Habría 4 casos más: 3 combinaciones de 2 campos y todos los campos a la vez
+      
+        fetch('https://jsonplaceholder.typicode.com/todos/' + todoId, {
+          method: 'PATCH',
+          body: JSON.stringify(objeto),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => elemento.innerText = JSON.stringify(json));
+      }
+      
+      function borrarTodo(){
+        let todoId = document.getElementById("todoId4").value
+        let elemento = document.getElementById("borrarTodo");
+      
+        fetch('https://jsonplaceholder.typicode.com/todos/' + todoId, {
+          method: 'DELETE',
+        })
+        .then((response) => response.json())
+        .then((json) => {
+          if (JSON.stringify(json) == "{}"){
+            elemento.innerText = "El todo con id " + todoId + " se ha borrado."
+          } else {
+            elemento.innerText = JSON.stringify(json)
+          }
+        });
+      }
