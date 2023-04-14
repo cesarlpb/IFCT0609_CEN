@@ -37,6 +37,8 @@ git pull
 ### Do While
 [Ejercicios de bucle Do While](https://javascript.espaciolatino.com/evaluar/bucles_do_while.htm)
 
+- Ejercicios variados: [Ejercicios Bucles](https://github.com/midesweb/ejercicios-bucles-javascript)
+
 ## API
 
 ### Diagrama sobre el funcionamiento de APIs y los request / responses con `fetch()` de Javascript
