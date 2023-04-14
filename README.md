@@ -18,8 +18,24 @@ git pull
 
 # Javascript
 
+## Bucles
+
 ### Diagrama de Variables, Scope y Bucle If
 ![Diagrama de Variables, Scope y Bucle If](./js/diagramas/if-scope-y-variables.png)
+
+### If
+[Ejercicios de bucle If](https://javascript.espaciolatino.com/evaluar/condicionales_1.htm)
+
+### Switch
+[Ejercicios de bucle Switch](https://javascript.espaciolatino.com/evaluar/condicionales_2.htm)
+
+### For
+[Ejercicios de bucle For](https://javascript.espaciolatino.com/evaluar/bucles_for.htm)
+
+### While
+[Ejercicios de bucle While](https://javascript.espaciolatino.com/evaluar/bucles_while.htm)
+### Do While
+[Ejercicios de bucle Do While](https://javascript.espaciolatino.com/evaluar/bucles_do_while.htm)
 
 ## API
 
