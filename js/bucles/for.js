@@ -58,3 +58,14 @@ for (let i = 0; i<11; i++){
 for (let i = 0; i<11; i++){
     console.log(i*i*i)
 }
+
+// HTML
+let elemento = document.getElementById("mydiv")
+let html = ""
+for (let i = 0; i<10; i++){
+    html += "<p>Iteración: " + i + "</p>\n"
+}
+console.log(html)
+elemento.innerHTML = html
+
+//Ejercicio: Hacer 10 párrafos con lorem (10-20 palabras)
