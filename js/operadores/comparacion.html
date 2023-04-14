@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores de Comparación</title>
+</head>
+<body>
+    <p>Igualdad, desigualdad, mayor, menor, mayor o igual, menor o igual</p>
+    <script>
+        let x = 5;
+        let y = 10;
+        console.log("Igualdad 5 y 10: ", x == y) // false
+        console.log("Igualdad y tipo 5 y 10: ", x === y) // false
+        let cinco = "5"
+        console.log("Igualdad 5 y '5': ", x == cinco) // true porque no verifica tipo
+        console.log("Igualdad y tipo 5 y '5': ", x === cinco) // false porque no son mismo tipo
+        console.log("Desigualdad 5 y 10: ", x != y) // true
+        console.log("Desigualdad 5 y '5': ", x != cinco) // false porque no mira tipo
+        console.log("Desigualdad y tipo 5 y '5': ", x !== cinco) // true porque mira el tipo
+        console.log("5 < 10", x < y) // true
+        console.log("5 <= 5", x <= 5) // true
+    </script>
+</body>
+</html>
