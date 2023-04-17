@@ -49,3 +49,20 @@ APIs que hemos utilizado:
 
 - API de objetos de tipo `todo`, `posts`, `comentarios`, etc. ->[https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
 - Fake API  de Platzi con `productos`, `usuarios`, etc. -> [https://api.escuelajs.co/docs](https://api.escuelajs.co/docs)
+
+## NodeJS
+- Instalación de NodeJS y NPM: 
+    - [Descarga](https://nodejs.org/es/download)
+    - [Windows](https://kinsta.com/es/blog/como-instalar-node-js/#cmo-instalar-nodejs-en-windows)
+    - [Mac](https://kinsta.com/es/blog/como-instalar-node-js/#cmo-instalar-nodejs-en-macos) 
+    - **Nota:** en Mac es más fácil instalarlo con brew con el comando: `brew install node` (Más info: [fórmula de Node](https://formulae.brew.sh/formula/node))
+
+Una vez instalado `node`, comprobamos instalación con estos comandos (no debe salir error):
+```
+node -v
+npm -v
+```
+
+## Todos 
+
+[ ] Hacer tabla de contenidos de este README
