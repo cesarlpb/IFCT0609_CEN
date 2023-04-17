@@ -5,7 +5,8 @@
 const http = require('http');
 const fs = require('fs');
 const port = 8080;
-const filename = "./users.json"
+// const filename = "./users.json"
+const filename = "./products.json"
 
 console.log("App disponible en: http://localhost:" + port);
 
