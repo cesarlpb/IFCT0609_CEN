@@ -7,8 +7,7 @@ console.log("http://localhost:" + port)
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end(`
-  <h1>Esto es un h1</h1>
-  <p>Esto es un p</p>
-  <p>Esto es un p</p>`);
+  res.write("<h1>h1 del documento</h1>");
+  res.write("<p>Parte media del documento</p>");
+  res.end("<p>Final del documento</p>");
 }).listen(port);
