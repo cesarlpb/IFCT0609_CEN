@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Tablas</title>
+</head>
+<body style="background-image: unset;">
+    <h1>Tablas</h1>
+    
+    <div>
+        <p>Son tablas.</p>
+    </div>
+    
+    <h2>Ejemplo 1</h2>
+    <h3>Ejemplo básico</h3>
+    <table>
+        <tr>
+          <th>Id</th>
+          <th>Usuario</th>
+          <th>Nombre</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>maria_lp94</td>
+          <td>María</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>fran_ac</td>
+          <td>Francisco</td>
+        </tr>
+    </table>
+
+    <h3>border-collapse</h3>
+    <table id="mytable">
+    <tr>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Nombre</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>maria_lp94</td>
+        <td>María</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>fran_ac</td>
+        <td>Francisco</td>
+    </tr>
+    </table>
+
+    <h3>background-color</h3>
+    <table id="mytable2">
+        <tr>
+            <th>Id</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>maria_lp94</td>
+            <td>María</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>fran_ac</td>
+            <td>Francisco</td>
+        </tr>
+    </table>
+
+    <h3>border-radius, border-style, border-color</h3>
+    <table id="mytable3">
+        <tr>
+            <th>Id</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>maria_lp94</td>
+            <td>María</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>fran_ac</td>
+            <td>Francisco</td>
+        </tr>
+    </table>
+
+    <h3>width & height</h3>
+    <p>width 100%</p>
+    <table id="mytable4" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>maria_lp94</td>
+            <td>María</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>fran_ac</td>
+            <td>Francisco</td>
+        </tr>
+    </table>
+    <p>width 100% y 70%</p>
+    <table id="mytable5" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th style="width:70%">Email</th>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>maria.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td>María</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>fran.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td>Francisco</td>
+        </tr>
+    </table>
+
+    <p>width 100% y height 200px</p>
+    <table id="mytable5" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Nombre</th>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias nihil dolore consectetur architecto aliquid suscipit pariatur tempore culpa eum, asperiores facere expedita esse libero similique delectus excepturi tempora fugit eveniet.</td>
+            <td style="width: 50%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore suscipit praesentium quia neque, ipsum quasi illo officia? Qui placeat ipsum nulla? Eos impedit totam, atque illum placeat voluptatibus error aliquid.</td>
+            <td style="width: 25%;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias dicta vel soluta? Magnam nulla voluptate, culpa rerum delectus suscipit cum totam reprehenderit quisquam facilis architecto id eveniet. Error, quasi dolores?</td>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;">2</td>
+            <td style="width: 50%;">fran.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td style="width: 25%;">Fran</td>
+        </tr>
+    </table>
+    
+    <h3>colspan y rowspan</h3>
+    <p>colspan</p>
+    <table>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+            <th>Col 4</th>
+        </tr>
+        <tr>
+          <td colspan="2">Jill Smith</td>
+          <td>50</td>
+          <!-- si no colocas el <td> no hay borde
+            porque no hay elemento para colocar borde -->
+        </tr>
+        <tr>
+          <td colspan="2">Eve Jackson</td>
+          <td>94</td>
+          <td></td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Dato 4</td>
+        </tr>
+    </table>
+    <p>rowspan con th en columna:</p>
+    <table id="mytable-col">
+        <tr>
+          <th>Name:</th>
+          <td>Jill</td>
+        </tr>
+        <tr>
+          <th rowspan="2" class="rowspan2">Phone:</th>
+          <td>555-1234</td>
+        </tr>
+        <tr>
+          <td>555-8745</td>
+      </tr>
+      <tr>
+        <th>Office:</th>
+        <td>555-8745</td>
+      </tr>
+    </table>
+    <p>rowspan con th en fila:</p>
+    <table style="width:100%">
+        <tr>
+            <th>Usuario</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;" rowspan="2">Pepito</td>
+            <td style="width: 50%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore suscipit praesentium quia neque, ipsum quasi illo officia? Qui placeat ipsum nulla? Eos impedit totam, atque illum placeat voluptatibus error aliquid.</td>
+            <td style="width: 25%;">Dato</td>
+        </tr>
+        <tr style="height: 100px;">
+            
+            <td style="width: 50%;">pepito.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td style="width: 25%;">pepito</td>
+        </tr>
+        <tr style="height: 100px;">
+            <td>María</td>
+            <td style="width: 50%;">maria.apellido.otro_apellido@un_dominio_muy_largo.com</td>
+            <td style="width: 25%;">maria</td>
+        </tr>
+    </table>
+    <p>ambos</p>
+    <table style="width:100%">
+        <tr>
+            <th colspan="3">Usuario</th>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;" rowspan="2">Pepito</td>
+            <td style="width: 50%;" rowspan="2"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore suscipit praesentium quia neque, ipsum quasi illo officia? Qui placeat ipsum nulla? Eos impedit totam, atque illum placeat voluptatibus error aliquid.</p> <p>pepito.apellido.otro_apellido@un_dominio_muy_largo.com</p></td>
+            <td style="width: 25%;">Dato</td>
+        </tr>
+        <tr style="height: 100px;">
+            <td style="width: 25%;">pepito</td>
+        </tr>
+        <tr style="height: 100px;">
+            <td>María</td>
+            <td style="width: 50%; text-align: center;"><img style="margin: 0 auto; display: inline-block;" src="./img/html.png" alt="html"></td>
+            <td style="width: 25%;">maria</td>
+        </tr>
+    </table>
+    <h3>caption</h3>
+    <table style="width:100%">
+        <caption>Caption</caption>
+        <tr>
+          <th>Month</th>
+          <th>Savings</th>
+        </tr>
+        <tr>
+          <td>January</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td>$50</td>
+        </tr>
+    </table>
+
+    
+    <h3>padding y spacing</h3>
+    <table id="mytable6">
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+          <td colspan="2">Jill Smith</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td colspan="2">Eve Jackson</td>
+          <td>94</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+    </table>
+    <h2>Estilos en tablas</h2>
+    <p>Coloreamos filas</p>
+    <table id="mytable7">
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+          <td colspan="2">Jill Smith</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td colspan="2">Eve Jackson</td>
+          <td>94</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+    </table>
+    <p>Coloreamos columnas</p>
+    <table id="mytable8">
+        <tr>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>th 4</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Col 4</td>
+        </tr>
+        <tr>
+          <td>Eve Jackson</td>
+          <td>94</td>
+          <td>94</td>
+          <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+    </table>
+    <h3>líneas divisoras</h3>
+    <table id="mytable9">
+        <tr>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>th 4</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Col 4</td>
+        </tr>
+        <tr>
+          <td>Eve Jackson</td>
+          <td>94</td>
+          <td>94</td>
+          <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <td>Dato</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+            <td>Col 4</td>
+        </tr>
+    </table>
+
+    <h3>colgroup</h3>
+    <table style="width: 100%;">
+
+        <caption>Caption</caption>
+        <colgroup>
+            <col span="5" style="background-color: #D6EEEE">
+            <col span="2" style="background-color: lightgray">
+        </colgroup>
+        
+        <tr>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+            <th>SUN</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+        </tr>
+    </table>
+    <hr>
+    <strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_tables.asp" target="_blank">Tablas</a>
+</body>
+</html>

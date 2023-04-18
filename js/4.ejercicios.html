@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios con JS</title>
+</head>
+<body>
+    <h1>Ejercicios con Javascript</h1>
+    <h2>Cuenta atrás hasta una fecha</h2>
+    <p>1. Escribe un programa para calcular los días hasta una fecha, por ejemplo, Navidad.</p>
+    <div>
+        <p id="fechaObjetivo"></p>
+        <p id="dias"></p>
+    </div>
+    <!-- <script src="scripts/ej1.js"></script> -->
+    <p>2. Programa para calcular multiplicación a partir de datos que ingresa el usuario.</p>
+    <form id="form1">
+        <label for="numero1">Introduce un número:</label>
+        <input type="number" name="numero1" step="0.1" id="numero1" required>
+        <br>
+        <br>
+        <label for="numero2">Introduce otro número:</label>
+        <input type="number" name="numero2" step="0.1" id="numero2" required>
+        <br>
+        <br>
+        <input type="submit" id="submitBtn" value="Producto" onclick="ej2()">
+    </form>
+    <p id="producto"></p>
+    <script src="scripts/ej2.js"></script>
+    <p>3. Extendemos la calculadora anterior a +, -, *, /, exponente, raiz cuadrada, etc.</p>
+    <form id="form2">
+        <label for="numero3">Introduce un número:</label>
+        <input type="number" name="numero3" step="0.1" id="numero3" required>
+        <br>
+        <br>
+        <label for="numero4">Introduce otro número:</label>
+        <input type="number" name="numero4" step="0.1" id="numero4" required>
+        <br>
+        <br>
+        <input type="submit" id="submitBtn2" value="Suma" onclick="suma()">
+        <input type="submit" id="submitBtn3" value="Resta" onclick="resta()">
+        <input type="submit" id="submitBtn4" value="Producto" onclick="prod()">
+        <input type="submit" id="submitBtn5" value="División" onclick="divi()">
+        <input type="submit" id="submitBtn6" value="Todo" onclick="todo()">
+    </form>
+    <p id="resultado"></p>
+    <script src="scripts/ej3.js"></script>
+</body>
+</html>

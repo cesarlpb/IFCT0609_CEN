@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../img/bg-minimal.png") #fff;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  
+  #video-background {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    /* z-index envía el elemento detrás de los demás */
+    z-index: -100;
+  }
+  
+  article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    font-size: 3.6rem;
+    letter-spacing: 3px;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    text-shadow: 1px 1px 1px #16a085, 1px 1px 4px #2980b9;
+    text-align: center;
+    z-index: 100;
+  }
+  #filtro {
+    border: 0;
+    margin:0;
+    padding: 0;
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 0;
+  }
+  
+  /* No es una forma ideal de centrar esto: */
+  article img{
+    position: absolute;
+    top: 20%;
+    left: 47%;
+    display: block;
+    /* margin: 0 auto; */
+  }

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Listas</title>
+    <style>
+        #navbar {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333333;
+        }
+        
+        #navbar li {
+          display: inline-block;
+          /* float: left; */
+        }
+        
+        #navbar li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+        
+        #navbar li a:hover {
+          background-color: #111111;
+        }
+        </style>
+</head>
+<body style="background-image: unset;">
+    <h1>Listas</h1>
+    
+    <div>
+        <p>Son listas.</p>
+    </div>
+    
+    <h3>ul</h3>
+    <p>Cada li tiene padding-left de 20px.</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            <ul>
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Milk</li>
+            </ul>
+        </ul>
+    </ul>
+    
+    <p>disc</p>
+    
+    <ul style="list-style-type:disc;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>square</p>
+    <ul style="list-style-type:square;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>sin viñeta</p>
+    <ul style="list-style-type:none;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>sin viñeta ni padding-left</p>
+    <ul style="list-style-type:none; padding-left: 0;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <h2>navbar</h2>
+    <ul id="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+    <h3>ol</h3>
+    <ol type="1" start="20">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+        <ol type="a">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            <ol type="i">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Milk</li>
+                <li>item</li>
+            </ol>
+        </ol>
+    </ol>
+
+    <h3>dl, dt y dd</h3>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+
+    <p>Receta</p>
+    <dl>
+        <dt>Ingredientes</dt>
+        <dd>- 3 huevos</dd>
+        <dd>- 2 patatas</dd>
+        <dd>- Sal</dd>
+    </dl>
+    
+    <h2>Ejemplos dl</h2>
+
+    <p>Cryptids of Cornwall:</p>
+
+    <dl>
+        <dt>Beast of Bodmin</dt>
+        <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+        <dt>Morgawr</dt>
+        <dd>A sea serpent.</dd>
+
+        <dt>Owlman</dt>
+        <dd>A giant owl-like creature.</dd>
+    </dl>
+
+    <hr>
+
+    <dl>
+        <dt>Firefox</dt>
+        <dt>Mozilla Firefox</dt>
+        <dt>Fx</dt>
+        <dd>
+          A free, open source, cross-platform, graphical web browser developed by the
+          Mozilla Corporation and hundreds of volunteers.
+        </dd>
+      
+        <!-- Other terms and descriptions -->
+      </dl>
+
+    <hr>
+    <dl>
+    <dt>Firefox</dt>
+    <dd>
+        A free, open source, cross-platform, graphical web browser developed by the
+        Mozilla Corporation and hundreds of volunteers.
+    </dd>
+    <dd>
+        The Red Panda also known as the Lesser Panda, Wah, Bear Cat or Firefox, is a
+        mostly herbivorous mammal, slightly larger than a domestic cat (60 cm long).
+    </dd>
+    
+    <!-- Other terms and descriptions -->
+    </dl>
+    
+    <hr>
+
+    <h4>Godzilla</h4>
+    <dl id="mydl">
+        <dt>Name</dt>
+        <dd>Godzilla</dd>
+        <dt>Born</dt>
+        <dd>1952</dd>
+        <dt>Birthplace</dt>
+        <dd>Japan</dd>
+        <dt>Color</dt>
+        <dd>Green</dd>
+    </dl>
+
+    <hr>
+    
+    <h4>Godzilla 2</h4>
+    <dl id="mydl2">
+        <div>
+          <dt>Name</dt>
+          <dd>Godzilla</dd>
+        </div>
+        <div>
+          <dt>Born</dt>
+          <dd>1952</dd>
+        </div>
+        <div>
+          <dt>Birthplace</dt>
+          <dd>Japan</dd>
+        </div>
+        <div>
+          <dt>Color</dt>
+          <dd>Green</dd>
+        </div>
+      </dl>
+
+    <hr>
+    <strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_lists.asp" target="_blank">Listas</a>
+    
+</body>
+</html>

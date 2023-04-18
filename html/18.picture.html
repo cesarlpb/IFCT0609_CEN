@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>picture</title>
+</head>
+<body>
+    <h1 id="myh1">picture</h1>
+    
+    <div>
+        <p>picture nos permite personalizar qué imágenes presentamos según dispositivo o tamaño de pantalla.</p>
+    </div>
+    
+    <h2 class="myh2">HTML 5</h2>
+    
+    <div id="mydiv2">
+        <!-- Recordad que hay que colocar la condición de mayor tamaño primero -->
+        <picture>
+            <source media="(min-width: 1000px)" srcset="./img/2560px.png" width="1800px">
+            <source media="(min-width: 450px)" srcset="./img/400px.png">
+            <img src="./img/html.png">
+        </picture>
+    </div>
+      
+    
+    <hr>
+    <p class="mypara"><strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_images_picture.asp" target="_blank">picture</a></p>
+    
+</body>
+</html>

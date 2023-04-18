@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>HTML Image Maps</title>
+</head>
+<body>
+    <h1>HTML Image Maps</h1>
+    
+    <div>
+        <p>Con la etiqueta map y area podemos crear zonas clicables en las imágenes.</p>
+    </div>
+    
+    <h2>Image Maps</h2>
+    <p>Colocamos la imagen que queremos "mapear":</p>
+    
+    <img id="banner" src="./img/banner.png" alt="HTML, CSS, JS" usemap="#mymap">
+    <map name="mymap">
+        <area shape="rect" coords="20,20,180,180" alt="HTML 5" title="Haz click para ver HTML 5" href="./html.html" onclick="html()">
+        <area shape="rect" coords="230,20,370,180" alt="CSS 3" title="Haz click para ver CSS 3" href="./css.html" onclick="css()">
+        <area shape="rect" coords="430,20,570,180" alt="JS" title="Haz click para ver JS" href="./js.html" onclick="js()">
+      </map>
+    
+    <script>
+    function html() {
+        alert("Clicaste HTML!");
+    }
+    function css() {
+        alert("Clicaste CSS!");
+    }
+    function js() {
+        alert("Clicaste JS!");
+    }
+    </script>
+    
+    <hr>
+
+    <strong>Fuente:</strong> <a href="https://www.w3schools.com/html/html_images_imagemap.asp" target="_blank">HTML Image Maps</a>
+<!-- Normalmente, los <script> van aquí -->
+</body>
+</html>
