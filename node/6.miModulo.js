@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 var fecha = require('./fecha'); // importamos módulo fecha
 
 console.log("Servidor en: ")

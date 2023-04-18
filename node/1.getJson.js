@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 const port = 8080
 
 console.log("Hola desde consola!")
