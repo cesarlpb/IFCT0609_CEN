@@ -26,3 +26,5 @@ if( numero1 > numero2 ){
 -1 => 1     0 => 0      1 => 1
 */
 console.log("Diferencia sin if:", Math.abs(numero1 - numero2))
+
+
