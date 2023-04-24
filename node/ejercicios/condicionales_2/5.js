@@ -32,7 +32,7 @@ if( creditos < 1 || isNaN(creditos) ){
     if( creditos > 4 ){ creditos = 4 } // Suponiendo que creditos no lo presentamos más al usuario ni lo usamos para llevar la cuenta de su balance
     mensaje = "Puedes entrar a:"
     for(let i = 0; i<creditos; i++){
-        mensaje += `\n${listaSalas[i]}`
+        mensaje += `\n${listaSalas[i]}` // += es un append (añadir al final)
     }
 }
 alert(mensaje)
