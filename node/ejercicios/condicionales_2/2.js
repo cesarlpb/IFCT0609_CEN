@@ -11,7 +11,6 @@
 
 let numero = Number(prompt("Introduce primer número:"))
 let cuadrado = Number(prompt("Introduce el cuadrado:"))
-let mensaje = ""
 
 if(isNaN(numero) || isNaN(cuadrado)){
     alert("Alguno de los números no es correcto")
@@ -22,3 +21,11 @@ if(isNaN(numero) || isNaN(cuadrado)){
         alert(`No es correcto. El cuadrado de ${numero} es ${numero**2}`)
     }
 }
+
+// Método 2: ternario
+
+isNaN(numero) || isNaN(cuadrado) 
+    ? alert("Alguno de los números no es correcto") 
+    : cuadrado == numero * numero 
+        ? alert("Es correcto") 
+        : alert(`No es correcto. El cuadrado de ${numero} es ${numero**2}`)
