@@ -7,6 +7,8 @@
  * Si el usuario entra 2 y luego 4, debe decir que el mayor es el segundo número.
  */
 
+// Método 1: con llaves
+
 // Importaciones - no hay
 
 // Declaraciones de variables globales
@@ -22,10 +24,23 @@ if (isNaN(numero1) || isNaN(numero2)){
 }
 else if(numero1 > numero2){
     mensaje = `${numero1} es mayor que ${numero2}`
-} else if( numero2 > numero1){
+} else if(numero2 > numero1){
     mensaje = `${numero2} es mayor que ${numero1}`
 } else if (numero1 == numero2) {
     mensaje = "Los números son iguales"
 }
 
 console.log(mensaje)
+
+// Método 2: ternario
+
+// Usando las mismas variables
+
+isNaN(numero1) || isNaN(numero2) ? mensaje = "Los números son incorrectos" : null 
+numero1 > numero2 ? mensaje = `${numero1} es mayor que ${numero2}`: null
+numero2 > numero1 ? mensaje = `${numero2} es mayor que ${numero1}` : null
+numero1 == numero2 ? mensaje = "Los números son iguales" : null
+
+console.log(mensaje)
+
+// He colocado las condiciones de forma similar a la versión con llaves
