@@ -36,3 +36,26 @@ if( creditos < 1 || isNaN(creditos) ){
     }
 }
 alert(mensaje)
+
+/**
+ * // Idea con switch:
+ * 
+ *     switch(creditos){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            mensaje = "Puedes entrar a:"
+            for(let i = 0; i<creditos; i++){
+                mensaje += `\n${listaSalas[i]}`
+            }
+            break;
+        default:
+            if(creditos > 4){
+                // for
+            }else{
+            mensaje = "Dato incorrecto"
+            }
+    }
+ * 
+ */
