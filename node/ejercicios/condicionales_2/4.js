@@ -17,8 +17,11 @@
 
 // Método 1: if
 
+// Importaciones
+
+// Declaraciones
 let eleccionMenu = "" 
-let aceptaBebida = false
+let aceptaBebida = false 
 const opcionesMenu = ["carne", "pescado", "verdura"]
 const opcionesBebidas = ["vino tinto", "vino blanco", "agua"]
 
@@ -32,8 +35,11 @@ while( !opcionesMenu.includes(eleccionMenu) ){
     eleccionMenu = eleccionMenu.toLowerCase()
 }
 
+/* Ternario \/ \/ \/ */
+
+// confirm pregunta Aceptar o Cancelar => devuelve true o false
 if( eleccionMenu == opcionesMenu[0] ){
-    aceptaBebida = confirm(`¿Quieres ${opcionesBebidas[0]}?`)
+    aceptaBebida = confirm(`¿Quieres ${opcionesBebidas[0]}?`) 
 }
 if( eleccionMenu == opcionesMenu[1] ){
     aceptaBebida = confirm(`¿Quieres ${opcionesBebidas[1]}?`)
@@ -41,6 +47,7 @@ if( eleccionMenu == opcionesMenu[1] ){
 if( eleccionMenu == opcionesMenu[2] ) {
     aceptaBebida = confirm(`¿Quieres ${opcionesBebidas[2]}?`)
 }
+/* Ternario  ^^^ */
 
 alert(aceptaBebida ? "Ha aceptado la bebida" : "No ha aceptado la bebida")
 
@@ -56,3 +63,16 @@ aceptaBebida = confirm(`¿Quieres ${opcionesBebidas[indice]}?`)
 
 // indexOf devuelve -1 si no encuentra el elemento en la lista o array
 */
+
+// Método 2: ternario
+
+// Usando las mismas variables:
+
+// Ternario \/
+aceptaBebida = eleccionMenu == opcionesMenu[0] 
+    ? confirm(`¿Quieres ${opcionesBebidas[0]}?`) 
+    : eleccionMenu == opcionesMenu[1] 
+        ? confirm(`¿Quieres ${opcionesBebidas[1]}?`) 
+            : eleccionMenu == opcionesMenu[2] 
+                ? confirm(`¿Quieres ${opcionesBebidas[2]}?`) : null
+// Ternario ^
