@@ -6,14 +6,12 @@
  * Si pulsa C le dará mensaje de error.
  * si pulsa A le sale mensaje de "correcto" o "ha acertado"
  * etc
- * 
- * Variante del 4 para responder a una pregunta usando las opciones
  */
 
-let respuesta = prompt("¿Qué tecnología se usa para hacer los elementos de una web? \n(a)CSS \n(b)HTML \n(c)JS \n(d))XML\n\nEscribe la letra de la opción.")
+let respuesta = prompt("Elige una de las opciones: \nA \nB \nC \nD")
 let mensaje = ""
-if(respuesta.toUpperCase() == 'B'){
-    mensaje = "Has acertado!🚀"
+if(respuesta.toUpperCase() == 'A'){
+    mensaje = "Has acertado!"
 } else {
     mensaje = "No has acertado :("
 }
