@@ -1,18 +1,28 @@
 /**
- * Este script pide al usuario que teclee una letra entre A, B, C, D. Si pulsa la letra A en mayúsucla o en minúscula le dará el mensaje de que ha acertado, en caso contrario le dirá que se equivocó...
  * 
- * Es como un juego en el que la opción correcta es A y las demás presentan mensaje de error o de que "has perdido el juego"
+ * En este ejemplo el usuario entrará dos números. Debe devvolver la diferencia entre el mayor y el menor
  * 
- * Si pulsa C le dará mensaje de error.
- * si pulsa A le sale mensaje de "correcto" o "ha acertado"
- * etc
+ * Si el usuario entre el 5 y el 8, el programa devolverá 3 (8 - 5)
+ * 
+ * 5 y 5 => 0
+ * 
+ * 1 y 2 => 1
  */
 
-let respuesta = prompt("Elige una de las opciones: \nA \nB \nC \nD")
-let mensaje = ""
-if(respuesta.toUpperCase() == 'A'){
-    mensaje = "Has acertado!"
+let numero1 = parseInt(prompt("Introduce el primer número:"))
+let numero2 = parseInt(prompt("Introduce el segundo número:"))
+
+// Método 1 - usando if
+if( numero1 > numero2 ){
+    console.log("Diferencia:", numero1 - numero2)
 } else {
-    mensaje = "No has acertado :("
+    console.log("Diferencia:", numero2 - numero1)
 }
-alert(mensaje)
+
+// Método 2 - sin if
+
+// Math.abs() es el valor absoluto == coloca el resultado dentro del parentesis en positivo
+/*
+-1 => 1     0 => 0      1 => 1
+*/
+console.log("Diferencia sin if:", Math.abs(numero1 - numero2))
