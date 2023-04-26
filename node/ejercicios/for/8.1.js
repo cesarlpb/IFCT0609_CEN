@@ -22,16 +22,20 @@ etc
 
 // Modificamos el siguiente código:
 let num = prompt("Introduce un número entero:")
-let mensaje = ""
+let mensaje = trianguloIzq(num) // global
+alert(mensaje)
 
-if(num == parseInt(num) && Number(num) > 0){
-    for(let i = 0; i<=num; i++){
-        for(let j = 0; j<i; j++){
-            mensaje += "*"
+function trianguloIzq(num){
+    let mensaje = "" // local
+    if(num == parseInt(num) && Number(num) > 0){
+        for(let i = 0; i<=num; i++){
+            for(let j = 0; j<i; j++){
+                mensaje += "*"
+            }
+            mensaje += "\n"
         }
-        mensaje += "\n"
+    }else{
+        mensaje = "Debes introducir un número positivo"
     }
-}else{
-    mensaje = "Debes introducir un número positivo"
+    return mensaje
 }
-console.log(mensaje)
