@@ -20,12 +20,17 @@
 Triángulo a la derecha invertido
 etc
 
+*****
+ ****
+  ***
+   **
+    *
 
  */
 
 // Modificamos el siguiente código:
 let num = prompt("Introduce un número entero:")
-let mensaje = trianguloInvIzq(num) // global
+let mensaje = trianguloInvDer(num) // global
 console.log(mensaje) // en alert() la alineación es distinta pero el resultado es correcto
 
 function trianguloIzq(num){
@@ -77,6 +82,26 @@ function trianguloInvIzq(num){
              * etc
              */  
             for(let j = num; j>i; j--){
+                mensaje += "*"
+            }
+            mensaje += "\n"
+        }
+    }else{
+        mensaje = "Debes introducir un número positivo"
+    }
+    return mensaje
+}
+
+function trianguloInvDer(num){
+    let mensaje = "" // local
+    let espacios = 0
+    if(num == parseInt(num) && Number(num) > 0){
+        for(let i = 0; i<=num; i++){
+            espacios = i
+            for(let k = 0; k < espacios; k++){
+                mensaje += " "
+            }
+            for(let j = 0; j<num-i; j++){
                 mensaje += "*"
             }
             mensaje += "\n"
