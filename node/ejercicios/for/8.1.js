@@ -30,7 +30,7 @@ etc
 
 // Modificamos el siguiente código:
 let num = prompt("Introduce un número entero:")
-let mensaje = trianguloDer(num) // global
+let mensaje = trianguloInvIzq(num) // global
 console.log(mensaje) // en alert() la alineación es distinta pero el resultado es correcto
 
 function trianguloIzq(num){
@@ -86,9 +86,11 @@ function trianguloInvIzq(num){
              * i = 5 -> "\n"
              * etc
              */  
-            for(let j = num; j>i; j--){
-                mensaje += "*"
-            }
+            
+            // for(let j = num; j>i; j--){
+            //     mensaje += "*"
+            // }
+            mensaje += "*".repeat(num-i)
             mensaje += "\n"
         }
     }else{
