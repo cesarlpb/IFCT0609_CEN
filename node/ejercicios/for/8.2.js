@@ -11,16 +11,18 @@
 
 // Modificamos el siguiente código:
 let num = prompt("Introduce un número entero:")
-let mensaje = ""
+let mensaje = cuadrado(num) // global
+console.log(mensaje) // con alert() parece más un rectángulo pero el resultado es correcto
 
-if(num == parseInt(num) && Number(num) > 0){
-    for(let i = 0; i<=num; i++){
-        for(let j = 0; j<i; j++){
-            mensaje += "*"
+function cuadrado(num){
+    let mensaje = "" // local
+    if(num == parseInt(num) && Number(num) > 0){
+        for(let i = 0; i<num; i++){
+            mensaje += "* ".repeat(num)
+            mensaje += "\n"
         }
-        mensaje += "\n"
+    }else{
+        mensaje = "Debes introducir un número positivo"
     }
-}else{
-    mensaje = "Debes introducir un número positivo"
+    return mensaje
 }
-console.log(mensaje)
