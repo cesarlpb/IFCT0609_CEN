@@ -41,17 +41,26 @@ x
 
  
 let lado = parseInt(prompt("Introduce un número entero:"))
-let mensaje = cuadradoConBorde(lado)
+let textoBorde = prompt("Introduce el caracter para el borde")
+let textoRelleno = prompt("Introduce el caracter para el relleno:")
+let mensaje = cuadradoConBorde(lado, textoBorde, textoRelleno)
 console.log(mensaje)
 
-function cuadradoConBorde(lado){
+function cuadradoConBorde(lado, textoBorde, textoRelleno){
     let mensaje = ""
+    let charBorde = textoBorde.length > 0 
+        ? `${textoBorde[0]} ` 
+        : "x "
+    let charRelleno = textoRelleno.length > 0 
+        ? `${textoRelleno[0]} ` 
+        : "* "
+
     if(lado > 0 && lado >=3){
         for(let i = 0; i < lado; i++){
             if (i == 0 || i == lado - 1 ){
-                mensaje += "x ".repeat(lado)
+                mensaje += charBorde.repeat(lado)
             }else{
-                mensaje += "x " + "* ".repeat(lado-2) + "x " 
+                mensaje += charBorde + charRelleno.repeat(lado-2) + charBorde 
             }
             mensaje += "\n"
         }
