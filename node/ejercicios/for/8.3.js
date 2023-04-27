@@ -20,17 +20,20 @@ num2 -> 3 // altura
  */
 
 // Modificamos el siguiente código:
-let num = prompt("Introduce un número entero:")
-let mensaje = ""
-
-if(num == parseInt(num) && Number(num) > 0){
-    for(let i = 0; i<=num; i++){
-        for(let j = 0; j<i; j++){
-            mensaje += "*"
-        }
-        mensaje += "\n"
-    }
-}else{
-    mensaje = "Debes introducir un número positivo"
-}
+let base = Number(prompt("Introduce la base del rectángulo:"))      // unidades: cm, m, etc.
+let altura = Number(prompt("Introduce la altura del rectángulo:"))  // unidades: cm, m, etc.
+let mensaje = rectangulo(base, altura)
 console.log(mensaje)
+
+function rectangulo(base, altura){
+    let mensaje = ""
+    if(base > 0 && altura > 0){
+        for(let i = 0; i < altura; i++){
+            mensaje += "*".repeat(base)
+            mensaje += "\n"
+        }
+    }else{
+        mensaje = "Debes introducir dos números positivos"
+    }
+    return mensaje
+}
