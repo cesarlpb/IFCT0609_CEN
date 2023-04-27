@@ -20,8 +20,8 @@ num2 -> 3 // altura
  */
 
  
-let base = Number(prompt("Introduce la base del rectángulo:"))      // unidades: cm, m, etc.
-let altura = Number(prompt("Introduce la altura del rectángulo:"))  // unidades: cm, m, etc.
+let base = parseInt(prompt("Introduce la base del rectángulo:"))      // unidades: cm, m, etc.
+let altura = parseInt(prompt("Introduce la altura del rectángulo:"))  // unidades: cm, m, etc.
 let mensaje = rectangulo(base, altura)
 console.log(mensaje)
 

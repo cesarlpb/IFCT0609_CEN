@@ -10,7 +10,7 @@ a a
 
  */
 
-let lado = Number(prompt("Introduce el lado del cuadrado:"))
+let lado = parseInt(prompt("Introduce el lado del cuadrado:"))
 let texto = prompt("Introduce el caracter para dibujar:")
 let char = texto[0] // nos aseguramos de tomar un solo caracter del texto ingresado
 let mensaje = cuadrado(lado, char)
