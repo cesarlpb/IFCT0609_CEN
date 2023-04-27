@@ -9,7 +9,7 @@
 
  */
 
-// Modificamos el siguiente código:
+ 
 let num = prompt("Introduce un número entero:")
 let mensaje = cuadrado(num) // global
 console.log(mensaje) // con alert() parece más un rectángulo pero el resultado es correcto

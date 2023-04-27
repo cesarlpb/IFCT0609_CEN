@@ -24,7 +24,7 @@ x
 
  */
 
-// Modificamos el siguiente código:
+ 
 let num = prompt("Introduce un número entero:")
 let mensaje = ""
 

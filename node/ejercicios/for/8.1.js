@@ -28,7 +28,7 @@ etc
 
  */
 
-// Modificamos el siguiente código:
+ 
 let num = prompt("Introduce un número entero:")
 let mensaje = trianguloInvDer(num) // global
 console.log(mensaje) // en alert() la alineación es distinta pero el resultado es correcto
