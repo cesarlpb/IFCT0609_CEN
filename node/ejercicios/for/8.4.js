@@ -10,18 +10,21 @@ a a
 
  */
 
-// Modificamos el siguiente código:
-let num = prompt("Introduce un número entero:")
-let mensaje = ""
-
-if(num == parseInt(num) && Number(num) > 0){
-    for(let i = 0; i<=num; i++){
-        for(let j = 0; j<i; j++){
-            mensaje += "*"
-        }
-        mensaje += "\n"
-    }
-}else{
-    mensaje = "Debes introducir un número positivo"
-}
+let lado = Number(prompt("Introduce el lado del cuadrado:"))
+let texto = prompt("Introduce el caracter para dibujar:")
+let char = texto[0] // nos aseguramos de tomar un solo caracter del texto ingresado
+let mensaje = cuadrado(lado, char)
 console.log(mensaje)
+
+function cuadrado(lado, char){
+    let mensaje = "" // local
+    if(lado > 0 && texto.length > 0){
+        for(let i = 0; i < lado; i++){
+            mensaje += `${char} `.repeat(lado)
+            mensaje += "\n"
+        }
+    }else{
+        mensaje = "Debes introducir un número positivo y al menos un caracter"
+    }
+    return mensaje
+}
