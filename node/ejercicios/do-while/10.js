@@ -54,15 +54,43 @@ do {
     let charDer = string[string.length - 1 - contador]
     if( charIzq == charDer ){
         contadorIguales++
-        console.log(contador, charIzq, charDer)    
+        // console.log(contador, charIzq, charDer)    
     }else{
-        console.log(contador, charIzq, charDer)    
+        // console.log(contador, charIzq, charDer)   
+        // Este else para el bucle al primer false que se encuentra comparando
+        // En este caso NO se lee todo el string para comparar 
         contador = comparaciones // para el bucle
     } 
     contador++
 } while( contador < comparaciones )
+// En algunos casos no lee todo el string
+// Solo leería todo si es palíndromo
 
 if(contadorIguales == comparaciones){
+    alert(`${string} es palindromo`)
+} else {
+    alert(`${string} no es palindromo`)
+}
+
+// Método 2 - invertir string y comparar al final
+
+/*
+let string = prompt("Introduce un número:")
+let contador = 0 // comparaciones = 1 -> 0
+                 // comparaciones = 2 -> 0, 1
+                 // contador < comparaciones
+*/
+
+// Usando las mismas variables de arriba, añadimos:
+let stringInvertido = ""
+do{
+    let indice = string.length - 1 - contador
+    stringInvertido += string[indice]
+    contador++
+} while( contador < string.length ) 
+// Este bucle itera todo el string una vez
+
+if(string == stringInvertido){
     alert(`${string} es palindromo`)
 } else {
     alert(`${string} no es palindromo`)
