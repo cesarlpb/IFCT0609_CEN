@@ -17,11 +17,6 @@ function min(arr, opcion = "v"){
     let min = Infinity
     let indice; // undefined
 
-    // Darle un valor por defecto a opcion
-    // if(!opcion){
-    //     opcion = "v"
-    // }
-
     // Suponemos que el array no esta vacío
     for(let i = 0; i<arr.length; i++){
         let el = arr[i]
@@ -31,11 +26,14 @@ function min(arr, opcion = "v"){
         }
     }
     // Suponemos que opcion es "v" o "i"
-    if(opcion == "v"){
+    if(arr.length > 0 && opcion == "v"){
         return min
-    }else if( opcion == "i" ){
+    }else if(arr.length > 0 && opcion == "i"){
         return indice
-    }else{
+    }else if(arr.length == 0){
+        return "El array esta vacío"
+    }
+    else{
         return "Opcion no válida"
     }
 }
