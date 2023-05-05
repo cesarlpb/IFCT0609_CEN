@@ -16,5 +16,12 @@ function slugify(arr){
             slug += arr[i] // último elemento sin guión
         }
     }
+    // Añadiendo id único basado en Unix time quitando algunos números:
+    let unixTime = new Date().getTime() // cambia cada segundo
+    slug += "-" + String(unixTime).slice(-5)
+    
+    // Si quisieramos poner la fecha en formato -dd-mm-aaaa:
+    // slug += "-" + date.toLocaleDateString().replaceAll("/", "-")
+
     return slug
 }
