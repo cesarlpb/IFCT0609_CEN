@@ -17,6 +17,12 @@ function min(arr, opcion){
     let min = Infinity
     let indice; // undefined
 
+    /*Darle la opcio a "v"
+    if (!opcion) {
+        opcion = "v"
+    }
+    */
+
     // Suponemos que el array no esta vacío
     for(let i = 0; i<arr.length; i++){
         let el = arr[i]
