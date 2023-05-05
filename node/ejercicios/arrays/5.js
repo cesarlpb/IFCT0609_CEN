@@ -13,9 +13,14 @@ min([4,5,7], 'i') devuelve el índice -> 0
 
 */
 
-function min(arr, opcion){
+function min(arr, opcion = "v"){
     let min = Infinity
     let indice; // undefined
+
+    // Darle un valor por defecto a opcion
+    // if(!opcion){
+    //     opcion = "v"
+    // }
 
     // Suponemos que el array no esta vacío
     for(let i = 0; i<arr.length; i++){
@@ -35,6 +40,4 @@ function min(arr, opcion){
     }
 }
 
-// Todo: 
-// 1. Darle a opcion un valor por defecto "v" siempre
 // 2. Devolver mensaje en caso de que array vacío
