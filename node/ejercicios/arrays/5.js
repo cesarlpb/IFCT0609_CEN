@@ -37,5 +37,3 @@ function min(arr, opcion = "v"){
         return "Opcion no válida"
     }
 }
-
-// 2. Devolver mensaje en caso de que array vacío
