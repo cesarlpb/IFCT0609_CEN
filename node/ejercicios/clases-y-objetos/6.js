@@ -35,5 +35,38 @@ class Conductor{
   }
 }
 class Bus{
-    // conductor
+  constructor(capacidad_ = 40, pasajeros_ = 0, conductor_ = new Conductor()){
+    this.capacidad = capacidad_ 
+    this.pasajeros = pasajeros_ 
+    this.conductor = conductor_
+  }
+  subir(pasajeros_){
+    
+    let pasajerosQueSuben = 0
+    let maximoPuedenSubir = this.capacidad - this.pasajeros
+
+    if(isNaN(pasajeros_) && !isFinite(pasajeros_)){
+      // Este if nos pasa casos no válidos a un caso neutro: sumar cero
+      pasajeros_ = 0
+    }
+    // No hemos verificado que no sea NaN
+    if(pasajeros_ <= maximoPuedenSubir && pasajeros_ > 0){
+      pasajerosQueSuben = pasajeros_
+      this.pasajeros += pasajerosQueSuben
+      return pasajerosQueSuben
+    }else if(pasajeros_ > maximoPuedenSubir){
+      pasajerosQueSuben = maximoPuedenSubir
+      this.pasajeros += pasajerosQueSuben
+      return pasajerosQueSuben
+    }else{
+      // Este es el caso de números negativos
+      return 0
+    }
+  }
+  bajar(pasajeros_){
+
+  }
+  cambiarConductor(nuevoConductor_){
+
+  }
 }
