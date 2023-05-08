@@ -6,10 +6,15 @@ A los métodos los invocaremos con las llamadas ingresar(1000) o retirar(100) Tr
 */
 
 class Cuenta{
-    
-    "balance" = 0
-    "nombre" = ""
-    "email" = "" 
+
+  // Es el método que se llama primero (siempre) para iniciar propiedades, llamar métodos, etc. al instanciar un nuevo objeto de la clase
+    constructor(balance = 0.00, nombre = "", email = ""){
+      // Declaramos y inicializamos las propiedades en el constructor
+      // y no fuera como anteriormente para que quede más ordenado.
+      this.balance = balance
+      this.nombre = nombre
+      this.email = email        
+    }
 
     ingresar(cantidad){
         if(cantidad >= 0){
