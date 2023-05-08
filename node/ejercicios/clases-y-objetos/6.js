@@ -37,7 +37,11 @@ class Conductor{
 class Bus{
   constructor(capacidad_ = 40, pasajeros_ = 0, conductor_ = new Conductor()){
     this.capacidad = capacidad_ 
-    this.pasajeros = pasajeros_ 
+    console.log(pasajeros_, this.capacidad)
+    if(pasajeros_ > this.capacidad){
+      pasajeros_ = this.capacidad
+    }
+    this.pasajeros = pasajeros_
     this.conductor = conductor_
   }
   subir(pasajeros_){
