@@ -51,3 +51,5 @@ class Ficha{
     }
 }
 
+// La librería math.js tiene funciones que pueden ser útiles en estos casos: https://mathjs.org/docs/reference/functions.html
+
