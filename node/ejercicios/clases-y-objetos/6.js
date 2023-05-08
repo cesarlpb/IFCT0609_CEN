@@ -47,7 +47,7 @@ class Bus{
 
     if(isNaN(pasajeros_) && !isFinite(pasajeros_)){
       // Este if nos pasa casos no válidos a un caso neutro: sumar cero
-      pasajeros_ = 0
+      return 0
     }
     // No hemos verificado que no sea NaN
     if(pasajeros_ <= maximoPuedenSubir && pasajeros_ > 0){
@@ -64,9 +64,35 @@ class Bus{
     }
   }
   bajar(pasajeros_){
+    let pasajerosQueBajan = 0
+    let maximoPuedenBajar = this.pasajeros
+
+    if(isNaN(pasajeros_) && !isFinite(pasajeros_)){
+      // Retornamos cero para que el resto del código no se ejecute
+      // ya que no interesa que se entre en los bucles (por valor incorrecto)
+      return 0
+    }
+
+    if(pasajeros_ <= maximoPuedenBajar && pasajeros_ > 0){
+      pasajerosQueBajan = pasajeros_
+      this.pasajeros -= pasajerosQueBajan
+      return pasajerosQueBajan
+    }else if(pasajeros_ > maximoPuedenBajar){
+      pasajerosQueBajan = maximoPuedenBajar
+      this.pasajeros -= pasajerosQueBajan
+      return pasajerosQueBajan
+    }else{
+      // Este es el caso de números negativos
+      return 0
+    }
 
   }
   cambiarConductor(nuevoConductor_){
-
+    let esConductor = nuevoConductor_ instanceof Conductor // true si es instancia de clase Conductor y false si no lo es
+    if(nuevoConductor_ && esConductor){
+      this.conductor = nuevoConductor_ // solo llegamos hasta aqui si el conductor recibido es correcto
+      console.log("Nuevo conductor añadido")
+    }
+    return esConductor
   }
 }
