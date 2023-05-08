@@ -24,7 +24,15 @@ No pueden subir más pasajeros que los máximos admitidos y no pueden bajar más
  */
 
 class Conductor{
-  
+  constructor(nombre_ = "Juan", licencia_ = 12345){
+    this.nombre = nombre_
+    this.licencia = licencia_
+  }
+  toString(){
+    return this.nombre + ", " + this.licencia
+    // Si queremos retornar el objeto "string-ificado":
+    // return JSON.stringify(new Conductor(this.nombre, this.licencia))
+  }
 }
 class Bus{
     // conductor
