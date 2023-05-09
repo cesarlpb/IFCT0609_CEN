@@ -34,10 +34,14 @@ class Cliente{
     }
 }
 class EstadoFactura{
-    constructor(){
-        this.pagado = "PAGADO"
-        this.pendiente = "PENDIENTE"
-    }
+    // static para acceder a estos datos sin instanciar objeto de la clase
+    // Symbol para diferenciar que los casos NUNCA pueden ser comparados como iguales
+    static pagado = Symbol("PAGADO")
+    static pendiente = Symbol("PENDIENTE")
+    static noEmitida = Symbol("NO EMITIDA")
+    static vencido = Symbol("VENCIDO")
+    static otro = Symbol()
+    // etc
 }
 class Factura {
     constructor(idCliente_, total_, estado_){
@@ -47,13 +51,12 @@ class Factura {
         }else{
             this.total = 0.00
         }
-        this.estado = estado_ ?? new EstadoFactura().pendiente
+        this.estado = estado_ ?? EstadoFactura.pendiente
 
     }
     cobrar(){
-        let estadoFactura = new EstadoFactura()
-        if(this.estado == estadoFactura.pendiente){
-            this.estado = estadoFactura.pagado
+        if(this.estado == EstadoFactura.pendiente){
+            this.estado = EstadoFactura.pagado
         }
         return this.estado
     }
