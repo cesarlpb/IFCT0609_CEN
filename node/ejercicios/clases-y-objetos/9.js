@@ -23,11 +23,13 @@ imprimir(): imprime los datos de la factura -> console.log o alert, etc.
 Para probar crea tres clientes y al menos una factura.
  */
 
-let contador_cliente = 0
+// let contador_cliente = 0
 
 class Cliente{
+    static contador_cliente = 0
     constructor(nombre_, email_, telefono_){
-        this.id = ++contador_cliente
+        Cliente.contador_cliente += 1 // contador autoincremental en automático
+        this.id = Cliente.contador_cliente
         this.nombre = nombre_ ?? ""
         this.email = email_ ?? ""
         this.telefono_ = telefono_ ?? ""
@@ -64,3 +66,7 @@ class Factura {
         return new Factura(this.idCliente, this.total, this.estado)
     }
 }
+
+// Todo:
+// Crear 5 clientes
+// Emitir una factura a cada uno
