@@ -34,18 +34,28 @@ Si hacemos articulo.telefono() nos dará  nombre y teléfono del proveedor: Tel�
 class Proveedor{
     constructor(nombre_, email_, telefono_){
         // Usamos el operador || (o lógico) para inicializar las propiedades a un valor que no sea undefined -> si no recibimos nada, por defecto son string vacío
-        this.nombre = nombre_ || "" 
-        this.email = email_ || ""
-        this.telefono = telefono_ || ""
+        
+        // este ternario comprueba si el dato que nos pasan es null o undefined y pone un valor por defecto:
+        // nombre_ = nombre_ == null || nombre_ == 'undefined' ? "TecnoShop" : nombre_
+        // el operador nullish coalescence: ?? hace lo mismo en este caso (para null o undefined):
+        this.nombre = nombre_ ?? "Tecnoshop"
+        this.email = email_ ?? "tcn@tecno.com"
+        this.telefono = telefono_ ?? "123456789"
     }
 }
 
 class Articulo{
     constructor(proveedor_, nombre_, precio_){
         // no hemos validado que recibimos Proveedor
-        this.proveedor = proveedor_ || new Proveedor("TecnoShop", "tcn@tecno.com", "123456789")
-        this.nombre = nombre_ || ""
-        this.precio = precio_ || 0.00
+        if(proveedor_ instanceof Proveedor){
+            // proveedor_ es una instancia de la clase Proveedor
+            this.proveedor = proveedor_
+        }else{
+            // asigno proveedor por defecto
+            this.proveedor = new Proveedor("TecnoShop", "tcn@tecno.com", "123456789")
+        }
+        this.nombre = typeof(nombre_) == 'string' ? nombre_ : ""
+        this.precio = !isNaN(Number(precio_)) ? Number(precio_) : 0.00
     }
     telefono(){
         return this.proveedor // objeto de tipo Proveedor
