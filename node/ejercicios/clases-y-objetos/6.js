@@ -23,6 +23,8 @@ No pueden subir más pasajeros que los máximos admitidos y no pueden bajar más
 
  */
 
+const CAPACIDAD = 40 // aforo bus
+
 class Conductor{
   constructor(nombre_ = "Juan", licencia_ = 12345){
     this.nombre = nombre_
@@ -35,9 +37,9 @@ class Conductor{
   }
 }
 class Bus{
-  constructor(capacidad_ = 40, pasajeros_ = 0, conductor_ = new Conductor()){
-    this.capacidad = capacidad_ 
-    console.log(pasajeros_, this.capacidad)
+  constructor(capacidad_ = CAPACIDAD, pasajeros_ = 0, conductor_ = new Conductor()){
+    this.capacidad = capacidad_ // Usamos const para iniciar el valor
+    // console.log(pasajeros_, this.capacidad)
     if(pasajeros_ > this.capacidad){
       pasajeros_ = this.capacidad
     }
@@ -45,9 +47,12 @@ class Bus{
     this.conductor = conductor_
   }
   subir(pasajeros_){
-    
+    // Mantenemos la propiedad capacidad como el valor de la constante
+    if(this.capacidad != CAPACIDAD){
+      this.capacidad = CAPACIDAD
+    }
     let pasajerosQueSuben = 0
-    let maximoPuedenSubir = this.capacidad - this.pasajeros
+    let maximoPuedenSubir = CAPACIDAD - this.pasajeros // CAPACIDAD = 40
 
     if(isNaN(pasajeros_) && !isFinite(pasajeros_)){
       // Este if nos pasa casos no válidos a un caso neutro: sumar cero
@@ -68,6 +73,10 @@ class Bus{
     }
   }
   bajar(pasajeros_){
+    // Mantenemos la propiedad capacidad como el valor de la constante
+    if(this.capacidad != CAPACIDAD){
+      this.capacidad = CAPACIDAD
+    }
     let pasajerosQueBajan = 0
     let maximoPuedenBajar = this.pasajeros
 
@@ -100,3 +109,4 @@ class Bus{
     return esConductor
   }
 }
+
