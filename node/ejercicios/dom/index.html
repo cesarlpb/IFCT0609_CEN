@@ -52,6 +52,10 @@
         </section>        
     <header><h1 id="titular" onclick="togleClase()">Hola Mundo</h1></header>
     <div id="subtitulo" style="text-align:center">Página de muestra de Javascript de HTML</div>
+    
+    <!-- Contenedor para colocar el div nuevo dentro -->
+    <div id="container"></div> 
+
     <div class="paneles">
     <figure onclick="ponerPie(this)"><img src="uno.png" width="33" height="75" alt="Número 1">
       <figcaption></figcaption></figure>
@@ -72,8 +76,8 @@
         h1.innerHTML = "Hola Mundo con Javascript";
         // Ej 2
         h1.style.color = "red"; // color rojo
-        // h1.style.display = "none" // el elemento desaparece y no ocupa espacio
-        // h1.style.visibility = "hidden" // el elemento no se ve pero ocupa espacio
+        // h1.style.display = "none"; // el elemento desaparece y no ocupa espacio
+        // h1.style.visibility = "hidden"; // el elemento no se ve pero ocupa espacio
         h1.style.fontFamily = "Arial, sans-serif";
         h1.style.fontSize = "32px";
         h1.style.fontWeight = "normal";
@@ -81,7 +85,20 @@
         h1.style.textAlign = "center"; // centrado del h1
     }
     function crearDiv(){
-    
+        // Ej 3
+        let div = document.createElement("div"); // creamos elemento indicando etiqueta
+        div.style.backgroundColor = "red";
+        div.style.color = "white";
+        div.style.textAlign = "center";
+        div.style.padding = "24px";
+        div.style.width = "300px";
+        div.style.margin = "12px auto";
+        div.style.border = "1px solid black";
+        div.style.borderRadius = "12px";
+        div.innerText = "Javascript permite crear páginas dinámicas";
+        // Colocamos el div dentro de container
+        let container = document.getElementById("container");
+        container.appendChild(div); // Añadimos el div a container (dentro)
     }
     function borrarDiv(){
     
