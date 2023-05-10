@@ -26,10 +26,10 @@ Para probar crea tres clientes y al menos una factura.
 // let contador_cliente = 0
 
 class Cliente{
-    static contador_cliente = 0
+    static idCliente = 0
     constructor(nombre_, email_, telefono_){
-        Cliente.contador_cliente += 1 // contador autoincremental en automático
-        this.id = Cliente.contador_cliente
+        Cliente.idCliente += 1 // contador autoincremental en automático
+        this.id = Cliente.idCliente
         this.nombre = nombre_ ?? ""
         this.email = email_ ?? ""
         this.telefono_ = telefono_ ?? ""
@@ -70,3 +70,14 @@ class Factura {
 // Todo:
 // Crear 5 clientes
 // Emitir una factura a cada uno
+let cliente1 = new Cliente("Pepe Martínez 1", "pepe@martinez.com", "+34 456 987 321")
+let factura1 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let cliente2 = new Cliente("Pepe Martínez 2", "pepe@martinez.com", "+34 456 987 321")
+let factura2 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let cliente3 = new Cliente("Pepe Martínez 3", "pepe@martinez.com", "+34 456 987 321")
+let factura3 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let cliente4 = new Cliente("Pepe Martínez 4", "pepe@martinez.com", "+34 456 987 321")
+let factura4 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let cliente5 = new Cliente("Pepe Martínez 5", "pepe@martinez.com", "+34 456 987 321")
+let factura5 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+//etc
