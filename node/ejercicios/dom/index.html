@@ -111,7 +111,18 @@
         // body.removeChild(subtitulo)
     }
     function ponerPie(fig){
-    
+        // ponerPie se llama con this -> y conseguimos el elemento <figure> que ha sido clickado
+        // Ej 5
+        console.log(fig); // <figure> que ha sido clickado
+        let pie = fig.getElementsByTagName("figcaption")[0];
+        let pieActual = pie.innerText;
+        if(!pieActual){
+            let img = fig.getElementsByTagName("img")[0];
+            let alt = img.getAttribute("alt"); // texto del alt
+            pie.innerText = alt;
+        }else{
+            pie.innerText = "";
+        }
     }
     function fuentesImg(){
     
