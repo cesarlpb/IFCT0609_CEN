@@ -101,7 +101,14 @@
         container.appendChild(div); // Añadimos el div a container (dentro)
     }
     function borrarDiv(){
-    
+        // Ej 4
+        // Método 1: usando el id del elemento
+        let subtitulo = document.getElementById("subtitulo");
+        subtitulo.remove(); // Eliminamos el elemento -> no devuelve nada
+        
+        // Método 2: usando el padre que es body
+        // let body = document.getElementsByTagName("body")[0];
+        // body.removeChild(subtitulo)
     }
     function ponerPie(fig){
     
