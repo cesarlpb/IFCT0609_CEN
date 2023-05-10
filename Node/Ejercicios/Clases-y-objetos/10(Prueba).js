@@ -1,3 +1,5 @@
+//Creamos prop y método para devolver idCliente
+
 /**
  * 
  * En esta ocasión tienes una lista de clientes, cada cliente es un objeto con atributos: 
