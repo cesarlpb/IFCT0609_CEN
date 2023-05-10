@@ -26,13 +26,19 @@ Para probar crea tres clientes y al menos una factura.
 // let contador_cliente = 0
 
 class Cliente{
-    static idCliente = 0
+    // # -> hace privada la propiedad
+    // dentro de la clase Cliente sí se puede acceder al dato
+    static #idCliente = 0
     constructor(nombre_, email_, telefono_){
-        Cliente.idCliente += 1 // contador autoincremental en automático
-        this.id = Cliente.idCliente
+        Cliente.#idCliente += 1 // contador autoincremental en automático
+        this.id = Cliente.#idCliente
         this.nombre = nombre_ ?? ""
         this.email = email_ ?? ""
         this.telefono_ = telefono_ ?? ""
+    }
+    // Creamos un método que devuelve el dato actual en #idCliente
+    static idCliente(){
+        return Cliente.#idCliente
     }
 }
 class EstadoFactura{
@@ -71,13 +77,12 @@ class Factura {
 // Crear 5 clientes
 // Emitir una factura a cada uno
 let cliente1 = new Cliente("Pepe Martínez 1", "pepe@martinez.com", "+34 456 987 321")
-let factura1 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let factura1 = new Factura(Cliente.idCliente(), 100.00, EstadoFactura.pendiente) // id -> 1
 let cliente2 = new Cliente("Pepe Martínez 2", "pepe@martinez.com", "+34 456 987 321")
-let factura2 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let factura2 = new Factura(Cliente.idCliente(), 100.00, EstadoFactura.pendiente) // id -> 1
 let cliente3 = new Cliente("Pepe Martínez 3", "pepe@martinez.com", "+34 456 987 321")
-let factura3 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let factura3 = new Factura(Cliente.idCliente(), 100.00, EstadoFactura.pendiente) // id -> 1
 let cliente4 = new Cliente("Pepe Martínez 4", "pepe@martinez.com", "+34 456 987 321")
-let factura4 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
+let factura4 = new Factura(Cliente.idCliente(), 100.00, EstadoFactura.pendiente) // id -> 1
 let cliente5 = new Cliente("Pepe Martínez 5", "pepe@martinez.com", "+34 456 987 321")
-let factura5 = new Factura(Cliente.idCliente, 100.00, EstadoFactura.pendiente) // id -> 1
-//etc
+let factura5 = new Factura(Cliente.idCliente(), 100.00, EstadoFactura.pendiente) // id -> 1
