@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Muestra 1 para ejercicios de HTML</title>
+    <style>
+        .boton{
+            border: 1px solid black;
+            padding: 2px 10px;
+            background: rgba(27,109,236,0.61);
+            color: white;
+            font-family: Arial, sans-seriff;
+            width: fit-content;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .paneles{
+            display:flex;
+            justify-content: center;
+            margin-top: 32px;
+        }    
+        .paneles figure{
+            width: 75px;
+        }
+        .activo{
+            color: blue;
+            font-family: Arial, "sans-serif";
+        }
+        .destacar{
+            font-size: 18px;
+            color:red;
+        }
+        .carrusel{
+            text-align: center;
+            background: #727c331a;
+            border:1px solid black;
+            width: fit-content;
+            margin: 24px auto;
+            width: 100px;
+            padding: 24px;
+        }
+    </style>
+    <style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style></head>
+    <body>
+        <section class="botones">
+            <div onclick="toggle()" class="boton">Abrir - cerrar</div>
+            <div onclick="cambiar()" class="boton">Cambiar título</div>
+            <div onclick="crearDiv()" class="boton">Crear bloque</div>
+            <div onclick="borrarDiv()" class="boton">Borrar bloque</div>
+            <div onclick="fuentesImg()" class="boton">Fuentes</div>
+            <div onclick="intercalar()" class="boton">Subtitulo</div>
+        </section>        
+    <header><h1 id="titular" onclick="togleClase()">Hola Mundo</h1></header>
+    <div id="subtitulo" style="text-align:center">Página de muestra de Javascript de HTML</div>
+    <div class="paneles">
+    <figure onclick="ponerPie(this)"><img src="uno.png" width="33" height="75" alt="Número 1">
+      <figcaption></figcaption></figure>
+    <figure onclick="ponerPie(this)"><img src="dos.png" width="50" height="75" alt="Número 2">
+      <figcaption></figcaption></figure>
+    <figure onclick="ponerPie(this)"><img src="tres.png" width="49" height="75" alt="Número 3">
+      <figcaption></figcaption></figure>    
+    </div>    
+    <div id="fuentes"></div>
+    <div class="carrusel" data-img="0" onclick="cambiaImg()">
+        <img src="uno.png" alt="Diapositivas" id="diapo">
+    </div>    
+    <!-- inicio de las funciones javascript pedidas en los ejercicios -->
+    <script>
+    function cambiar(){
+    
+    }
+    function crearDiv(){
+    
+    }
+    function borrarDiv(){
+    
+    }
+    function ponerPie(fig){
+    
+    }
+    function fuentesImg(){
+    
+    }    
+    function togleClase(){
+    
+    }
+    function intercalar(){
+    
+    }
+        
+    function cambiaImg(){
+    
+    }
+    function toggle(){
+    
+    }
+    </script>    
+    
+    
+    <script>
+            function returnCommentSymbol(language = "javascript") {
+                const languageObject = {
+                    bat: "@REM",
+                    c: "//",
+                    csharp: "//",
+                    cpp: "//",
+                    closure: ";;",
+                    coffeescript: "#",
+                    dockercompose: "#",
+                    css: "/*DELIMITER*/",
+                    "cuda-cpp": "//",
+                    dart: "//",
+                    diff: "#",
+                    dockerfile: "#",
+                    fsharp: "//",
+                    "git-commit": "//",
+                    "git-rebase": "#",
+                    go: "//",
+                    groovy: "//",
+                    handlebars: "{{!--DELIMITER--}}",
+                    hlsl: "//",
+                    html: "<!--DELIMITER-->",
+                    ignore: "#",
+                    ini: ";",
+                    java: "//",
+                    javascript: "//",
+                    javascriptreact: "//",
+                    json: "//",
+                    jsonc: "//",
+                    julia: "#",
+                    latex: "%",
+                    less: "//",
+                    lua: "--",
+                    makefile: "#",
+                    markdown: "<!--DELIMITER-->",
+                    "objective-c": "//",
+                    "objective-cpp": "//",
+                    perl: "#",
+                    perl6: "#",
+                    php: "<!--DELIMITER-->",
+                    powershell: "#",
+                    properties: ";",
+                    jade: "//-",
+                    python: "#",
+                    r: "#",
+                    razor: "<!--DELIMITER-->",
+                    restructuredtext: "..",
+                    ruby: "#",
+                    rust: "//",
+                    scss: "//",
+                    shaderlab: "//",
+                    shellscript: "#",
+                    sql: "--",
+                    svg: "<!--DELIMITER-->",
+                    swift: "//",
+                    tex: "%",
+                    typescript: "//",
+                    typescriptreact: "//",
+                    vb: "'",
+                    xml: "<!--DELIMITER-->",
+                    xsl: "<!--DELIMITER-->",
+                    yaml: "#"
+                }
+                if(!languageObject[language]){
+                    return languageObject["python"].split("DELIMITER")
+                }
+                return languageObject[language].split("DELIMITER")
+            }
+            var savedChPos = 0
+            var returnedSuggestion = ''
+            let editor, doc, cursor, line, pos
+            pos = {line: 0, ch: 0}
+            var suggestionsStatus = false
+            var docLang = "python"
+            var suggestionDisplayed = false
+            var isReturningSuggestion = false
+            document.addEventListener("keydown", (event) => {
+            setTimeout(()=>{
+                editor = event.target.closest('.CodeMirror');
+                if (editor){
+                    const codeEditor = editor.CodeMirror
+                    if(!editor.classList.contains("added-tab-function")){
+                        editor.classList.add("added-tab-function")
+                        codeEditor.removeKeyMap("Tab")
+                        codeEditor.setOption("extraKeys", {Tab: (cm)=>{
+    
+                            if(returnedSuggestion){
+                                acceptTab(returnedSuggestion)
+                            }
+                            else{
+                                cm.execCommand("defaultTab")
+                            }
+                        }})
+                    }
+                    doc = editor.CodeMirror.getDoc()
+                    cursor = doc.getCursor()
+                    line = doc.getLine(cursor.line)
+                    pos = {line: cursor.line, ch: line.length}
+    
+                    if(cursor.ch > 0){
+                        savedChPos = cursor.ch
+                    }
+    
+                    const fileLang = doc.getMode().name
+                    docLang = fileLang
+                    const commentSymbol = returnCommentSymbol(fileLang)
+                    if (event.key == "?"){
+                        var lastLine = line
+                        lastLine = lastLine.slice(0, savedChPos - 1)
+    
+                        if(lastLine.trim().startsWith(commentSymbol[0])){
+                            if(fileLang !== "null"){
+                                lastLine += " "+ fileLang
+                            }
+                            
+                            lastLine = lastLine.split(commentSymbol[0])[1]
+                            window.postMessage({source: 'getQuery', payload: { data: lastLine } } )
+                            isReturningSuggestion = true
+                            displayGrey("\nBlackbox loading...")
+                        }
+                    }else if(event.key === "Enter" && suggestionsStatus && !isReturningSuggestion){
+                        var query = doc.getRange({ line: Math.max(0,cursor.line-50), ch: 0 }, { line: cursor.line, ch: line.length })
+                        window.postMessage({source: 'getSuggestion', payload: { data: query, language: docLang, cursorPos: pos } } )
+                        displayGrey("Blackbox loading...")
+                    }else if(event.key === "ArrowRight" && returnedSuggestion){
+                        acceptTab(returnedSuggestion)
+                    }else if(event.key === "Enter" && isReturningSuggestion){
+                        displayGrey("\nBlackbox loading...")
+                    }else if(event.key === "Escape"){
+                        displayGrey("")
+                    }
+                }
+            }, 0)
+            })
+    
+            function acceptTab(text){
+            if (suggestionDisplayed){
+                displayGrey("")
+                doc.replaceRange(text, pos)
+                returnedSuggestion = ""
+                updateSuggestionStatus(false)
+            }
+            }
+            function acceptSuggestion(text){
+                displayGrey("")
+                doc.replaceRange(text, pos)
+                returnedSuggestion = ""
+                updateSuggestionStatus(false)
+            }
+            function displayGrey(text){
+                if(!text){
+                    document.querySelector(".blackbox-suggestion").remove()
+                    return
+                }
+                var el = document.querySelector(".blackbox-suggestion")
+                if(!el){
+                    el = document.createElement('span')
+                    el.classList.add("blackbox-suggestion")
+                    el.style = 'color:grey'
+                    el.innerText = text
+                }
+                else{
+                    el.innerText = text
+                }
+                
+                var lineIndex = pos.line;
+                editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(el)
+            }
+            function updateSuggestionStatus(s){
+                suggestionDisplayed = s
+                window.postMessage({source: 'updateSuggestionStatus', status: suggestionDisplayed, suggestion: returnedSuggestion})
+            }
+            window.addEventListener('message', (event)=>{
+            if (event.source !== window ) return
+            if (event.data.source == 'return'){
+                isReturningSuggestion = false
+                const formattedCode = formatCode(event.data.payload.data)
+                returnedSuggestion = formattedCode
+                displayGrey(formattedCode)
+                updateSuggestionStatus(true)
+            }
+            if(event.data.source == 'suggestReturn'){
+                const prePos = event.data.payload.cursorPos
+                if(pos.line == prePos.line && pos.ch == prePos.ch){
+                    returnedSuggestion = event.data.payload.data
+                    displayGrey(event.data.payload.data)
+                    updateSuggestionStatus(true)
+                }
+                else{
+                    displayGrey()
+                }
+            }
+            if(event.data.source == 'codeSearchReturn'){
+                isReturningSuggestion = false
+                displayGrey()
+            }
+            if(event.data.source == 'suggestionsStatus'){
+                suggestionsStatus = event.data.payload.enabled
+            }
+            if(event.data.source == 'acceptSuggestion'){
+                
+                acceptSuggestion(event.data.suggestion)
+            }
+            })
+            document.addEventListener("keyup", function(){
+                returnedSuggestion = ""
+                updateSuggestionStatus(false)
+            })
+            function formatCode(data) {
+                if (Array.isArray(data)) {
+                    var finalCode = ""
+                    var pairs = []
+            
+                    const commentSymbol = returnCommentSymbol(docLang)
+                    data.forEach((codeArr, idx) => {
+                        const code = codeArr[0]
+                        var desc = codeArr[1]
+                        const descArr = desc.split("\n")
+                        var finalDesc = ""
+                        descArr.forEach((descLine, idx) => {
+                            const whiteSpace = descLine.search(/\S/)
+                            if (commentSymbol.length < 2 || idx === 0) {
+                                finalDesc += insert(descLine, whiteSpace, commentSymbol[0])
+                            }
+                            if (commentSymbol.length > 1 && idx === descArr.length - 1) {
+                                finalDesc = finalDesc + commentSymbol[1] + "\n"
+                            }
+                        })
+            
+                        finalCode += finalDesc + "\n\n" + code
+                        pairs.push(finalCode)
+                    })
+                    return "\n"+pairs.join("\n")
+                }
+            
+                return "\n"+data
+            }
+            
+            function insert(str, index, value) {
+                return str.substr(0, index) + value + str.substr(index)
+            }
+        </script></body></html>
