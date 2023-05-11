@@ -15,7 +15,7 @@ function seguirCursor(event){
     console.log("pageY:", event.pageY); // si se ha hecho scroll, esta coordenada es mayor que clienX que depende del tamaño de la pantalla
     */
     // Comentamos los console.log() de antes para que salgan menos datos por console y dejamos este:
-    console.log(event.clientX, event.clientY)
+    // console.log(event.clientX, event.clientY)
     // Colocamos los valores en los inputs:
     let cX = document.getElementById("cX").value = event.clientX;
     let cY = document.getElementById("cY").value = event.clientY;
