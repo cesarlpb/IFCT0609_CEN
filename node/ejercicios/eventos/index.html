@@ -34,18 +34,78 @@
             width: 50%;
             height: 2.5rem;
         }
+        /* Form */
+        #form{
+            width: 50%;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            background-color: brown;
+            border-radius: 10px;
+            color: white;
+        }
+        #form input, #form label, #form p{
+            display: block;
+            font-size: 1.25rem;
+            width: 60%;
+            padding: 5px 0;
+            margin: 5px auto;
+        }
+        #form p{
+            width: 90%;
+            font-size: 1.25rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #form input{
+            text-align: center;
+        }
+        label{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        input[type="button"]{
+            width: 30%;
+            display: block;
+            padding: 1rem;
+            margin: 0.25rem auto 2rem!important;
+            background-color: white;
+            color: brown;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.5rem;
+            /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+        }
+        #total{
+            display: block;
+            margin: 1rem auto 2rem;
+            background-color: lightgray;
+            border: 0;
+            height: 3rem;
+        }
+        
     </style>
 </head>
 <body>
     <h1 class="h1">Eventos</h1>
-    <!-- Ej 1 -->
+    <!-- Ej 1 onclick -->
     <h2 class="h2">Ej 1 - onclick</h2>
     <div id="btn" class="centrado" onclick="ej1()">Haz click aquí</div>
-    <!-- Ej 2 -->
+    <!-- Ej 2 onmouseover y onmouseout -->
     <h2 class="h2">Ej 2 - onmouseover y onmouseout</h2>
     <div class="centrado grande" onmouseover="color('green')" onmouseout="color('brown')">Pasa el cursor por aquí</div>
     <div id="efecto" class="centrado grande">Efectos del movimiento</div>
+    <!-- Ej 3 onchange -->
+    <h2 class="h2">Ej 3 - onclick</h2>
+    <form id="form">
+        <p>Introduce el precio y la cantidad:</p>
+        <label for="precio">Precio:</label>
+        <input id="precio" type="number">
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" type="number">
+        <label for="total">Total:</label>
+        <input type="button" id="enviar" value="Calcular total">
+        <input id="total" readonly>
+    </form>
     <script src="1.js"></script>
     <script src="2.js"></script>
+    <script src="3.js"></script>
 </body>
 </html>
