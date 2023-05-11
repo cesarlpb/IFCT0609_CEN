@@ -13,6 +13,10 @@
             text-align: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        .h2 {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
         .centrado{
             width: 200px;
             height: 2.5rem;
@@ -24,11 +28,24 @@
             border-radius: 10px;
             text-align: center;
         }
+        .grande{
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 50%;
+            height: 2.5rem;
+        }
     </style>
 </head>
 <body>
     <h1 class="h1">Eventos</h1>
+    <!-- Ej 1 -->
+    <h2 class="h2">Ej 1 - onclick</h2>
     <div id="btn" class="centrado" onclick="ej1()">Haz click aquí</div>
+    <!-- Ej 2 -->
+    <h2 class="h2">Ej 2 - onmouseover y onmouseout</h2>
+    <div class="centrado grande" onmouseover="color('green')" onmouseout="color('brown')">Pasa el cursor por aquí</div>
+    <div id="efecto" class="centrado grande">Efectos del movimiento</div>
     <script src="1.js"></script>
+    <script src="2.js"></script>
 </body>
 </html>
