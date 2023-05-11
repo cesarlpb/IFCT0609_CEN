@@ -91,6 +91,10 @@
             text-align: center;
         }
         .boton{display:block; width:100px;cursor:pointer;margin: 10px;border:1px solid black}
+
+        .oculto{ display: none}
+        .visible {display:block}
+
     </style>
     <!-- Ej 4 - cargamos script en <head> pero usamos el evento load para saber cuándo la página ha terminado de cargar -->
     <script src="4.js"></script>
@@ -139,7 +143,17 @@
     <div id="c1" class="centrado grande" style="background: red" onmouseleave="saleDeRojo()">rojo</div>
     <div id="c2" class="centrado grande" style="background: white;color:black;" onmouseenter="entraEnBlanco(this)" onmouseleave="saleDeBlanco()">blanco</div>
     <div id="c3" class="centrado grande" style="background: blue" onmouseleave="saleDeAzul()">azul</div>
-        
+    <!-- Ej 8 - mostrar fichas presionando teclas -->
+    <h2 class="h2">Ej 8 - mostrar fichas presionando teclas</h2>
+    <div class="oculto centrado grande" id="ficha1" onkeydown="console.log(event.code)">  
+    Hola, soy el bloque 1
+    </div>
+    <div class="oculto centrado grande" id="ficha2">              
+    Hola, soy el bloque 2
+    </div>          
+    <div class="oculto centrado grande" id="ficha3">              
+    Hola, soy el bloque 3
+    </div>
     <!-- Scripts -->
     <script src="1.js"></script>
     <script src="2.js"></script>
@@ -147,5 +161,6 @@
     <script src="5.js"></script>
     <script src="6.js"></script>
     <script src="7.js"></script>
+    <script src="8.js"></script>
 </body>
 </html>
