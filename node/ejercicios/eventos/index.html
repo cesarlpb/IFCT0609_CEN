@@ -80,6 +80,7 @@
             border: 0;
             height: 3rem;
         }
+        .boton{display:block; width:100px;cursor:pointer;margin: 10px;border:1px solid black}
     </style>
     <!-- Ej 4 - cargamos script en <head> pero usamos el evento load para saber cuándo la página ha terminado de cargar -->
     <script src="4.js"></script>
@@ -111,8 +112,14 @@
         Cuadro que cambia al entrar el ratón
     </div>
     <!-- Normalmente, añadimos scripts justo antes del </body> para que el resto de la página haya cargado antes de que se ejecute nuestro JS -->
+    <h2 class="h2">Ej 5 - evento onclick con dos botones</h2>
+    <div id="boton1" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 1</div>
+    <div id="boton2" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 2</div>
+    
+    <!-- Scripts -->
     <script src="1.js"></script>
     <script src="2.js"></script>
     <script src="3.js"></script>
+    <script src="5.js"></script>
 </body>
 </html>
