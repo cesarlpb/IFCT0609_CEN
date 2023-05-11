@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Ej 6 - onmousemove en <html> para abarcar toda la página 
+     También podemos quitar todos los paddings o margins del body y colocarlo en esa etiqueta para que abarque toda la extensión de la página    
+-->
+<html lang="en" onmousemove="seguirCursor(event)">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,16 +46,18 @@
             border-radius: 10px;
             color: white;
         }
-        #form input, #form label, #form p{
+        #form input, #form label, #form p
+        .centrado label, .centrado input{
             display: block;
             font-size: 1.25rem;
             width: 60%;
-            padding: 5px 0;
+            padding: 7px 0;
             margin: 5px auto;
         }
         #form p{
             width: 90%;
             font-size: 1.25rem;
+            text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         #form input{
@@ -73,12 +78,17 @@
             font-size: 1.5rem;
             /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
         }
-        #total{
+        #total, input[readonly]{
             display: block;
             margin: 1rem auto 2rem;
             background-color: lightgray;
             border: 0;
             height: 3rem;
+        }
+        input[readonly]{
+            margin: 0.5rem auto;
+            height: 1.5rem;
+            text-align: center;
         }
         .boton{display:block; width:100px;cursor:pointer;margin: 10px;border:1px solid black}
     </style>
@@ -112,14 +122,23 @@
         Cuadro que cambia al entrar el ratón
     </div>
     <!-- Normalmente, añadimos scripts justo antes del </body> para que el resto de la página haya cargado antes de que se ejecute nuestro JS -->
+    <!-- Ej 5 - onclick con dos botones y una función -->
     <h2 class="h2">Ej 5 - evento onclick con dos botones</h2>
     <div id="boton1" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 1</div>
     <div id="boton2" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 2</div>
-    
+    <!-- Ej 6 - coordenadas del cursor -->
+    <h2 class="h2">Ej 6 - coordenadas del cursor</h2>
+    <div class="centrado grande" style="height: 11rem;">
+        <label>Coordenada X (px)</label>
+        <input id="cX" readonly>       
+        <label>Coordenada Y (px)</label>      
+        <input id="cY" readonly> 
+    </div>
     <!-- Scripts -->
     <script src="1.js"></script>
     <script src="2.js"></script>
     <script src="3.js"></script>
     <script src="5.js"></script>
+    <script src="6.js"></script>
 </body>
 </html>
