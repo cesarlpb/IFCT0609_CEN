@@ -25,6 +25,7 @@
         .activo{
             color: blue;
             font-family: Arial, "sans-serif";
+            text-decoration: underline;
         }
         .destacar{
             font-size: 18px;
@@ -50,7 +51,12 @@
             <div onclick="fuentesImg()" class="boton">Fuentes</div>
             <div onclick="intercalar()" class="boton">Subtitulo</div>
         </section>        
-    <header><h1 id="titular" onclick="togleClase()">Hola Mundo</h1></header>
+    <header>
+        <h1 id="titular" onclick="toggleClase()" class="miClase miOtraClase miOtraOtraClase">Hola Mundo</h1>
+    </header>
+    
+    <!-- Ej 8. aquí insertamos el nuevo div -->
+
     <div id="subtitulo" style="text-align:center">Página de muestra de Javascript de HTML</div>
     
     <!-- Contenedor para colocar el div nuevo dentro -->
@@ -125,13 +131,63 @@
         }
     }
     function fuentesImg(){
-    
+        // Ej 6 
+        let imgs = document.getElementsByTagName("img");
+        let fuentes = []
+        for(let i = 0; i < imgs.length; i++){
+            let img = imgs[i]; // tomamos una img en cada iteración
+            let src = img.getAttribute("src"); // enlace a la img
+            fuentes.push(src); // añadimos el enlace al arr
+        }
+        let fuentesDiv = document.getElementById("fuentes");
+        fuentesDiv.innerText = fuentes.join("\n") // join() nos junta los elementos de un arr concatenando y coloca el caracter que le pasamos como param como separador entre elementos
+
+        // Todo: hacer un appendChild con un <ul> y un <li> para cada uno de los elementos del arr. Nota: aqui ya no usaríamos innerText sino innerHTML
+        
     }    
-    function togleClase(){
-    
+    function toggleClase(){
+        // Ej 7
+        let h1 = document.getElementById("titular");
+        tieneClaseActivo = h1.classList.value.includes("activo"); // comprobamos si la clase "activo" existe en el elemento <h1>
+        if(!tieneClaseActivo){
+            h1.classList.add("activo");
+            console.log("activo");
+        }else{
+            h1.classList.remove("activo");
+            console.log("no activo");
+        }
+        /* Todo: extender esto a una lista de "estados" de 2 o más, por ejemplo: "inactivo", "activo", "desactivado", "activado", etc. 
+        let estados = ["activo", "inactivo", "desactivado"]
+        -> Haciendo click se debe alternar entre los estados de la lista (arr)
+        */
     }
     function intercalar(){
-    
+        // Ej 8
+        let div = document.createElement("div"); // Creamos elemento div
+        
+        div.classList.add("destacar"); // Añadimos clase destacar
+        div.style.fontWeight = "bold"; // Añadimos negrita
+        
+        // Centramos el div:
+        div.style.textAlign = "center"; // Añadimos centrado
+        div.style.padding = "12px"; // Añadimos padding
+        div.style.width = "300px"; // Añadimos ancho
+        div.style.margin = "12px auto"; // Añadimos margen
+        
+        div.innerText = "Página Modelo"; // Añadimos texto
+        
+        // Si lo queremos colocar en header después del <h1>:
+        let header = document.getElementsByTagName("header")[0];
+        // posiciones para colocar elemento con insertAdjacentHTML:
+        // beforebegin: antes del elemento padre
+        // afterbegin: dentro del elemento padre, antes del primer hijo
+        // beforeend: dentro del elemento padre, después del último hijo
+        // afterend: después del elemento padre
+
+        // En este ejercicio, nos sirve afterend (justo después, pero fuera del <header>) o beforeend (dentro del <header>)
+        header.insertAdjacentHTML("afterend", div.outerHTML); // Añadimos el div al header
+        // outerHTML nos devuelve el elemento con su etiqueta
+        // innerHTML nos devuelve el contenido del elemento sin la etiqueta
     }
         
     function cambiaImg(){
