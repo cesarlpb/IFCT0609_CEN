@@ -19,4 +19,5 @@ function seguirCursor(event){
     // Colocamos los valores en los inputs:
     let cX = document.getElementById("cX").value = event.clientX;
     let cY = document.getElementById("cY").value = event.clientY;
+    // Observación: también podemos usar event.x y event.y
 }

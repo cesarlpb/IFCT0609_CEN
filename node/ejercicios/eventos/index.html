@@ -182,13 +182,19 @@
     </nav>
     <!-- Ej 1 onclick -->
     <h2 id="ej1" class="h2">Ej 1 - onclick</h2>
+    <!-- Si el evento es "click" en HTML el atributo para hacer trigger de ese evento es "onclick" y le pasamos una llamada a una función -->
     <div id="btn" class="centrado" onclick="ej1()">Haz click aquí</div>
     <!-- Ej 2 onmouseover y onmouseout -->
     <h2 id="ej2" class="h2">Ej 2 - onmouseover y onmouseout</h2>
-    <div class="centrado grande" onmouseover="color('green')" onmouseout="color('brown')">Pasa el cursor por aquí</div>
+    <!-- Los eventos son respectivamente "mouseover" (cursor encima) y "mouseout" (cursos sale del elemento) pero los atributos en HTML empiezan por "on" -->
+    <div class="centrado grande" 
+    onmouseover="color('green')" 
+    onmouseout="color('brown')"
+    >
+    Pasa el cursor por aquí</div>
     <div id="efecto" class="centrado grande">Efectos del movimiento</div>
-    <!-- Ej 3 onchange -->
-    <h2 id="ej3" class="h2">Ej 3 - onclick</h2>
+    <!-- Ej 3 Evento click con listener -->
+    <h2 id="ej3" class="h2">Ej 3 - Evento click con listener</h2>
     <form id="form">
         <p>Introduce el precio y la cantidad:</p>
         <label for="precio">Precio:</label>
@@ -219,22 +225,26 @@
     </div>
     <!-- Ej 7 - cambio de colores entre 3 divs -->
     <h2 id="ej7" class="h2">Ej 7 - cambio de colores entre 3 divs</h2>
-    <div id="c1" class="centrado grande" style="background: red" onmouseleave="saleDeRojo()">rojo</div>
-    <div id="c2" class="centrado grande" style="background: white;color:black;" onmouseenter="entraEnBlanco(this)" onmouseleave="saleDeBlanco()">blanco</div>
-    <div id="c3" class="centrado grande" style="background: blue" onmouseleave="saleDeAzul()">azul</div>
+        <div id="c1" class="centrado grande" style="background: red" onmouseleave="saleDeRojo()">rojo</div>
+        <div id="c2" class="centrado grande" style="background: white;color:black;" 
+        onmouseenter="entraEnBlanco(this)" onmouseleave="saleDeBlanco()">blanco</div>
+        <div id="c3" class="centrado grande" style="background: blue" onmouseleave="saleDeAzul()">azul</div>
     <!-- Ej 8 - mostrar fichas presionando teclas -->
     <h2 id="ej8" class="h2">Ej 8 - mostrar fichas presionando teclas</h2>
     <p class="centrado grande" style="width: 80%; height: 5rem;">Presiona las teclas <kbd>1</kbd>, <kbd>2</kbd> o <kbd>3</kbd> para ver las fichas correspondientes.</p>
-    <div class="oculto centrado grande" id="ficha1" onkeydown="console.log(event.code)">  
+    <!-- Ficha 1 -->
+    <div class="oculto centrado grande" id="ficha1">  
     Hola, soy el bloque 1
     </div>
+    <!-- Ficha 2 -->
     <div class="oculto centrado grande" id="ficha2">              
     Hola, soy el bloque 2
-    </div>          
+    </div>    
+    <!-- Ficha 3 -->
     <div class="oculto centrado grande" id="ficha3">              
     Hola, soy el bloque 3
     </div>
-    <!-- Ej 10 - Formulario que no acepta números -->
+    <!-- Ej 10 - Formulario que no acepta números con evento input -->
     <h2 id="ej10" class="h2">Ej 10 - Formulario que no acepta números</h2>
     <form class="centrado grande" style="width: 80%; height: 8.5rem;">    
         <label for="">Elige tu username.</label>

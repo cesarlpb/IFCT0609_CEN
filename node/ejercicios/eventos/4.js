@@ -11,7 +11,7 @@ window.addEventListener("load", (event) => {
     // console.log("La página está cargada");
     // console.log(event.type, event.target) // tipo de evento: load, target del evento: document, etc.
 
-    let cuadro = document.getElementById("cuadro");
+    let cuadro = document.getElementById("cuadro"); // div
     cuadro.addEventListener("mouseover", (event) => cambiarFondo(cuadro, "red"));
     cuadro.addEventListener("mouseout", (event) => cambiarFondo(cuadro, "brown"));
 });

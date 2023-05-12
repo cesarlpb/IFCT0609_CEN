@@ -23,7 +23,7 @@ function saleDeBlanco(){
     puntoDePartida = "";
     // console.log(puntoDePartida);
 }
-function saleDeRojo(el_){
+function saleDeRojo(){
     // console.log("sale de rojo");
     puntoDePartida = "rojo";
     // console.log(puntoDePartida);

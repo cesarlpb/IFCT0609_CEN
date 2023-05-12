@@ -13,6 +13,7 @@ body.addEventListener("keydown", escribirTecla);
 function escribirTecla(e) {
   // console.log("código de tecla:", e.code); // 'Digit2'
   // console.log("tecla:", e.key) // '2'
+  // console.log(e)
   if(e.key == "1"){
     let ficha = document.getElementById("ficha1");
     ficha.classList.remove("oculto");
