@@ -17,14 +17,17 @@ function escribirTecla(e) {
     let ficha = document.getElementById("ficha1");
     ficha.classList.remove("oculto");
     ficha.classList.add("visible");
+    window.scrollTo(0, window.scrollY + 100);
   }else if(e.key == "2"){
     let ficha = document.getElementById("ficha2");
     ficha.classList.remove("oculto");
     ficha.classList.add("visible");
+    window.scrollTo(0, window.scrollY + 100);
   }else if(e.key == "3"){
     let ficha = document.getElementById("ficha3");
     ficha.classList.remove("oculto");
     ficha.classList.add("visible");
+    window.scrollTo(0, window.scrollY + 100);
   }
 }
 
