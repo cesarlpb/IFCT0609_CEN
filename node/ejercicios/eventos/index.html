@@ -133,6 +133,34 @@
             padding: 0.5rem 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        /* Atajos de teclado */
+        kbd{
+            border-radius: 5px;
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+        code{
+            background-color: black;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+            color: white;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
     </style>
     <!-- Ej 4 - cargamos script en <head> pero usamos el evento load para saber cuándo la página ha terminado de cargar -->
     <script src="4.js"></script>
@@ -196,6 +224,7 @@
     <div id="c3" class="centrado grande" style="background: blue" onmouseleave="saleDeAzul()">azul</div>
     <!-- Ej 8 - mostrar fichas presionando teclas -->
     <h2 id="ej8" class="h2">Ej 8 - mostrar fichas presionando teclas</h2>
+    <p class="centrado grande" style="width: 80%; height: 5rem;">Presiona las teclas <kbd>1</kbd>, <kbd>2</kbd> o <kbd>3</kbd> para ver las fichas correspondientes.</p>
     <div class="oculto centrado grande" id="ficha1" onkeydown="console.log(event.code)">  
     Hola, soy el bloque 1
     </div>
@@ -205,6 +234,13 @@
     <div class="oculto centrado grande" id="ficha3">              
     Hola, soy el bloque 3
     </div>
+    <!-- Ej 10 - Formulario que no acepta números -->
+    <h2 id="ej10" class="h2">Ej 10 - Formulario que no acepta números</h2>
+    <form class="centrado grande" style="width: 80%; height: 8.5rem;">    
+        <label for="">Elige tu username.</label>
+        <label for="letras">No se aceptan dígitos del <code>0</code> al <code>9</code> o los siguientes caracteres: <code>$</code>, <code>_</code>, <code>ñ</code></label>            
+        <input type="text" id="letras" style="text-align: center;margin-top:20px;">
+    </form>
     <!-- Ej 9 - navbar y footer con evento scroll -->
     <h2 id="ej9" class="h2">Ej 9 - navbar y footer con evento scroll</h2>
     <footer id="footer" class="centrado footer" style="height: 5rem;">
@@ -219,5 +255,6 @@
     <script src="7.js"></script>
     <script src="8.js"></script>
     <script src="9.js"></script>
+    <script src="10.js"></script>
 </body>
 </html>
