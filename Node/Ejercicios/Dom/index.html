@@ -40,11 +40,14 @@
             width: 100px;
             padding: 24px;
         }
+        .oculto{
+            display: none;
+        }
     </style>
     <style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style></head>
     <body>
         <section class="botones">
-            <div onclick="toggle()" class="boton">Abrir - cerrar</div>
+            <div onclick="toggle(this)" class="boton">Abrir - cerrar</div>
             <div onclick="cambiar()" class="boton">Cambiar título</div>
             <div onclick="crearDiv()" class="boton">Crear bloque</div>
             <div onclick="borrarDiv()" class="boton">Borrar bloque</div>
@@ -76,6 +79,7 @@
     </div>    
     <!-- inicio de las funciones javascript pedidas en los ejercicios -->
     <script>
+    // Ej 1-2 
     function cambiar(){
         // Ej 1
         let h1 = document.getElementById("titular");
@@ -90,6 +94,7 @@
         h1.style.textDecoration = "underline";
         h1.style.textAlign = "center"; // centrado del h1
     }
+    // Ej 3
     function crearDiv(){
         // Ej 3
         let div = document.createElement("div"); // creamos elemento indicando etiqueta
@@ -106,6 +111,7 @@
         let container = document.getElementById("container");
         container.appendChild(div); // Añadimos el div a container (dentro)
     }
+    // Ej 4
     function borrarDiv(){
         // Ej 4
         // Método 1: usando el id del elemento
@@ -116,6 +122,7 @@
         // let body = document.getElementsByTagName("body")[0];
         // body.removeChild(subtitulo)
     }
+    // Ej 5
     function ponerPie(fig){
         // ponerPie se llama con this -> y conseguimos el elemento <figure> que ha sido clickado
         // Ej 5
@@ -130,6 +137,7 @@
             pie.innerText = "";
         }
     }
+    // Ej 7
     function fuentesImg(){
         // Ej 6 
         let imgs = document.getElementsByTagName("img");
@@ -145,6 +153,7 @@
         // Todo: hacer un appendChild con un <ul> y un <li> para cada uno de los elementos del arr. Nota: aqui ya no usaríamos innerText sino innerHTML
         
     }    
+    // Ej 7
     function toggleClase(){
         // Ej 7
         let h1 = document.getElementById("titular");
@@ -161,6 +170,7 @@
         -> Haciendo click se debe alternar entre los estados de la lista (arr)
         */
     }
+    // Ej 8
     function intercalar(){
         // Ej 8
         let div = document.createElement("div"); // Creamos elemento div
@@ -189,12 +199,78 @@
         // outerHTML nos devuelve el elemento con su etiqueta
         // innerHTML nos devuelve el contenido del elemento sin la etiqueta
     }
-        
+    // Ej 9
     function cambiaImg(){
-    
+        // Ej 9
+        let imgs = ["uno.png", "dos.png", "tres.png"]; // Imágenes que tenemos disponibles para el carrusel
+        /* // Otras imágenes para probar en el carrusel:
+        let imgs = [
+            "https://via.placeholder.com/300x150?text=1", 
+            "https://via.placeholder.com/300x150?text=2",
+            "https://via.placeholder.com/300x150?text=3",
+            "https://via.placeholder.com/300x150?text=4",
+            "https://via.placeholder.com/300x150?text=5",
+            ]
+        */
+        let diapositiva = document.getElementById("diapo"); // <img> que contiene la imagen actual
+        let imgActual = diapositiva.getAttribute("src"); // src actual en <img>
+        // Opción 1. Buscamos el índice de la imagen actual en el arr
+        let indiceActual = imgs.indexOf(imgActual); // Índice de la imagen actual en el arr -> -1 si no está
+        // Opción 2. Buscamos el índice en data-img del div parent:
+        // let indiceActual = diapositiva.parentElement.getAttribute("data-img");
+        let indiceSiguiente = 0;
+        if(indiceActual === -1 || indiceActual === imgs.length - 1){
+            indiceSiguiente = 0; // Si no está o si es la última imagen, ponemos la primera imagen
+        }else if(indiceActual < imgs.length - 1){
+            indiceSiguiente = indiceActual + 1; // Si está, pasamos a la siguiente imagen
+        }
+        // Actualizamos src con la nueva imagen:
+        diapositiva.setAttribute("src", imgs[indiceSiguiente]);
+        // Actualizamos data-img con la nueva imagen
+        /*
+            <div>           -> diapositiva.parentElement
+                <img...>    -> diapositiva
+            </div>
+        */
+        diapositiva.parentElement.setAttribute("data-img", indiceSiguiente);
+        // console.log("click", indiceActual, indiceSiguiente, diapositiva.parentElement.getAttribute("data-img"))
     }
-    function toggle(){
-    
+    // Si queremos que las imágenes del carrusel cambien solas cada 1 segundo:
+    setInterval(cambiaImg, 1000);
+    // Ej 10
+    function toggle(btn){
+        console.log("click")
+        // Ej 10
+        let parent = btn.parentElement; // <section> que contiene el <div> que llama a esta función cuando se hace click
+        let divs = parent.getElementsByTagName("div"); // <div>s que están dentro del <section>
+        // Hacemos un bucle para mostrar u ocultar los divs salvo el primero:
+        for(let i = 1; i < divs.length; i++){
+            let div = divs[i];
+            // Opción 1: añadimos o quitamos display inline en div
+            // Si está visible, lo ocultamos:
+            if(div.style.display === "inline-block" || div.style.display === ""){
+                div.style.display = "none";
+            }else if(div.style.display === "none" ){
+                // Si está oculto, lo mostramos:
+                div.style.display = "inline-block";
+            }
+            // Nota: inline tiene máxima prioridad
+
+            // Opción 2: añadimos o quitamos clase oculto en div
+            /*
+            // Si está visible, lo ocultamos:
+            if(!div.classList.contains("oculto")){
+                // div.style.display = "none";
+                div.classList.add("oculto");
+            }else if(div.classList.contains("oculto")){
+                // Si está oculto, lo mostramos:
+                // div.style.display = "inline-block";
+                div.classList.remove("oculto");
+            }
+            */
+            // Nota: otra opción sería añadir o quitar una clase
+            // Por ejemplo: class = "oculto" -> display: none;
+        }
     }
     </script>    
     
