@@ -19,5 +19,5 @@ document.addEventListener("scroll", (event) => {
     }else{
         footer.classList.remove("fixed2");
     }
-    console.log(window.scrollY, maximoScrollEnY - window.innerHeight/2)
+    // console.log(window.scrollY, maximoScrollEnY - window.innerHeight/2)
 });

@@ -8,8 +8,8 @@ El script se colocará en la sección head. de la página.
 
 window.addEventListener("load", (event) => {
     // Información de carga de página y evento:
-    console.log("La página está cargada");
-    console.log(event.type, event.target) // tipo de evento: load, target del evento: document, etc.
+    // console.log("La página está cargada");
+    // console.log(event.type, event.target) // tipo de evento: load, target del evento: document, etc.
 
     let cuadro = document.getElementById("cuadro");
     cuadro.addEventListener("mouseover", (event) => cambiarFondo(cuadro, "red"));
@@ -17,7 +17,7 @@ window.addEventListener("load", (event) => {
 });
 
 function cambiarFondo(cuadro_, color_){
-    console.log("color:", color_);
+    // console.log("color:", color_);
     cuadro_.style.backgroundColor = color_;
 }
 

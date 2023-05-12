@@ -9,7 +9,7 @@ En la página que puedes construir con este código HTML tienes tres bloques: un
 */
 let puntoDePartida = "" // "", "rojo", "azul" implicando "" que o bien se parte de fuera de rojo o azul o bien se parte de cualquier lugar de la página
 function entraEnBlanco(el_){
-    console.log("entra en blanco")
+    // console.log("entra en blanco")
     if(puntoDePartida == "azul"){
         el_.style.backgroundColor = "blue";
     }else if(puntoDePartida == "rojo"){
@@ -17,19 +17,19 @@ function entraEnBlanco(el_){
     }else{
         el_.style.backgroundColor = "white";
     }
-    console.log(puntoDePartida);
+    // console.log(puntoDePartida);
 }
 function saleDeBlanco(){
     puntoDePartida = "";
-    console.log(puntoDePartida);
+    // console.log(puntoDePartida);
 }
 function saleDeRojo(el_){
-    console.log("sale de rojo");
+    // console.log("sale de rojo");
     puntoDePartida = "rojo";
-    console.log(puntoDePartida);
+    // console.log(puntoDePartida);
 }
 function saleDeAzul(){
-    console.log("sale de azul")
+    // console.log("sale de azul")
     puntoDePartida = "azul";
-    console.log(puntoDePartida);
+    // console.log(puntoDePartida);
 }
