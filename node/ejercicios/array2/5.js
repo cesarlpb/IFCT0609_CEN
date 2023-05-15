@@ -26,14 +26,44 @@ desc-> descendente -> de mayor a menor o en orden alfabético inverso
 // sort() modifica el array original y ordena ascendente por defecto
 // toSorted() devuelve un nuevo array ordenado y asc por defecto SIN modificar el array original
 
+// TODO: colocar validaciones o condiciones en las cuales no se ordena el array
+
 function ordenar(arr, orden = "asc", indice = 1){
     // indice = 0 -> ordenar por nombre
     // indice = 1 -> ordenar por nota
-    if(orden == "asc"){
+    if(indice == 0 && orden == "asc"){
+        return arr.sort() // orden alfabético
+    }else if(indice == 0 && orden == "desc"){
+        return arr.sort().reverse() // orden alfabético inverso
+        // Primero se ordena alfabéticamente y luego se invierte el orden del array
+    }else if(indice == 1 && orden == "asc"){
         // a-b -> ascendente
         return arr.sort((a, b) => a[indice] - b[indice])
-    } else if(orden == "desc"){
+    }else if(indice == 1 && orden == "desc"){
         // b-a -> descendente
         return arr.sort((a, b) => b[indice] - a[indice])
     }
 }
+
+/*
+
+// if clause
+if(indice != 0 && indice != 1){
+    return "valor de índice incorrecto"
+}
+if(orden != "asc" && orden != "desc"){
+    return "valor de orden incorrecto"
+}
+
+... Lógica de ordenación...
+
+if(indice == 0){
+    if(orden == "asc"){ ... }
+    else if(orden == "desc"){ ... }
+}
+else if(indice == 1){
+    if(orden == "asc"){ ... }
+    else if(orden == "desc"){ ... }
+}
+else { "valor incorecto"}
+*/
