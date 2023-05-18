@@ -13,6 +13,7 @@ diasMes("2023/1/1") dará 31
  * @param {string} fecha_ yyyy/mm/dd
  * @returns {number} Número de días del mes
  */
+// TODO: arreglar discrepancia de 2 días y eliminar al menos un contador
 function ultimoDiaDelMes(fecha_){
     let fecha = new Date(fecha_);
     if(isNaN(fecha.valueOf())){
@@ -31,4 +32,18 @@ function ultimoDiaDelMes(fecha_){
       console.log(mes, nuevaFecha, fecha.getMonth())
     }
     return ultimoDia-1; // discrepancia de 2 días ???
+}
+
+function diasMes(fecha) {
+  // Convertir la fecha en formato "YYYY/MM/DD" a un objeto Date
+  let date = new Date(fecha);
+
+  // Obtener el mes y el año de la fecha
+  let month = date.getMonth() + 1; // Se suma 1 porque los meses en JavaScript van de 0 a 11
+  let year = date.getFullYear();
+
+  // Determinar el último día del mes
+  let lastDay = new Date(year, month, 0).getDate();
+
+  return lastDay;
 }
