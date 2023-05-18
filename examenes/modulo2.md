@@ -5,17 +5,23 @@
 1. Este ejercicio es todo un clásico si lo haces a la primera y sin tardar mucho, puedes estar seguro: entiendes las variables.
 Tienes que escribir un programa que intercambie el valor de dos variables. Al final la primera variable debe tener el valor de la segunda y la segunda el valor de la primera.
 
+- [Resuelto en `9.js`](../js/ejercicios/1.variables/9.js)
+
 **En particular, me interesa una variante donde se intercambien datos entre más de dos variables.**
 
 ## Condicionales
 
 2. Una tienda aplica un descuento del 15% para las compras que incluyan más de 10 artículos iguales cuyo precio sea superior a 40 euros. Tu programa debe comprobar y calcular la cantidad a pagar sabiendo el número de artículos y el precio de cada uno.
 
+- [Resuelto en `9.js`](../js/ejercicios/2.condicionales_1/9.js)
+
 3. Un comerciante hace descuentos a sus clientes de la siguiente forma:
 Si ha comprado menos de 100 euros no hay descuento
 Si la compra está entre 100 y 300 euros le descuenta un 5%
 Si la compra está por encima de 300 hasta 500 euros le descuenta un 10%
 Si la compra supera los 500 euros le descuenta un 15%
+
+- [Resuelto en `9.js`](../js/ejercicios/3.condicionales_2/9.js)
 
 ## Bucle for
 
