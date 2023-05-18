@@ -37,7 +37,6 @@ function getWeek(fecha){
       primerLunesBucle++;
       primerDiaBucle = new Date(fecha.getFullYear(), 0, primerLunesBucle).getDay();
     }
-    console.log(primerLunesBucle)
   }
   // Necesitamos ubicar el segundo lunes del año si el 1 de enero es lunes o el primer lunes si el 1 de enero no es lunes
 
@@ -48,6 +47,12 @@ function getWeek(fecha){
     semana++;
     fechaComparacion.setDate(fechaComparacion.getDate() + 7);
   }
-  console.log(fechaComparacion, fecha)
+
+  // Hasta aquí llegamos con 0 semanas en el caso del 1 de enero
+  // * Si el año termina antes del jueves esa última semana se cuenta como semana 1 del año siguiente. -> 52, 1, 2, etc.
+  if(semana === 0){
+    fecha = new Date(fecha.getFullYear()-1, 11, 31);
+    return getWeek(fecha);
+  }
   return semana;
 }
