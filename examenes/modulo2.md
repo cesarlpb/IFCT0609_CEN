@@ -41,15 +41,21 @@ Le tecleamos el valor `5`. El resultado será:
   *****
 ```
 
+- [Resuelto en `8.1.js` función trianguloIzq()](../js/ejercicios/4.for/8.1.js)
+
 ## While - Do while
 
 6. Programa que escriba la hora hasta que el usuario presione una tecla para parar el proceso. Se podría plantear un evento del DOM.
 
 7. Un script pedirá al usuario que vaya tecleando números hasta llegar al 0, entonces el programa muestra "La suma es " seguido de la suma de los números. Si esta suma es número par el programa se repite y si es impar el programa acaba.
 
+- [Resuelto en `8.js`](../js/ejercicios/5.while/8.js)
+
 ## Funciones
 
 8. Calcular el factorial de un número. Ya sea por recursividad o por bucle.
+
+- [Resuelto en `6.js` de dos formas](../js/ejercicios/7.funciones/6.js)
 
 9. Usa el algoritmo de Euclides para diseñar una función que determine el máximo común divisor de dos números. Bueno este algoritmo es bien simple. Para clacular el mcd de A y B:
 
@@ -60,15 +66,21 @@ Le tecleamos el valor `5`. El resultado será:
   Asigna a B el resto
   Repite hasta que A o B sean 0.
 
+- [Resuelto en `5.js`](../js/ejercicios/7.funciones/5.js)
+
 10. Calcular el mcm, mínimo común múltiplo.
 
 ## Arrays
 
 11. Fn para ordenar un array alfabéticamente o en orden numérico. Ascendente y descendente. Debe recibir un array y un `param` (`'ASC'`, `'DESC'`) para el sentido de ordenación.
 
+- [Una forma de resolverlo en `5.js`](../js/ejercicios/12.Array/5.js)
+
 ## Clases y objetos
 
 12. Hacer una clase `Cuenta` con métodos para `ingresar`, `retirar` `dinero`, `verSaldo`, `imprimir` comprobante.
+
+- [Resuelto en `4.js`](../js/ejercicios/9.clases-y-objetos/4.js)
 
 ## DOM / Eventos
 
