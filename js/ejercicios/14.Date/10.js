@@ -56,3 +56,5 @@ function getWeek(fecha){
   }
   return semana;
 }
+
+// Idea: pasar a unix time, calcular las semanas
