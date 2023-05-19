@@ -136,11 +136,45 @@ Le tecleamos el valor `5`. El resultado será:
 10. Calcular el mcm, mínimo común múltiplo.
 
 ```javascript
+
   // 4 y 5 -> 20 porque 4*5=20 y 5*4=20
+  // 4, 8, 12, 16, 20
+  // 5, 10, 15, 20
+
   // 6 y 8 -> 24 porque 6*4=24 y 8*3=24
+  // 6, 12, 18, 24...
+  // 8, 16, 24...
+
   // 3 y 7 -> 21 porque 3*7=21 y 7*3=21
+  // 1 y 17 -> 17 porque 1*17=17 y 17*1=17
   // etc.
   // Se puede calcular con un bucle
+  let num1 = parseInt(prompt("Introduce un número: "))
+  let num2 = parseInt(prompt("Introduce otro número:" ))
+  let mcm = num1 * num2
+  // En arr1 -> multiplos de num1
+  // En arr2 -> multiplos de num2
+  let arr1 = [], arr2 = []
+  // múltiplos de num1
+  for(let i=1; i<=num2; i++){
+    arr1.push(num1 * i)
+  }
+  // múltiplos de num2
+  for(let i=1; i<=num1; i++){
+    arr2.push(num2 * i)
+  }
+  // Lo ideal sería usar el arr mas corto para buscar coincidencia pero usando cualquier también funciona
+  // Buscamos el mcm:
+  for(let i=0; i<arr1.length; i++){
+    let multiplo = arr1[i]
+    if(arr2.includes(multiplo)){
+      mcm = multiplo
+      break
+    }
+  }
+  console.log(num1, num2, "mcm:", mcm)
+  // TODO: mejorar este ejercicio con algún algoritmo o con uso de teoremas matemáticos
+  // Referencia: https://prometeo.matem.unam.mx/recursos/Bachillerato/DGEE_DGTIC_IMATE/recursos/1_004/index.html
 ```
 
 ## Arrays
