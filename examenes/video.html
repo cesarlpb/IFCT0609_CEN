@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+
+<body>
+    <h1>Video</h1>
+    <video id="video" src="video.mp4" autoplay muted loop width="auto" height="500"></video>
+    <br>
+    <button onclick="reproducirVideo()">Reproducir vídeo</button>
+    <br>
+    <button onclick="pausarVideo()">Pausar vídeo</button>
+
+    <script>
+        function pausarVideo() {
+            const video = document.getElementById("video");
+            video.pause();
+            console.log("El vídeo está pausado");
+        }
+        function reproducirVideo() {
+            const video = document.getElementById("video");
+            video.play();
+            console.log("El vídeo está en reproducción");
+        }
+    </script>
+</body>
+
+</html>

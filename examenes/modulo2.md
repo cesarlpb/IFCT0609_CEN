@@ -191,12 +191,21 @@ Le tecleamos el valor `5`. El resultado será:
 
 ## DOM / Eventos
 
-13. Vídeo en reproducción. Pausar con un clic en <body>
+13. Vídeo en reproducción. Pausar con un clic en <button>, <body>, <div>, etc.
+
+```html
+  <h1>Video</h1>
+  <video id="video" src="video.mp4" autoplay muted loop width="auto" height="500"></video>
+  <br>
+  <button onclick="pausarVideo()">Pausar vídeo</button> 
+```
 
 ```javascript
-  // Ejemplo página de OpenAI -> openai.com
-  // <video autoplay>
-  // click -> pause()
+  function pausarVideo() {
+    const video = document.getElementById("video");
+    video.pause();
+    console.log("El vídeo está pausado");
+  }
 ```
 
 ## Array, String, Date
