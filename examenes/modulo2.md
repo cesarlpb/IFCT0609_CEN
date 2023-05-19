@@ -24,7 +24,7 @@ Tienes que escribir un programa que intercambie el valor de dos variables. Al fi
   console.log("var1:", nuevoVar2)
   console.log("var2:", nuevoVar1)
 ```
-## TODO?:
+### TODO?:
 **En particular, me interesa una variante donde se intercambien datos entre más de dos variables.**
 
 ```javascript
@@ -57,7 +57,7 @@ Si la compra supera los 500 euros le descuenta un 15%
 
 - [Resuelto en `9.js`](../js/ejercicios/3.condicionales_2/9.js)
 
-## Bucle for
+## Bucle for
 
 4. Se puede hacer con una función. Sumar los números del 1 al 100. Sumar con condiciones, solo los pares, solos los impares. El bucle debe poder sumar a cualquier n que se le indique.
 
@@ -98,11 +98,19 @@ Le tecleamos el valor `5`. El resultado será:
 6. Programa que escriba la hora hasta que el usuario presione una tecla para parar el proceso. Se podría plantear un evento del DOM.
 
 ```javascript
+    setInterval(function(){
+        let date = new Date() 
+        let horaActual = date.toLocaleTimeString() // hh:mm:ss
+        // document.getElementById("reloj").innerText = horaActual
+        console.log(horaActual)
+    }, 1000); 
   // Bucle infinito -> while(key != "x")
     // Mostrar hora -> console.log() // document.getElementById("id").innerHTML = hora...
     // Esperar 1 segundo
   // Fin bucle
 ```
+[Ejemplo similar a este ejercicio](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+**No entra**
 
 7. Un script pedirá al usuario que vaya tecleando números hasta llegar al 0, entonces el programa muestra "La suma es " seguido de la suma de los números. Si esta suma es número par el programa se repite y si es impar el programa acaba.
 
