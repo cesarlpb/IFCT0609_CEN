@@ -62,10 +62,18 @@ Si la compra supera los 500 euros le descuenta un 15%
 4. Se puede hacer con una función. Sumar los números del 1 al 100. Sumar con condiciones, solo los pares, solos los impares. El bucle debe poder sumar a cualquier n que se le indique.
 
 ```javascript
-function sumar(n, parImpar = "par"){
-  // Bucle para sumar hasta n
-    // if() -> número es par o impar
-  // devolver suma
+function sumar(n, parImpar = "todos"){
+  let suma = 0
+  for(let i = 0; i <= n; i++){
+    if(parImpar == "par" && i % 2 == 0){
+      suma += i
+    }else if(parImpar == "impar" && i % 2 != 0){
+      suma += i
+    }else if(parImpar == "todos"){
+      suma += i
+    }
+  }
+  return suma
 }
 ```
 
