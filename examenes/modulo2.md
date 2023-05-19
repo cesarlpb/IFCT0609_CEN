@@ -14,6 +14,17 @@ Tienes que escribir un programa que intercambie el valor de dos variables. Al fi
 
 - [Resuelto en `9.js`](../js/ejercicios/1.variables/9.js)
 
+**Idea: Sin modificar valores de variables originales en ningún momento**
+
+```javascript
+  // Estos datos NO pueden cambiar:
+  const var1 = prompt("Introduce un valor:")
+  const var2 = prompt("Introduce otro valor:")
+  let nuevoVar1 = var2, nuevoVar2 = var1 // Estos sí podrían cambiar
+  console.log("var1:", nuevoVar2)
+  console.log("var2:", nuevoVar1)
+```
+## TODO?:
 **En particular, me interesa una variante donde se intercambien datos entre más de dos variables.**
 
 ```javascript
