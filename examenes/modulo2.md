@@ -213,17 +213,35 @@ Le tecleamos el valor `5`. El resultado será:
 14. Fn para calcular la diferencia en días, semanas, meses, años entre dos fechas. Recibe dos fechas o string de fecha (ambas opciones) y devuelve las diferencias en objeto.
 
 ```javascript
-  let fecha1 = new Date(2023, 04, 18)
-  let fecha2 = new Date(2023, 04, 17)
-  calcularDiferencia(fecha1, fecha2){
-    // código
+  let fecha1 = prompt("Introduce una fecha (dd/mm/aaaa): ")
+  let fecha2 = prompt("Introduce otra fecha (dd/mm/aaaa): ")
+  calcularDiferencia(fecha1, fecha2)
+  // ¡Esta función es muy útil! 👀
+  function cambiarFormato(fechaStr){
+    // Recibimos un string con datos separados por / -> dd/mm/aaaa
+    let arr = fechaStr.split("/")
+    if(arr.length !== 3){
+        console.error("Formato de fecha incorrecto")
+        return ""
+    }else{
+        let [dia, mes, año] = arr;
+        return `${mes}/${dia}/${año}`
+    }
   }
-  // output
-  {
-    dias: 1,
-    semanas: 0,
-    meses: 0,
-    años: 0
+  function calcularDiferencia(date1_, date2_){
+    let date1 = new Date(cambiarFormato(date1_))
+    let date2 = new Date(cambiarFormato(date2_))  
+    let diferencia = date2 - date1 // ms
+    let dias = Math.abs(Math.floor(diferencia / (1000 * 60 * 60 * 24)))
+    let semanas = Math.floor(dias / 7)
+    let meses = Math.floor(dias / 30)
+    let años = Math.floor(dias / 365)
+    return {
+      dias: dias,
+      semanas: semanas,
+      meses: meses,
+      años: años
+      }
   }
 ```
 
