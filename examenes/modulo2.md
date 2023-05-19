@@ -7,6 +7,13 @@ Si no se especifica el tipo de retorno, se admite:
   - document.getElementById("id").innerHTML = datos // usando HTML para ver los resultados
 ```
 
+Entran:
+- 3  ✅ Ej. condicional, descuentos
+- 4  ✅ Ej. for para sumar
+- 8  ✅ Ej. factorial
+- 12 ✅ Ej. clase MiCuenta (un poco largo)
+- 13 ✅ Ej. vídeo
+
 ## Variables
 
 1. Este ejercicio es todo un clásico si lo haces a la primera y sin tardar mucho, puedes estar seguro: entiendes las variables.
@@ -25,7 +32,7 @@ Tienes que escribir un programa que intercambie el valor de dos variables. Al fi
   console.log("var2:", nuevoVar1)
 ```
 ### TODO?:
-**En particular, me interesa una variante donde se intercambien datos entre más de dos variables.**
+**❌En particular, me interesa una variante donde se intercambien datos entre más de dos variables.**
 
 ```javascript
 
@@ -95,7 +102,7 @@ Le tecleamos el valor `5`. El resultado será:
 
 ## While - Do while
 
-6. Programa que escriba la hora hasta que el usuario presione una tecla para parar el proceso. Se podría plantear un evento del DOM.
+6. ❌Programa que escriba la hora hasta que el usuario presione una tecla para parar el proceso. Se podría plantear un evento del DOM.
 
 ```javascript
     setInterval(function(){
