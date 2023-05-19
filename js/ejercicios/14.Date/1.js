@@ -26,14 +26,15 @@ if(!diaSemana){
     alert(`Naciste un ${diaSemana}`)
   }
 
+// ¡Esta función es muy útil! 👀
 function cambiarFormato(fechaStr){
-    // Recibimos un string con datos separados por / -> dd/mm/aaaa
-    let arr = fechaStr.split("/")
-    if(arr.length !== 3){
-        console.error("Formato de fecha incorrecto")
-        return ""
-    }else{
-        let [dia, mes, año] = arr;
-        return `${mes}/${dia}/${año}`
-    }
+  // Recibimos un string con datos separados por / -> dd/mm/aaaa
+  let arr = fechaStr.split("/")
+  if(arr.length !== 3){
+      console.error("Formato de fecha incorrecto")
+      return ""
+  }else{
+      let [dia, mes, año] = arr;
+      return `${mes}/${dia}/${año}`
+  }
 }
