@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "meta-viewport": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "detect-css-reflows/composite": "off",
+    "detect-css-reflows/layout": "off",
+    "detect-css-reflows/paint": "off",
+    "compat-api/css": "off",
+    "no-inline-styles": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 112",
+    "not chrome <= 112",
+    "not edge <= 112",
+    "not firefox <= 112",
+    "not safari <= 16.4",
+    "not samsung <= 20",
+    "not and_chr <= 112",
+    "not and_ff <= 110",
+    "not chrome <= 112",
+    "not edge <= 112",
+    "not firefox <= 112",
+    "not ios_saf <= 16.4",
+    "not opera <= 95",
+    "not safari <= 16.4",
+    "not samsung <= 20",
+    "not and_chr <= 112",
+    "not and_ff <= 110",
+    "not chrome <= 112",
+    "not edge <= 112",
+    "not firefox <= 112",
+    "not ios_saf <= 16.4",
+    "not opera <= 95",
+    "not safari <= 16.4",
+    "not samsung <= 20"
+  ]
+}
