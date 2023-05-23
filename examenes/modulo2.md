@@ -198,7 +198,7 @@ Le tecleamos el valor `5`. El resultado será:
 
 ## DOM / Eventos
 
-13. Vídeo en reproducción. Pausar con un clic en <button>, <body>, <div>, etc.
+13. Vídeo en reproducción. Pausar con un clic en `<button>`, `<body>`, `<div>`, etc.
 
 ```html
   <h1>Video</h1>
