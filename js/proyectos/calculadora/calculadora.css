@@ -23,7 +23,10 @@
 }
 
 .digito, .operador, .accion{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
 }
 .digito{
   background-color: lightgray;
