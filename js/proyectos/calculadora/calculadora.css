@@ -24,14 +24,28 @@
   
   .digito, .operador, .accion{
     display: flex;
+    color: white;
     justify-content: center;
     align-items: center;
     height: 65px;
   }
-  .digito{
-    background-color: lightgray;
+  .digito:hover, .operador:hover, .accion:hover{
+    background-color: #555!important;
   }
-  
+  .digito:active, .operador:active, .accion:active{
+    background-color: #ddd!important;
+    color: black;
+  }
+  .digito{
+    background-color: #aaa;
+  }
+  /* Resultado */
+  #resultado{
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
   /* Clases para order */
   .order-6{
     order: 6;
