@@ -1,0 +1,65 @@
+/* Orden de botones */
+#btn-borrar{
+    background-color: gray;
+    order: -10;
+  }
+  #btn-signo{
+    background-color: gray;
+    order: -9;
+  }
+  #btn-porcentaje{
+    background-color: gray;
+    order: -8;
+  }
+  #btn-dividir{
+    background-color: orange;
+    order: -5;
+  }
+  #btn-multiplicar, 
+  #btn-restar, 
+  #btn-sumar, 
+  #btn-igual{
+    background-color: orange;
+  }
+  
+  .digito, .operador, .accion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+  }
+  .digito{
+    background-color: lightgray;
+  }
+  
+  /* Clases para order */
+  .order-6{
+    order: 6;
+  }
+  .order-7{
+    order: 7;
+  }
+  .order-8{
+    order: 8;
+  }
+  .order-9{
+    order: 9;
+  }
+  .order-10{
+    order: 10;
+  }
+  .order-11{
+    order: 11;
+  }
+  .order-12{
+    order: 12;
+  }
+  .order-13{
+    order: 13;
+  }
+  .order-14{
+    order: 14;
+  }
+  .order-15{
+    order: 15;
+  }

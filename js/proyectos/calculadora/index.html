@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+    <!-- Hoja de estilos de calculadora -->
+    <link rel="stylesheet" href="./calculadora.css">
+</head>
+<body>
+ <div class="container p-5">
+    <h1 class="text-center">Calculadora</h1>
+   <div class="containrer border border-dark p-5 justify-content-center">
+    <div class="row col-10 col-md-6 bg bg-secondary p-1 mx-auto">
+       <p class="text-end fs-3">0</p>
+    </div>
+    <div class="row col-10 col-md-6 mx-auto">
+      <div class="digito col-6 border border-dark order-12">0</div>
+      <div class="digito col-3 border border-dark order-1">1</div>
+      <div class="digito col-3 border border-dark order-2">2</div>
+      <div class="digito col-3 border border-dark order-3">3</div>
+      <div class="digito col-3 border border-dark order-5">4</div>
+      <div class="digito col-3 border border-dark order-6">5</div>
+      <div class="digito col-3 border border-dark order-7">6</div>
+      <div class="digito col-3 border border-dark order-9">7</div>
+      <div class="digito col-3 border border-dark order-10">8</div>
+      <div class="digito col-3 border border-dark order-11">9</div>
+      <div class="digito col-3 border border-dark order-13">,</div>
+      <div id="btn-sumar" class="operador col-3 border border-dark order-11">+</div>
+      <div id="btn-restar" class="operador col-3 border border-dark order-8">-</div>
+      <div id="btn-multiplicar" class="operador col-3 border border-dark order-4">*</div>
+      <div id="btn-dividir" class="operador col-3 border border-dark">÷</div>
+      <div id="btn-signo" class="operador col-3 border border-dark">+/-</div>
+      <div id="btn-porcentaje" class="operador col-3 border border-dark">%</div>
+      <div id="btn-borrar" class="accion col-3 border border-dark">C</div>
+      <div id="btn-igual" class="accion col-3 border border-dark order-14">=</div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="./calculadora.js"> </script>
+</html>
