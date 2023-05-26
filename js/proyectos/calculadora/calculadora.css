@@ -29,6 +29,13 @@
   align-items: center;
   height: 65px;
 }
+.digito:hover, .operador:hover, .accion:hover{
+  background-color: #555!important;
+}
+.digito:active, .operador:active, .accion:active{
+  background-color: #ddd!important;
+  color: black;
+}
 .digito{
   background-color: #aaa;
 }
