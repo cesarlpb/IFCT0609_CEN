@@ -1,3 +1,6 @@
+// Iniciamos el programa con este boolean en false
+let hayOperacion = false
+
 function escribir(div){
   console.log(div.innerText)
   // Escribir en el display con id="resultado"
@@ -12,6 +15,10 @@ function escribir(div){
       resultado.innerText += tecla // concatenar la coma
     }else if(tecla != ","){
       resultado.innerText += tecla
+    }
+    if(hayOperacion){
+      resultado.innerText = tecla
+      hayOperacion = false
     }
   }else{
     alert(mensaje)
@@ -49,6 +56,7 @@ function calcular(){
   console.log(expresion)
   let valorCalculado = math.evaluate(expresion)
   resultado.innerText = valorCalculado
+  hayOperacion = true
   console.log("Calculado")
 }
 // TODO:
