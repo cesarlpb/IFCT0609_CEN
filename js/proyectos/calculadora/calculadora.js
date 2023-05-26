@@ -3,13 +3,18 @@ function escribir(div){
   // Escribir en el display con id="resultado"
   let tecla = div.innerText 
   let resultado = document.getElementById("resultado")
-  if(resultado.innerText == "0"){
-    resultado.innerText = ""
-  }
-  if(tecla == "," && !resultado.innerText.includes(",")){
-    resultado.innerText += tecla // concatenar la coma
-  }else if(tecla != ","){
-    resultado.innerText += tecla
+  let mensaje = "Máximo 10 caracteres"
+  if(resultado.innerText.length <10){
+    if(resultado.innerText == "0"){
+      resultado.innerText = ""
+    }
+    if(tecla == "," && !resultado.innerText.includes(",")){
+      resultado.innerText += tecla // concatenar la coma
+    }else if(tecla != ","){
+      resultado.innerText += tecla
+    }
+  }else{
+    alert(mensaje)
   }
 }
 function borrar(){
@@ -24,5 +29,18 @@ function porcentaje(){
   console.log("Porcentaje")
 }
 function calcular(){
-  console.log("Calcular")
+  // Calcular el display con id="resultado"
+  let resultado = document.getElementById("resultado")
+  console.log(resultado.innerText)
+  let expresion = resultado.innerText
+                  .replaceAll("÷","/")
+                  .replaceAll("×","*")
+                  .replaceAll(",",".")
+  console.log(expresion)
+  let valorCalculado = math.evaluate(expresion)
+  resultado.innerText = valorCalculado
+  console.log("Calculado")
 }
+// TODO:
+// Resetear valor si ya hay un resultado
+  // Reducimos tamaño de fuente ?
