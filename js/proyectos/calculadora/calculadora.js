@@ -24,9 +24,19 @@ function borrar(){
 }
 function cambiarSigno(){
   console.log("Cambio de signo")
+  let resultado = document.getElementById("resultado")
+  let esNumero = parseFloat(resultado.innerText) == resultado.innerText
+  if(esNumero){
+    resultado.innerText = -1 * parseFloat(resultado.innerText)
+  }
 }
 function porcentaje(){
   console.log("Porcentaje")
+  let resultado = document.getElementById("resultado")
+  let esNumero = parseFloat(resultado.innerText) == resultado.innerText
+  if(esNumero){
+    resultado.innerText = parseFloat(resultado.innerText) / 100
+  }
 }
 function calcular(){
   // Calcular el display con id="resultado"
@@ -43,4 +53,11 @@ function calcular(){
 }
 // TODO:
 // Resetear valor si ya hay un resultado
-  // Reducimos tamaño de fuente ?
+// Reducimos tamaño de fuente ?
+  // Adaptar el máximo de caracteres
+// Botones +/- y %
+
+// Estilos:
+  // Ancho de la calc en pantallas md y sm
+  // Bordes
+  // Colores de active y hover? 
