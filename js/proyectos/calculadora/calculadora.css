@@ -24,12 +24,21 @@
 
 .digito, .operador, .accion{
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   height: 65px;
 }
 .digito{
-  background-color: lightgray;
+  background-color: #aaa;
+}
+
+/* Resultado */
+#resultado{
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0;
 }
 
 /* Clases para order */
