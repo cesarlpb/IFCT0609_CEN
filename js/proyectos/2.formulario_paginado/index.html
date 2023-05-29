@@ -31,11 +31,14 @@
         </div>
         </header>
         <hr>
-        <form id="form">
+        <form id="form" novalidate>
           <section id="seccion1">
             <!-- Datos de registro -->
             <label for="nombre-input" id="nombre-label">Nombre:</label>
             <input type="text" id="nombre-input" placeholder="Pepe Rana">
+            <div id="nombre-success" class="text-success">Mensaje de campo correcto</div>
+            <div id="nombre-error" class="text-danger">Mensaje de error</div>
+            <hr>
             <label for="username-input" id="username-label">Username:</label>
             <input type="text" id="username-input" placeholder="pepe.rana">
             <label for="password-input" id="password-label">Contraseña:</label>
@@ -70,9 +73,11 @@
             <input type="text" id="cv-input">
           </section>
           <hr>
-          <button class="btn btn-primary">Anterior</button>
-          <button class="btn btn-primary">Siguiente</button>
-          <input id="submit" type="submit" class="btn btn-primary disabled" value="Enviar">
+          <nav id="nav">
+            <button id="anterior" class="btn btn-primary disabled">Anterior</button>
+            <button id="siguiente" class="btn btn-primary disabled">Siguiente</button>
+            <button id="enviar" class="btn btn-primary disabled">Enviar</button>
+          </nav>
         </form>
     </div>
   </main>
