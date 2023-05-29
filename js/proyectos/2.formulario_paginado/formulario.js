@@ -7,16 +7,22 @@ btnAnterior.addEventListener('click', (e) => {
   // Determinar en qué sección estamos o cuál esta activa
   // Cambiar a la anterior sección
   let seccionActiva = seccionActual();
-  cambiarSeccion(seccionActiva-1)
-  console.log("anterior", seccionActiva);
+  if(seccionActiva > 1){
+    cambiarSeccion(seccionActiva-1)
+    ocultarPrevNext();
+    console.log("siguiente", seccionActiva-1);
+  }
 });
 btnSiguiente.addEventListener('click', (e) => { 
   e.preventDefault();
   // Determinar en qué sección estamos o cuál esta activa
   // Cambiar a la siguiente sección
   let seccionActiva = seccionActual();
-  cambiarSeccion(seccionActiva+1)
-  console.log("siguiente", seccionActiva);
+  if(seccionActiva < 3){
+    cambiarSeccion(seccionActiva+1)
+    ocultarPrevNext();
+    console.log("siguiente", seccionActiva+1);
+  }
 });
 btnEnviar.addEventListener('click', (e) => { 
   e.preventDefault();
@@ -39,8 +45,27 @@ function seccionActual() {
   return seccionActiva
 }
 /**
+ * Cambia a la sección del param
  * @param {Number} numero de la seccion a la que se quiere cambiar
  */
-function cambiarSeccion(numero) {
-  // cambia a la sección del param
+function cambiarSeccion(nuevaSeccion) {
+  let secciones = document.querySelectorAll('section')
+  secciones.forEach((seccion, index) => {
+    if(index == nuevaSeccion-1) {
+      seccion.classList.add('active');
+    }else {
+      seccion.classList.remove('active');
+    }
+  });
+}
+function ocultarPrevNext(){
+  let seccionActiva = seccionActual();
+  if(seccionActiva == 1){
+    btnAnterior.classList.add('disabled');
+  }else if(seccionActiva == 3){
+    btnSiguiente.classList.add('disabled');
+  }else{
+    btnAnterior.classList.remove('disabled');
+    btnSiguiente.classList.remove('disabled');
+  }
 }
