@@ -68,3 +68,7 @@ input {
 #enviar {
   background-color: brown;
 }
+/* Secciones */
+section:not(.active) {
+  display: none;
+}
