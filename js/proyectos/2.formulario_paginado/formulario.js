@@ -69,3 +69,14 @@ function ocultarPrevNext(){
     btnSiguiente.classList.remove('disabled');
   }
 }
+
+// TODO:
+// 1. Validar los campos del formulario -> por secciones y "todo"
+// 2. Presentar mensajes de error según validaciones
+// 3. Habilitar botón enviar si todo es correcto
+// 4. Enviar formulario a un servidor -> como no podemos hacer esto ahora, lo simularemos: 
+  // con un console.log
+  // con un alert
+  // con un mensaje en el DOM -> JSON -> {nombre: "Juan", apellido: "Perez", ...}
+    // paso intermedio: la contraseña no se envía, se pasa a un hash primero
+  // O podemos colocar una pantalla final (HTML) donde el usuario vea sus datos entregados
