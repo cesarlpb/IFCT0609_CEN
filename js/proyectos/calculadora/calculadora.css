@@ -1,29 +1,82 @@
 /* Orden de botones */
-#btn-borrar{
+body {
+    background-color: rgb(221, 221, 221);
+}
+
+#main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Display */
+#display {
+    border: 2px solid #000;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+}
+
+#teclas {
+    border: 2px solid #000;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Orden de botones */
+#btn-borrar,
+#btn-signo,
+#btn-porcentaje,
+#uno,
+#dos,
+#tres,
+#cuatro,
+#cinco,
+#seis,
+#siete,
+#ocho,
+#nueve,
+#cero,
+#coma {
+    border: 2px solid #000;
+    border-top: 0;
+    border-left: 0;
+}
+#btn-borrar {
     background-color: gray;
     order: -10;
   }
-  #btn-signo{
+  #btn-signo {
     background-color: gray;
     order: -9;
   }
-  #btn-porcentaje{
+  #btn-porcentaje {
     background-color: gray;
     order: -8;
   }
-  #btn-dividir{
-    background-color: orange;
+  #btn-dividir {
     order: -5;
   }
+  #btn-dividir,
   #btn-multiplicar, 
   #btn-restar, 
   #btn-sumar, 
   #btn-igual{
     background-color: orange;
+    border-bottom: 2px solid #000;
   }
   
   .digito, .operador, .accion{
     display: flex;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     justify-content: center;
     align-items: center;
@@ -42,10 +95,14 @@
   /* Resultado */
   #resultado{
     color: white;
-    font-size: 2.25rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    min-height: 65px;
+    line-height: 65px;
     font-weight: 300;
     margin-bottom: 0;
   }
+  
   /* Clases para order */
   .order-6{
     order: 6;
