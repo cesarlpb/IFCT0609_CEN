@@ -23,7 +23,10 @@ inputUsername.addEventListener('change', (e) => {
   validarCampo(inputUsername, validarUsername);
 })
 // Contraseña
-
+let inputPassword = inputs[2];
+inputPassword.addEventListener('change', (e) => {
+  validarCampo(inputPassword, validarPassword);
+})
 // Email
 
 
@@ -34,7 +37,9 @@ inputUsername.addEventListener('change', (e) => {
 // Username: sin espacios, solo a-z, A-Z, 0-9, _, -, y .
   // longitud mínima 5 caracteres
   // longitud máxima 15 caracteres
-// Contraseña: mínimo 8 caracteres, al menos una mayúscula, un número y un caracter especial ?
+// Contraseña: Al menos una mayúscula, un número y un caracter especial ?
+  // longitud mínima 8 caracteres
+  // longitud máxima 20 caracteres
 // Email: formato de email
 
 // Sección 2
@@ -142,8 +147,7 @@ function ocultarMostrarBtnSiguiente(){
   // o al final si TODOS los campos son correctos; creo que así funciona para sección 1 y 2
   // con una pequeña modificación
 
-  // CAMBIAR a 4
-  if(camposCorrectos == 2){
+  if(camposCorrectos == 4){
     btnSiguiente.classList.remove('disabled');
   }else{
     btnSiguiente.classList.add('disabled');
@@ -196,6 +200,46 @@ function validarUsername(valorActual){
   let regex = /^[a-zA-Z0-9_.-]*$/;
   let longitudEnRango = valorActual.length >= 5 && valorActual.length <= 15;
   return regex.test(valorActual) && longitudEnRango;
+}
+
+/**
+ * @param {String} valorActual 
+ * @returns {Boolean} true si el nombre es válido, false si no lo es
+ */
+function validarPassword(valorActual){
+  // Longitud entre 8 y 20 caracteres
+  // Si la longitud está fuera del rango, no se cumple la validación => return false
+  if(valorActual.length < 8 || valorActual.length > 20){
+    return false;
+  }
+  // Al menos una mayúscula y un número
+  let contadorMayusculas = 0, contadorNumeros = 0;
+  let arr = valorActual.split('');
+  arr.forEach((letra) => {
+    if(letra == letra.toUpperCase()){
+      contadorMayusculas++;
+    }
+    if(letra == parseInt(letra)){
+      contadorNumeros++;
+    }
+  })
+  // En caso de no encontrar mayúsculas, no se cumple la validación => return false
+  if(contadorMayusculas == 0){
+    return false;
+  }
+  // En caso de no encontrar números, no se cumple la validación => return false
+  if(contadorNumeros == 0){
+    return false;
+  }
+  console.log(valorActual.length, contadorMayusculas, contadorNumeros)
+  // Al menos un caracter especial, hay dos formas de hacerlo:
+  // 1. Validamos los caracteres especiales que vamos a permitir:
+  // let regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?ñÑ`´¨çÇ]/;
+  // o más simple pero sin personalizar caracteres permitidos:
+  // let regex = /\W/;
+  // 2. Validamos que no es una expresión alfanumérica, es decir, que falle este regex:
+  let regex = /^[a-zA-Z0-9]*$/;
+  return !regex.test(valorActual);
 }
 
 // TODO:

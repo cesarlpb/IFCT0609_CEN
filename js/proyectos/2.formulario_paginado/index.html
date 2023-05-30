@@ -60,10 +60,17 @@
               </div>
               </div>
 
-            <label for="password-input" id="password-label" class="form-label">Contraseña:</label>
-            <input type="password" id="password-input" class="form-control" placeholder="*****" required>
-            <div id="password-success" class="text-success d-none">Mensaje de contraseña correcto</div>
-            <div id="password-error" class="text-danger d-none">Mensaje de error de contraseña</div>
+            <div id="password-group">
+              <label for="password-input" id="password-label" class="form-label">Contraseña:</label>
+              <input type="password" id="password-input" class="form-control" placeholder="*****" required>
+              <div id="password-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="password-error" class="invalid-feedback">
+                <p>El campo debe tener al menos una mayúscula, un número y un caracter especial.</p>
+                <p>Longitud mínima 8: caracteres. Longitud máxima: 20 caracteres</p>
+              </div>
+              </div>
 
             <label for="email-input" id="email-label" class="form-label">Email:</label>
             <input type="text" id="email-input" class="form-control" placeholder="pepe@rana.frog" required>
