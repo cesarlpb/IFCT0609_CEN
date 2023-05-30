@@ -70,12 +70,19 @@
                 <p>El campo debe tener al menos una mayúscula, un número y un caracter especial.</p>
                 <p>Longitud mínima 8: caracteres. Longitud máxima: 20 caracteres</p>
               </div>
+            </div>
+
+            <div id="email-group">
+              <label for="email-input" id="email-label" class="form-label">Email:</label>
+              <input type="email" id="email-input" class="form-control" placeholder="pepe@rana.frog" required>
+              <div id="email-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="email-error" class="invalid-feedback">
+                Debe ser un campo de email válido, por ejemplo: <code>usuario@dominio.com</code>
+              </div>
               </div>
 
-            <label for="email-input" id="email-label" class="form-label">Email:</label>
-            <input type="text" id="email-input" class="form-control" placeholder="pepe@rana.frog" required>
-            <div id="email-success" class="text-success d-none">Mensaje de email correcto</div>
-            <div id="email-error" class="text-danger d-none">Mensaje de error de email</div>
           </section>
           <section id="seccion2">
             <!-- Dirección -->

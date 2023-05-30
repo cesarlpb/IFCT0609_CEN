@@ -5,7 +5,6 @@ let btnEnviar = document.getElementById('enviar');
 /* Validación de campos */
 // Todos los inputs del form:
 let inputs = document.querySelectorAll('input');
-let validacionesSeccion1 = [false, false, false, false];
 let validaciones = {
   nombre: false,
   username: false,
@@ -28,11 +27,14 @@ inputPassword.addEventListener('change', (e) => {
   validarCampo(inputPassword, validarPassword);
 })
 // Email
-
+let inputEmail = inputs[3];
+inputEmail.addEventListener('change', (e) => {
+  validarCampo(inputEmail, validarEmail);
+})
 
 // Validaciones con Regex
 
-// Sección 1
+// Sección 1 - validaciones completas
 // Nombre: mínimo 3 caracteres
 // Username: sin espacios, solo a-z, A-Z, 0-9, _, -, y .
   // longitud mínima 5 caracteres
@@ -42,6 +44,7 @@ inputPassword.addEventListener('change', (e) => {
   // longitud máxima 20 caracteres
 // Email: formato de email
 
+// TODO: pensar como podemos hacer un bucle para validar todas las secciones
 // Sección 2
 // Dirección: mínimo 10 caracteres
 // Ciudad: mínimo 3 caracteres
@@ -240,6 +243,11 @@ function validarPassword(valorActual){
   // 2. Validamos que no es una expresión alfanumérica, es decir, que falle este regex:
   let regex = /^[a-zA-Z0-9]*$/;
   return !regex.test(valorActual);
+}
+
+function validarEmail(valorActual){
+  let regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]*$/; 
+  return regex.test(valorActual);
 }
 
 // TODO:
