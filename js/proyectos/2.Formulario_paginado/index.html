@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario paginado</title>
+    <!-- Hoja de Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="./formulario.css">
+</head>
+<body>
+    <main class="p-1">
+        <h1 class="text-center">Formulario paginado</h1>
+        <div class="container">
+          <header>
+            <!-- Barra de progreso del form -->
+            <hr id="linea">
+            <div id="progreso" class="row justify-content-around">
+              <div class="col-1 my-1 border border-dark"></div>
+              <div class="col-1 my-1 border border-dark"></div>
+              <div class="col-1 my-1 border border-dark"></div>
+            </div>
+            <!-- Títulos de las secciones del form -->
+            <div id="titulos" class="row">
+              <div class="col-4 my-1">Registro</div>
+              <div class="col-4 my-1">Dirección</div>
+              <div class="col-4 my-1">Redes Sociales</div>
+            </div>
+            </header>
+            <hr>
+            <form id="form" novalidate>
+              <section id="seccion1" class="active">
+                <!-- Datos de registro -->
+                <label for="nombre-input" id="nombre-label" class="form-label">Nombre:</label>
+                <input type="text" id="nombre-input" class="form-control" placeholder="Pepe Rana">
+                <div id="nombre-success" class="text-success">Mensaje de campo correcto</div>
+                <div id="nombre-error" class="text-danger">Mensaje de error</div>
+                <hr>
+                <label for="username-input" id="username-label" class="form-label">Username:</label>
+                <input type="text" id="username-input" class="form-control" placeholder="pepe.rana">
+                <label for="password-input" id="password-label" class="form-label">Contraseña:</label>
+                <input type="password" id="password-input" class="form-control" placeholder="*****">
+                <label for="email-input" id="email-label" class="form-label">Email:</label>
+                <input type="text" id="email-input" class="form-control" placeholder="pepe@rana.frog">
+              </section>
+              <hr>
+              <section id="seccion2">
+                <!-- Dirección -->
+                <label for="address-input" id="address-label" class="form-label">Dirección</label>
+                <input type="text" id="address-input" class="form-control">
+                <label for="city-input" id="city-label" class="form-label">Ciudad</label>
+                <input type="text" id="city-input" class="form-control">
+                <label for="country-input" id="country-label">País</label>
+                <input type="text" id="country-input" class="form-control">
+                <label for="zip-input" id="zip-label" class="form-label">C.P.</label>
+                <input type="text" id="zip-input" class="form-control">
+                <label for="phone-input" id="phone-label">Teléfono</label>
+                <input type="text" id="phone-input" class="form-control">
+              </section>
+              <hr>
+              <section id="seccion3">
+                <!-- Redes sociales -->
+                <label for="web-input" id="web-label" class="form-label">Web:</label>
+                <input type="text" id="web-input" class="form-control">
+                <label for="linkedin-input" id="linkedin-label" class="form-label">Linkedin:</label>
+                <input type="text" id="linkedin-input" class="form-control">
+                <label for="github-input" id="github-label" class="form-label">Github:</label>
+                <input type="text" id="github-input" class="form-control">
+                <label for="cv-input" id="cv-label" class="form-label">CV:</label>
+                <input type="text" id="cv-input" class="form-control">
+              </section>
+              <hr>
+            </form>
+            <nav id="nav" class="fixed-bottom text-center py-3">
+              <button id="anterior" class="btn disabled">Anterior</button>
+              <button id="siguiente" class="btn">Siguiente</button>
+              <button id="enviar" class="btn btn-primary disabled">Enviar</button>
+            </nav>
+        </div>
+      </main>
+      <script src="./formulario.js"></script>
+    
+</body>
+</html>
