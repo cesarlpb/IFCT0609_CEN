@@ -17,12 +17,23 @@ let inputNombre = inputs[0];
 inputNombre.addEventListener('change', (e) => {
   validarCampo(inputNombre, validarNombre);
 })
+// Username
+let inputUsername = inputs[1];
+inputUsername.addEventListener('change', (e) => {
+  validarCampo(inputUsername, validarUsername);
+})
+// Contraseña
+
+// Email
+
 
 // Validaciones con Regex
 
 // Sección 1
 // Nombre: mínimo 3 caracteres
 // Username: sin espacios, solo a-z, A-Z, 0-9, _, -, y .
+  // longitud mínima 5 caracteres
+  // longitud máxima 15 caracteres
 // Contraseña: mínimo 8 caracteres, al menos una mayúscula, un número y un caracter especial ?
 // Email: formato de email
 
@@ -132,7 +143,7 @@ function ocultarMostrarBtnSiguiente(){
   // con una pequeña modificación
 
   // CAMBIAR a 4
-  if(camposCorrectos == 1){
+  if(camposCorrectos == 2){
     btnSiguiente.classList.remove('disabled');
   }else{
     btnSiguiente.classList.add('disabled');
@@ -151,12 +162,12 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
   }
   let valorActual = input.value;
   let esCampoValido = validacion(valorActual); // esta validación cambiaria en cada campo
-  console.log(valorActual)
-  if(!esCampoValido){
+  console.log(valorActual, validacion(valorActual))
+  if(!esCampoValido && valorActual.length > 0){
     successDiv.style.display = 'none';
     errorDiv.style.display = 'block';
     validaciones[input.id] = false;
-  }else{
+  }else if(valorActual.length > 0){
     errorDiv.style.display = 'none';
     successDiv.style.display = 'block';
     // Actualizamos el primer elemento del array de validaciones
@@ -171,6 +182,20 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
  */
 function validarNombre(valorActual){
   return valorActual.length >= 3;
+}
+/**
+ * @param {String} valorActual 
+ * @returns {Boolean} true si el nombre es válido, false si no lo es
+ */
+function validarUsername(valorActual){
+  if(valorActual.includes(' ')){
+    return false
+  }
+  // Valida a-z, A-Z, 0-9, _ . -
+  // Comprueba que existan SOLO esos caracteres
+  let regex = /^[a-zA-Z0-9_.-]*$/;
+  let longitudEnRango = valorActual.length >= 5 && valorActual.length <= 15;
+  return regex.test(valorActual) && longitudEnRango;
 }
 
 // TODO:

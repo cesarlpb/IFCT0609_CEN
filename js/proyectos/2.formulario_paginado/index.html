@@ -35,7 +35,7 @@
         <form id="form" class="needs-validation" novalidate>
           <section id="seccion1" class="active">
             <!-- Datos de registro -->
-            <div>
+            <div id="nombre-group">
               <label for="nombre-input" id="nombre-label" class="form-label">Nombre:</label>
               <input type="text" id="nombre-input" class="form-control" placeholder="Pepe Rana" required>
               <div id="nombre-success" class="valid-feedback">
@@ -44,12 +44,21 @@
               <div id="nombre-error" class="invalid-feedback">
                 El nombre debe tener al menos 3 caracteres
               </div>
-              </div>
+            </div>
 
-            <label for="username-input" id="username-label" class="form-label">Username:</label>
-            <input type="text" id="username-input" class="form-control" placeholder="pepe.rana" required>
-            <div id="username-success" class="text-success d-none">Mensaje de username correcto</div>
-            <div id="username-error" class="text-danger d-none">Mensaje de error de username</div>
+            <div id="username-group">
+              <label for="username-input" id="username-label" class="form-label">Username:</label>
+              <input type="text" id="username-input" class="form-control" placeholder="pepe.rana" required>
+              <div id="username-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="username-error" class="invalid-feedback">
+                <p>El campo <b>no</b> debe contener espacios. Solo se admiten: <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+                  <code>_</code>, <code>-</code>, y<code>.</code>
+                </p>
+                <p>Longitud mínima: 5 caracteres. Longitud máxima: 15 caracteres</p>
+              </div>
+              </div>
 
             <label for="password-input" id="password-label" class="form-label">Contraseña:</label>
             <input type="password" id="password-input" class="form-control" placeholder="*****" required>
