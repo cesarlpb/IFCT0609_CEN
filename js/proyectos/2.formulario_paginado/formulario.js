@@ -6,26 +6,42 @@ let btnEnviar = document.getElementById('enviar');
 // Todos los inputs del form:
 let inputs = document.querySelectorAll('input');
 let validacionesSeccion1 = [false, false, false, false];
+let validaciones = {
+  nombre: false,
+  username: false,
+  password: false,
+  email: false
+}
 // Nombre
 let inputNombre = inputs[0];
 inputNombre.addEventListener('change', (e) => {
-  let valorActual = e.target.value
-  let errorDiv = document.getElementById('nombre-error')
-  let successDiv = document.getElementById('nombre-success')
-  if(valorActual.length < 3){
-    successDiv.style.display = 'none';
-    errorDiv.style.display = 'block';
-    validacionesSeccion1[0] = false;
-    console.log(validacionesSeccion1[0])
-  }else{
-    errorDiv.style.display = 'none';
-    successDiv.style.display = 'block';
-    // Actualizamos el primer elemento del array de validaciones
-    validacionesSeccion1[0] = true;
-    console.log(validacionesSeccion1[0])
-  }
-  ocultarMostrarBtnSiguiente();
+  validarCampo(inputNombre, validarNombre);
 })
+
+// Validaciones con Regex
+
+// Sección 1
+// Nombre: mínimo 3 caracteres
+// Username: sin espacios, solo a-z, A-Z, 0-9, _, -, y .
+// Contraseña: mínimo 8 caracteres, al menos una mayúscula, un número y un caracter especial ?
+// Email: formato de email
+
+// Sección 2
+// Dirección: mínimo 10 caracteres
+// Ciudad: mínimo 3 caracteres
+// País: mínimo 3 caracteres o validar de lista de países
+// C.P.: 5 dígitos (en España) ?
+// Teléfono: 9 dígitos (en España), se puede permitir que empiecen en +34 o 0034 
+// Además, después del +34 
+  // Fijos: +34 9 ... o +34 8 ...
+  // Móviles: +34 6 ... o +34 7 ...
+// Fuente: https://es.wikipedia.org/wiki/N%C3%BAmeros_de_tel%C3%A9fono_de_Espa%C3%B1a
+
+// Sección 3
+// Web, Linkedin, Github, CV:
+  // Empiecen pos http:// o https://
+  // Linkedin: linkedin.com/in/...
+  // Github: github.com/...
 
 btnAnterior.addEventListener('click', (e) => { 
   e.preventDefault();
@@ -35,7 +51,7 @@ btnAnterior.addEventListener('click', (e) => {
   if(seccionActiva > 1){
     cambiarSeccion(seccionActiva-1)
     ocultarPrevNext();
-    console.log("siguiente", seccionActiva-1);
+    // console.log("siguiente", seccionActiva-1);
   }
 });
 btnSiguiente.addEventListener('click', (e) => { 
@@ -46,7 +62,7 @@ btnSiguiente.addEventListener('click', (e) => {
   if(seccionActiva < 3){
     cambiarSeccion(seccionActiva+1)
     ocultarPrevNext();
-    console.log("siguiente", seccionActiva+1);
+    // console.log("siguiente", seccionActiva+1);
   }
 });
 btnEnviar.addEventListener('click', (e) => { 
@@ -55,6 +71,7 @@ btnEnviar.addEventListener('click', (e) => {
 });
 
 // Funciones
+// Botones de navegación
 /**
  * Calculamos la sección actual: 1, 2, 3 en este caso.
  * @returns {Number} Número de la sección actual
@@ -106,14 +123,54 @@ function ocultarPrevNext(){
  */
 function ocultarMostrarBtnSiguiente(){
   let camposCorrectos = 0;
-  validacionesSeccion1.forEach((validacion) => {
+  let arr = Object.values(validaciones);
+  arr.forEach((validacion) => {
     camposCorrectos += validacion;
   })
+  // TODO: cambiar esto para que compruebe en cada sección si los 4 son correctos
+  // o al final si TODOS los campos son correctos; creo que así funciona para sección 1 y 2
+  // con una pequeña modificación
+
+  // CAMBIAR a 4
   if(camposCorrectos == 1){
     btnSiguiente.classList.remove('disabled');
   }else{
     btnSiguiente.classList.add('disabled');
   }
+}
+
+// Validaciones
+function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
+  // Si no me indican los divs de error y success, los busco por defecto usando los ids
+  let prefijo = input.id.split('-')[0];
+  if(errorDiv == ""){
+    errorDiv = document.getElementById(prefijo+'-error');
+  }
+  if(successDiv == ""){
+    successDiv = document.getElementById(prefijo+'-success');
+  }
+  let valorActual = input.value;
+  let esCampoValido = validacion(valorActual); // esta validación cambiaria en cada campo
+  console.log(valorActual)
+  if(!esCampoValido){
+    successDiv.style.display = 'none';
+    errorDiv.style.display = 'block';
+    validaciones[input.id] = false;
+  }else{
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'block';
+    // Actualizamos el primer elemento del array de validaciones
+    validaciones[input.id] = true;
+  }
+  console.log("esCampoValido:", esCampoValido)
+  ocultarMostrarBtnSiguiente();
+}
+/**
+ * @param {String} valorActual 
+ * @returns {Boolean} true si el nombre es válido, false si no lo es
+ */
+function validarNombre(valorActual){
+  return valorActual.length >= 3;
 }
 
 // TODO:
