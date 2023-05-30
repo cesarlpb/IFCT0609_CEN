@@ -2,6 +2,31 @@ let btnAnterior = document.getElementById('anterior');
 let btnSiguiente = document.getElementById('siguiente');
 let btnEnviar = document.getElementById('enviar');
 
+/* Validación de campos */
+// Todos los inputs del form:
+let inputs = document.querySelectorAll('input');
+let validacionesSeccion1 = [false, false, false, false];
+// Nombre
+let inputNombre = inputs[0];
+inputNombre.addEventListener('change', (e) => {
+  let valorActual = e.target.value
+  let errorDiv = document.getElementById('nombre-error')
+  let successDiv = document.getElementById('nombre-success')
+  if(valorActual.length < 3){
+    successDiv.style.display = 'none';
+    errorDiv.style.display = 'block';
+    validacionesSeccion1[0] = false;
+    console.log(validacionesSeccion1[0])
+  }else{
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'block';
+    // Actualizamos el primer elemento del array de validaciones
+    validacionesSeccion1[0] = true;
+    console.log(validacionesSeccion1[0])
+  }
+  ocultarMostrarBtnSiguiente();
+})
+
 btnAnterior.addEventListener('click', (e) => { 
   e.preventDefault();
   // Determinar en qué sección estamos o cuál esta activa
@@ -58,6 +83,10 @@ function cambiarSeccion(nuevaSeccion) {
     }
   });
 }
+/**
+ * Oculta o muestra el botón siguiente según la sección actual
+ * No tiene params ni retorna nada
+ */
 function ocultarPrevNext(){
   let seccionActiva = seccionActual();
   if(seccionActiva == 1){
@@ -67,6 +96,23 @@ function ocultarPrevNext(){
   }else{
     btnAnterior.classList.remove('disabled');
     btnSiguiente.classList.remove('disabled');
+  }
+}
+
+/**
+ * Oculta o muestra el botón siguiente según la sección actual
+ * Se llama cada vez que se cambia el contenido de un input en la sección
+ * No tiene params ni retorna nada
+ */
+function ocultarMostrarBtnSiguiente(){
+  let camposCorrectos = 0;
+  validacionesSeccion1.forEach((validacion) => {
+    camposCorrectos += validacion;
+  })
+  if(camposCorrectos == 1){
+    btnSiguiente.classList.remove('disabled');
+  }else{
+    btnSiguiente.classList.add('disabled');
   }
 }
 
