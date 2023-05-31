@@ -54,7 +54,6 @@ btnAnterior.addEventListener('click', (e) => {
   if(seccionActiva > 1){
     cambiarSeccion(seccionActiva-1)
     ocultarPrevNext();
-    // console.log("siguiente", seccionActiva-1);
   }
 });
 btnSiguiente.addEventListener('click', (e) => { 
@@ -65,7 +64,6 @@ btnSiguiente.addEventListener('click', (e) => {
   if(seccionActiva < 3){
     cambiarSeccion(seccionActiva+1)
     ocultarPrevNext();
-    // console.log("siguiente", seccionActiva+1);
   }
 });
 btnEnviar.addEventListener('click', (e) => { 
@@ -194,7 +192,6 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
     default:
       esCampoValido = validacion(valorActual);
   }
-  console.log(valorActual, validacion(valorActual))
   if(!esCampoValido && valorActual.length > 0){
     successDiv.style.display = 'none';
     errorDiv.style.display = 'block';
@@ -205,7 +202,6 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
     // Actualizamos el primer elemento del array de validaciones
     validaciones[input.id.split("-")[0]] = true;
   }
-  console.log("esCampoValido:", esCampoValido)
   ocultarMostrarBtnSiguiente();
 }
 /**
@@ -259,7 +255,6 @@ function validarPassword(valorActual){
   if(contadorNumeros == 0){
     return false;
   }
-  console.log(valorActual.length, contadorMayusculas, contadorNumeros)
   // Al menos un caracter especial, hay dos formas de hacerlo:
   // 1. Validamos los caracteres especiales que vamos a permitir:
   // let regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?ñÑ`´¨çÇ]/;
