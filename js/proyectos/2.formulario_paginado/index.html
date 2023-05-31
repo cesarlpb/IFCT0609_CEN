@@ -95,63 +95,101 @@
               <div id="address-error" class="invalid-feedback">
                 El campo debe tener caracteres alfanuméricos y longitud entre 10 y 200 caracteres.
               </div>
-              </div>
+            </div>
               
               <div id="city-group">
-              <label for="city-input" id="city-label" class="form-label">Ciudad</label>
-              <input type="text" id="city-input" class="form-control">
-              <div id="city-success" class="valid-feedback">
-                Campo correcto
-              </div>
-              <div id="city-error" class="invalid-feedback">
-                El campo debe tener entre 3 y 100 caracteres.
-              </div>
+                <label for="city-input" id="city-label" class="form-label">Ciudad</label>
+                <input type="text" id="city-input" class="form-control">
+                <div id="city-success" class="valid-feedback">
+                  Campo correcto
+                </div>
+                <div id="city-error" class="invalid-feedback">
+                  El campo debe tener entre 3 y 100 caracteres.
+                </div>
               </div>
               
               <div id="country-group">
-              <label for="country-input" id="country-label">País</label>
-              <input type="text" id="country-input" class="form-control">
-              <div id="country-success" class="valid-feedback">
-                Campo correcto
-              </div>
-              <div id="country-error" class="invalid-feedback">
-                El campo no existe en la lista. Debe tener entre 3 y 100 caracteres.
-              </div>
+                <label for="country-input" id="country-label">País</label>
+                <input type="text" id="country-input" class="form-control">
+                <div id="country-success" class="valid-feedback">
+                  Campo correcto
+                </div>
+                <div id="country-error" class="invalid-feedback">
+                  El campo no existe en la lista. Debe tener entre 3 y 100 caracteres.
+                </div>
               </div>
               
               <div id="zip-group">
-              <label for="zip-input" id="zip-label" class="form-label">C.P.</label>
-              <input type="text" id="zip-input" class="form-control">
-              <div id="zip-success" class="valid-feedback">
-                Campo correcto
-              </div>
-              <div id="zip-error" class="invalid-feedback">
-                El campo debe tener 5 dígitos.
-              </div>
+                <label for="zip-input" id="zip-label" class="form-label">C.P.</label>
+                <input type="text" id="zip-input" class="form-control">
+                <div id="zip-success" class="valid-feedback">
+                  Campo correcto
+                </div>
+                <div id="zip-error" class="invalid-feedback">
+                  El campo debe tener 5 dígitos.
+                </div>
               </div>
               
               <div id="phone-group">
-              <label for="phone-input" id="phone-label">Teléfono</label>
-              <input type="text" id="phone-input" class="form-control">
-              <div id="phone-success" class="valid-feedback">
-                Campo correcto
-              </div>
-              <div id="phone-error" class="invalid-feedback">
-                El campo debe tener al menos 9 dígitos, código de país <code>+34</code> opcional.
-              </div>
+                <label for="phone-input" id="phone-label">Teléfono</label>
+                <input type="text" id="phone-input" class="form-control">
+                <div id="phone-success" class="valid-feedback">
+                  Campo correcto
+                </div>
+                <div id="phone-error" class="invalid-feedback">
+                  El campo debe tener al menos 9 dígitos, código de país <code>+34</code> opcional.
+                </div>
               </div>
           </section>
           <hr>
           <section id="seccion3">
             <!-- Redes sociales -->
-            <label for="web-input" id="web-label" class="form-label">Web:</label>
-            <input type="text" id="web-input" class="form-control">
-            <label for="linkedin-input" id="linkedin-label" class="form-label">Linkedin:</label>
-            <input type="text" id="linkedin-input" class="form-control">
-            <label for="github-input" id="github-label" class="form-label">Github:</label>
-            <input type="text" id="github-input" class="form-control">
-            <label for="cv-input" id="cv-label" class="form-label">CV:</label>
-            <input type="text" id="cv-input" class="form-control">
+            <div id="web-group">
+              <label for="web-input" id="web-label" class="form-label">Web:</label>
+              <input type="text" id="web-input" class="form-control">
+              <div id="web-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="web-error" class="invalid-feedback">
+                El campo debe ser una URL válida que empiece por <code>http</code> o <code>https</code>.
+              </div>
+              </div>
+              
+              <div id="linkedin-group">
+              <label for="linkedin-input" id="linkedin-label" class="form-label">Linkedin:</label>
+              <input type="text" id="linkedin-input" class="form-control">
+              <div id="linkedin-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="linkedin-error" class="invalid-feedback">
+                El campo debe ser una URL válida que empiece por <code>http</code> o <code>https</code>. Además, debe ser un enlace de
+                <code>Linkedin</code>.
+              </div>
+              </div>
+              
+              <div id="github-group">
+              <label for="github-input" id="github-label" class="form-label">Github:</label>
+              <input type="text" id="github-input" class="form-control">
+              <div id="github-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="github-error" class="invalid-feedback">
+                El campo debe ser una URL válida que empiece por <code>http</code> o <code>https</code>. Además, debe ser un enlace de
+                <code>Github</code>.
+              </div>
+              </div>
+              
+              <div id="cv-group">
+              <label for="cv-input" id="cv-label" class="form-label">CV:</label>
+              <input type="text" id="cv-input" class="form-control">
+              <div id="cv-success" class="valid-feedback">
+                Campo correcto
+              </div>
+              <div id="cv-error" class="invalid-feedback">
+                El campo debe ser una URL válida que empiece por <code>http</code> o <code>https</code>.
+              </div>
+              </div>
+
           </section>
           <hr>
         </form>

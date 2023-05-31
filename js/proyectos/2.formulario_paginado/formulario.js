@@ -15,6 +15,10 @@ let validaciones = {
   pais: false,
   cp: false,
   telefono: false,
+  web: false,
+  linkedin: false,
+  github: false,
+  cv: false,
 }
 // Array de funciones de validación de campos:
 let validadores = [
@@ -27,10 +31,14 @@ let validadores = [
   validarPais,
   validarCodigoPostal,
   validarTelefono,
+  validarURL, 
+  validarURL, 
+  validarURL, 
+  validarURL, 
 ]
 
 // Bucle para añadir eventListeners a todos los inputs usando las funciones de validación
-for(let i = 0; i < validadores.length; i++){
+for(let i = 0; i < inputs.length; i++){
   let input = inputs[i];
   input.addEventListener('change', (e) => {
     validarCampo(input, validadores[i]);
@@ -153,7 +161,19 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
     successDiv = document.getElementById(prefijo+'-success');
   }
   let valorActual = input.value;
-  let esCampoValido = validacion(valorActual); // esta validación cambiaria en cada campo
+  let esCampoValido = false; // esta validación cambiaria en cada campo
+  // Cambiamos la llamada a la función de validación según el campo
+  // en el caso de URL necesitamos dos params en algunos casos
+  switch(input.id.split("-")[0]){
+    case 'linkedin':
+      esCampoValido = validacion(valorActual, "linkedin");
+      break;
+    case 'github':
+      esCampoValido = validacion(valorActual, "github");
+      break;
+    default:
+      esCampoValido = validacion(valorActual);
+  }
   console.log(valorActual, validacion(valorActual))
   if(!esCampoValido && valorActual.length > 0){
     successDiv.style.display = 'none';
@@ -266,6 +286,12 @@ function validarTelefono(valorActual){
   tlf = tlf.replace(/\-/g, ''); // Eliminamos el símbolo -
   let regex = /^(?:\+34\s?)?[0-9]{9}$/; // 9 dígitos en España
   return regex.test(valorActual);
+}
+
+function validarURL(valorActual, dominio = ""){
+  let regex = /^(http|https):\/\/[^ "]+$/;
+  let tieneDominio = valorActual.includes(dominio);
+  return regex.test(valorActual) && tieneDominio;
 }
 
 const ciudades = [
