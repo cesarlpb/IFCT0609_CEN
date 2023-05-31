@@ -105,6 +105,15 @@ function cambiarSeccion(nuevaSeccion) {
       seccion.classList.remove('active');
     }
   });
+  let circulos = document.querySelectorAll("#progreso div"); // 3 divs
+    circulos.forEach((circulo, index) => {
+      console.log(index, nuevaSeccion, index <= nuevaSeccion-1)
+    if(index <= nuevaSeccion-1) {
+      circulo.style.backgroundColor = 'brown';
+    }else {
+      circulo.style.backgroundColor = '#f0ad4e';
+    }
+  });
 }
 /**
  * Oculta o muestra el botón siguiente según la sección actual
@@ -166,6 +175,7 @@ function ocultarMostrarBtnEnviar(){
   }else{
     btnEnviar.classList.add('disabled');
   }
+  // TODO: revisar que no deje pasar de sección 2 a 3 si no hay 8 true en validaciones
 }
 
 // Validaciones
@@ -506,14 +516,3 @@ const ciudades = [
   "ZAMBIA",
   "ZIMBABUE",
 ]
-
-// TODO:
-// 1. Validar los campos del formulario -> por secciones y "todo"
-// 2. Presentar mensajes de error según validaciones
-// 3. Habilitar botón enviar si todo es correcto
-// 4. Enviar formulario a un servidor -> como no podemos hacer esto ahora, lo simularemos: 
-  // con un console.log
-  // con un alert
-  // con un mensaje en el DOM -> JSON -> {nombre: "Juan", apellido: "Perez", ...}
-    // paso intermedio: la contraseña no se envía, se pasa a un hash primero
-  // O podemos colocar una pantalla final (HTML) donde el usuario vea sus datos entregados
