@@ -9,8 +9,25 @@ let validaciones = {
   nombre: false,
   username: false,
   password: false,
-  email: false
+  email: false,
+  direccion: false,
+  ciudad: false,
+  pais: false,
+  cp: false,
+  telefono: false,
 }
+// Array de funciones de validación de campos:
+let validadores = [
+  validarNombre,
+  validarUsername,
+  validarPassword,
+  validarEmail,
+  validarDireccion,
+  validarCiudad,
+  validarPais,
+  validarCodigoPostal,
+  validarTelefono,
+]
 // Nombre
 let inputNombre = inputs[0];
 inputNombre.addEventListener('change', (e) => {
@@ -256,7 +273,7 @@ function validarDireccion(valorActual){
   return regex.test(valorActual) && longitudEnRango;
 }
 
-function validarCiudad(valorActual){
+function validarPais(valorActual){
   let regex = /^[a-zA-Z\s]*$/;
   let longitudEnRango = valorActual.length >= 3 && valorActual.length <= 100;
   let estaEnLista = ciudades.includes(valorActual.toUpperCase().split(" ")[0]); // "CONGO (Rep. Democrática del)" -> CONGO
