@@ -10,11 +10,11 @@ let validaciones = {
   username: false,
   password: false,
   email: false,
-  direccion: false,
-  ciudad: false,
-  pais: false,
-  cp: false,
-  telefono: false,
+  address: false,
+  city: false,
+  country: false,
+  zip: false,
+  phone: false,
   web: false,
   linkedin: false,
   github: false,
@@ -42,6 +42,7 @@ for(let i = 0; i < inputs.length; i++){
   let input = inputs[i];
   input.addEventListener('change', (e) => {
     validarCampo(input, validadores[i]);
+    ocultarMostrarBtnEnviar();
   })
 }
 
@@ -69,7 +70,12 @@ btnSiguiente.addEventListener('click', (e) => {
 });
 btnEnviar.addEventListener('click', (e) => { 
   e.preventDefault();
-  console.log("enviar"); 
+  let valoresRecibidos = {};
+  inputs.forEach((input) => {
+    valoresRecibidos[input.id] = input.value;
+  })
+  console.table(valoresRecibidos); 
+  alert("Formulario enviado correctamente");
 });
 
 // Funciones
@@ -150,6 +156,20 @@ function ocultarMostrarBtnSiguiente(){
   }
 }
 
+function ocultarMostrarBtnEnviar(){
+  let camposCorrectos = 0;
+  let arr = Object.values(validaciones);
+  arr.forEach((validacion) => {
+    camposCorrectos += validacion;
+  })
+  let values = Object.values(validaciones); // arr
+  if(camposCorrectos == values.length){
+    btnEnviar.classList.remove('disabled');
+  }else{
+    btnEnviar.classList.add('disabled');
+  }
+}
+
 // Validaciones
 function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
   // Si no me indican los divs de error y success, los busco por defecto usando los ids
@@ -178,12 +198,12 @@ function validarCampo(input, validacion, errorDiv = "", successDiv = ""){
   if(!esCampoValido && valorActual.length > 0){
     successDiv.style.display = 'none';
     errorDiv.style.display = 'block';
-    validaciones[input.id] = false;
+    validaciones[input.id.split("-")[0]] = false;
   }else if(valorActual.length > 0){
     errorDiv.style.display = 'none';
     successDiv.style.display = 'block';
     // Actualizamos el primer elemento del array de validaciones
-    validaciones[input.id] = true;
+    validaciones[input.id.split("-")[0]] = true;
   }
   console.log("esCampoValido:", esCampoValido)
   ocultarMostrarBtnSiguiente();
