@@ -72,7 +72,7 @@ btnEnviar.addEventListener('click', (e) => {
   e.preventDefault();
   let valoresRecibidos = {};
   inputs.forEach((input) => {
-    valoresRecibidos[input.id] = input.value;
+    valoresRecibidos[input.name] = input.value; // Usamos el atributo name para guardar el dato en el servidor, db, etc.
   })
   console.table(valoresRecibidos); 
   alert("Formulario enviado correctamente");
