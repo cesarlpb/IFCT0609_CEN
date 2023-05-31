@@ -28,56 +28,14 @@ let validadores = [
   validarCodigoPostal,
   validarTelefono,
 ]
-// Nombre
-let inputNombre = inputs[0];
-inputNombre.addEventListener('change', (e) => {
-  validarCampo(inputNombre, validarNombre);
-})
-// Username
-let inputUsername = inputs[1];
-inputUsername.addEventListener('change', (e) => {
-  validarCampo(inputUsername, validarUsername);
-})
-// Contraseña
-let inputPassword = inputs[2];
-inputPassword.addEventListener('change', (e) => {
-  validarCampo(inputPassword, validarPassword);
-})
-// Email
-let inputEmail = inputs[3];
-inputEmail.addEventListener('change', (e) => {
-  validarCampo(inputEmail, validarEmail);
-})
 
-// Validaciones con Regex
-
-// Sección 1 - validaciones completas
-// Nombre: mínimo 3 caracteres
-// Username: sin espacios, solo a-z, A-Z, 0-9, _, -, y .
-  // longitud mínima 5 caracteres
-  // longitud máxima 15 caracteres
-// Contraseña: Al menos una mayúscula, un número y un caracter especial ?
-  // longitud mínima 8 caracteres
-  // longitud máxima 20 caracteres
-// Email: formato de email
-
-// TODO: pensar como podemos hacer un bucle para validar todas las secciones
-// Sección 2
-// Dirección: mínimo 10 caracteres
-// Ciudad: mínimo 3 caracteres
-// País: mínimo 3 caracteres o validar de lista de países
-// C.P.: 5 dígitos (en España) ?
-// Teléfono: 9 dígitos (en España), se puede permitir que empiecen en +34 o 0034 
-// Además, después del +34 
-  // Fijos: +34 9 ... o +34 8 ...
-  // Móviles: +34 6 ... o +34 7 ...
-// Fuente: https://es.wikipedia.org/wiki/N%C3%BAmeros_de_tel%C3%A9fono_de_Espa%C3%B1a
-
-// Sección 3
-// Web, Linkedin, Github, CV:
-  // Empiecen pos http:// o https://
-  // Linkedin: linkedin.com/in/...
-  // Github: github.com/...
+// Bucle para añadir eventListeners a todos los inputs usando las funciones de validación
+for(let i = 0; i < validadores.length; i++){
+  let input = inputs[i];
+  input.addEventListener('change', (e) => {
+    validarCampo(input, validadores[i]);
+  })
+}
 
 btnAnterior.addEventListener('click', (e) => { 
   e.preventDefault();
