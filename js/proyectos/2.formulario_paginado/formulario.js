@@ -124,8 +124,18 @@ function ocultarMostrarBtnSiguiente(){
   // TODO: cambiar esto para que compruebe en cada sección si los 4 son correctos
   // o al final si TODOS los campos son correctos; creo que así funciona para sección 1 y 2
   // con una pequeña modificación
-
-  if(camposCorrectos == 4){
+  let seccionActiva = seccionActual();
+  // Si la sección actual es 1 -> son 4 campos necesarios para pasar
+  let camposNecesarios = 0;
+  if(seccionActiva == 1){
+    camposNecesarios = 4;
+  }else if(seccionActiva == 2){
+    camposNecesarios = 9;
+  }else{
+    camposNecesarios = 13;
+  }
+  // Si la sección actual es 2 -> son 9 campos necesarios para pasar
+  if(camposCorrectos == camposNecesarios){
     btnSiguiente.classList.remove('disabled');
   }else{
     btnSiguiente.classList.add('disabled');
@@ -232,7 +242,7 @@ function validarDireccion(valorActual){
 }
 
 function validarPais(valorActual){
-  let regex = /^[a-zA-Z\s]*$/;
+  let regex = /^[a-zA-ZñÑçÇ]*$/;
   let longitudEnRango = valorActual.length >= 3 && valorActual.length <= 100;
   let estaEnLista = ciudades.includes(valorActual.toUpperCase().split(" ")[0]); // "CONGO (Rep. Democrática del)" -> CONGO
   return regex.test(valorActual) && longitudEnRango && estaEnLista;
