@@ -203,7 +203,7 @@ let esCampoValido = validacion(valorActual); // esta validación cambiaría en c
       break;
     default:
       esCampoValido = false;// esta validacion cambiaria en cada campo
-  
+  } 
 if(!esCampoValido && valorActual.lenght > 0){
   successDiv.style.display ='none';
   errorDiv.style;display = 'block';
