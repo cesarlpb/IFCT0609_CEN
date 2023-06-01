@@ -83,3 +83,6 @@ body {
     padding: 5px 20px;
     margin: 0 20px;
   }
+  code {
+    padding: 0 10px;
+  }
