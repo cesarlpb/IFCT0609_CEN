@@ -1,5 +1,5 @@
 const http = require('http');
-var fecha = require('./fecha'); // importamos módulo fecha
+var fecha = require('../fecha'); // importamos módulo fecha
 
 console.log("Servidor en: ")
 console.log("http://localhost:8080")
