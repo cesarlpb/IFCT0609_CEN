@@ -1,2 +1,4 @@
 # Lista de cosas que no subimos al repositorio
 .DS_Store
+node_modules
+package-lock.json
