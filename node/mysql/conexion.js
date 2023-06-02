@@ -6,7 +6,16 @@ var con = mysql.createConnection({
   password: ""
 });
 
-const sql = "SELECT * FROM pruebas.tblUsuarios WHERE idx = 1;"
+// Query para leer el usuario con idx 1 -> SELECT ... WHERE idx = 1
+const sql = "SELECT nombre, email, telefono FROM pruebas.tblUsuarios WHERE idx = 1;"
+// Query para leer todos los usuarios -> SELECT *
+
+// Query para crear usuario -> INSERT INTO
+
+// Query para editar usuario -> UPDATE
+
+// Query para eliminar usuario -> DELETE
+
 
 con.connect(function (err) {
   if (err) throw err;
