@@ -19,4 +19,9 @@ Ejercicios por bloques:
 
 Ejecutamos estos queries: [crear base de datos](0.crear_db.sql)
 
+## Diagramas
+Esquema de relaciones entre tablas en una base de datos relacional.
+![Base de datos relacionales](./db_relacionales.png)
 
+Esquema de flujo de datos en una aplicación web.
+![Front y back end con db](./front_y_back.png)
