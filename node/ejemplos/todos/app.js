@@ -30,11 +30,35 @@ http.createServer(function (req, res) {
     { id: 3, titulo: "Programar en JS", descripcion: "Aprender más Javascript", completado: false },
   ]
 
-  if (url == "/todos" && method == "GET") {
-    // 200 -> OK
-    res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
-    console.log(JSON.stringify(todos))
-    res.end(JSON.stringify(todos)); // Convertir el arreglo a JSON -> se devuelve como string
+  if (url.startsWith("/todos") && method == "GET") {
+    // Usamos split para conseguir el id de la URL:
+    let id = url.split("/")[2]; // /todos/1 -> id = 1
+    // Comprobamos que es número válido:
+    // Comprobamos que no sea NaN (Not a Number)
+    // Comprobamos que sea mayor que 0
+    // Comprobamos que no sea null, undefined, etc...
+    let esIdValido = !isNaN(id) && id > 0 && id ? true : false;
+    if (esIdValido) {
+      let todo = {};
+      // Devolvemos un resultado
+      // Bucle para encontrar el todo con el id
+      for (let i = 0; i < todos.length; i++) {
+        let currentId = todos[i].id
+        if (currentId == id) {
+          todo = todos[i]
+          break;
+        }
+      }
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      console.log(JSON.stringify(todo, null, 2))
+      res.end(JSON.stringify(todo, null, 2)); // Convertir el único objeto a JSON -> se devuelve como string
+    } else {
+      // Devolvemos todos los todos
+      // 200 -> OK
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      console.log(JSON.stringify(todos, null, 2))
+      res.end(JSON.stringify(todos, null, 2)); // Convertir el arreglo a JSON -> se devuelve como string
+    }
   } else if (url == "/todos" && method == "POST") {
     // lógica del método POST para crear nuevo todo
     res.end("POST /todos")
