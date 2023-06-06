@@ -27,12 +27,12 @@ http.createServer(function (req, res) {
   ]
 
   if (url == "/todos") {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
     console.log(JSON.stringify(todos))
     res.end(JSON.stringify(todos)); // Convertir el arreglo a JSON -> se devuelve como string
   } else {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Ruta incorrecta. Envia la peticion a /todos');
+    res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
+    res.end('Ruta incorrecta. Envia la petición a /todos');
   }
 
 }).listen(8080); // Se utiliza el puerto 8080 para el servidor
