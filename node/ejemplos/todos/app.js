@@ -7,6 +7,10 @@
     - Read: Crear una ruta para GET /todos/:id (leer un todo específico)
     - Update: Crear una ruta para PUT /todos/:id (editar un todo específico)
     - Delete: Crear una ruta para DELETE /todos/:id (eliminar un todo específico)
+
+    Para hacer las peticiones a las rutas, se puede utilizar Postman o Insomnia
+    -> https://www.postman.com/downloads/
+    ¿Por qué Postman? Para no tener que hacer los formularios HTML por el momento
 */
 
 // Importación de módulo http -> comunicación cliente-servidor
@@ -26,16 +30,26 @@ http.createServer(function (req, res) {
     { id: 3, titulo: "Programar en JS", descripcion: "Aprender más Javascript", completado: false },
   ]
 
-  if (url == "/todos") {
+  if (url == "/todos" && method == "GET") {
     // 200 -> OK
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
     console.log(JSON.stringify(todos))
     res.end(JSON.stringify(todos)); // Convertir el arreglo a JSON -> se devuelve como string
-  } else {
+  } else if (url == "/todos" && method == "POST") {
+    // lógica del método POST para crear nuevo todo
+    res.end("POST /todos")
+  } else if (url == "/todos" && method == "PUT") {
+    // lógica del método PUT para editar un todo
+    res.end("PUT /todos")
+  } else if (url == "/todos" && method == "DELETE") {
+    // lógica del método DELETE para eliminar un todo
+    res.end("DELETE /todos")
+  }
+  else {
     // 404 -> Not Found
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=UTF-8' });
-    console.error(`Error 404. Ruta ${url} incorrecta. Envia la petición a /todos`)
-    res.end(`Error 404. Ruta ${url} incorrecta. Envia la petición a /todos`);
+    console.error(`Error 404. Ruta ${url} o método ${req.method} incorrecto. Envia la petición a /todos`)
+    res.end(`Error 404. Ruta ${url} o método ${req.method} incorrecto. Envia la petición a /todos`);
   }
 
 }).listen(8080); // Se utiliza el puerto 8080 para el servidor
