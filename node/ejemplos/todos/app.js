@@ -37,7 +37,8 @@ http.createServer(function (req, res) {
     // Comprobamos que no sea NaN (Not a Number)
     // Comprobamos que sea mayor que 0
     // Comprobamos que no sea null, undefined, etc...
-    let esIdValido = !isNaN(id) && id > 0 && id ? true : false;
+    let esEntero = id == parseInt(id); // o podemos usar: Number.isInteger(Number(id))
+    let esIdValido = !isNaN(id) && esEntero && id > 0 && id ? true : false;
     if (esIdValido) {
       let todo = {};
       // Devolvemos un resultado
