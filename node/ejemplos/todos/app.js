@@ -52,12 +52,18 @@ http.createServer(function (req, res) {
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
       console.log(JSON.stringify(todo, null, 2))
       res.end(JSON.stringify(todo, null, 2)); // Convertir el único objeto a JSON -> se devuelve como string
-    } else {
+    } else if (!id) {
       // Devolvemos todos los todos
       // 200 -> OK
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
       console.log(JSON.stringify(todos, null, 2))
       res.end(JSON.stringify(todos, null, 2)); // Convertir el arreglo a JSON -> se devuelve como string
+    }
+    else {
+      // 400 -> Bad Request
+      res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      console.log("Error 400. Bad request")
+      res.end("Error 400. Bad request"); // Mensaje de error
     }
   } else if (url == "/todos" && method == "POST") {
     // lógica del método POST para crear nuevo todo
