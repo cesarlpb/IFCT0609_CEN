@@ -120,7 +120,6 @@ http.createServer(function (req, res) {
         console.log(`Se ha borrado el elemento con id ${id}\n`, JSON.stringify(todos))
         res.end(`Se ha borrado el elemento con id ${id}\n${JSON.stringify(todos, null, 2)}`); // Mensaje y array para comprobar que se ha borrado
       } else {
-        todos.splice(index, 1) // Eliminamos el todo con el id
         // Si no existe, No Content -> 204
         res.writeHead(204, { 'Content-Type': 'text/plain; charset=UTF-8' });
         console.log(`El id ${id} no existe`)
