@@ -150,16 +150,43 @@ http.createServer(function (req, res) {
     }
     // Métodos para validar los campos de un Todo
 
+    // GET
+    /**
+     * Devuelve el array actual de todos
+     * @returns {Array} todos
+     */
+    static getAllTodos() {
+      return Todo.todos;
+    }
+    static getTodo(id) {
+      if (!id) {
+        throw new Error("No se ha proporcionado un id")
+      }
+      if (!Todo.validarId(id)) {
+        throw new Error("El id no es válido")
+      }
+      if (id > Todo.todos.length) {
+        throw new Error("El id no existe en la lista de todos")
+      }
+      let todos = Todo.todos;
+      for (let i = 0; i < todos.length; i++) {
+        if (todos[i]?.id == id) {
+          return todos[i];
+        }
+      }
+      return null; // Si no encuentra el todo con ese id
+      // Otra opción sería arrojar error
+    }
+    // Validaciones
     /**
      * Valida si el id es un número entero mayor que 0
      * @param {String} id que procede de la URL
      * @returns {Boolean}
      */
     static validarId(id) {
-      //  lógica para validar id
-      //let esEntero = id == parseInt(id); // o podemos usar: Number.isInteger(Number(id))
-      //let esIdValido = !isNaN(id) && esEntero && id > 0 && id ? true : false;
-      return true;
+      //  Validamos que es entero, no es NaN, es mayor que 0 y es un número
+      let esEntero = id == parseInt(id); // o podemos usar: Number.isInteger(Number(id))
+      return !isNaN(id) && esEntero && id > 0 && id;
     }
     /**
      * Valida el tipo, longitud y contenido del título entre 1 y 255 caracteres
