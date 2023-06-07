@@ -148,6 +148,24 @@ http.createServer(function (req, res) {
       // Añadimos el nuevo Todo al array static de la clase Todo (así siempre los tenemos disponibles):
       Todo.todos.push(this);
     }
+    static seed() {
+      let todos = [
+        { id: 1, titulo: "Comprar pan", descripcion: "🍞🍞🍞", completado: false },
+        { id: 2, titulo: "Tomar café", descripcion: "☕️☕️☕️", completado: false },
+        { id: 3, titulo: "Estudiar NodeJS", descripcion: "📚📚📚", completado: false },
+        { id: 4, titulo: "Estudiar Express", descripcion: "🤓🤓🤓", completado: false },
+        { id: 5, titulo: "Estudiar MySQL", descripcion: "🤯🤯🤯", completado: false },
+      ]
+      for (let i = 0; i < todos.length; i++) {
+        let todo = todos[i];
+        new Todo(
+          undefined,
+          todo.titulo,
+          todo.descripcion,
+          todo.completado
+        )
+      }
+    }
     // Métodos para validar los campos de un Todo
 
     // GET
