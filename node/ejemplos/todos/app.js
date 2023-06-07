@@ -54,18 +54,47 @@ http.createServer(function (req, res) {
     }
   } else if (url == "/todos" && method == "POST") {
     // lógica del método POST para crear nuevo todo
+    const headers = req.headers;
+    const esJSON = headers['content-type'].toLowerCase().startsWith("application/json");
 
-    // class Todo...
-    // let todo = new Todo()
+    if (!esJSON) {
+      // 400 -> Bad Request
+      res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      console.log("Error 400. Bad request") // DEV
+      res.end("Error 400. Bad request. Content-type incorrecto, solo se admite JSON."); // Mensaje de error
+    }
+    else {
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      // Lectura del body como string de JSON
+      let jsonString = '';
+      req.on('data', function (data) {
+        jsonString += data;
+      });
+      req.on('end', function () {
+        console.log(jsonString); // DEV -> Imprimir el JSON recibido como objeto
+      });
+      // Convertimos el string de JSON a objeto PERO primero lo pasamos a string con stringify porque sino da error la conversión
+      const json = JSON.parse(JSON.stringify(jsonString));
+      console.log(json); // DEV -> Imprimir el JSON recibido como objeto
+      // Leemos los keys del json
+
+      // Validamos los campos del json
+
+      // Creamos un nuevo todo con esos campos
+      // El id no hace falta que me lo indiquen porque lo controlamos desde class Todo
+      // El título puede estar vacío
+      // La descripción puede estar vacía
+      // El estado "completado" puede estar vacío -> false por defecto
+
+      res.end("POST /todos")
+    }
     // Recibir los campos que me envía la solicitud -> JSON
     // Validar esos campos de alguna forma
     // Crear un nuevo todo
     // Agregar el nuevo todo a la lista de todos
 
-    res.end("POST /todos")
   } else if (url == "/todos" && method == "PUT") {
     // lógica del método PUT para editar un todo
-    
     // Recibir los campos que me envía la solicitud -> JSON
     // Validar esos campos de alguna forma
     // Editar el todo con el id que me envían
