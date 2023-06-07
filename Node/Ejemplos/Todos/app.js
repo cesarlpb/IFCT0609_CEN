@@ -15,7 +15,7 @@
 
 // Importación de módulo http -> comunicación cliente-servidor
 const http = require('http');
-const Todo = require('./todo.js').default;
+const Todo = require('./todo.js').default.default;
 
 // Método para crear un servidor con NodeJS
 // req == request -> petición del cliente
