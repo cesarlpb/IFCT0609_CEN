@@ -25,7 +25,8 @@ http.createServer(function (req, res) {
   let method = req.method; // GET, POST, PUT, DELETE, etc...
 
   Todo.seed(); // Crear algunos todos de ejemplo
-  const todos = Todo.todos; // Obtener los todos creados
+  const TODOS = getAllTodos(); // Obtener los todos creados
+  // getAllTodos() equivale a Todo.todos
 
   // GET all y GET by id
   if (url.startsWith("/todos") && method == "GET") {
@@ -34,30 +35,20 @@ http.createServer(function (req, res) {
     let esIdValido = Todo.validarId(id)
     let esUrlValida = url.endsWith(id) || url.endsWith(id + "/") // permitimos /todos/1 o /todos/1/
     if (esIdValido && esUrlValida) {
-      let todo = {};
-      // Devolvemos un resultado
-      // Bucle para encontrar el todo con el id
-      for (let i = 0; i < todos.length; i++) {
-        let currentId = todos[i].id
-        if (currentId == id) {
-          todo = todos[i]
-          break;
-        }
-      }
+      let todo = Todo.getTodo(id); // Devuelve el Todo o null si no existe
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
-      console.log(JSON.stringify(todo, null, 2))
-      res.end(JSON.stringify(todo, null, 2)); // Convertir el único objeto a JSON -> se devuelve como string
+      console.log(JSON.stringify(todo, null, 2)) // Escribimos resultado en consola (DEV)
+      res.end(JSON.stringify(todo ? todo : {}, null, 2));    // Convertir el único objeto a JSON -> se devuelve como string
     } else if (!id) {
-      // Devolvemos todos los todos
-      // 200 -> OK
+      // Devolvemos todos los todos con statusCode 200 -> OK
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
-      console.log(JSON.stringify(todos, null, 2))
-      res.end(JSON.stringify(todos, null, 2)); // Convertir el arreglo a JSON -> se devuelve como string
+      console.log(JSON.stringify(TODOS, null, 2)) // DEV
+      res.end(JSON.stringify(TODOS, null, 2)); // Convertir el arreglo a JSON -> se devuelve como string
     }
     else {
-      // 400 -> Bad Request
+      // El id no es válido -> Error 400 -> Bad Request (petición incorrecta)
       res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
-      console.log("Error 400. Bad request")
+      console.log("Error 400. Bad request") // DEV
       res.end("Error 400. Bad request"); // Mensaje de error
     }
   } else if (url == "/todos" && method == "POST") {
