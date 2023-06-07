@@ -3,6 +3,7 @@ class Todo {
   static todos = [];        // Array de todos que se actualiza en la creación de cada objeto Todo
   static MAX_TITULO = 255;
   static MAX_DESCRIPCION = 1000;
+  static KEYS_VALIDOS = ["id", "titulo", "descripcion", "completado"];
   constructor(id_ = ++Todo.contadorTodos, titulo_ = "", descripcion_ = "", completado_ = false) {
     this.id = id_;
     this.titulo = titulo_;
@@ -92,6 +93,29 @@ class Todo {
    */
   static validarCompletado(completado) {
     return typeof completado == "boolean" ? true : false;
+  }
+  /**
+   * Validamos que las keys sean válidas para un Todo
+   * @param {Array} keys 
+   * @returns {Boolean}
+   */
+  static verificarKeys(keys) {
+    // for / of me da los valores del array keys
+    for (let key of keys) {
+      let esKeyValida = Todo.KEYS_VALIDOS.includes(key);
+      if (!esKeyValida) {
+        return false;
+      }
+    }
+    return true;
+  }
+  /**
+   * Verifica que los valores del Todo sean válidos
+   * @param {Array} values 
+   * @returns {Boolean}
+   */
+  static verificarValues(json) {
+    return this.validarTitulo(json.titulo) && this.validarDescripcion(json.descripcion) && this.validarCompletado(json.completado);
   }
   // Helpers
   /**
