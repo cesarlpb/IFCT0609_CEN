@@ -119,6 +119,19 @@ http.createServer(function (req, res) {
     static validarCompletado(completado) {
       return typeof completado == "boolean" ? true : false;
     }
+    // Helpers
+    /**
+     * Encuentra el índice del todo en el array de todos
+     * @param {String} id 
+     * @returns {Number} índice del todo en el array de todos
+     */
+    static getTodoIndex(id) {
+      for (let i = 0; i < Todo.todos.length; i++) {
+        if (Todo.todos[i].id == id) {
+          return i;
+        }
+      }
+    }
   }
   
   Todo.seed(); // Crear algunos todos de ejemplo
@@ -183,10 +196,11 @@ http.createServer(function (req, res) {
     else {
       // Miramos si existe el id
       if (esIdValido) {
-        todos.splice(index, 1) // Eliminamos el todo con el id y devolvemos 200 -> OK
+        let index = Todo.getTodoIndex(id); // Obtenemos el índice del todo con el id
+        TODOS.splice(index, 1) // Eliminamos el todo con el id y devolvemos 200 -> OK
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
-        console.log(`Se ha borrado el elemento con id ${id}\n\n`, JSON.stringify(todos))
-        res.end(`Se ha borrado el elemento con id ${id}\n\n${JSON.stringify(todos, null, 2)}`); // Mensaje y array para comprobar que se ha borrado
+        console.log(`Se ha borrado el elemento con id ${id}\n\n`, JSON.stringify(TODOS))
+        res.end(`Se ha borrado el elemento con id ${id}\n\n${JSON.stringify(TODOS, null, 2)}`); // Mensaje y array para comprobar que se ha borrado
       } 
       // else {
       //   // Si no existe, No Content -> 204
