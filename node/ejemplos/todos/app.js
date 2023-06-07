@@ -135,6 +135,58 @@ http.createServer(function (req, res) {
     res.end(`Error 404. Ruta ${url} o método ${req.method} incorrecto. Envia la petición a /todos`);
   }
 
+  class Todo {
+    static contadorTodos = 0; // Contador de todos que se actualiza en la creación de cada objeto Todo
+    static todos = [];        // Array de todos que se actualiza en la creación de cada objeto Todo
+    static MAX_TITULO = 255;
+    static MAX_DESCRIPCION = 1000;
+    constructor(id_ = ++Todo.contadorTodos, titulo_ = "", descripcion_ = "", completado_ = false) {
+      this.id = id_;
+      this.titulo = titulo_;
+      this.descripcion = descripcion_;
+      this.completado = completado_;
+      // Añadimos el nuevo Todo al array static de la clase Todo (así siempre los tenemos disponibles):
+      Todo.todos.push(this);
+    }
+    // Métodos para validar los campos de un Todo
+
+    /**
+     * Valida si el id es un número entero mayor que 0
+     * @param {String} id que procede de la URL
+     * @returns {Boolean}
+     */
+    static validarId(id) {
+      //  lógica para validar id
+      //let esEntero = id == parseInt(id); // o podemos usar: Number.isInteger(Number(id))
+      //let esIdValido = !isNaN(id) && esEntero && id > 0 && id ? true : false;
+      return true;
+    }
+    /**
+     * Valida el tipo, longitud y contenido del título entre 1 y 255 caracteres
+     * @param {String} titulo 
+     * @returns {Boolean}
+     */
+    static validarTitulo(titulo) {
+      return typeof titulo == "string" && titulo.length > 0 && titulo.length <= Todo.MAX_TITULO ? true : false;
+    }
+    /**
+     * Valida el tipo, longitud y contenido de la descripción entre 1 y 1000 caracteres
+     * @param {String} descripcion 
+     * @returns {Boolean}
+     */
+    static validarDescripcion(descripcion) {
+      return typeof descripcion == "string" && descripcion.length > 0 && descripcion.length <= Todo.MAX_DESCRIPCION ? true : false;
+    }
+    /**
+     * Valida el tipo del campo completado que debe ser booleano
+     * @param {Boolean} completado 
+     * @returns {Boolean}
+     */
+    static validarCompletado(completado) {
+      return typeof completado == "boolean" ? true : false;
+    }
+  }
+
 }).listen(8080); // Se utiliza el puerto 8080 para el servidor
                  // localhost:8080 -> http://localhost:8080
                  // localhost -> 127.0.0.1
