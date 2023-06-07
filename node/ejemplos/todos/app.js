@@ -24,22 +24,14 @@ http.createServer(function (req, res) {
   let url = req.url; // url después de localhost:8080 -> / o /api, /todos, etc...
   let method = req.method; // GET, POST, PUT, DELETE, etc...
 
-  let todos = [
-    { id: 1, titulo: "Comprar pan", descripcion: "🍞🍞🍞", completado: false },
-    { id: 2, titulo: "Tomar café", descripcion: "☕️☕️☕️", completado: false },
-    { id: 3, titulo: "Estudiar NodeJS", descripcion: "📚📚📚", completado: false },
-  ]
+  Todo.seed(); // Crear algunos todos de ejemplo
+  const todos = Todo.todos; // Obtener los todos creados
 
   // GET all y GET by id
   if (url.startsWith("/todos") && method == "GET") {
     // Usamos split para conseguir el id de la URL:
     let id = url.split("/")[2]; // /todos/1 -> id = 1
-    // Comprobamos que es número válido:
-    // Comprobamos que no sea NaN (Not a Number)
-    // Comprobamos que sea mayor que 0
-    // Comprobamos que no sea null, undefined, etc...
-    let esEntero = id == parseInt(id); // o podemos usar: Number.isInteger(Number(id))
-    let esIdValido = !isNaN(id) && esEntero && id > 0 && id ? true : false;
+    let esIdValido = Todo.validarId(id)
     let esUrlValida = url.endsWith(id) || url.endsWith(id + "/") // permitimos /todos/1 o /todos/1/
     if (esIdValido && esUrlValida) {
       let todo = {};
