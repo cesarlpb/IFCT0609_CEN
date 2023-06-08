@@ -12,6 +12,10 @@ class Todo {
     // Añadimos el nuevo Todo al array static de la clase Todo (así siempre los tenemos disponibles):
     Todo.todos.push(this);
   }
+  /**
+   * Método para añadir 5 todos al array de todos
+   * @returns {void} No tiene retorno (undefined)
+   */
   static seed() {
     let todos = [
       { id: 1, titulo: "Comprar pan", descripcion: "🍞🍞🍞", completado: false },
