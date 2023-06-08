@@ -15,7 +15,7 @@
 
 // Importación de módulo http -> comunicación cliente-servidor
 const http = require('http');
-const Todo = require('./todo.js').default.default;
+const Todo = require('./todo.js');
 
 // Método para crear un servidor con NodeJS
 // req == request -> petición del cliente
@@ -56,6 +56,8 @@ http.createServer(function (req, res) {
     // lógica del método POST para crear nuevo todo
     const headers = req.headers;
     const esJSON = headers['content-type'].toLowerCase().startsWith("application/json");
+    // Variables para lectura del body como string de JSON y como objeto JSON
+    let jsonString = '', json = {};
 
     if (!esJSON) {
       // 400 -> Bad Request
@@ -63,36 +65,46 @@ http.createServer(function (req, res) {
       console.log("Error 400. Bad request") // DEV
       res.end("Error 400. Bad request. Content-type incorrecto, solo se admite JSON."); // Mensaje de error
     }
-    else {
-      res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
-      // Lectura del body como string de JSON
-      let jsonString = '';
+    else {  
       req.on('data', function (data) {
         jsonString += data;
       });
       req.on('end', function () {
-        console.log(jsonString); // DEV -> Imprimir el JSON recibido como objeto
+        // Convertimos el string de JSON a objeto PERO primero lo pasamos a string con stringify porque sino da error la conversión
+        json = JSON.parse(jsonString);
+        // Leemos los keys del json
+        const keys = Object.keys(json);
+        // Validamos los campos del json
+        let sonKeysValidos = Todo.verificarKeys(keys);
+        let sonValuesValidos = Todo.verificarValues(json);
+
+        // TODO: verificar que el id no se repita si nos pasan id
+        // Revisar el scope de req.on(...)
+      
+        // Creamos un nuevo todo con esos campos
+        if (sonKeysValidos && sonValuesValidos) {
+        // El id no hace falta que me lo indiquen porque lo controlamos desde class Todo
+        // El título puede estar vacío
+        // La descripción puede estar vacía
+        // El estado "completado" puede estar vacío -> false por defecto
+          let nuevoTodo = new Todo(
+            undefined,
+            json?.titulo,
+            json?.descripcion,
+            json?.completado ?? false
+          )
+          // Este Todo se guarda automáticamente en el arreglo de todos -> Todo.todos
+          res.writeHead(201, { 'Content-Type': 'text/plain; charset=UTF-8' }); // 201 -> Created
+          console.log(JSON.stringify(nuevoTodo, null, 2)) // DEV
+          res.end(JSON.stringify(nuevoTodo, null, 2))
+        } else {
+          // 400 -> Bad Request
+          res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
+          console.log("Error 400. Bad request") // DEV
+          res.end("Error 400. Bad request. Revisa la estructura del JSON."); // Mensaje de error
+        }
       });
-      // Convertimos el string de JSON a objeto PERO primero lo pasamos a string con stringify porque sino da error la conversión
-      const json = JSON.parse(JSON.stringify(jsonString));
-      console.log(json); // DEV -> Imprimir el JSON recibido como objeto
-      // Leemos los keys del json
-
-      // Validamos los campos del json
-
-      // Creamos un nuevo todo con esos campos
-      // El id no hace falta que me lo indiquen porque lo controlamos desde class Todo
-      // El título puede estar vacío
-      // La descripción puede estar vacía
-      // El estado "completado" puede estar vacío -> false por defecto
-
-      res.end("POST /todos")
     }
-    // Recibir los campos que me envía la solicitud -> JSON
-    // Validar esos campos de alguna forma
-    // Crear un nuevo todo
-    // Agregar el nuevo todo a la lista de todos
-
   } else if (url == "/todos" && method == "PUT") {
     // lógica del método PUT para editar un todo
     // Recibir los campos que me envía la solicitud -> JSON
@@ -138,5 +150,5 @@ http.createServer(function (req, res) {
     res.end(`Error 404. Ruta ${url} o método ${req.method} incorrecto. Envia la petición a /todos`);
   }
 }).listen(8080); // Se utiliza el puerto 8080 para el servidor
-                 // localhost:8080 -> http://localhost:8080
+                 // localhost:8080/todos -> http://localhost:8080/todos
                  // localhost -> 127.0.0.1
