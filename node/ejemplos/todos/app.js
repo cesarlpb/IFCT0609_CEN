@@ -150,5 +150,5 @@ http.createServer(function (req, res) {
     res.end(`Error 404. Ruta ${url} o método ${req.method} incorrecto. Envia la petición a /todos`);
   }
 }).listen(8080); // Se utiliza el puerto 8080 para el servidor
-                 // localhost:8080 -> http://localhost:8080
+                 // localhost:8080/todos -> http://localhost:8080/todos
                  // localhost -> 127.0.0.1
