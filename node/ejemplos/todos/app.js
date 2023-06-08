@@ -30,7 +30,11 @@ http.createServer(function (req, res) {
   // getAllTodos() equivale a Todo.todos
 
   // GET all y GET by id
-  if (url.startsWith("/todos") && method == "GET") {
+  let urlSuffix = url.split("/todos")[1]; // /todos o /todos/
+  let regex = /\/\d+/; // /todos/1
+  let esSuffixValido = urlSuffix == "" || urlSuffix == "/" || regex.test(urlSuffix);
+  let esGetURL = url.startsWith("/todos") && esSuffixValido; // /todos o /todos/1
+  if (esGetURL && method == "GET") {
     // Usamos split para conseguir el id de la URL:
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
