@@ -110,7 +110,15 @@ class Todo {
   }
 
   /***** DELETE *****/
-
+  /**
+   * Método para borrar un todo del array de todos
+   * @param {Number} id es el id del todo a borrar
+   * @returns {void} No tiene retorno (undefined)
+   */
+  static borrarTodoPorId(id) {
+    let index = Todo.getTodoIndex(id); // Obtenemos el índice del todo con el id
+    Todo.todos.splice(index, 1) // Eliminamos el todo con el id y devolvemos 200 -> OK
+  }
   // Validaciones
   /**
    * Valida si el id es un número entero mayor que 0

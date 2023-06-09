@@ -193,8 +193,7 @@ http.createServer(function (req, res) {
       
       // TODO: refactorizar en una función dentro de clase Todo
       if (esIdValido) {
-        let index = Todo.getTodoIndex(id); // Obtenemos el índice del todo con el id
-        TODOS.splice(index, 1) // Eliminamos el todo con el id y devolvemos 200 -> OK
+        Todo.borrarTodoPorId(id);
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
         console.log(`Se ha borrado el elemento con id ${id}\n\n`, JSON.stringify(TODOS))
         res.end(`Se ha borrado el elemento con id ${id}\n\n${JSON.stringify(TODOS, null, 2)}`); // Mensaje y array para comprobar que se ha borrado
