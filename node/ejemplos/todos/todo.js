@@ -3,6 +3,7 @@ class Todo {
   static todos = [];        // Array de todos que se actualiza en la creación de cada objeto Todo
   static MAX_TITULO = 255;
   static MAX_DESCRIPCION = 1000;
+  static MAX_TODOS = 5;
   static KEYS_VALIDOS = ["id", "titulo", "descripcion", "completado"];
   constructor(id_ = ++Todo.contadorTodos, titulo_ = "", descripcion_ = "", completado_ = false) {
     this.id = id_;
@@ -26,12 +27,14 @@ class Todo {
     ]
     for (let i = 0; i < todos.length; i++) {
       let todo = todos[i];
-      new Todo(
-        undefined,
-        todo.titulo,
-        todo.descripcion,
-        todo.completado
-      )
+      if (Todo.todos.length < Todo.MAX_TODOS) {
+        new Todo(
+          undefined,
+          todo.titulo,
+          todo.descripcion,
+          todo.completado
+        )
+      }
     }
   }
   // Métodos para validar los campos de un Todo
