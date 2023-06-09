@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- Ej 6 - onmousemove en <html> para abarcar toda la página 
+     También podemos quitar todos los paddings o margins del body y colocarlo en esa etiqueta para que abarque toda la extensión de la página    
+-->
+<html lang="en" onmousemove="seguirCursor(event)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <style>
+        body{
+            background-color: burlywood;
+            padding: 0;
+            margin: 0;
+        }
+        .h1{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .h2 {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .centrado{
+            width: 200px;
+            height: 2.5rem;
+            font-size: 2rem;
+            padding: 10px;
+            background-color: brown;
+            color: white;
+            margin: 0 auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .grande{
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 50%;
+            height: 2.5rem;
+        }
+        /* Form */
+        #form{
+            width: 50%;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            background-color: brown;
+            border-radius: 10px;
+            color: white;
+        }
+        #form input, #form label, #form p
+        .centrado label, .centrado input{
+            display: block;
+            font-size: 1.25rem;
+            width: 60%;
+            padding: 7px 0;
+            margin: 5px auto;
+        }
+        #form p{
+            width: 90%;
+            font-size: 1.25rem;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #form input{
+            text-align: center;
+        }
+        label{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        input[type="button"]{
+            width: 30%;
+            display: block;
+            padding: 1rem;
+            margin: 0.25rem auto 2rem!important;
+            background-color: white;
+            color: brown;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.5rem;
+            /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+        }
+        #total, input[readonly]{
+            display: block;
+            margin: 1rem auto 2rem;
+            background-color: lightgray;
+            border: 0;
+            height: 3rem;
+        }
+        input[readonly]{
+            margin: 0.5rem auto;
+            height: 1.5rem;
+            text-align: center;
+        }
+        .boton{display:block; width:100px;cursor:pointer;margin: 10px;border:1px solid black}
+
+        .oculto{ display: none}
+        .visible {display:block}
+        
+        /* Navbar */
+        .navbar{
+            top: 0;
+            margin: 0;
+            width: 100%;
+            border-radius: 0;
+        }
+        .navbar a{
+            display: inline-block;
+            padding: 0.5rem 1rem; 
+            margin: 0rem auto;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .fixed{
+            position: fixed;
+            background-color: black;
+            border-bottom: 2px solid white;
+        }
+        .fixed2{
+            position: fixed;
+            background-color: black;
+            border-top: 2px solid white;
+        }
+        /* Footer */
+        .footer{
+            bottom: 0;
+            width: 100%;
+            color: white;
+            border-radius: 0;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Atajos de teclado */
+        kbd{
+            border-radius: 5px;
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+        code{
+            background-color: black;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+            color: white;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+    </style>
+    <!-- Ej 4 - cargamos script en <head> pero usamos el evento load para saber cuándo la página ha terminado de cargar -->
+    <script src="4.js"></script>
+</head>
+<body>
+    <h1 class="h1">Eventos</h1>
+    <!-- Ej 9 navbar y footer con evento scroll -->
+    <nav id="navbar" class="centrado navbar">
+        <a href="#ej1">Ej 1</a>
+        <a href="#ej2">Ej 2</a>
+        <a href="#ej3">Ej 3</a>
+        <a href="#ej4">Ej 4</a>
+        <a href="#ej5">Ej 5</a>
+        <a href="#ej6">Ej 6</a>
+        <a href="#ej7">Ej 7</a>
+        <a href="#ej8">Ej 8</a>
+        <a href="#ej9">Ej 9</a>
+        <a href="#ej10">Ej 10</a>
+    </nav>
+    <!-- Ej 1 onclick -->
+    <h2 id="ej1" class="h2">Ej 1 - onclick</h2>
+    <!-- Si el evento es "click" en HTML el atributo para hacer trigger de ese evento es "onclick" y le pasamos una llamada a una función -->
+    <div id="btn" class="centrado" onclick="ej1()">Haz click aquí</div>
+    <!-- Ej 2 onmouseover y onmouseout -->
+    <h2 id="ej2" class="h2">Ej 2 - onmouseover y onmouseout</h2>
+    <!-- Los eventos son respectivamente "mouseover" (cursor encima) y "mouseout" (cursos sale del elemento) pero los atributos en HTML empiezan por "on" -->
+    <div class="centrado grande" 
+    onmouseover="color('green')" 
+    onmouseout="color('brown')"
+    >
+    Pasa el cursor por aquí</div>
+    <div id="efecto" class="centrado grande">Efectos del movimiento</div>
+    <!-- Ej 3 Evento click con listener -->
+    <h2 id="ej3" class="h2">Ej 3 - Evento click con listener</h2>
+    <form id="form">
+        <p>Introduce el precio y la cantidad:</p>
+        <label for="precio">Precio:</label>
+        <input id="precio" type="number">
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" type="number">
+        <label for="total">Total:</label>
+        <input type="button" id="enviar" value="Calcular total">
+        <input id="total" readonly>
+    </form>
+    <!-- Ej 4 onload -->
+    <h2 id="ej4" class="h2">Ej 4 - evento onload</h2>
+    <div class="centrado grande" style="height: 4.5rem;" id="cuadro">
+        Cuadro que cambia al entrar el ratón
+    </div>
+    <!-- Normalmente, añadimos scripts justo antes del </body> para que el resto de la página haya cargado antes de que se ejecute nuestro JS -->
+    <!-- Ej 5 - onclick con dos botones y una función -->
+    <h2 id="ej5" class="h2">Ej 5 - evento onclick con dos botones</h2>
+    <div id="boton1" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 1</div>
+    <div id="boton2" class="centrado grande" onclick="pulsar(this)">Pulsar aquí 2</div>
+    <!-- Ej 6 - coordenadas del cursor -->
+    <h2 id="ej6" class="h2">Ej 6 - coordenadas del cursor</h2>
+    <div class="centrado grande" style="height: 11rem;">
+        <label>Coordenada X (px)</label>
+        <input id="cX" readonly>       
+        <label>Coordenada Y (px)</label>      
+        <input id="cY" readonly> 
+    </div>
+    <!-- Ej 7 - cambio de colores entre 3 divs -->
+    <h2 id="ej7" class="h2">Ej 7 - cambio de colores entre 3 divs</h2>
+        <div id="c1" class="centrado grande" style="background: red" onmouseleave="saleDeRojo()">rojo</div>
+        <div id="c2" class="centrado grande" style="background: white;color:black;" 
+        onmouseenter="entraEnBlanco(this)" onmouseleave="saleDeBlanco()">blanco</div>
+        <div id="c3" class="centrado grande" style="background: blue" onmouseleave="saleDeAzul()">azul</div>
+    <!-- Ej 8 - mostrar fichas presionando teclas -->
+    <h2 id="ej8" class="h2">Ej 8 - mostrar fichas presionando teclas</h2>
+    <p class="centrado grande" style="width: 80%; height: 5rem;">Presiona las teclas <kbd>1</kbd>, <kbd>2</kbd> o <kbd>3</kbd> para ver las fichas correspondientes.</p>
+    <!-- Ficha 1 -->
+    <div class="oculto centrado grande" id="ficha1">  
+    Hola, soy el bloque 1
+    </div>
+    <!-- Ficha 2 -->
+    <div class="oculto centrado grande" id="ficha2">              
+    Hola, soy el bloque 2
+    </div>    
+    <!-- Ficha 3 -->
+    <div class="oculto centrado grande" id="ficha3">              
+    Hola, soy el bloque 3
+    </div>
+    <!-- Ej 10 - Formulario que no acepta números con evento input -->
+    <h2 id="ej10" class="h2">Ej 10 - Formulario que no acepta números</h2>
+    <form class="centrado grande" style="width: 80%; height: 8.5rem;">    
+        <label for="">Elige tu username.</label>
+        <label for="letras">No se aceptan dígitos del <code>0</code> al <code>9</code> o los siguientes caracteres: <code>$</code>, <code>_</code>, <code>ñ</code></label>            
+        <input type="text" id="letras" style="text-align: center;margin-top:20px;">
+    </form>
+    <!-- Ej 9 - navbar y footer con evento scroll -->
+    <h2 id="ej9" class="h2">Ej 9 - navbar y footer con evento scroll</h2>
+    <footer id="footer" class="centrado footer" style="height: 5rem;">
+            <p>Eventos. Este es el footer</p>
+    </footer>
+    <!-- Scripts -->
+    <script src="1.js"></script>
+    <script src="2.js"></script>
+    <script src="3.js"></script>
+    <script src="5.js"></script>
+    <script src="6.js"></script>
+    <script src="7.js"></script>
+    <script src="8.js"></script>
+    <script src="9.js"></script>
+    <script src="10.js"></script>
+</body>
+</html>

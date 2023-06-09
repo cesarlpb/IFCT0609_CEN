@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla CSV</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #loading {
+            display: none;
+            position: fixed;
+            top: 5%;
+            height: 50px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .spinner {
+            margin: 0 auto;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabla de datos</h1>
+    <input type="file" id="csv-file" accept=".csv">
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Cargando... <span id="progreso"></span> datos</p>
+        <p></p>
+    </div>
+    <script>
+    const input = document.getElementById('csv-file');
+    input.addEventListener('change', () => {
+
+        const loading = document.getElementById('loading');
+        loading.style.display = 'block';
+
+        var spinner = document.getElementById("loading");
+        spinner.style.display = "block";
+
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = () => {
+            const csv = reader.result;
+
+            function CSVToArray(strData, strDelimiter) {
+                strDelimiter = (strDelimiter || ",");
+                const objPattern = new RegExp((
+                    "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+                    "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+                    "([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
+                const arrData = [[]];
+                let arrMatches = null;
+                while (arrMatches = objPattern.exec(strData)) {
+                    const strMatchedDelimiter = arrMatches[1];
+                    if (strMatchedDelimiter.length && (strMatchedDelimiter !== strDelimiter)) {
+                        arrData.push([]);
+                    }
+                    if (arrMatches[2]) {
+                        var strMatchedValue = arrMatches[2].replace(new RegExp("\"\"", "g"), "\"");
+                    } else {
+                        var strMatchedValue = arrMatches[3];
+                    }
+                    arrData[arrData.length - 1].push(strMatchedValue);
+                }
+                return (arrData);
+            }
+
+            var lineas = CSVToArray(csv);
+            var datos = [];
+            var encabezados = lineas[0];
+            for (var i = 1; i < lineas.length; i++) {
+                var linea = lineas[i];
+                if (linea.length == encabezados.length) {
+                    var objeto = {};
+                    for (var j = 0; j < encabezados.length; j++) {
+                        objeto[encabezados[j]] = linea[j];
+                    }
+                    datos.push(objeto);
+                }
+            }
+
+            var tabla = document.getElementById("datos");
+            
+            function cargarFila(i) {
+                if (i < datos.length) {
+                    var fila = "<tr>" +
+                        "<td>" + datos[i].id + "</td>" +
+                        "<td>" + datos[i].url + "</td>" +
+                        "<td>" + datos[i].supermarket + "</td>" +
+                        "<td>" + datos[i].zip_code + "</td>" +
+                        "<td>" + datos[i].category + "</td>" +
+                        "<td>" + datos[i].name +   "</td>" +
+                        "<td>" + datos[i].description + "</td>" +
+                        "<td>" + datos[i].trademark + "</td>" +
+                        "<td>" + datos[i].trademark_propietary_flag + "</td>" +
+                        "<td>" + datos[i].price + "</td>" +
+                        "<td>" + datos[i].reference_price + "</td>" +
+                        "<td>" + datos[i].reference_unit + "</td>" +
+                        "<td>" + datos[i].offer_flag + "</td>" +
+                        "<td>" + datos[i].offer_price + "</td>" +
+                        "<td>" + datos[i].offer_type + "</td>" +
+                        "<td>" + datos[i].insert_date + "</td>" +
+                    "</tr>";
+
+                    tabla.innerHTML += fila;
+
+                    document.getElementById("progreso").innerHTML = `<strong>${i + 1}/${datos.length}</strong>`;
+                    console.log(`<strong>${i + 1}/${datos.length}</strong>`);
+
+                    setTimeout(() => {
+                        cargarFila(i + 1);
+                    }, 0);
+                } else {
+                    loading.style.display = 'none';
+                }
+            }
+
+            if (datos.length > 0) {
+                cargarFila(0);
+            } else {
+                loading.style.display = 'none';
+            }
+
+    };
+});
+</script>
+
+<table style="margin-top:30px">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>url</th>
+            <th>supermarket</th>
+            <th>zip_code</th>
+            <th>category</th>
+            <th>name</th>
+            <th>description</th>
+            <th>trademark</th>
+            <th>trademark_propietary_flag</th>
+            <th>price</th>
+            <th>reference_price</th>
+            <th>reference_unit</th>
+            <th>offer_flag</th>
+            <th>offer_price</th>
+            <th>offer_type</th>
+            <th>insert_date</th>
+        </tr>
+    </thead>
+    <tbody id="datos">
+    </tbody>
+</table>
+

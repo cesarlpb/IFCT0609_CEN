@@ -69,3 +69,14 @@ console.log(html)
 elemento.innerHTML = html
 
 //Ejercicio: Hacer 10 párrafos con lorem (10-20 palabras)
+<<<<<<< HEAD
+=======
+// HTML
+let elemento2 = document.getElementById("mydiv2")
+let html2 = ""
+for (let i = 0; i<10; i++){
+    html2 += "<p>" + i + " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, similique.</p>\n"
+}
+console.log(html2)
+elemento2.innerHTML = html2
+>>>>>>> a02490b2ee8fafd645816b982fb3df614becd1a1
