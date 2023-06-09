@@ -202,6 +202,7 @@ http.createServer(function (req, res) {
         console.log(`El id ${id} no existe`)
         res.end(); // Mensaje vacío
         // TODO: revisar si conviene un error más adelante
+        // TODO: cuando se piden borrados sucesivos del mismo id se borra otro TODO <--- RESOLVER
       }
     }
   }
