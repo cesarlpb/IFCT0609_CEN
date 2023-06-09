@@ -88,16 +88,27 @@
 			"name": "editTodo",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Este es el nuevo título 1\",\n    \"descripcion\": \"Nueva descripción\",\n    \"completado\": true\n}"
+				},
 				"url": {
-					"raw": "http://localhost:8080/todos",
+					"raw": "http://localhost:8080/todos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"todos"
+						"todos",
+						"1"
 					]
 				}
 			},
