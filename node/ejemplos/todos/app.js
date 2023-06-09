@@ -189,8 +189,6 @@ http.createServer(function (req, res) {
     }
     // Si hay id, verificamos que exista ese id en la lista de todos -> borramos
     else {
-      // Miramos si existe el id
-      
       // TODO: refactorizar en una función dentro de clase Todo
       if (esIdValido) {
         Todo.borrarTodoPorId(id);
@@ -198,13 +196,13 @@ http.createServer(function (req, res) {
         console.log(`Se ha borrado el elemento con id ${id}\n\n`, JSON.stringify(TODOS))
         res.end(`Se ha borrado el elemento con id ${id}\n\n${JSON.stringify(TODOS, null, 2)}`); // Mensaje y array para comprobar que se ha borrado
       } 
-      // else {
-      //   // Si no existe, No Content -> 204
-      //   res.writeHead(204, { 'Content-Type': 'text/plain; charset=UTF-8' });
-      //   console.log(`El id ${id} no existe`)
-      //   res.end(); // Mensaje vacío
-      //   // TODO: revisar si conviene un error más adelante
-      // }
+      else {
+        // Si no existe, No Content -> 204
+        res.writeHead(204, { 'Content-Type': 'text/plain; charset=UTF-8' });
+        console.log(`El id ${id} no existe`)
+        res.end(); // Mensaje vacío
+        // TODO: revisar si conviene un error más adelante
+      }
     }
   }
   else {
