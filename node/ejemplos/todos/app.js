@@ -1,41 +1,58 @@
 /*
   Ejemplo de NodeJS para crear unos todos:
-  - Crear un servidor
+  - Crear un servidor con módulo http usando el método createServer
     CRUD -> Create, Read, Update, Delete
     - Create: Crear una ruta para POST /todos (crear un todo)
-    - Read: Crear una ruta para GET /todos (leer todos los todos)
-    - Read: Crear una ruta para GET /todos/:id (leer un todo específico)
-    - Update: Crear una ruta para PUT /todos/:id (editar un todo específico)
-    - Delete: Crear una ruta para DELETE /todos/:id (eliminar un todo específico)
 
-    Para hacer las peticiones a las rutas, se puede utilizar Postman o Insomnia
+    - Read: Crear una ruta para GET /todos o /todos/ (leer todos los todos)
+    - Read: Crear una ruta para GET /todos/{id} o /todos/{id}/ con id = 1, 2, 3... (leer un todo específico)
+      - getAll() o getAllTodos() -> devuelve todos los objetos de clase Todo
+      - getOne() o getById() o getTodoPorId() -> devuelve un objeto de clase Todo por id
+      - getByTitulo() o getTodoPorTitulo() -> devuelve un objeto de clase Todo por título
+      - etc...
+      - getTodosPorCampo() -> función para buscar por cualquier campo del Todo
+        -- devuelve un array de objetos de clase Todo por campo específico
+
+    - Update: Crear una ruta para PUT /todos/{id} (editar un todo específico)
+      - TODO: crear método para editar el todo por id
+    - Delete: Crear una ruta para DELETE /todos/:id (eliminar un todo específico)
+      - TODO: crear método para eliminar el todo por id (splice)
+
+    Para hacer las peticiones a las rutas, se puede utilizar Postman 
     -> https://www.postman.com/downloads/
+    -> Colección: https://github.com/cesarlpb/IFCT0609_CEN/blob/main/node/ejemplos/todos/todos.postman_collection_v2.json
+      -- En Postman: Archivo > Importar > Seleccionar el .json
+      -- Click derecho -> Renombrar o click en ... > Edit para actualizar nombre de colección
     ¿Por qué Postman? Para no tener que hacer los formularios HTML por el momento
 */
 
-// Importación de módulo http -> comunicación cliente-servidor
-const http = require('http');
-const Todo = require('./todo.js');
-
-// Método para crear un servidor con NodeJS
+// Importación de Módulos  
+const http = require('http');     // Importación de módulo http -> comunicación cliente-servidor
+const Todo = require('./todo.js');// Importación de clase Todo
+const h = require('./helpers.js');// Importación de módulo helpers -> funciones de ayuda
+// Método createServer para crear un servidor con NodeJS
 // req == request -> petición del cliente
 // res == response -> respuesta del servidor (esto lo determinamos nosotros)
+// url -> localhost:8080/todos
+// https://www.w3schools.com/nodejs/met_http_createserver.asp
 http.createServer(function (req, res) {
 
-  let url = req.url; // url después de localhost:8080 -> / o /api, /todos, etc...
-  let method = req.method; // GET, POST, PUT, DELETE, etc...
-  
-  Todo.seed(); // Crear algunos todos de ejemplo
-  const TODOS = Todo.getAllTodos(); // Obtener los todos creados
-  // getAllTodos() equivale a Todo.todos
+  const url = req.url;       // url después de localhost:8080 -> url = / o /api, /todos, etc...
+  const method = req.method; // GET, POST, PUT, DELETE. Los demás métodos no los consideramos por el momento.
+  const base = "todos";    // Parte inicial de la url del endpoint -> /todos
 
+  Todo.seed(); // Crear algunos todos de ejemplo -> 5 todos
+  const TODOS = Todo.getAllTodos(); // Obtener los todos creados -> 5 todos
+  // Nota: getAllTodos() equivale a Todo.todos si no se aplica ninguna lógica en el método
+
+  const esGetUrl = h.validarMethodURL(base, method, url).esGetUrl; // /todos o /todos/1
+  const esPutUrl = h.validarMethodURL(base, method, url).esPutUrl; // /todos o /todos/1
+  const esPostUrl = h.validarMethodURL(base, method, url).esPostUrl; // /todos o /todos/1
+  const esDeleteUrl = h.validarMethodURL(base, method, url).esDeleteUrl; // /todos o /todos/1
+
+  // Método GET 
   // GET all y GET by id
-  let urlSuffix = url.split("/todos")[1]; // /todos o /todos/
-  let regex = /\/\d+/; // /todos/1
-  let esSuffixValido = urlSuffix == "" || urlSuffix == "/" || regex.test(urlSuffix);
-  let esGetURL = url.startsWith("/todos") && esSuffixValido; // /todos o /todos/1
-  let esPutURL = url.startsWith("/todos") && esSuffixValido; // /todos o /todos/1
-  if (esGetURL && method == "GET") {
+  if (esGetUrl && method == "GET") {
     // Usamos split para conseguir el id de la URL:
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
@@ -57,7 +74,7 @@ http.createServer(function (req, res) {
       console.log("Error 400. Bad request") // DEV
       res.end("Error 400. Bad request"); // Mensaje de error
     }
-  } else if (url == "/todos" && method == "POST") {
+  } else if (esPostUrl && method == "POST") {
     // lógica del método POST para crear nuevo todo
     const headers = req.headers;
     const esJSON = headers['content-type'].toLowerCase().startsWith("application/json");
@@ -110,7 +127,7 @@ http.createServer(function (req, res) {
         }
       });
     }
-  } else if (esPutURL && method == "PUT") {
+  } else if (esPutUrl && method == "PUT") {
     // Usamos split para conseguir el id de la URL:
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
@@ -146,18 +163,8 @@ http.createServer(function (req, res) {
         console.log("Error 400. Bad request") // DEV
         res.end("Error 400. Bad request: url, id o formato de JSON incorrecto."); // Mensaje de error
       } else if (todo) {
-
-        /* TODO: pasarlo a class Todo:*/
-
         // Si el todo existe, actualizamos sus campos
-        for (const key in json) {
-          todo[key] = json[key];
-        }
-        // Guardamos el todo en el array de todos
-        let index = Todo.getTodoIndex(id);
-        Todo.todos[index] = todo;
-        /*******************/
-
+        Todo.editarTodoPorId(id, json);
         // 200 -> OK
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
         console.log(JSON.stringify(todo, null, 2)) // DEV
@@ -169,7 +176,7 @@ http.createServer(function (req, res) {
         res.end();
       }
     })
-  } else if (url.startsWith("/todos") && method == "DELETE") {
+  } else if (esDeleteUrl && method == "DELETE") {
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
     let esUrlValida = url.endsWith(id) || url.endsWith(id + "/") // permitimos /todos/1 o /todos/1/
@@ -183,6 +190,8 @@ http.createServer(function (req, res) {
     // Si hay id, verificamos que exista ese id en la lista de todos -> borramos
     else {
       // Miramos si existe el id
+      
+      // TODO: refactorizar en una función dentro de clase Todo
       if (esIdValido) {
         let index = Todo.getTodoIndex(id); // Obtenemos el índice del todo con el id
         TODOS.splice(index, 1) // Eliminamos el todo con el id y devolvemos 200 -> OK
