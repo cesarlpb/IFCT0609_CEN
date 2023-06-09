@@ -39,7 +39,8 @@ class Todo {
   }
   // Métodos para validar los campos de un Todo
 
-  // GET
+  /***** GET *****/
+
   /**
    * Devuelve el array actual de todos
    * @returns {Array} todos
@@ -86,6 +87,30 @@ class Todo {
     // Devolvemos el array de resultados
     return null;
   }
+
+  /***** POST *****/
+
+  /***** PUT *****/
+  /**
+   * Método para editar el todo si existe, si no existe no hace nada
+   * @param {Number} id es el id del todo
+   * @param {Object} json Objeto que tiene los cambios
+   * @returns {void} No tiene retorno (undefined)
+   */
+  static editarTodoPorId(id, json) {
+    let todo = Todo.getTodoPorId(id);
+    if (todo) {
+      for (const key in json) {
+        todo[key] = json[key];
+      }
+      // Guardamos el todo en el array de todos
+      let index = Todo.getTodoIndex(id);
+      Todo.todos[index] = todo;
+    }
+  }
+
+  /***** DELETE *****/
+
   // Validaciones
   /**
    * Valida si el id es un número entero mayor que 0
