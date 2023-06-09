@@ -44,7 +44,12 @@ class Todo {
   static getAllTodos() {
     return Todo.todos;
   }
-  static getTodo(id) {
+  /**
+   * Método para obtener un todo por su id
+   * @param {Number} id 
+   * @returns {Object} todo o {null} en caso de no encontrarlo
+   */
+  static getTodoPorId(id) {
     if (!id) {
       throw new Error("No se ha proporcionado un id")
     }
@@ -62,6 +67,21 @@ class Todo {
     }
     return null; // Si no encuentra el todo con ese id
     // Otra opción sería arrojar error
+  }
+
+  /**
+   * Método para buscar un todo por campo y valor
+   * @param {String} campo Tiene que ser un campo válido de un Todo -> KEYS_VALIDOS
+   * @param {String|Boolean} valor El valor que buscamos en el campo
+   * @returns {Array} Array de todos que cumplen la condición
+   */
+  static getTodosPorCampo(campo, valor) {
+    // Comprobamos que el campo es válido
+    // Comprobamos que el valor es válido
+    // Recorremos el array de todos y comprobamos si el campo y el valor coinciden
+    // Si coinciden, lo añadimos a un array de resultados
+    // Devolvemos el array de resultados
+    return null;
   }
   // Validaciones
   /**

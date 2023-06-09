@@ -34,13 +34,14 @@ http.createServer(function (req, res) {
   let regex = /\/\d+/; // /todos/1
   let esSuffixValido = urlSuffix == "" || urlSuffix == "/" || regex.test(urlSuffix);
   let esGetURL = url.startsWith("/todos") && esSuffixValido; // /todos o /todos/1
+  let esPutURL = url.startsWith("/todos") && esSuffixValido; // /todos o /todos/1
   if (esGetURL && method == "GET") {
     // Usamos split para conseguir el id de la URL:
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
     let esUrlValida = url.endsWith(id) || url.endsWith(id + "/") // permitimos /todos/1 o /todos/1/
     if (esIdValido && esUrlValida) {
-      let todo = Todo.getTodo(id); // Devuelve el Todo o null si no existe
+      let todo = Todo.getTodoPorId(id); // Devuelve el Todo o null si no existe
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
       console.log(JSON.stringify(todo, null, 2)) // Escribimos resultado en consola (DEV)
       res.end(JSON.stringify(todo ? todo : {}, null, 2));    // Convertir el único objeto a JSON -> se devuelve como string
@@ -109,14 +110,65 @@ http.createServer(function (req, res) {
         }
       });
     }
-  } else if (url == "/todos" && method == "PUT") {
-    // lógica del método PUT para editar un todo
-    // Recibir los campos que me envía la solicitud -> JSON
-    // Validar esos campos de alguna forma
-    // Editar el todo con el id que me envían
-    // Agregar el nuevo todo a la lista de todos
+  } else if (esPutURL && method == "PUT") {
+    // Usamos split para conseguir el id de la URL:
+    let id = url.split("/")[2]; // /todos/1 -> id = 1
+    let esIdValido = Todo.validarId(id)
+    let esUrlValida = url.endsWith(id) || url.endsWith(id + "/") // permitimos /todos/1 o /todos/1/
+    let todo = Todo.getTodoPorId(id); // Buscar el objeto con ese id, obtenemos null si el id no existe
+    // TODO: revisar por qué esIdValido es int y no boolean
+    if (!esIdValido || !esUrlValida) {
+      // 400 -> Bad Request
+      res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
+      console.log("Error 400. Bad request") // DEV
+      res.end("Error 400. Bad request: url, id o formato de JSON incorrecto."); // Mensaje de error
+    }
 
-    res.end("PUT /todos")
+    // Leemos el contenido del body del request igual que en POST -> TODO: refactorizar en una función
+    const headers = req.headers;
+    const esJSON = headers['content-type'].toLowerCase().startsWith("application/json");
+    // Variables para lectura del body como string de JSON y como objeto JSON
+    let jsonString = '', json = {};
+    req.on('data', function (data) {
+      jsonString += data;
+    });
+    req.on('end', function () {
+      // Convertimos el string de JSON a objeto PERO primero lo pasamos a string con stringify porque sino da error la conversión
+      json = JSON.parse(jsonString);
+      // Leemos los keys del json
+      const keys = Object.keys(json);
+      // Validamos los campos del json
+      let sonKeysValidos = Todo.verificarKeys(keys);
+      // let sonValuesValidos = Todo.verificarValues(Object.keys(json)); // arr de keys como param
+      if (!esJSON || !sonKeysValidos) {
+        // 400 -> Bad Request
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=UTF-8' });
+        console.log("Error 400. Bad request") // DEV
+        res.end("Error 400. Bad request: url, id o formato de JSON incorrecto."); // Mensaje de error
+      } else if (todo) {
+
+        /* TODO: pasarlo a class Todo:*/
+
+        // Si el todo existe, actualizamos sus campos
+        for (const key in json) {
+          todo[key] = json[key];
+        }
+        // Guardamos el todo en el array de todos
+        let index = Todo.getTodoIndex(id);
+        Todo.todos[index] = todo;
+        /*******************/
+
+        // 200 -> OK
+        res.writeHead(200, { 'Content-Type': 'text/plain; charset=UTF-8' });
+        console.log(JSON.stringify(todo, null, 2)) // DEV
+        res.end(JSON.stringify(todo, null, 2))
+      } else {
+        // 204 -> No Content // mensaje en blanco
+        res.writeHead(204, { 'Content-Type': 'text/plain; charset=UTF-8' });
+        console.log("204. No se encontró el todo con ese id") // DEV
+        res.end();
+      }
+    })
   } else if (url.startsWith("/todos") && method == "DELETE") {
     let id = url.split("/")[2]; // /todos/1 -> id = 1
     let esIdValido = Todo.validarId(id)
