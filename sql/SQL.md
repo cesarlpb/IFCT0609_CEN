@@ -20,6 +20,30 @@
   ```
 3. En `phpMyAdmin` podemos editar, borrar y leer los datos usando el interfaz gráfico. Además, podemos **previsualizar el SQL** que se va a ejecutar antes de confirmar.
 
+## Extensión MySQL en VS Code
+
+Estamos usando esta extensión: `cweijan.vscode-mysql-client2`
+
+1. Cuando instalamos la extensión aparece un icono de base de datos en el panel lateral. Hacemos click para añadir conexión.
+2. Click en `Create Connection` y colocamos la base datos que vamos a usar, en este caso, `pruebas`:
+
+![Captura extensión mysql](extension.png)
+3. Click en `Connect`. Deberíamos ver la conexión en el panel:
+
+![Captura conexión mysql](conexion.png)
+
+4. Comprobamos que vemos la tabla `tblUsuarios` en el panel lateral:
+
+![Captura tablas mysql](tabla.png)
+
+5. Ahora podemos ejecutar queries desde cualquier archivo `.sql` usando `Execute`:
+
+![Botón para ejecutar query](execute-btn.png)
+
+**Recomendaciones:**
+  - Se puede editar el nombre de la conexión haciendo click derecho > Edit connection en el panel lateral.
+  - Crear y borrar conexiones es rápido, podemos tener una activa en cada momento. 
+
 ## Ejercicios de SQL
 
 [Ejercicios de MySQL](https://parzibyte.me/blog/2018/02/06/ejercicios-resueltos-consultas-sql-mysql/amp/)
