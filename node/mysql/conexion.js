@@ -11,11 +11,26 @@ const con = mysql.createConnection({
 // *** CREATE ***
 // Query para crear usuario -> INSERT INTO
 
+const createQuery =
+  `INSERT INTO pruebas.tblUsuarios 
+VALUES (
+        NULL,
+        'PEPE',
+        'Pepe',
+        'M',
+        '0',
+        'pepe@larana.com',
+        '123-456-789',
+        'SAMSUNG',
+        'IUSACELL',
+        '121.55',
+        '1'
+    );`
 
 // *** READ ***
 
 // Query para leer todos los usuarios:
-const readAllQuery = "SELECT * FROM pruebas.tblUsuarios;"
+const readAllQuery = "SELECT * FROM pruebas.tblUsuarios LIMIT 3;" // LIMIT 3 hace que solo me devuelva 3 usuarios
 // Query para leer el usuario con idx 1 -> SELECT ... WHERE idx = 1
 const readOneByIdQuery = (id) => `SELECT * FROM pruebas.tblUsuarios WHERE idx = ${id};`
 
@@ -32,12 +47,26 @@ const readOneByIdQuery = (id) => `SELECT * FROM pruebas.tblUsuarios WHERE idx = 
 con.connect(function (err) {
   if (err) throw err;
   console.log("Se ha establecido conexión a la base de datos.");
+  // Query readAll -> devuelve todos los usuarios de la tabla
   con.query(readAllQuery, function (err, result) {
     if (err) throw err;
     console.log("readAll:\n" + JSON.stringify(result, null, 2)); // Indentación de 2 espacios
   });
+  // Query readOne -> devuelve el usuario por id
   con.query(readOneByIdQuery(1), function (err, result) {
     if (err) throw err;
+    console.log("--------------------------------------------")
     console.log("readOne:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
   });
+  // Query create -> crea un usuario
+  con.query(createQuery, function (err, result) {
+    if (err) throw err;
+    console.log("error:" + err)
+    console.log("--------------------------------------------")
+    console.log("create:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
+  });
+  // Query update -> actualiza un usuario
+
+  // Query delete -> elimina un usuario
+
 });
