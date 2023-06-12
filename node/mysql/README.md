@@ -1,4 +1,4 @@
-## Cómo utilizar la conexión a la base de datos
+## Cómo utilizar la conexión a la base de datos
 
 **Requisitos:** Tener instalado XAMPP y Node (verificar que el comando `node` o `node -v` funcione en la terminal)
 
