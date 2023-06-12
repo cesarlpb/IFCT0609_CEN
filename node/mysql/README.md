@@ -4,8 +4,10 @@
 
 ---
 
+**Nota:** Si no lo hemos hecho ya, debemos crear la base de datos y la tabla con los datos de prueba: Seguid estos pasos [aquí](../../sql/SQL.md).
+
 1. En XAMPP, activar el servidor Apache y MySQL.
-2. Abrir terminal, navegard a la carpeta donde se va a ejecutar este archivo.
+2. Abrir terminal, navegar a la carpeta donde se va a ejecutar este archivo.
 3. Ejecutar el comando `npm install` para instalar las dependencias. -> Debe aparecer una carpeta llamada `node_modules` en la misma ubicación.
 4. Para ejecutar el archivo principal:
 ```js
