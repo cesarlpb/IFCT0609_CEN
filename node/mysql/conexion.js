@@ -45,7 +45,7 @@ const updateQueryById = (id) => {
 
 // *** DELETE ***
 // Query para eliminar usuario -> DELETE
-
+const deleteQueryById = (id) => `DELETE FROM pruebas.tblUsuarios WHERE idx = ${id};`
 
 
 con.connect(function (err) {
@@ -75,5 +75,9 @@ con.connect(function (err) {
     console.log("update:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
   });
   // Query delete -> elimina un usuario
-
+  con.query(deleteQueryById(1), function (err, result) {
+    if (err) throw err;
+    console.log("--------------------------------------------")
+    console.log("delete:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
+  });
 });

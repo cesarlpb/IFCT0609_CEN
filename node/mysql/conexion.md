@@ -33,3 +33,5 @@ Resultado: [
 ]
 Nombre: BRENDA
 ```
+## Reseteo de tabla
+Ejecutad el archivo [crear_db](../../sql/0.crear_db.sql) que pondrá la tabla como se necesita para los ejercicios.
