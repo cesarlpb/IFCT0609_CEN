@@ -37,7 +37,11 @@ const readOneByIdQuery = (id) => `SELECT * FROM pruebas.tblUsuarios WHERE idx = 
 // *** UPDATE ***
 // Query para editar usuario -> UPDATE
 
-
+const updateQueryById = (id) => {
+  return `UPDATE pruebas.tblUsuarios SET 
+    usuario = 'usuario2', nombre = 'Pepito' 
+    WHERE tblUsuarios.idx = ${id};`
+}
 
 // *** DELETE ***
 // Query para eliminar usuario -> DELETE
@@ -61,12 +65,15 @@ con.connect(function (err) {
   // Query create -> crea un usuario
   con.query(createQuery, function (err, result) {
     if (err) throw err;
-    console.log("error:" + err)
     console.log("--------------------------------------------")
     console.log("create:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
   });
   // Query update -> actualiza un usuario
-
+  con.query(updateQueryById(2), function (err, result) {
+    if (err) throw err;
+    console.log("--------------------------------------------")
+    console.log("update:\n" + JSON.stringify(result, null, 2)); // Acceder a un campo específico por id
+  });
   // Query delete -> elimina un usuario
 
 });
