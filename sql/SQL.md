@@ -6,6 +6,20 @@
 
 [Tipos de datos](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
 
+## Creación de base de datos
+
+**Pasos para crear una base de datos y la tabla para los ejercicios:**
+
+1. Iniciar XAMPP -> `Apache` y `MySQL`. Una vez iniciados los procesos -> Click en botón: `Abrir aplicación` (`Go to application`). Navegamos a `phpMyAdmin`: [http://localhost/phpmyadmin/index.php](http://localhost/phpmyadmin/).
+2. Vamos a la pestaña `SQL` y ejecutamos el query: [crear base de datos, tabla e insertar datos](0.crear_db.sql). Una vez que hemos creado la base datos y tabla, debemos ver en estas pestañas: 
+  - `Examinar` los datos
+  - `Estructura` la tabla con los tipos de las columnas (`int`, `varchar`, `date`, etc.)
+  - `SQL` el query que hemos ejecutado. **Aquí** ejecutamos queries directamente en esta base de datos, por ejemplo:
+  ```sql
+  SELECT * FROM tblUsuarios;
+  ```
+3. En `phpMyAdmin` podemos editar, borrar y leer los datos usando el interfaz gráfico. Además, podemos **previsualizar el SQL** que se va a ejecutar antes de confirmar.
+
 ## Ejercicios de SQL
 
 [Ejercicios de MySQL](https://parzibyte.me/blog/2018/02/06/ejercicios-resueltos-consultas-sql-mysql/amp/)
@@ -23,10 +37,6 @@ Ejercicios por bloques:
 - [Parte 2 - teoría UPDATE y DELETE](https://parzibyte.me/blog/2018/02/12/ejercicios-mysql-cadena-update-delete/)
 - [Parte 3 - teoría de algunas funciones](https://parzibyte.me/blog/2018/02/23/mas-ejercicios-resueltos-mysql-combinando-funciones/)
 - [Parte 4 - Fechas](https://parzibyte.me/blog/2020/12/28/ejercicios-resueltos-mysql-4/)
-
-## Creación de base de datos
-
-Ejecutamos estos queries: [crear base de datos](0.crear_db.sql)
 
 ## Diagramas
 Esquema de relaciones entre tablas en una base de datos relacional.
