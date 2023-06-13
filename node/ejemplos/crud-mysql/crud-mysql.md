@@ -36,7 +36,10 @@ Usamos un objeto distinto o similar al de [Todo](../todos/Todo.js) para represen
 
 ## 2. Tabla
 Creamos un archivo `.sql` para crear tabla e insertar algunos datos:
-- `createTable.sql`
+- `nombre_del_objeto_en_plural.sql`, por ejemplo:
+  - `usuarios.sql`
+  - `posts.sql`
+  - etc.
 
 ## 3. Archivos
 Creamos estos archivos para cada query:
