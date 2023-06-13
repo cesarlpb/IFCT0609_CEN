@@ -55,5 +55,5 @@ VALUES (
         MySQL is free and open-source software under the terms of the GNU General Public License, and is also available under a variety of proprietary licenses. MySQL was owned and sponsored by the Swedish company MySQL AB, which was bought by Sun Microsystems (now Oracle Corporation).[8] In 2010, when Oracle acquired Sun, Widenius forked the open-source MySQL project to create MariaDB.[9]
 
         MySQL has stand-alone clients that allow users to interact directly with a MySQL database using SQL, but more often, MySQL is used with other programs to implement applications that need relational database capability. MySQL is a component of the LAMP web application software stack (and others), which is an acronym for Linux, Apache, MySQL, Perl/PHP/Python. MySQL is used by many database-driven web app<lications, including Drupal, Joomla, phpBB, and WordPress. MySQL is also used by many popular websites, including Facebook,[10][11] Flickr,[12] MediaWiki,[13] Twitter,[14] and YouTube.[15]',
-        2
+        2 
     );
