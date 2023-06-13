@@ -15,3 +15,14 @@
   password: "123456"
 }
 ```
+Query para crear tabla:
+```sql
+CREATE TABLE `objetos`.`Usuarios` 
+  (`id` SMALLINT NOT NULL AUTO_INCREMENT , 
+  `nombre` VARCHAR(100) NULL , 
+  `apellido` VARCHAR(100) NULL , 
+  `email` VARCHAR(100) NOT NULL , 
+  `password` VARCHAR(20) NULL , 
+  PRIMARY KEY (`id`)) 
+ENGINE = InnoDB;
+```
