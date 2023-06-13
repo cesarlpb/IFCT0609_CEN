@@ -13,3 +13,20 @@
     userId: 1
   }
 ```
+
+Creamos tabla Posts:
+
+```sql
+CREATE TABLE IF NOT EXISTS `objetos`.`Posts` 
+(`id` SMALLINT NOT NULL AUTO_INCREMENT , 
+`title` VARCHAR(100) NOT NULL , 
+`body` VARCHAR(6000) NULL , 
+`userId` SMALLINT NOT NULL , PRIMARY KEY (`id`)) 
+ENGINE = InnoDB;
+```
+
+Siempre podemos recuperar este query con:
+```sql
+-- Para ver cómo creamos tabla:
+SHOW CREATE TABLE Posts;
+```
