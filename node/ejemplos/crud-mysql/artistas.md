@@ -3,7 +3,7 @@
   - id: int
   - nombre: string
   - descripcion: string
-  - fechaNacimiento: string
+  - fechaNacimiento: date, string en formato de fecha
   - lugarNacimiento: string
   - foto: string, path de la imagen del artista
 
@@ -16,4 +16,16 @@
     lugarNacimiento: "USA",
     foto: "media/artistas/michael.jpg"
   }
+```
+
+```sql
+
+CREATE TABLE IF NOT EXISTS `Artistas` (
+  `id` SMALLINT NOT NULL AUTO_INCREMENT , 
+  `nombre` VARCHAR(100) NOT NULL , 
+  `descripcion` VARCHAR(500) NULL , 
+  `fechaNacimiento` DATE NULL , 
+  `lugarNacimiento` VARCHAR(50) NULL , 
+  `foto` VARCHAR(255) NULL , 
+  PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
