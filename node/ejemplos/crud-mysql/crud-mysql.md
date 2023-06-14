@@ -54,4 +54,4 @@ Debemos ver en consola el resultado del query. **Opcional:** comprobar en otro q
 
 ## 5. Reseteo de tabla
 Añadimos query para al archivo `.sql` para resetear la tabla:
-- `createTable.sql`
+- `nombre_del_objeto_en_plural.sql`
