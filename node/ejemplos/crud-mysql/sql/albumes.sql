@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS `Albumes`
   `portada` VARCHAR(255) NULL , 
   PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
+-- Añadimos columna path:
+ALTER TABLE `Albumes` ADD IF NOT EXISTS `path` VARCHAR(20) NOT NULL AFTER `fecha`;
+ALTER TABLE `Albumes` CHANGE `path` `path` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'portadas';
 -- Truncamos la tabla (borrar los datos):
 TRUNCATE TABLE `Albumes`;
 
@@ -32,3 +35,6 @@ VALUES
   (NULL, 'Got to Be There', 'Got to Be There is the debut solo studio album by American singer Michael Jackson, released by Motown on January 24, 1972,[4] four weeks after the Jackson 5''s Greatest Hits (1971). It includes the song of the same name, which was released on October 7, 1971, as Jackson''s debut solo single.
 
 On August 2, 2013, the album was certified Gold by the Recording Industry Association of America (RIAA) for sales of over 500,000 copies. The album was later remastered and reissued in 2009 as part of the 3-disc compilation Hello World: The Motown Solo Collection.', '1', '1972-01-01', 'Mj1971-got-to-be-there.jpg');
+-- Añadimos valores a path en caso de que no existan:
+UPDATE `Albumes` SET `path` = 'portadas' WHERE `Albumes`.`id` = 1;
+UPDATE `Albumes` SET `path` = 'portadas' WHERE `Albumes`.`id` = 2;
