@@ -38,3 +38,6 @@ On August 2, 2013, the album was certified Gold by the Recording Industry Associ
 -- Añadimos valores a path en caso de que no existan:
 UPDATE `Albumes` SET `path` = 'portadas' WHERE `Albumes`.`id` = 1;
 UPDATE `Albumes` SET `path` = 'portadas' WHERE `Albumes`.`id` = 2;
+
+-- Para actualizar CREATE TABLE tenemos este query:
+-- SHOW CREATE TABLE objetos.`Albumes`;
