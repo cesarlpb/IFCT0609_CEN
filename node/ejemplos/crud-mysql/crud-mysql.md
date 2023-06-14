@@ -52,6 +52,8 @@ Creamos estos archivos para cada query y con endpoints para cada uno, por ejempl
 - `update.js` -> localhost:8080/artistas/1
 - `delete.js` -> localhost:8080/artistas/1
 
+**Importante:** lo habitual es devolver los objetos en formato `JSON`. 
+
 ## 4. Salida
 
 - Debemos ver en consola el resultado del query. -> `console.log(...)`
