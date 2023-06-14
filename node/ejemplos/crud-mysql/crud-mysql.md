@@ -37,21 +37,30 @@ Usamos un objeto distinto o similar al de [Todo](../todos/Todo.js) para represen
 ## 2. Tabla
 Creamos un archivo `.sql` para crear tabla e insertar algunos datos:
 - `nombre_del_objeto_en_plural.sql`, por ejemplo:
-  - `usuarios.sql`
+  - `albumes.sql`
+  - `artistas.sql`
   - `posts.sql`
+  - `tracks.sql`
+  - `usuarios.sql`
   - etc.
 
 ## 3. Archivos
-Creamos estos archivos para cada query:
-- `getAll.js`
-- `getOne.js`
-- `create.js`
-- `update.js`
-- `delete.js`
+Creamos estos archivos para cada query y con endpoints para cada uno, por ejemplo para los artistas:
+- `getAll.js` -> localhost:8080/artistas
+- `getOne.js` -> localhost:8080/artistas/1
+- `create.js` -> localhost:8080/artistas
+- `update.js` -> localhost:8080/artistas/1
+- `delete.js` -> localhost:8080/artistas/1
 
 ## 4. Salida
-Debemos ver en consola el resultado del query. **Opcional:** comprobar en otro query que el resultado es correcto cuando sea necesario.
+
+- Debemos ver en consola el resultado del query. -> `console.log(...)`
+- **Opcional:** mostrar en el navegador el resultado del query. -> `res.end(...)`
+
+POST, UPDATE, DELETE:
+**Opcional:** comprobar en otro query que el resultado es correcto cuando sea necesario.
 
 ## 5. Reseteo de tabla
 Añadimos query para al archivo `.sql` para resetear la tabla:
 - `nombre_del_objeto_en_plural.sql`
+[ x ] Hemos colocado el reseteo (truncate) de tabla en el mismo archivo que crea la tabla en cada caso.
