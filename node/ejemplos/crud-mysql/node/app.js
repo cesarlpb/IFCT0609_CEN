@@ -1,28 +1,25 @@
 const http = require('http');
+const colours = require('./colours.js')
 
 let endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
-// Códigos de color para consola:
-const red = "\x1b[31m";
-const green = "\x1b[32m";
-const yellow = "\x1b[33m";
 
 http.createServer(function (req, res) {
   let esEndpointValido = endpoints.includes(req.url.replaceAll("/", "")) // true si es endpoint de endpoints
   let url = req.url
   let endpoint = req.url.replaceAll("/", "")
   if(esEndpointValido){
-    console.log(green, `200. URL: ${url} endpoint: ${endpoint}`)
+    console.log(colours.fg.green, `200. URL: ${url} endpoint: ${endpoint}`)
     res.writeHead(200, { 'Content-Type': 'text/html; charset = UTF-8' })
     res.write(`<h1>${endpoint}</h1>`)
     res.end()
   }else if(req.url == "/"){
-    console.log(green, `200. URL: ${url} lista de endpoints`)
+    console.log(colours.fg.green, `200. URL: ${url} lista de endpoints`)
     res.writeHead(200, { 'Content-Type': 'text/html; charset = UTF-8' })
     let html = generarHTML()
     res.write(html)
     res.end() 
   }else{
-    console.error(red, `404. URL: ${url} no encontrada`)
+    console.error(colours.fg.red, `404. URL: ${url} no encontrada`)
     res.writeHead(404, { 'Content-Type': 'text/html; charset = UTF-8' })
     res.write("<h1>Error 404: No encontrado</h1>")
     res.end()
