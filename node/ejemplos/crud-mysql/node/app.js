@@ -64,21 +64,35 @@ function generarEnlacesHTML() {
   }
   return html
 }
+/**
+ * Función para generar el head de la página HTML
+ * @param {String} endpoint nombre del endpoint en la URL -> coincide con el nombre de la tabla en la base de datos en nuestro caso
+ * @returns {String} HTML con la cabecera de la página
+ */
 function generarHeadHTML(endpoint){
   return `
   <!DOCTYPE html>
   <head>
     <meta charset="UTF-8">
     <title>${endpoint}</title>
+    <!-- Bootstrap CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   `
 }
+/**
+ * Función para generar la tabla HTML con los datos de la base de datos usando bucles
+ * @param {Array.<Object>} datos array con los datos de la tabla
+ * @param {String} endpoint nombre de la tabla en nuestro caso
+ * @returns {String} HTML con la tabla de datos
+ */
 function generarTablaHTML(datos, endpoint){
   let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
   let html = generarHeadHTML(endpoint)
   html += "<body>"
+  html += "<div class='container'>"
   html += "<html>"
-  html += "<table>"  
+  html += "<table class='table table-striped'>"  
   html += "<h2>" + endpoint + "</h2>"
   html += "<tr>"
   // bucle para añadir etiquetas de th / encabezados de tabla
@@ -97,6 +111,7 @@ function generarTablaHTML(datos, endpoint){
     html += "</tr>"
   })
   html += "</table>"
+  html += "</div>"
   html += "</body>"
   html += "</html>"
   
