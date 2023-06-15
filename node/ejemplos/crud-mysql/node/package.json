@@ -1,0 +1,17 @@
+{
+  "name": "node-crud",
+  "version": "1.0.0",
+  "description": "Aplicación para crear endpoints de unas tablas y conectar a base de datos de MySQL",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [
+    "node",
+    "mysql",
+    "crud"
+  ],
+  "author": "César P.",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
