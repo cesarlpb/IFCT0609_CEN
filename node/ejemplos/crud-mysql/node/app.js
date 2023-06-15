@@ -64,9 +64,21 @@ function generarEnlacesHTML() {
   }
   return html
 }
+function generarHeadHTML(endpoint){
+  return `
+  <!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>${endpoint}</title>
+  </head>
+  `
+}
 function generarTablaHTML(datos, endpoint){
   let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
-  let html = "<table>"  
+  let html = generarHeadHTML(endpoint)
+  html += "<body>"
+  html += "<html>"
+  html += "<table>"  
   html += "<h2>" + endpoint + "</h2>"
   html += "<tr>"
   // bucle para añadir etiquetas de th / encabezados de tabla
@@ -74,9 +86,19 @@ function generarTablaHTML(datos, endpoint){
     html += "<th>" + titulos[indice] + "</th>"
   }
   html += "</tr>"
+
   // bucle para añadir filas de datos
-  // bucle
-  html += "</table>"
   // devolvemos html de tabla
+  datos.forEach((objeto) => {
+    html += "<tr>"
+      for (let key in objeto){
+        html += "<td>" + objeto[key] + "</td>"
+      }
+    html += "</tr>"
+  })
+  html += "</table>"
+  html += "</body>"
+  html += "</html>"
+  
   return html
 }
