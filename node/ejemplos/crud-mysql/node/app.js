@@ -13,6 +13,8 @@ const myQuery = (endpoint) => `SELECT * FROM ${endpoint}`
 
 const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
 
+// Hay que recibir un parámetro de URL para saber qué formato de respuesta quiere el cliente que solicita los datos
+
 // Conecta a la base de datos
 con.connect(function(err) {
   if (err) throw err;
@@ -24,11 +26,16 @@ con.connect(function(err) {
       con.query(myQuery(endpoint), function (err, result) {
         if (err) throw err;
         console.log(colours.fg.green, `200. URL: ${url} endpoint: ${endpoint}`)
+        // Para permitir que me soliciten JSON, HTML, TXT hay que cambiar el content-type:
         res.writeHead(200, { 'Content-Type': 'text/html; charset = UTF-8' })
-        // TODO: hacer bucle para generar tabla con los datos y devolvemos HTML
-        // TODO: permitir que me puedan solicitar HTML, JSON o TXT
+        /* 
+        TODO: permitir que me puedan solicitar 
+        [ x ] HTML,  
+        [   ] JSON o 
+        [   ] TXT
+        */
         
-        // Devolver JSON
+        // Devolver JSON -> idéntico para TXT
         // res.write(JSON.stringify(result, null, 2))
         
         // Devolver HTML
