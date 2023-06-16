@@ -75,8 +75,7 @@ con.connect(function(err) {
   }).listen(8080, () => { console.log("Servidor en ejecución en http://localhost:8080") })
 });
 
-/**
- * Función para generar los enlaces a los endpoints existentes. Leer el array endpoints para crear estas rutas
+/** Función para generar los enlaces a los endpoints existentes. Leer el array endpoints para crear estas rutas
  * @returns {string} HTML con los enlaces a los endpoints
  */
 function generarEnlacesHTML() {
@@ -93,8 +92,7 @@ function generarEnlacesHTML() {
   // [ ] JSON
   return html
 }
-/**
- * Función para generar el head de la página HTML
+/** Función para generar el head de la página HTML
  * @param {String} endpoint nombre del endpoint en la URL -> coincide con el nombre de la tabla en la base de datos en nuestro caso
  * @returns {String} HTML con la cabecera de la página
  */
@@ -109,8 +107,7 @@ function generarHeadHTML(endpoint){
   </head>
   `
 }
-/**
- * Función para generar la tabla HTML con los datos de la base de datos usando bucles
+/** Función para generar la tabla HTML con los datos de la base de datos usando bucles
  * @param {Array.<Object>} datos array con los datos de la tabla
  * @param {String} endpoint nombre de la tabla en nuestro caso
  * @returns {String} HTML con la tabla de datos
