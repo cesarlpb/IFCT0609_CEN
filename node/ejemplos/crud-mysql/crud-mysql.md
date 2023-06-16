@@ -46,11 +46,12 @@ Creamos un archivo `.sql` para crear tabla e insertar algunos datos:
 
 ## 3. Archivos
 Creamos estos archivos para cada query y con endpoints para cada uno, por ejemplo para los artistas:
-- `getAll.js` -> localhost:8080/artistas
-- `getOne.js` -> localhost:8080/artistas/1
-- `create.js` -> localhost:8080/artistas
-- `update.js` -> localhost:8080/artistas/1
-- `delete.js` -> localhost:8080/artistas/1
+- `app.js` 
+  -> localhost:8080/artistas
+  -> localhost:8080/artistas/1
+  -> localhost:8080/artistas
+  -> localhost:8080/artistas/1
+  -> localhost:8080/artistas/1
 
 **Importante:** lo habitual es devolver los objetos en formato `JSON`. 
 
