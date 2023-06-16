@@ -82,6 +82,10 @@ function generarEnlacesHTML() {
     let enlace = baseUrl + "/" + endpoints[i] 
     html += `<a href=${enlace} target="_blank">${endpoints[i]}</a><br>`
   }
+  // TODO: añadir enlaces a los endpoints por cada formato
+  // [ ] HTML
+  // [ ] TXT
+  // [ ] JSON
   return html
 }
 /**
