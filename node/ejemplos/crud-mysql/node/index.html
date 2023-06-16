@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente</title>
+</head>
+<body>
+  <div id="container"></div>
+</body>
+  <script>
+    const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
+    function generarEnlacesHTML() {
+      let baseUrl = "http://localhost:8080"
+      let html = ""
+      html += "<h1>Endpoints</h1>"
+      for(let i = 0; i<endpoints.length; i++){
+        let enlace = baseUrl + "/" + endpoints[i] 
+        html += `<a href=${enlace}?format=html target="_blank">${endpoints[i]}</a><br>`
+      }
+      return html
+      }
+      document.getElementById("container").innerHTML = generarEnlacesHTML()
+  </script>
+</html>
