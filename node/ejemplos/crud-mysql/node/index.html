@@ -76,16 +76,51 @@
         </div>
       </details>
     </div>
-
+    <!-- Posibles mejoras: 
+      - Hacer un bucle que lea endpoints (array) para generar los acordeones (div -> acordion)
+      - estilos
+      - Guardar los datos en localStorage para no tener que pedirlos cada vez que se actualiza la página
+    -->
   </div>
 </body>
   <script>
-    // [ ] Hacer un fetch al endpoint / para obtener los endpoints disponibles
-    // [ ] Con esos endpoints -> fetch a las urls para obtener los datos
-    // [ ] Mostrar los datos en el html
     const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
-    /**
-     * Función que genera una tabla HTML a partir de un array de objetos
+    for(let i = 0; i < endpoints.length; i++){
+      let endpoint = endpoints[i]
+      let baseUrl = "http://localhost:8080"
+      let url = baseUrl + "/" + endpoint
+      pedirDatos(url, endpoint)
+    }
+    /** Función que hace una petición GET a una url y muestra los datos en el html 
+     * @param {String} url del endpoint
+     * @param {String} endpoint nombre del endpoint
+     * @returns {void}
+    */
+    function pedirDatos(url, endpoint){
+      // Fetch
+      fetch(url, {
+        method: 'GET',
+        headers: new Headers({
+            'Content-Type': 'application/json',
+        }),
+        mode: 'cors',
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then((arr) => {
+        let objetos = arr;
+        let html = generarTablaHTML(objetos, endpoint.toLocaleUpperCase())
+        let container = document.getElementById(endpoint)
+        container.innerHTML = html
+
+        /*objetos.map(function(objeto) {
+          console.log(JSON.stringify(objeto, null, 2))
+        });*/
+
+      })
+    }
+    /** Función que genera una tabla HTML a partir de un array de objetos
      * @param {Array} datos Array de objetos
      * @param {String} titulo Título de la tabla
      * @returns {String} HTML de la tabla
@@ -114,27 +149,7 @@
       html += "</table>"
       
       return html
-    }
-    // Fetch
-    fetch("http://localhost:8080/artistas", {
-      method: 'GET',
-      headers: new Headers({
-          'Content-Type': 'application/json',
-      }),
-      mode: 'cors',
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((arr) => {
-      let objetos = arr;
-      let html = generarTablaHTML(objetos, "Tabla de objetos")
-      let container = document.getElementById("albumes")
-      container.innerHTML = html
-      /*objetos.map(function(objeto) {
-        console.log(JSON.stringify(objeto, null, 2))
-      });*/
-    })
-      
+    } 
+    
   </script>
 </html>
