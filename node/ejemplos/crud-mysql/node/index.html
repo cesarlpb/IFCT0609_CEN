@@ -59,7 +59,13 @@
       return html
     }
     // Fetch
-    let json = fetch("http://localhost:8080/albumes")
+    fetch("http://localhost:8080/albumes", {
+      method: 'GET',
+      headers: new Headers({
+          'Content-Type': 'application/json',
+      }),
+      mode: 'cors',
+    })
     .then((response) => {
       return response.json();
     })

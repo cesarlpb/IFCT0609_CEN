@@ -26,10 +26,15 @@ con.connect(function(err) {
     let esEndpointValido = endpoints.includes(endpoint) // true si es endpoint de endpoints
     let format = params.query.format?.toLowerCase()
     let contentType = "application/json" // por defecto, devolvemos JSON
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if(esEndpointValido){
       con.query(myQuery(endpoint), function (err, result) {
         if (err) throw err;
         console.log(colours.fg.green, `200. URL: ${"/" + endpoint}`)
+        
         // Para permitir que me soliciten JSON, HTML, TXT hay que cambiar el content-type con una variable:
         if(formats.includes(format)){
           switch(format){
@@ -43,16 +48,16 @@ con.connect(function(err) {
               contentType = "text/plain"
           }
         }
+        
         res.writeHead(200, { 'Content-Type': `${contentType}; charset = UTF-8` })
         
         if(!format || format != "html"){
           // Devolver JSON -> idéntico para TXT
           res.write(JSON.stringify(result, null, 2))
         }else if(format == "html"){
-        // Devolver HTML
-        res.write(generarTablaHTML(result, endpoint))
+          // Devolver HTML
+          res.write(generarTablaHTML(result, endpoint))
         }
-
         res.end()
       });
     }else if(req.url == "/"){
@@ -115,7 +120,6 @@ function generarTablaHTML(datos, endpoint){
   let html = generarHeadHTML(endpoint)
   html += "<body>"
   html += "<div class='container'>"
-  html += "<html>"
   html += "<table class='table table-striped'>"  
   html += "<h2>" + endpoint + "</h2>"
   html += "<tr>"
