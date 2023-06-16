@@ -6,20 +6,72 @@
   <title>Cliente</title>
 </head>
 <body>
-  <div id="container"></div>
+  <!-- Albumes -->
+  <div id="albumes">
+  </div>
+  <!-- Artistas -->
+  <div id="artistas">
+  </div>
+  <!-- Posts -->
+  <div id="posts">
+  </div>
+  <!-- Tracks -->
+  <div id="tracks">
+  </div>
+  <!-- Usuarios -->
+  <div id="usuarios">
+  </div>
 </body>
   <script>
+    // [ ] Hacer un fetch al endpoint / para obtener los endpoints disponibles
+    // [ ] Con esos endpoints -> fetch a las urls para obtener los datos
+    // [ ] Mostrar los datos en el html
     const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
-    function generarEnlacesHTML() {
-      let baseUrl = "http://localhost:8080"
+    /**
+     * Función que genera una tabla HTML a partir de un array de objetos
+     * @param {Array} datos Array de objetos
+     * @param {String} titulo Título de la tabla
+     * @returns {String} HTML de la tabla
+     */
+    function generarTablaHTML(datos, titulo){
+      let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
       let html = ""
-      html += "<h1>Endpoints</h1>"
-      for(let i = 0; i<endpoints.length; i++){
-        let enlace = baseUrl + "/" + endpoints[i] 
-        html += `<a href=${enlace}?format=html target="_blank">${endpoints[i]}</a><br>`
+      html += "<h2>" + titulo + "</h2>"
+      html += "<table class='table table-striped'>"  
+      html += "<tr>"
+      // bucle para añadir etiquetas de th / encabezados de tabla
+      for (let indice in titulos) {
+        html += "<th>" + titulos[indice] + "</th>"
       }
+      html += "</tr>"
+
+      // bucle para añadir filas de datos
+      // devolvemos html de tabla
+      datos.forEach((objeto) => {
+        html += "<tr>"
+          for (let key in objeto){
+            html += "<td>" + objeto[key] + "</td>"
+          }
+        html += "</tr>"
+      })
+      html += "</table>"
+      
       return html
-      }
-      document.getElementById("container").innerHTML = generarEnlacesHTML()
+    }
+    // Fetch
+    let json = fetch("http://localhost:8080/albumes")
+    .then((response) => {
+      return response.json();
+    })
+    .then((arr) => {
+      let objetos = arr;
+      let html = generarTablaHTML(objetos, "Tabla de objetos")
+      let container = document.getElementById("albumes")
+      container.innerHTML = html
+      /*objetos.map(function(objeto) {
+        console.log(JSON.stringify(objeto, null, 2))
+      });*/
+    })
+      
   </script>
 </html>
