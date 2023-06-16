@@ -144,6 +144,8 @@
           for (let key in objeto){
             if(endpoint == "albumes" && key == "fecha"){
               html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
+            } else if(endpoint == "albumes" && key == "portada"){
+              html += "<td><img src='" + "media/portadas/" + objeto[key] + "' width='100px'></td>"
             }else if(endpoint == "artistas" && key == "fechaNacimiento"){
               if(objeto[key]){
                 html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
