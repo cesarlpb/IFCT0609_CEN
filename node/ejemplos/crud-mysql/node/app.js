@@ -1,4 +1,5 @@
 const http = require('http');
+const url = require('url');
 const mysql = require('mysql');
 const colours = require('./colours.js')
 
@@ -12,6 +13,7 @@ const con = mysql.createConnection({
 const myQuery = (endpoint) => `SELECT * FROM ${endpoint}`
 
 const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
+const formats = ["json", "html", "text"]
 
 // Hay que recibir un parámetro de URL para saber qué formato de respuesta quiere el cliente que solicita los datos
 
@@ -19,39 +21,50 @@ const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
 con.connect(function(err) {
   if (err) throw err;
   http.createServer(function (req, res) {
-    let esEndpointValido = endpoints.includes(req.url.replaceAll("/", "")) // true si es endpoint de endpoints
-    let url = req.url
-    let endpoint = req.url.replaceAll("/", "")
+    let params = url.parse(req.url, true)
+    let endpoint = req.url.replaceAll("/", "").split("?")[0]
+    let esEndpointValido = endpoints.includes(endpoint) // true si es endpoint de endpoints
+    let format = params.query.format?.toLowerCase()
+    let contentType = "application/json" // por defecto, devolvemos JSON
     if(esEndpointValido){
       con.query(myQuery(endpoint), function (err, result) {
         if (err) throw err;
-        console.log(colours.fg.green, `200. URL: ${url} endpoint: ${endpoint}`)
-        // Para permitir que me soliciten JSON, HTML, TXT hay que cambiar el content-type:
-        res.writeHead(200, { 'Content-Type': 'text/html; charset = UTF-8' })
-        /* 
-        TODO: permitir que me puedan solicitar 
-        [ x ] HTML,  
-        [   ] JSON o 
-        [   ] TXT
-        */
+        console.log(colours.fg.green, `200. URL: ${"/" + endpoint}`)
+        // Para permitir que me soliciten JSON, HTML, TXT hay que cambiar el content-type con una variable:
+        if(formats.includes(format)){
+          switch(format){
+            case "json":
+              contentType = "application/json"
+              break;
+            case "html":
+              contentType = "text/html"
+              break;
+            case "text":
+              contentType = "text/plain"
+          }
+        }
+        res.writeHead(200, { 'Content-Type': `${contentType}; charset = UTF-8` })
         
-        // Devolver JSON -> idéntico para TXT
-        // res.write(JSON.stringify(result, null, 2))
-        
+        if(!format || format != "html"){
+          // Devolver JSON -> idéntico para TXT
+          res.write(JSON.stringify(result, null, 2))
+        }else if(format == "html"){
         // Devolver HTML
         res.write(generarTablaHTML(result, endpoint))
+        }
+
         res.end()
       });
     }else if(req.url == "/"){
-      console.log(colours.fg.green, `200. URL: ${url} lista de endpoints`)
+      console.log(colours.fg.green, `200. URL: ${"/" + endpoint} lista de endpoints`)
       res.writeHead(200, { 'Content-Type': 'text/html; charset = UTF-8' })
       let html = generarEnlacesHTML()
       res.write(html)
       res.end() 
     }else{
-      console.error(colours.fg.red, `404. URL: ${url} no encontrada`)
-      res.writeHead(404, { 'Content-Type': 'text/html; charset = UTF-8' })
-      res.write("<h1>Error 404: No encontrado</h1>")
+      console.error(colours.fg.red, `Error 400. URL: ${"/" + endpoint} no encontrada.`)
+      res.writeHead(400, { 'Content-Type': 'text/html; charset = UTF-8' })
+      res.write("<h1>Error 400: Bad Request</h1>")
       res.end()
     }
   }).listen(8080, () => { console.log("Servidor en ejecución en http://localhost:8080") })
