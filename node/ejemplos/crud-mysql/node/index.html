@@ -110,7 +110,7 @@
       })
       .then((arr) => {
         let objetos = arr;
-        let html = generarTablaHTML(objetos, endpoint.toLocaleUpperCase())
+        let html = generarTablaHTML(objetos, endpoint.toLocaleUpperCase(), endpoint)
         let container = document.getElementById(endpoint)
         container.innerHTML = html
 
@@ -125,7 +125,7 @@
      * @param {String} titulo Título de la tabla
      * @returns {String} HTML de la tabla
      */
-    function generarTablaHTML(datos, titulo){
+    function generarTablaHTML(datos, titulo, endpoint){
       let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
       let html = ""
       html += "<h2>" + titulo + "</h2>"
@@ -142,7 +142,19 @@
       datos.forEach((objeto) => {
         html += "<tr>"
           for (let key in objeto){
-            html += "<td>" + objeto[key] + "</td>"
+            if(endpoint == "albumes" && key == "fecha"){
+              html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
+            }else if(endpoint == "artistas" && key == "fechaNacimiento"){
+              if(objeto[key]){
+                html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
+              }else{
+                html += "<td></td>"
+              }
+            }else if(objeto[key] == null){
+              html += "<td></td>"
+            }else{
+              html += "<td>" + objeto[key] + "</td>"
+            }
           }
         html += "</tr>"
       })
