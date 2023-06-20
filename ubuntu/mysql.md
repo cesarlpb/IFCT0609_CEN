@@ -3,6 +3,17 @@ Para ver todas las tablas actuales:
 ```sql
 SHOW DATABASES;
 ```
+Salida:
+```
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+```
 Creamos base de datos:
 ```sql
 CREATE DATABASE nombre_db;
@@ -21,9 +32,30 @@ CREATE TABLE nombre_tabla (`id` INT NOT NULL AUTO_INCREMENT , `nombre`
 VARCHAR(50) NOT NULL , `email` VARCHAR(100) NOT NULL , PRIMARY KEY (`i
 d`)) ENGINE = InnoDB;
 ```
+```sql
+SHOW TABLES;
+```
+Salida:
+```
++-----------------+
+| Tables_in_cesar |
++-----------------+
+| temp            |
++-----------------+
+```
 Vemos la definición de la tabla:
 ```sql
 DESCRIBE nombre_tabla;
+```
+Salida:
+```
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| nombre | varchar(50)  | NO   |     | NULL    |                |
+| email  | varchar(100) | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
 ```
 Insertamos datos en esta tabla:
 ```sql
@@ -36,4 +68,13 @@ INSERT INTO nombre_tabla
 Para ver los datos, hacemos un SELECT:
 ```sql
 SELECT * FROM nombre_tabla;
+```
+Salida:
+```
++----+--------+------------------+
+| id | nombre | email            |
++----+--------+------------------+
+|  1 | pepe   | pepe@larana.frog |
+|  2 | María  | maria@gmail.com  |
++----+--------+------------------+
 ```
