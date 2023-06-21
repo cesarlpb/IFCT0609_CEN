@@ -7,11 +7,11 @@ const con = mysql.createConnection({
   port: 3306, // (opcional) Usamos puerto por defecto
   user : process.env.USER,
   password : process.env.PASSWORD, // <-- colocamos contraseña
-  database : process.env.DATABASE, // <-- cambiad nombre db 
+  database : process.env.DATABASE, // <-- cambiad nombre db en .env
   // socketPath: '/var/run/mysqld/mysqld.sock'
 });
 const db = process.env.DATABASE;
-const table = "temp" // <--- cambiad nombre tabla
+const table = process.env.TABLE // <--- cambiad nombre tabla en .env
 // Queries
 const selectAll = `SELECT * FROM ${table} LIMIT 10;`; 
 
