@@ -33,3 +33,10 @@ con.connect(function(err) {
     }
   }).listen(8080, () => { console.log("http://localhost:8080/datos")});
 });
+
+/**
+ * Modificamos archivo y .env para:
+ * - Usar otra db
+ * - Usar otra tabla (tiene que estar ya creada)
+ * - Presentar esos datos en un endpoint (lista -> [{ ... }])
+ */

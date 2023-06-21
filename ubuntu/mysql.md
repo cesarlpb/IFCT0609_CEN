@@ -1,4 +1,13 @@
 ## Comandos de MySQL en Terminal
+
+Para entrar a la base de datos, en terminal:
+```bash
+  mysql -u root -p
+```
+![Consola MySQL](image.png)
+Escribir contraseña (no se ven los caracteres) y Enter.
+
+---
 Para ver todas las tablas actuales:
 ```sql
 SHOW DATABASES;
