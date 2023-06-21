@@ -37,9 +37,11 @@ SHOW TABLES;
 ```
 Creamos tabla de ejemplo:
 ```sql
-CREATE TABLE nombre_tabla (`id` INT NOT NULL AUTO_INCREMENT , `nombre`
-VARCHAR(50) NOT NULL , `email` VARCHAR(100) NOT NULL , PRIMARY KEY (`i
-d`)) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS nombre_tabla (
+  `id` INT NOT NULL AUTO_INCREMENT , 
+  `nombre` VARCHAR(50) NOT NULL , 
+  `email` VARCHAR(100) NOT NULL , 
+PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 ```sql
 SHOW TABLES;
