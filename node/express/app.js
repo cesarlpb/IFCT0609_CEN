@@ -24,6 +24,18 @@ const notas = [
 app.get("/notas", (req, res, next) => {
   res.json(notas);
  });
+app.get("/notas/:id", (req, res, next) => {
+  res.json({id: req.params.id})
+});
+app.post("/notas", (req, res, next) => {
+  res.json({"mensaje": "Nota añadida"})
+});
+app.put("/notas/:id", (req, res, next) => {
+  res.json({"mensaje": "Nota modificada"})
+});
+app.delete("/notas/:id", (req, res, next) => {
+  res.json({"mensaje": "Nota borrada"})
+});
 
 // TODO: creamos los endpoints para CRUD de un arr
 // GET de un elemento
