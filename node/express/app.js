@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 // Importamos clase Nota
 const { Nota } = require("./nota");
 // Importamos las funciones desde functions.js
-const { getAll, getOne, createOne } = require("./functions");
+const { getAll, getOne, createOne, updateOne } = require("./functions");
 
 // Creamos una instancia de express llamada app
 const app = express();
@@ -37,7 +37,8 @@ app.post("/notas", (req, res, next) => {
   res.json(nuevaNota)
 });
 app.put("/notas/:id", (req, res, next) => {
-  res.json({"mensaje": `Nota ${req.params.id} modificada`})
+  let notaEditada = updateOne(req.params.id, req.body);
+  res.json(notaEditada)
 });
 app.delete("/notas/:id", (req, res, next) => {
   res.json({"mensaje": `Nota ${req.params.id} borrada`})

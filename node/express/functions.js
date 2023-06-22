@@ -23,10 +23,30 @@ function createOne(nota) {
     nota?.fecha
   );
   if(nuevaNota instanceof Nota){
+    Nota.notas.push(nuevaNota);
     return nuevaNota;
   } else {
-    return {"mensaje": "No se ha podido crear la nota"}};
+    return {"mensaje": "No se ha podido crear la nota"}
+  };
 }
+function updateOne(id, nota) {
+  if(Nota.notas.length < 3) Nota.seed(); // Sembramos 3 datos en el array de notas
+  let notaEditada = new Nota(
+    Number.parseInt(id), 
+    nota?.titulo, 
+    nota?.texto, 
+    nota?.prioridad, 
+    nota?.fecha
+  );
+  if(notaEditada instanceof Nota){
+    Nota.notas[id-1] = notaEditada;
+    return Nota.notas[id-1];
+  } else {
+    return {"mensaje": `No se ha podido editar la nota con id ${id}`}
+  };
+}
+
 exports.getAll = getAll;
 exports.getOne = getOne;
 exports.createOne = createOne;
+exports.updateOne = updateOne;
