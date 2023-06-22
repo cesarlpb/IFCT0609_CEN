@@ -14,5 +14,5 @@ const notas = [
   new Nota(3, "Comprar huevos", "Comprar huevos en el supermercado", "urgente", "2023-10-22"),
 ];
 // Exportamos el módulo
-module.exports = Nota;
-module.exports = notas;
+exports.Nota = Nota;
+exports.notas = notas;
