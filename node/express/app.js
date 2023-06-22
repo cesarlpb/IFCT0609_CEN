@@ -1,20 +1,19 @@
 // Importamos librería express
 const express = require("express");
-// Importamos las notas desde nota.js
-const { notas } = require("./nota"); // Con las llaves, es un array // SIN las llaves, es un obj { notas: [ notas... ] }
 // Importamos las funciones desde functions.js
-const { getOne } = require("./functions");
+const { getAll, getOne } = require("./functions");
 // Creamos una instancia de express llamada app
 const app = express();
 app.set('json spaces', 2) // Configuración para que los JSON aparezcan indentados
 
 // GET de un array (lista)
 app.get("/notas", (req, res, next) => {
+  let notas = getAll(); // llamamos a la función getAll de functions para recibir el arr de notas
   res.json(notas);
 });
 // GET de un elemento
 app.get("/notas/:id", (req, res, next) => {
-  let nota = getOne(req.params.id);
+  let nota = getOne(req.params.id); // pasamos el id a la función getOne de functions para recibir una nota
   res.json(nota)
 });
 app.post("/notas", (req, res, next) => {
