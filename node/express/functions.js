@@ -8,7 +8,6 @@ function getAll() {
 }
 // getOne -> devuelve una nota concreta
 function getOne(id) {
-  console.log(notas); // arr
   return notas.find((nota) => nota.id == id);
 }
 exports.getAll = getAll;
