@@ -2,6 +2,7 @@
 const express = require("express");
 // Creamos una instancia de express llamada app
 const app = express();
+app.set('json spaces', 2) // Configuración para que los JSON aparezcan indentados
 
 class PostIt{
   constructor(titulo, texto, prioridad, fecha){
