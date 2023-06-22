@@ -2,6 +2,8 @@
 const express = require("express");
 // Importamos librería body-parser
 const bodyParser = require('body-parser')
+// Importamos clase Nota
+const { Nota } = require("./nota");
 // Importamos las funciones desde functions.js
 const { getAll, getOne, createOne } = require("./functions");
 
@@ -19,6 +21,8 @@ app.set('json spaces', 2)
 
 // GET de un array (lista)
 app.get("/notas", (req, res, next) => {
+  // Sembramos 3 datos en el array de notas
+  if(Nota.notas.length < 3) Nota.seed();
   let notas = getAll(); // llamamos a la función getAll de functions para recibir el arr de notas
   res.json(notas);
 });
@@ -28,7 +32,7 @@ app.get("/notas/:id", (req, res, next) => {
   res.json(nota)
 });
 app.post("/notas", (req, res, next) => {
-  let nota = req.body;
+  let nota = req.body; // objeto de tipo Nota
   let nuevaNota = createOne(nota);
   res.json(nuevaNota)
 });
