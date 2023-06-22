@@ -1,29 +1,16 @@
 // Importamos librería express
 const express = require("express");
+// Importamos las notas desde nota.js
+const notas = require("./nota");
 // Creamos una instancia de express llamada app
 const app = express();
 app.set('json spaces', 2) // Configuración para que los JSON aparezcan indentados
 
-class Nota{
-  constructor(id, titulo, texto, prioridad, fecha){
-    this.id = id;
-    this.titulo = titulo;
-    this.texto = texto;
-    this.prioridad = prioridad;
-    this.fecha = fecha;
-  }
-}
-// Datos para los endpoints
-const notas = [
-  new Nota(1, "Comprar pan", "Comprar pan en el supermercado", "", "2023-06-23"),
-  new Nota(2, "Comprar leche", "Comprar leche en el supermercado", "normal", "2023-06-23"),
-  new Nota(3, "Comprar huevos", "Comprar huevos en el supermercado", "urgente", "2023-10-22"),
-];
-
 // GET de un array (lista)
 app.get("/notas", (req, res, next) => {
   res.json(notas);
- });
+});
+// GET de un elemento
 app.get("/notas/:id", (req, res, next) => {
   res.json({id: req.params.id})
 });
