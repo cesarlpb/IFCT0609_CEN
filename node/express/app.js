@@ -31,10 +31,10 @@ app.post("/notas", (req, res, next) => {
   res.json({"mensaje": "Nota añadida"})
 });
 app.put("/notas/:id", (req, res, next) => {
-  res.json({"mensaje": "Nota modificada"})
+  res.json({"mensaje": `Nota ${req.params.id} modificada`})
 });
 app.delete("/notas/:id", (req, res, next) => {
-  res.json({"mensaje": "Nota borrada"})
+  res.json({"mensaje": `Nota ${req.params.id} borrada`})
 });
 
 // TODO: creamos los endpoints para CRUD de un arr
