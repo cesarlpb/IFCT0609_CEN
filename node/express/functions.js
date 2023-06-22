@@ -10,5 +10,11 @@ function getAll() {
 function getOne(id) {
   return notas.find((nota) => nota.id == id);
 }
+// createOne -> crea una nota, recibe un objeto nota y lo devuelve
+function createOne(nota) {
+  // TODO: validar nota y añadir nota al array
+  return nota;
+}
 exports.getAll = getAll;
 exports.getOne = getOne;
+exports.createOne = createOne;

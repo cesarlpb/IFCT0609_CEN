@@ -1,10 +1,21 @@
 // Importamos librería express
 const express = require("express");
+// Importamos librería body-parser
+const bodyParser = require('body-parser')
 // Importamos las funciones desde functions.js
-const { getAll, getOne } = require("./functions");
+const { getAll, getOne, createOne } = require("./functions");
+
 // Creamos una instancia de express llamada app
 const app = express();
-app.set('json spaces', 2) // Configuración para que los JSON aparezcan indentados
+
+// Importaciones para el body parser
+// Parse application/x-www-form-urlencoded -> para parsear los formularios
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json -> para parsear los JSON
+app.use(bodyParser.json())
+
+// Configuración para que los JSON aparezcan indentados
+app.set('json spaces', 2) 
 
 // GET de un array (lista)
 app.get("/notas", (req, res, next) => {
@@ -17,7 +28,9 @@ app.get("/notas/:id", (req, res, next) => {
   res.json(nota)
 });
 app.post("/notas", (req, res, next) => {
-  res.json({"mensaje": "Nota añadida"})
+  let nota = req.body;
+  let nuevaNota = createOne(nota);
+  res.json(nuevaNota)
 });
 app.put("/notas/:id", (req, res, next) => {
   res.json({"mensaje": `Nota ${req.params.id} modificada`})
