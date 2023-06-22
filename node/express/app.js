@@ -22,8 +22,14 @@ const postIts = [
 app.get("/postits", (req, res, next) => {
   res.json(postIts);
  });
+
 // TODO: creamos los endpoints para CRUD de un arr
-// Aplicación que sale por el puerto 8080
+// GET de un elemento
+// POST de un elemento
+// PUT de un elemento
+// DELETE de un elemento
+
+ // Aplicación que sale por el puerto 8080
 app.listen(8080, () => {
  console.log("Servidor en ejecución en http:localhost:8080/");
 });
