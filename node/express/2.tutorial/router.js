@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const urlencode = require('urlencode'); // librería para codificar y decodificar URLs
 
 const notas = [
   {id: 1, texto: "Nota 1", name: "Pepe"},
@@ -15,7 +16,8 @@ const users = [
 // Middleware - console.log de la hora, la ruta, la ip y el método de cada request
 router.use(function (req, res, next) {
   let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora, "- Request en " + req.url + " desde " + req.ip + " con método " + req.method);
+  let url = urlencode.decode(req.originalUrl); // /notas/1/Mar%C3%ADa -> /notas/1/María
+  console.log(fechaHora, "- Request en " + url + " desde " + req.ip + " con método " + req.method);
   next();
 });
 router.all('/', function(req, res){
