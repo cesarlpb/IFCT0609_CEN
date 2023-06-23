@@ -14,13 +14,21 @@ const users = [
   {id: "123", name: "Juan"},
 ]
 // Middleware - console.log de la hora, la ruta, la ip y el método de cada request
+// Middleware #1
 router.use(function (req, res, next) {
   let fechaHora = new Date().toLocaleString();
   let url = urlencode.decode(req.originalUrl); // /notas/1/Mar%C3%ADa -> /notas/1/María
   console.log(fechaHora, "- Request en " + url + " desde " + req.ip + " con método " + req.method);
   next();
+  // TODO: Ejercicio. Guardar en un archivo de texto la hora, la ruta, la ip y el método de cada request -> TXT
+});
+// Middleware #2
+router.use(function (req, res, next) {
+  console.log("Middleware #2");
+  next();
 });
 router.all('/', function(req, res){
+  console.log("Hola desde /"); // Después de ejecutar el middleware #1 y #2
   res.send("Hola mundo desde express");
 });
 // El ? después del parámetro name indica que es opcional, entonces podemos usar el endpoint en caso de recibirlo o no
