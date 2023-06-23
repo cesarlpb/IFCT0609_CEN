@@ -7,6 +7,11 @@ const notas = [
   {id: 1, texto: "Nota 1", name: "María"},
   {id: 2, texto: "Nota 2", name: "María"},
 ]
+const users = [
+  {id: "000", name: "Pepe"},
+  {id: "001", name: "María"},
+  {id: "123", name: "Juan"},
+]
 
 router.all('/', function(req, res){
   let fechaHora = new Date().toLocaleString();
@@ -33,6 +38,8 @@ router.get('/notas', function(req, res){
   console.log(fechaHora + " - Request GET en /notas")
   res.send(notas);
 });
+// URL Building con Express
+// Route parameters
 router.get('/notas/:id', function(req, res){
   let fechaHora = new Date().toLocaleString();
   console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
@@ -45,6 +52,19 @@ router.get('/notas/:id/:name', function(req, res){
   console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
   let nota = notas.find(nota => nota.id == req.params.id && nota.name == req.params.name);
   res.send(nota);
+});
+
+// Pattern matched routes
+router.get("/users", function(req, res){
+  res.send(users)
+});
+router.get('/users/:id([0-9]{3})', function(req, res){
+  let user = users.find(user => user.id == req.params.id);
+  res.send(user);
+});
+router.all('*', function(req, res){
+  res.status(404); // HTTP status 404: NotFound
+  res.send("404 Not Found. Ruta o método no están implementados");
 });
 
 module.exports = router;
