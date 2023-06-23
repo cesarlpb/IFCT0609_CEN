@@ -12,16 +12,17 @@ const users = [
   {id: "001", name: "María"},
   {id: "123", name: "Juan"},
 ]
-
-router.all('/', function(req, res){
+// Middleware - console.log de la hora, la ruta, la ip y el método de cada request
+router.use(function (req, res, next) {
   let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request all en /")
+  console.log(fechaHora, "- Request en " + req.url + " desde " + req.ip + " con método " + req.method);
+  next();
+});
+router.all('/', function(req, res){
   res.send("Hola mundo desde express");
 });
 // El ? después del parámetro name indica que es opcional, entonces podemos usar el endpoint en caso de recibirlo o no
 router.get('/hola/:name?', function(req, res){
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request GET en /hola")
   if(req.params.name){
     res.send("Hola, " + req.params.name + "!");
   }else{
@@ -29,27 +30,19 @@ router.get('/hola/:name?', function(req, res){
   }
 });
 router.post('/hola', function(req, res){
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request POST en /hola")
   res.send("Esta es la respuesta a un POST");
 });
 router.get('/notas', function(req, res){
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request GET en /notas")
   res.send(notas);
 });
 // URL Building con Express
 // Route parameters
 router.get('/notas/:id', function(req, res){
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
   let nota = notas.find(nota => nota.id == req.params.id);
   res.send(nota);
 });
 // TODO: Ejercicio. Crear un solo enpoint que use un parámetro opcional para filtrar por nombre y por id, es decir, "fusionar" los dos endpoints /:id y /:id/:name
 router.get('/notas/:id/:name', function(req, res){
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
   let nota = notas.find(nota => nota.id == req.params.id && nota.name == req.params.name);
   res.send(nota);
 });
