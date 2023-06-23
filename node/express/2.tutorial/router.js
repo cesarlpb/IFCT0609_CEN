@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const notas = [
-  {id: 1, texto: "Nota 1"},
-  {id: 2, texto: "Nota 2"},
-  {id: 3, texto: "Nota 3"}
+  {id: 1, texto: "Nota 1", name: "Pepe"},
+  {id: 2, texto: "Nota 3", name: "Pepe"},
+  {id: 1, texto: "Nota 1", name: "María"},
+  {id: 2, texto: "Nota 2", name: "María"},
 ]
 
 router.all('/', function(req, res){
@@ -31,6 +32,12 @@ router.get('/notas/:id', function(req, res){
   let fechaHora = new Date().toLocaleString();
   console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
   let nota = notas.find(nota => nota.id == req.params.id);
+  res.send(nota);
+});
+router.get('/notas/:id/:name', function(req, res){
+  let fechaHora = new Date().toLocaleString();
+  console.log(fechaHora + " - Request GET en /notas/" + req.params.id)
+  let nota = notas.find(nota => nota.id == req.params.id && nota.name == req.params.name);
   res.send(nota);
 });
 
