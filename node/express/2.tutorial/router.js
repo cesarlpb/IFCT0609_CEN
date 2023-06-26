@@ -34,11 +34,12 @@ router.use(function (req, res, next) {
     id: ${req.user.id},
     nombre: ${req.user.name}
     `)
+    req.user.rol = "usuario" // Añadimos una propiedad al objeto user
   next();
 });
 router.all('/', function(req, res){
   console.log("Hola desde /"); // Después de ejecutar el middleware #1 y #2
-  res.send("Hola mundo desde express");
+  res.send("Hola mundo desde express. Usuario actual: " + req.user.name + " con id " + req.user.id + " con rol " + req.user.rol);
 });
 // El ? después del parámetro name indica que es opcional, entonces podemos usar el endpoint en caso de recibirlo o no
 router.get('/hola/:name?', function(req, res){
