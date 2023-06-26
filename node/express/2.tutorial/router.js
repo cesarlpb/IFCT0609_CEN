@@ -70,9 +70,9 @@ router.get('/form', function(req, res){
 });
 router.post('/form', function(req, res){
   // Recibimos el form y lo enviamos de vuelta
-  // TODO: crear el usuario en un array
+  // TODO: crear el usuario en el array users
   // TODO: crear el usuario en la base de datos
-  res.send(req.body);
+  res.send(users); // o el user nuevo
 });
 // Final de formulario para crear un usuario
 router.get('/notas', function(req, res){
