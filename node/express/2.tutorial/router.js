@@ -19,12 +19,21 @@ router.use(function (req, res, next) {
   let fechaHora = new Date().toLocaleString();
   let url = urlencode.decode(req.originalUrl); // /notas/1/Mar%C3%ADa -> /notas/1/María
   console.log(fechaHora, "- Request en " + url + " desde " + req.ip + " con método " + req.method);
+  // Pasamos un usuario mediante el objeto request:
+  req.user = {id: "123", name: "Juan"};
   next();
   // TODO: Ejercicio. Guardar en un archivo de texto la hora, la ruta, la ip y el método de cada request -> TXT
 });
 // Middleware #2
 router.use(function (req, res, next) {
-  console.log("Middleware #2");
+  let fechaHora = new Date().toLocaleString();
+  console.log(fechaHora, "- Hora en el Middleware #2");
+  // Escribimos el usuario (con id y name) que pasamos en el middleware #1
+  console.log(`
+    Usuario:
+    id: ${req.user.id},
+    nombre: ${req.user.name}
+    `)
   next();
 });
 router.all('/', function(req, res){
