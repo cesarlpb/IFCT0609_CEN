@@ -97,7 +97,14 @@ router.post('/crear', function(req, res){
 });
 
 // TODO: form y endpoint para editar un usuario -> GET y PUT
-router.put('/editar/:id', function(req, res){
+router.get('/editar/:id', function(req, res){
+  let ubicacion = 'forms/form-editar.html';
+  res.cookie("__id", req.params.id);
+  // Formulario para editar un usuario
+  res.sendFile(path.join(__dirname, ubicacion))
+});
+// Nota: revisar por qué con PUT el form no se envía
+router.post('/editar/:id', function(req, res){
   // editar
   res.send("Editar usuario con id " + req.params.id);
 });
