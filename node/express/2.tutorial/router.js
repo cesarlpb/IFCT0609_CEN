@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const urlencode = require('urlencode'); // librería para codificar y decodificar URLs
 
+// Body parser para leer el body de los requests -> POST, PUT
+const bodyParser = require('body-parser');
+// To parse URL encoded data
+router.use(bodyParser.urlencoded({ extended: false }))
+// body -> JSON
+router.use(bodyParser.json())
+
 const notas = [
   {id: 1, texto: "Nota 1", name: "Pepe"},
   {id: 2, texto: "Nota 3", name: "Pepe"},
@@ -50,7 +57,10 @@ router.get('/hola/:name?', function(req, res){
   }
 });
 router.post('/hola', function(req, res){
-  res.send("Esta es la respuesta a un POST");
+  // TODO: crear el usuario en la base de datos
+  let nuevoUsuario = req.body;
+  nuevoUsuario.rol = "usuario"
+  res.send(nuevoUsuario);
 });
 router.get('/notas', function(req, res){
   res.send(notas);
