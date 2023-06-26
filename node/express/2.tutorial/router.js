@@ -62,8 +62,18 @@ router.post('/hola', function(req, res){
   nuevoUsuario.rol = "usuario"
   res.send(nuevoUsuario);
 });
-// Formulario para crear un usuario
-router.get('/form', function(req, res){
+
+// ****************** Usuarios GET y GET por id ******************
+// Pattern matched routes
+router.get("/usuarios", function(req, res){
+  res.send(users)
+});
+router.get('/usuarios/:id([0-9]{1})', function(req, res){
+  let user = users.find(user => user.id == req.params.id);
+  res.send(user);
+});
+// ******* Formulario para crear un usuario *******
+router.get('/crear', function(req, res){
   // Formulario para crear un usuario
   let form = `
     <head>
@@ -74,7 +84,7 @@ router.get('/form', function(req, res){
     <body>
       <div class="container col-6 py-3">
       <h1>Formulario para crear un usuario</h1>
-      <form action="/form" method="POST">
+      <form action="/crear" method="POST">
       <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
       <br>
       <input type="text" class="form-control" name="email" placeholder="Email">
@@ -84,9 +94,10 @@ router.get('/form', function(req, res){
       </div>
     </body>
     `
+    // TODO: pasar este html a un archivo y devolverlo en este endpoint en GET
   res.send(form)
 });
-router.post('/form', function(req, res){
+router.post('/crear', function(req, res){
   // Recibimos el form y lo enviamos de vuelta
   let nuevoUsuario = req.body; // req.body es el objeto que enviamos en el body del request al hacer un POST
   let nuevoId = users.length;
@@ -97,6 +108,20 @@ router.post('/form', function(req, res){
   res.status(201); // 201 Created
   res.send(users[nuevoUsuarioIdx - 1]); // o el user nuevo
 });
+
+// TODO: form y endpoint para editar un usuario -> GET y PUT
+router.put('/editar/:id', function(req, res){
+  // editar
+  res.send("Editar usuario con id " + req.params.id);
+});
+// TODO: form y endpoint para borrar un usuario -> GET y DELETE
+router.delete('/borrar/:id', function(req, res){
+  // borrar
+  res.send("Borrar usuario con id " + req.params.id);
+});
+// *********************** Usuarios ***********************
+
+// Notas de cosas por hacer
 // Final de formulario para crear un usuario
 router.get('/notas', function(req, res){
   res.send(notas);
@@ -113,14 +138,7 @@ router.get('/notas/:id/:name', function(req, res){
   res.send(nota);
 });
 
-// Pattern matched routes
-router.get("/users", function(req, res){
-  res.send(users)
-});
-router.get('/users/:id([0-9]{1})', function(req, res){
-  let user = users.find(user => user.id == req.params.id);
-  res.send(user);
-});
+// Todas las demás rutas y métodos no implementados
 router.all('*', function(req, res){
   res.status(404); // HTTP status 404: NotFound
   res.send("404 Not Found. Ruta o método no están implementados");
