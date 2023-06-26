@@ -18,7 +18,7 @@ const notas = [
 const users = [
   {id: "000", name: "Pepe"},
   {id: "001", name: "María"},
-  {id: "123", name: "Juan"},
+  {id: "002", name: "Juan"},
 ]
 // Middleware - console.log de la hora, la ruta, la ip y el método de cada request
 // Middleware #1
@@ -58,10 +58,23 @@ router.get('/hola/:name?', function(req, res){
 });
 router.post('/hola', function(req, res){
   // TODO: crear el usuario en la base de datos
-  let nuevoUsuario = req.body;
+  let nuevoUsuario = req.body; // req.body es el objeto que enviamos en el body del request al hacer un POST
   nuevoUsuario.rol = "usuario"
   res.send(nuevoUsuario);
 });
+// Formulario para crear un usuario
+router.get('/form', function(req, res){
+  // Formulario para crear un usuario
+  // TODO: crear el formulario
+  res.send('<h2>Formulario</h2>')
+});
+router.post('/form', function(req, res){
+  // Recibimos el form y lo enviamos de vuelta
+  // TODO: crear el usuario en un array
+  // TODO: crear el usuario en la base de datos
+  res.send(req.body);
+});
+// Final de formulario para crear un usuario
 router.get('/notas', function(req, res){
   res.send(notas);
 });
