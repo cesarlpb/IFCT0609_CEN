@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const urlencode = require('urlencode'); // librería para codificar y decodificar URLs
 
+const path = require('path'); // Módulo para crear rutas absolutas a nuestros archivos
+
 // Body parser para leer el body de los requests -> POST, PUT
 const bodyParser = require('body-parser');
 // To parse URL encoded data
@@ -75,27 +77,12 @@ router.get('/usuarios/:id([0-9]{1})', function(req, res){
 // ******* Formulario para crear un usuario *******
 router.get('/crear', function(req, res){
   // Formulario para crear un usuario
-  let form = `
-    <head>
-      <meta charset="UTF-8">
-      <title>Formulario para crear un usuario</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    </head>
-    <body>
-      <div class="container col-6 py-3">
-      <h1>Formulario para crear un usuario</h1>
-      <form action="/crear" method="POST">
-      <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
-      <br>
-      <input type="text" class="form-control" name="email" placeholder="Email">
-      <br>
-      <input type="submit" class="btn btn-primary" value="Enviar">
-      </form>
-      </div>
-    </body>
-    `
-    // TODO: pasar este html a un archivo y devolverlo en este endpoint en GET
-  res.send(form)
+  let ubicacion = 'forms/form-crear.html';
+  // Usamos path para obtener ruta a la carpeta actual y concatenarle la ruta relativa del archivo
+  console.log("Ubicación absoluta de la carpeta: " + path.join(__dirname, ""));
+  console.log("Ubicación relativa del archivo: " + ubicacion);
+  // Devolvemos en el response el archivo html del formulario
+  res.sendFile(path.join(__dirname, ubicacion))
 });
 router.post('/crear', function(req, res){
   // Recibimos el form y lo enviamos de vuelta
