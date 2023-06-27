@@ -33,22 +33,19 @@ router.use(function (req, res, next) {
   next();
   // TODO: Ejercicio. Guardar en un archivo de texto la hora, la ruta, la ip y el método de cada request -> TXT
 });
-// Middleware #2
+// Middleware #2 - cambia req.method al valor correcto si viene en un form
 router.use(function (req, res, next) {
-  let fechaHora = new Date().toLocaleString();
-  console.log(fechaHora, "- Hora en el Middleware #2");
-  // Escribimos el usuario (con id y name) que pasamos en el middleware #1
-  console.log(`
-    Usuario:
-    id: ${req.user.id},
-    nombre: ${req.user.name}
-    `)
-    req.user.rol = "usuario" // Añadimos una propiedad al objeto user
+  let metodoOriginal = req.method;
+  if (req.body && req.body._method) {
+    req.method = req.body._method.toUpperCase(); // put -> PUT
+    delete req.body._method;
+  }
+  console.log("Método original:" + metodoOriginal + " Método actual: " + req.method);
   next();
 });
 router.all('/', function(req, res){
   console.log("Hola desde /"); // Después de ejecutar el middleware #1 y #2
-  res.send("Hola mundo desde express. Usuario actual: " + req.user.name + " con id " + req.user.id + " con rol " + req.user.rol);
+  res.send("Hola desde /");
 });
 // El ? después del parámetro name indica que es opcional, entonces podemos usar el endpoint en caso de recibirlo o no
 router.get('/hola/:name?', function(req, res){
@@ -100,13 +97,22 @@ router.post('/crear', function(req, res){
 router.get('/editar/:id', function(req, res){
   let ubicacion = 'forms/form-editar.html';
   res.cookie("__id", req.params.id);
+  console.log(req.params)
   // Formulario para editar un usuario
   res.sendFile(path.join(__dirname, ubicacion))
 });
 // Nota: revisar por qué con PUT el form no se envía
-router.post('/editar/:id', function(req, res){
-  // editar
-  res.send("Editar usuario con id " + req.params.id);
+router.put('/editar/:id', function(req, res){
+  let id = req.params.id;
+  let usuarioEditado = req.body;
+  // Añadimos el id:
+  usuarioEditado.id = parseInt(id); // entero
+  // Buscamos el id del usuario en el array
+  let usuarioIdx = users.findIndex(user => user.id == id);
+  // Actualizamos el usuario en el array
+  users[usuarioIdx] = usuarioEditado;
+  // Devolvemos el usuario actualizado
+  res.send(users[usuarioIdx]);
 });
 // TODO: form y endpoint para borrar un usuario -> GET y DELETE
 router.delete('/borrar/:id', function(req, res){

@@ -7,13 +7,15 @@
   </head>
   <body>
     <div class="container col-6 py-3">
-    <h1>Formulario para crear un usuario</h1>
-    <form action="/editar/" method="POST">
-    <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
-    <br>
-    <input type="text" class="form-control" name="email" placeholder="Email">
-    <br>
-    <input type="submit" class="btn btn-primary" value="Editar">
+    <h1>Formulario para editar un usuario</h1>
+    <form action="/editar/:id" method="POST">
+      <!-- Campo oculto (hidden) que se en el middleware para cambiar de POST a PUT -->
+      <input type="hidden" name="_method" value="PUT">
+      <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
+      <br>
+      <input type="text" class="form-control" name="email" placeholder="Email">
+      <br>
+      <input type="submit" class="btn btn-primary" value="Editar">
     </form>
     </div>
     <script>
