@@ -82,6 +82,9 @@ router.post('/hola', function(req, res){
 
 // ****************** Usuarios GET y GET por id ******************
 // Pattern matched routes
+router.get("/html/usuarios", function(req, res){
+  res.sendFile(path.join(__dirname, "html", "usuarios.html"));
+});
 router.get("/json/usuarios", function(req, res){
   res.send(users) // JSON
 });
@@ -97,14 +100,14 @@ router.get('/html/crear', function(req, res){
   // Usamos path para obtener ruta a la carpeta actual y concatenarle la ruta relativa del archivo
   console.log("Ubicación absoluta de la carpeta: " + path.join(__dirname, ""));
   console.log("Ubicación relativa del archivo: " + ubicacion);
+  // Colocamos una cookie que guarde el tamaño del array de users actualmente:
+  res.cookie('__usersLength', users.length);
   // Devolvemos en el response el archivo html del formulario
   res.sendFile(path.join(__dirname, ubicacion))
 });
 router.post('/json/crear', function(req, res){
   // Recibimos el form y lo enviamos de vuelta
   let nuevoUsuario = req.body; // req.body es el objeto que enviamos en el body del request al hacer un POST
-  let nuevoId = users.length;
-  nuevoUsuario.id = nuevoId; // 3, 4, 5...
   let nuevoUsuarioIdx = users.push(nuevoUsuario); // Actualizamos variable con el dato DESDE el array y lo devolvemos para comprobar que se añadió con todos los campos
   console.log(users[nuevoUsuarioIdx - 1])
   // TODO: crear el usuario en la base de datos
@@ -123,8 +126,6 @@ router.get('/html/editar/:id(\\d+)', function(req, res){
 router.put('/editar/:id(\\d+)', function(req, res){
   let id = req.params.id;
   let usuarioEditado = req.body;
-  // Añadimos el id:
-  usuarioEditado.id = parseInt(id); // entero
   // Buscamos el id del usuario en el array
   let usuarioIdx = users.findIndex(user => user.id == id);
   if(usuarioIdx == -1){

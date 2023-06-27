@@ -8,7 +8,8 @@
   <body>
     <div class="container col-6 py-3">
     <h1>Formulario para crear un usuario</h1>
-    <form action="/crear" method="POST">
+    <form action="/json/crear" method="POST">
+    <input id="id-input" type="hidden" name="id" value="">
     <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
     <br>
     <input type="text" class="form-control" name="email" placeholder="Email">
@@ -16,5 +17,13 @@
     <input type="submit" class="btn btn-primary" value="Enviar">
     </form>
     </div>
+    <script>
+      // Leemos el usersLength de las cookies:
+      let cookie = document.cookie;
+      let id = cookie.split('__usersLength=');
+      // Añadimos este id al input oculto del formulario:
+      let idInput = document.querySelector('#id-input');
+      idInput.value = id[1];
+    </script>
   </body>
 </html>
