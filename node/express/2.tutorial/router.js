@@ -49,14 +49,19 @@ router.all('/', function(req, res){
   <h1>Endpoints de usuarios</h1>
   <h2>JSON</h2>
   <ul>
-    <li><code>GET</code> <a href="/usuarios">/usuarios</a> <span>Lista de todos los usuarios</span></li>
-    <li><code>GET</code> <a href="/usuarios/1">/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
+    <li><code>GET</code> <a href="/json/usuarios">/json/usuarios</a> <span>Lista de todos los usuarios</span></li>
+    <li><code>GET</code> <a href="/json/usuarios/1">/json/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
+    <li><code>POST</code> <a href="/json/crear">/json/crear</a> <span>Crear usuario</span></li>
+    <li><code>PUT</code> <a href="/json/editar/1">/json/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
+    <li><code>DELETE</code> <a href="/json/borrar/1">/json/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
   </ul>   
   <h2>HTML</h2>
   <ul>
-  <li><code>POST</code> <a href="/crear">/crear</a> <span>Crear usuario</span></li>
-  <li><code>PUT</code> <a href="/editar/1">/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
-  <li><code>DELETE</code> <a href="/borrar/1">/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
+  <li><code>GET</code> <a href="/html/usuarios">/html/usuarios</a> <span>Lista de todos los usuarios</span></li>
+    <li><code>GET</code> <a href="/html/usuarios/1">/html/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
+  <li><code>POST</code> <a href="/html/crear">/html/crear</a> <span>Crear usuario</span></li>
+  <li><code>PUT</code> <a href="/html/editar/1">/html/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
+  <li><code>DELETE</code> <a href="/html/borrar/1">/html/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
   </ul> 
   `);
 });
@@ -77,16 +82,16 @@ router.post('/hola', function(req, res){
 
 // ****************** Usuarios GET y GET por id ******************
 // Pattern matched routes
-router.get("/usuarios", function(req, res){
-  res.send(users)
+router.get("/json/usuarios", function(req, res){
+  res.send(users) // JSON
 });
-router.get('/usuarios/:id(\\d+)', function(req, res){
+router.get('/json/usuarios/:id(\\d+)', function(req, res){
   // \\d+ es un regex para validar dígitos en cualuier cantidad
   let user = users.find(user => user.id == req.params.id);
   res.send(user);
 });
 // ******* Formulario para crear un usuario *******
-router.get('/crear', function(req, res){
+router.get('/html/crear', function(req, res){
   // Formulario para crear un usuario
   let ubicacion = 'forms/form-crear.html';
   // Usamos path para obtener ruta a la carpeta actual y concatenarle la ruta relativa del archivo
@@ -95,7 +100,7 @@ router.get('/crear', function(req, res){
   // Devolvemos en el response el archivo html del formulario
   res.sendFile(path.join(__dirname, ubicacion))
 });
-router.post('/crear', function(req, res){
+router.post('/json/crear', function(req, res){
   // Recibimos el form y lo enviamos de vuelta
   let nuevoUsuario = req.body; // req.body es el objeto que enviamos en el body del request al hacer un POST
   let nuevoId = users.length;
@@ -106,9 +111,8 @@ router.post('/crear', function(req, res){
   res.status(201); // 201 Created
   res.send(users[nuevoUsuarioIdx - 1]); // o el user nuevo
 });
-
-// TODO: form y endpoint para editar un usuario -> GET y PUT
-router.get('/editar/:id(\\d+)', function(req, res){
+//  ********* Formulario para editar un usuario *********
+router.get('/html/editar/:id(\\d+)', function(req, res){
   let ubicacion = 'forms/form-editar.html';
   res.cookie("__id", req.params.id);
   console.log(req.params)
@@ -131,8 +135,11 @@ router.put('/editar/:id(\\d+)', function(req, res){
   // Devolvemos el usuario actualizado
   res.send(users[usuarioIdx]);
 });
-// TODO: form y endpoint para borrar un usuario -> GET y DELETE
-router.delete('/borrar/:id(\\d+)', function(req, res){
+// ********* Formulario para borrar un usuario *********
+router.get('/html/borrar/:id(\\d+)', function(req, res){
+  res.send("borrar usuario con id " + req.params.id);
+});
+router.delete('/json/borrar/:id(\\d+)', function(req, res){
   // borrar -> splice(id, 1)
   res.send("Borrar usuario con id " + req.params.id);
 });
