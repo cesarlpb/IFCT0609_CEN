@@ -45,7 +45,20 @@ router.use(function (req, res, next) {
 });
 router.all('/', function(req, res){
   console.log("Hola desde /"); // Después de ejecutar el middleware #1 y #2
-  res.send("Hola desde /");
+  res.send(`
+  <h1>Endpoints de usuarios</h1>
+  <h2>JSON</h2>
+  <ul>
+    <li><code>GET</code> <a href="/usuarios">/usuarios</a> <span>Lista de todos los usuarios</span></li>
+    <li><code>GET</code> <a href="/usuarios/1">/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
+  </ul>   
+  <h2>HTML</h2>
+  <ul>
+  <li><code>POST</code> <a href="/crear">/crear</a> <span>Crear usuario</span></li>
+  <li><code>PUT</code> <a href="/editar/1">/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
+  <li><code>DELETE</code> <a href="/borrar/1">/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
+  </ul> 
+  `);
 });
 // El ? después del parámetro name indica que es opcional, entonces podemos usar el endpoint en caso de recibirlo o no
 router.get('/hola/:name?', function(req, res){
@@ -67,7 +80,8 @@ router.post('/hola', function(req, res){
 router.get("/usuarios", function(req, res){
   res.send(users)
 });
-router.get('/usuarios/:id([0-9]{1})', function(req, res){
+router.get('/usuarios/:id(\\d+)', function(req, res){
+  // \\d+ es un regex para validar dígitos en cualuier cantidad
   let user = users.find(user => user.id == req.params.id);
   res.send(user);
 });
@@ -116,7 +130,7 @@ router.put('/editar/:id', function(req, res){
 });
 // TODO: form y endpoint para borrar un usuario -> GET y DELETE
 router.delete('/borrar/:id', function(req, res){
-  // borrar
+  // borrar -> splice(id, 1)
   res.send("Borrar usuario con id " + req.params.id);
 });
 // *********************** Usuarios ***********************
