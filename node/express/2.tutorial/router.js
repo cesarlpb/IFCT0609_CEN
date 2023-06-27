@@ -108,7 +108,7 @@ router.post('/crear', function(req, res){
 });
 
 // TODO: form y endpoint para editar un usuario -> GET y PUT
-router.get('/editar/:id', function(req, res){
+router.get('/editar/:id(\\d+)', function(req, res){
   let ubicacion = 'forms/form-editar.html';
   res.cookie("__id", req.params.id);
   console.log(req.params)
@@ -116,7 +116,7 @@ router.get('/editar/:id', function(req, res){
   res.sendFile(path.join(__dirname, ubicacion))
 });
 // Nota: revisar por qué con PUT el form no se envía
-router.put('/editar/:id', function(req, res){
+router.put('/editar/:id(\\d+)', function(req, res){
   let id = req.params.id;
   let usuarioEditado = req.body;
   // Añadimos el id:
@@ -129,7 +129,7 @@ router.put('/editar/:id', function(req, res){
   res.send(users[usuarioIdx]);
 });
 // TODO: form y endpoint para borrar un usuario -> GET y DELETE
-router.delete('/borrar/:id', function(req, res){
+router.delete('/borrar/:id(\\d+)', function(req, res){
   // borrar -> splice(id, 1)
   res.send("Borrar usuario con id " + req.params.id);
 });
@@ -142,12 +142,12 @@ router.get('/notas', function(req, res){
 });
 // URL Building con Express
 // Route parameters
-router.get('/notas/:id', function(req, res){
+router.get('/notas/:id(\\d+)', function(req, res){
   let nota = notas.find(nota => nota.id == req.params.id);
   res.send(nota);
 });
 // TODO: Ejercicio. Crear un solo enpoint que use un parámetro opcional para filtrar por nombre y por id, es decir, "fusionar" los dos endpoints /:id y /:id/:name
-router.get('/notas/:id/:name', function(req, res){
+router.get('/notas/:id(\\d+)/:name', function(req, res){
   let nota = notas.find(nota => nota.id == req.params.id && nota.name == req.params.name);
   res.send(nota);
 });
