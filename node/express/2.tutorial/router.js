@@ -57,11 +57,11 @@ router.all('/', function(req, res){
   </ul>   
   <h2>HTML</h2>
   <ul>
-  <li><code>GET</code> <a href="/html/usuarios">/html/usuarios</a> <span>Lista de todos los usuarios</span></li>
-  <li><code>GET</code> <a href="/html/usuarios/1">/html/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
-  <li><code>POST</code> <a href="/html/crear">/html/crear</a> <span>Crear usuario</span></li>
-  <li><code>PUT</code> <a href="/html/editar/1">/html/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
-  <li><code>DELETE</code> <a href="/html/borrar/1">/html/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
+    <li><code>GET</code> <a href="/html/usuarios">/html/usuarios</a> <span>Lista de todos los usuarios</span></li>
+    <li><code>GET</code> <a href="/html/usuarios/1">/html/usuarios/&lt;id&gt;</a> <span>Usuario por <code>id</code> (int)</span></li>
+    <li><code>POST</code> <a href="/html/crear">/html/crear</a> <span>Crear usuario</span></li>
+    <li><code>PUT</code> <a href="/html/editar/1">/html/editar/&lt;id&gt;</a> <span>Editar usuario por <code>id</code> (int)</span></li>
+    <li><code>DELETE</code> <a href="/html/borrar/1">/html/borrar/&lt;id&gt;</a> <span>Borrar usuario por <code>id</code> (int)</span></li>
   </ul> 
   `);
 });
