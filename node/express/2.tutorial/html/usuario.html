@@ -23,6 +23,10 @@
       html += "<div class='container'>"
       html += "<table class='table table-striped'>"  
       html += "<tr>"
+      
+      // Añadimos este título para las acciones Editar y Borrar:
+      titulos.push("Acciones")
+
       // bucle para añadir etiquetas de th / encabezados de tabla
       for (let indice in titulos) {
         html += "<th>" + titulos[indice] + "</th>"
@@ -36,6 +40,8 @@
           for (let key in objeto){
             html += "<td>" + objeto[key] + "</td>"
           }
+        html += `<td><a href="/html/editar/${objeto.id}" class="btn btn-warning">Editar</a>&nbsp;`
+        html += `<a href="/html/borrar/${objeto.id}" class="btn btn-danger">Borrar</a></td>`
         html += "</tr>"
       })
       html += "</table>"
