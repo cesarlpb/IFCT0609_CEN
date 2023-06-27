@@ -123,6 +123,9 @@ router.put('/editar/:id(\\d+)', function(req, res){
   usuarioEditado.id = parseInt(id); // entero
   // Buscamos el id del usuario en el array
   let usuarioIdx = users.findIndex(user => user.id == id);
+  if(usuarioIdx == -1){
+    usuarioIdx = users.length; // Si no existe, lo añadimos al final
+  }
   // Actualizamos el usuario en el array
   users[usuarioIdx] = usuarioEditado;
   // Devolvemos el usuario actualizado
