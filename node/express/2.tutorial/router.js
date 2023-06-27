@@ -88,6 +88,9 @@ router.get("/html/usuarios", function(req, res){
 router.get("/json/usuarios", function(req, res){
   res.send(users) // JSON
 });
+router.get("/html/usuarios/:id(\\d+)", function(req, res){
+  res.sendFile(path.join(__dirname, "html", "usuario.html"));
+});
 router.get('/json/usuarios/:id(\\d+)', function(req, res){
   // \\d+ es un regex para validar dígitos en cualuier cantidad
   let user = users.find(user => user.id == req.params.id);
