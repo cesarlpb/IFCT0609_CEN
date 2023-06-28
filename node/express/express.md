@@ -31,3 +31,15 @@ Para instalar un paquete globalmente:
 ```
 npm -g install <nombre_del_paquete>
 ```
+
+## Proyectos
+[1.CRUD_sin_db](1.CRUD_sin_db.md) Proyecto con un CRUD sin base de datos usando Express
+  - GET, POST, PUT, DELETE 
+[2.tutorial](2.tutorial/) Seguimos el tutorial de [Tutorialspoint](https://www.tutorialspoint.com/expressjs/index.htm) hasta el tema de Middlewares. 
+  - GET, POST, PUT, DELETE
+  - Router de Express
+  - Responses en HTML y JSON 
+  - Middlewares
+  - Cookies
+  - HTML y Forms
+[3.ejs](3.ejs/) Primero, seguimos este tutorial de [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application). Rehacemos parte del proyecto 2 pero usando un lenguaje de plantilla
