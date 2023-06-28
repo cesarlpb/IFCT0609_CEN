@@ -20,15 +20,9 @@
     </form>
     </div>
     <script>
-      // TODO: colocar el id del usuario leyendo cookies
       // Leemos el id de las cookies:
       let cookie = document.cookie;
       let id = cookie.split('__id=');
-      // console.log(id)
-      // let idx = id[1].indexOf(";")
-      // console.log(idx)
-      // id = id.slice(0, idx);
-      // Editar ^^^
       // Añadimos este id al input oculto del formulario:
       let idInput = document.querySelector('#id-input');
       idInput.value = id[1];
