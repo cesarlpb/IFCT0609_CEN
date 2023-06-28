@@ -43,3 +43,4 @@ npm -g install <nombre_del_paquete>
   - Cookies
   - HTML y Forms
 [3.ejs](3.ejs/) Primero, seguimos este tutorial de [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application). Rehacemos parte del proyecto 2 pero usando un lenguaje de plantilla
+  - Extensión EJS para Code: `DigitalBrainstem.javascript-ejs-support`
