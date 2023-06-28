@@ -141,11 +141,20 @@ router.put('/editar/:id(\\d+)', function(req, res){
 });
 // ********* Formulario para borrar un usuario *********
 router.get('/html/borrar/:id(\\d+)', function(req, res){
-  res.send("borrar usuario con id " + req.params.id);
+  let ubicacion = 'forms/form-borrar.html';
+  res.sendFile(path.join(__dirname, ubicacion))
 });
 router.delete('/json/borrar/:id(\\d+)', function(req, res){
-  // borrar -> splice(id, 1)
-  res.send("Borrar usuario con id " + req.params.id);
+  let id = req.params.id;
+  let idx = users.findIndex(user => user.id == id); // Si no encuentra el id, devuelve -1
+  if(idx == -1){
+    res.status(404); // 404 Not Found
+    let ubicacion = 'html/404.html';
+    res.sendFile(path.join(__dirname, ubicacion));
+  }else{
+    users.splice(idx, 1); // Borramos el usuario del array
+    res.send(`Usuario con id ${id} borrado`);
+  }
 });
 // *********************** Usuarios ***********************
 
