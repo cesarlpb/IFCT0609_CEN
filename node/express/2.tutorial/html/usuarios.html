@@ -19,6 +19,7 @@
      */
     function generarTablaHTML(datos){
       let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
+      titulos.push("Acciones")
       let html = ""
       html += "<div class='container'>"
       html += "<table class='table table-striped'>"  
@@ -29,16 +30,13 @@
       }
       html += "</tr>"
 
-      // bucle para añadir filas de datos
-      // devolvemos html de tabla
-
-      // TODO: colocar Acciones -> botones Editar y Borrar
-
       datos.forEach((objeto) => {
         html += "<tr>"
           for (let key in objeto){
             html += "<td>" + objeto[key] + "</td>"
           }
+        html += `<td><a href="/html/editar/${objeto.id}" class="btn btn-warning">Editar</a>&nbsp;`
+        html += `<a href="/html/borrar/${objeto.id}" class="btn btn-danger">Borrar</a></td>`
         html += "</tr>"
       })
       html += "</table>"
