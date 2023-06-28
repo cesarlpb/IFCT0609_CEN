@@ -8,8 +8,7 @@ app.set('view engine', 'ejs');
 
 // index page
 app.get('/', function(req, res) {
-  res.send("/")
-  // res.render('pages/index');
+  res.render('pages/index');
 });
 
 // about page
