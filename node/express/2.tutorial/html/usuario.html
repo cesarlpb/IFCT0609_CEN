@@ -40,7 +40,8 @@
           for (let key in objeto){
             html += "<td>" + objeto[key] + "</td>"
           }
-        html += `<td><a href="/html/editar/${objeto.id}" class="btn btn-warning">Editar</a>&nbsp;`
+        html += `<td><a href="/html/usuarios" class="btn btn-success">Volver a lista</a>&nbsp;`
+        html += `<a href="/html/editar/${objeto.id}" class="btn btn-warning">Editar</a>&nbsp;`
         html += `<a href="/html/borrar/${objeto.id}" class="btn btn-danger">Borrar</a></td>`
         html += "</tr>"
       })
