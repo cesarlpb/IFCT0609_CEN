@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="py-0 my-0">
+  <div class="container py-0 mb-0">
+    <header>
+      <%- include('../partials/header'); %>
+    </header>
+    <main>
+      <div class="row justify-content-between">
+        <div class="col-sm-8">
+          <%- include('../partials/jumbotron-dark')  %>
+        </div>
+      
+        <div class="col-sm-2">
+          <div class="well bg bg-secondary h-100 text-white p-3">
+            <h3>Sidebar</h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="position-absolute bottom-0 start-50 translate-middle-x">
+      <%- include('../partials/footer'); %>
+    </footer>    
+  </div>
+</body>
+</html>

@@ -13,8 +13,7 @@ app.get('/', function(req, res) {
 
 // about page
 app.get('/about', function(req, res) {
-  res.send("/about")
-  // res.render('pages/about');
+  res.render('pages/about');
 });
 
 app.listen(8080);
