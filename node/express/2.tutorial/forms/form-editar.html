@@ -22,19 +22,25 @@
     <script>
       // Leemos el id de las cookies:
       let cookie = document.cookie;
-      let id = cookie.split('__id=');
+      let id = cookie.split('__id=')
+      if(id instanceof Array){
+        let str = id[1];
+        let idx = str.split(';')[0];
+        id = idx; // asignamos el valor correcto al id
+        // id deja de ser Array y es un string
+      }
       // Añadimos este id al input oculto del formulario:
       let idInput = document.querySelector('#id-input');
-      idInput.value = id[1];
+      idInput.value = id;
       // Leemos el formulario y le asignamos la ruta de edición:
       let form = document.querySelector('form');
-      form.action = `/editar/${id[1]}`;
+      form.action = `/editar/${id}`;
 
       // Actualizamos el h1 con el id del user
       let title = document.querySelector('#title');
-      title.innerText = `Editar usuario ${id[1]}`;
+      title.innerText = `Editar usuario ${id}`;
       let h1 = document.querySelector('#h1');
-      h1.innerText = `Editar usuario ${id[1]}`;
+      h1.innerText = `Editar usuario ${id}`;
     </script>
   </body>
 </html>

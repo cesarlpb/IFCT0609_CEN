@@ -120,7 +120,7 @@ router.post('/json/crear', function(req, res){
 //  ********* Formulario para editar un usuario *********
 router.get('/html/editar/:id(\\d+)', function(req, res){
   let ubicacion = 'forms/form-editar.html';
-  res.cookie("__id", req.params.id);
+  res.cookie("__id", req.params.id); // Guardamos el id para leerlo desde el HTML, de la misma forma, podemos guardar el nombre, email, etc.
   console.log(req.params)
   // Formulario para editar un usuario
   res.sendFile(path.join(__dirname, ubicacion))
