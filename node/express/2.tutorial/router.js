@@ -13,8 +13,11 @@ router.use(bodyParser.json())
 
 // Para servir archivos estáticos
 // Nota: a diferencia del tutorial, nosotros usamos router en vez de app:
-router.use("/img", express.static('public'));
+router.use("/img", express.static('images'));
 // Las imágenes estarán disponibles en localhost:3000/img/<nombre_de_archivo.extension>
+router.use("/pdfs", express.static('pdfs'));
+// Configuramos carpeta para servir archivos estáticos multimedia:
+router.use("/media", express.static('media'));
 
 const notas = [
   {id: 1, texto: "Nota 1", name: "Pepe"},
