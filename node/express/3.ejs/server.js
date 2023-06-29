@@ -9,9 +9,9 @@ app.set('view engine', 'ejs');
 // index page
 app.get('/', function(req, res) {
   const mascots = [
-    { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-    { name: 'Tux', organization: "Linux", birth_year: 1996},
-    { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
+    { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012, alt: "Sammy", url: "https://doimages.nyc3.digitaloceanspaces.com/sammy-normal.png"},
+    { name: 'Tux, the penguin, Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, doloremque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, doloremque! ', organization: "Linux", birth_year: 1996, alt: "Tux", url: "https://upload.wikimedia.org/wikipedia/commons/5/56/Tux.jpg"},
+    { name: 'Moby Dock', organization: "Docker", birth_year: 2013, alt: "Docker", url: "https://developers.redhat.com/sites/default/files/styles/article_feature/public/blog/2014/05/homepage-docker-logo.png"}
   ];
   const tagline = "No programming concept is complete without a cute animal mascot.";
   res.render('pages/index', {
