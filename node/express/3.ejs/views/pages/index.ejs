@@ -10,17 +10,9 @@
 </header>
 
 <main>
-  <h2><%- tagline %></h2>
-  <ul>
-    <% mascots.forEach(function(mascot) { %>
-      <li>
-        <strong><%= mascot.name %></strong>
-        representing <%= mascot.organization %>,
-        born <%= mascot.birth_year %>
-      </li>
-    <% }); %>
-  </ul>
   <%- include('../partials/main'); %>
+  <%- include('../partials/cards'); %>
+  <%- include('../partials/bloque-jumbotrons'); %>
 </main>
 
 <footer>
