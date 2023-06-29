@@ -11,6 +11,11 @@ router.use(bodyParser.urlencoded({ extended: false }))
 // body -> JSON
 router.use(bodyParser.json())
 
+// Para servir archivos estáticos
+// Nota: a diferencia del tutorial, nosotros usamos router en vez de app:
+router.use("/img", express.static('public'));
+// Las imágenes estarán disponibles en localhost:3000/img/<nombre_de_archivo.extension>
+
 const notas = [
   {id: 1, texto: "Nota 1", name: "Pepe"},
   {id: 2, texto: "Nota 3", name: "Pepe"},
@@ -173,6 +178,13 @@ router.get('/notas/:id(\\d+)', function(req, res){
 router.get('/notas/:id(\\d+)/:name', function(req, res){
   let nota = notas.find(nota => nota.id == req.params.id && nota.name == req.params.name);
   res.send(nota);
+});
+
+// *********************** Imágenes ***********************
+// Imágenes en carpeta 'public'
+router.get("/img", function(req, res){
+  let ubicacion = 'html/img.html';
+  res.sendFile(path.join(__dirname, ubicacion));
 });
 
 // Todas las demás rutas y métodos no implementados
