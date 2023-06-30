@@ -1,8 +1,10 @@
 const Sequelize = require("sequelize");
+require('dotenv').config() // <-- Hay que crear un archivo .env con los datos
+
 const sequelize = new Sequelize(
- 'nombre_base_de_datos',
- 'usuario_base_de_datos',
- 'contraseña_base_de_datos',
+ process.env.DB_NAME,
+ process.env.DB_USER,
+ process.env.DB_PASS,
   {
     host: 'localhost',
     dialect: 'mysql'
