@@ -4,7 +4,27 @@
   <div class="col-3 text-center">
     <h1 class="text-center"><%- title %></h1>
     
-    <!-- Form -->
+  <form method="POST" action="/register">
+    <div>
+      <label for="name" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div>
+      <label for="username" class="form-label">Nombre de usuario:</label>
+      <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div>
+      <label for="email" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="email" name="email">
+    </div>
+    <div>
+      <label for="password" class="form-label">Contraseña:</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="py-3">
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    </div>
+  </form>
     
   </div>
 </div>
