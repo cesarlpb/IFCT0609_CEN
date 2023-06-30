@@ -53,14 +53,24 @@ sequelize.sync().then(() => {
     });*/
 
     // SELECT * FROM Books
-    Book.findAll().then(res => {
-      let books = res.map(book => book.dataValues)
+    /*Book.findAll().then(res => {
+      let books = res && res.map(book => book?.dataValues) ?? []
       console.log(books)
     }).catch((error) => {
       console.error('Failed to retrieve data : ', error);
     });
+    */
 
     // SELECT * FROM Books WHERE id = 1
+    Book.findOne({
+      where: {
+          id : "1"
+      }
+    }).then(res => {
+        console.log(res?.dataValues ?? {})
+    }).catch((error) => {
+        console.error('No se ha podido encontrar el id : ', error);
+    });
 
 }).catch((error) => {
    console.error('No se ha podido crear la tabla: ', error);
