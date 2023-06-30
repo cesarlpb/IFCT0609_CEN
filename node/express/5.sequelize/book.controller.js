@@ -39,9 +39,9 @@ const Book = sequelize.define("Books", {
 
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
-
-   Book.create({
-      title: "Clean Code 2",
+   // Descomentar si queremos insertar datos de prueba
+   /*Book.create({
+      title: "Clean Code 3",
       author: "Robert Cecil Martin",
       description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn't have to be that way.",
       release_date: "2021-12-14",
@@ -50,7 +50,17 @@ sequelize.sync().then(() => {
         console.log(res) // resultado dek query
     }).catch((error) => {
         console.error('No se ha podido crear el nuevo libro: ', error);
+    });*/
+
+    // SELECT * FROM Books
+    Book.findAll().then(res => {
+      let books = res.map(book => book.dataValues)
+      console.log(books)
+    }).catch((error) => {
+      console.error('Failed to retrieve data : ', error);
     });
+
+    // SELECT * FROM Books WHERE id = 1
 
 }).catch((error) => {
    console.error('No se ha podido crear la tabla: ', error);
