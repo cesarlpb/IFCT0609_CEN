@@ -8,8 +8,12 @@ const sequelize = new Sequelize(
  process.env.DB_PASS,
   {
     host: 'localhost',
-    dialect: 'mysql'
-  }
+    dialect: 'mysql',
+    dialectOptions: {
+      useUTC: false, // Lectura, no usamos UTC sino UTC +2:00
+    },
+    timezone: '+2:00', // Escritura, usamos UTC +2:00
+  },
 );
 
 const Book = sequelize.define("Books", {
