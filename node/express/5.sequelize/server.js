@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
      dialectOptions: {
        useUTC: false, // Lectura, no usamos UTC sino UTC +2:00
      },
-     timezone: '+2:00', // Escritura, usamos UTC +2:00
+     timezone: 'Europe/Madrid', // Escritura, usamos UTC +2:00 o Europe/Madrid (no hace falta estar pendientes del cambio de hora)
    },
  );
 

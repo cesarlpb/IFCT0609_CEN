@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
      dialectOptions: {
        useUTC: false, // Lectura, no usamos UTC sino UTC +2:00
      },
-     timezone: '+2:00', // Escritura, usamos UTC +2:00
+     timezone: 'Europe/Madrid', // Escritura, usamos UTC +2:00 o Europe/Madrid (no hace falta estar pendientes del cambio de hora)
    },
  );
 
@@ -41,7 +41,7 @@ sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
 
    Book.create({
-      title: "Clean Code",
+      title: "Clean Code 2",
       author: "Robert Cecil Martin",
       description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn't have to be that way.",
       release_date: "2021-12-14",
