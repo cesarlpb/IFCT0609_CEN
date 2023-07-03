@@ -15,6 +15,14 @@ const sequelize = new Sequelize(
    },
  );
 
+// TODO: Crear un formulario o endpoints para ejecutar cada una de estas funciones
+   // Añadir express
+    // Crear endpoints
+    // Crear formulario(s)
+    // Crear vistas
+    // Llamar a las funciones desde los endpoints o formularios
+    // :)
+
 sequelize.authenticate().then(() => {
    console.log('La conexión se ha establecido correctamente.');
 }).catch((error) => {
