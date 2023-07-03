@@ -40,6 +40,7 @@ const Book = sequelize.define("Books", {
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
    // Descomentar si queremos insertar datos de prueba
+
    /*Book.create({
       title: "Clean Code 5",
       author: "Robert Cecil Martin",
@@ -51,6 +52,26 @@ sequelize.sync().then(() => {
     }).catch((error) => {
         console.error('No se ha podido crear el nuevo libro: ', error);
     });*/
+
+    // Añadimos async para poder usar await cuando ejecutemos la función
+    async function getBooks() {
+      return Book.findAll().then(res => {
+        // res podría ser null, en ese caso res.map no existe y arroja error
+        // por eso usamos res && res.map(...)
+        let books = (res && res.map(book => book?.dataValues)) ?? [];
+        return books
+      }).catch((error) => {
+        console.error('No se pudo obtener la lista de Books : ', error);
+      });
+    }
+
+    // Ejecutamos la función
+    getBooks().then(books => {
+      console.log(books)
+    }).catch((error) => {
+      console.error(error);
+    });
+
 
     // SELECT * FROM Books
     /*Book.findAll().then(res => {
@@ -88,6 +109,8 @@ sequelize.sync().then(() => {
     /*
       UPDATE `Books` SET `title`=?,`updatedAt`=? WHERE `id` = ?
     */
+
+    /*
     Book.update(
       { title : "Clean Code NEW 2", 
         author: "Robert Cecil Martin NEW 2"
@@ -98,9 +121,10 @@ sequelize.sync().then(() => {
       }
     }).then(() => {
       console.log("El book se ha editado correctamente" )
-  }).catch((error) => {
-    console.error('No se ha podido actualizar el book : ', error);
-});
+    }).catch((error) => {
+      console.error('No se ha podido actualizar el book : ', error);
+    });
+    */
 
 // Tabla
 }).catch((error) => {
