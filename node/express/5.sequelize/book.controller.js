@@ -72,6 +72,19 @@ async function createBook(newBook) {
     console.error('No se ha podido crear el nuevo libro: ', error);
   });
 }
+
+async function deleteBook(id){
+  return Book.destroy({
+    where: {
+      id: id
+    }
+  }).then(res => {
+    return res ?? {} // Devuelve el número de elementos borrados
+  }).catch((error) => {
+    console.error(`No se ha podido eliminar el Book con id : ${id}`, error);
+  });
+}
+
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
    // Descomentar si queremos insertar datos de prueba
@@ -92,19 +105,25 @@ sequelize.sync().then(() => {
 
   // Ejecutamos la función createBook() para crear un nuevo book
     // Primero, con el método build() creamos una instancia de Book -> aún no se guarda en la db, solo crea el nuevo objeto usando la clase Book de Sequelize
-  const newBook = Book.build({
-    title: "Clean Code NEW NEW NEW",
-    author: "Pepe",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus pellentesque magna, eget feugiat ligula aliquet mattis. Etiam bibendum, massa vitae pharetra pharetra, elit ante mollis nisl, ac laoreet ex ante at diam. Donec vehicula massa ut ante accumsan, nec rhoncus mi molestie. Quisque porta enim in mi vestibulum, at tincidunt ante suscipit. Integer placerat dolor id lacus sagittis ultricies sed in odio. Sed fringilla felis ut felis lobortis hendrerit. Etiam varius faucibus porttitor. Sed quis imperdiet eros. Nullam consequat neque nec pretium feugiat. Donec sapien ipsum, tristique eu odio nec, ullamcorper vestibulum ipsum. Praesent dignissim posuere ex vel varius. Cras aliquet luctus vehicula. Aenean varius luctus dapibus.",
-    release_date: "2023-07-03",
-    subject: 1
-  });
-  createBook(newBook).then(res => {
-    console.log(res?.dataValues)
+  // const newBook = Book.build({
+  //   title: "Clean Code NEW NEW NEW",
+  //   author: "Pepe",
+  //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus pellentesque magna, eget feugiat ligula aliquet mattis. Etiam bibendum, massa vitae pharetra pharetra, elit ante mollis nisl, ac laoreet ex ante at diam. Donec vehicula massa ut ante accumsan, nec rhoncus mi molestie. Quisque porta enim in mi vestibulum, at tincidunt ante suscipit. Integer placerat dolor id lacus sagittis ultricies sed in odio. Sed fringilla felis ut felis lobortis hendrerit. Etiam varius faucibus porttitor. Sed quis imperdiet eros. Nullam consequat neque nec pretium feugiat. Donec sapien ipsum, tristique eu odio nec, ullamcorper vestibulum ipsum. Praesent dignissim posuere ex vel varius. Cras aliquet luctus vehicula. Aenean varius luctus dapibus.",
+  //   release_date: "2023-07-03",
+  //   subject: 1
+  // });
+  // createBook(newBook).then(res => {
+  //   console.log(res?.dataValues)
+  // }).catch((error) => {
+  //   console.error(error);
+  // });
+
+  // Ejecutamos la función deleteBook() para eliminar un book por id
+  deleteBook(7).then(res => {
+    console.log(res)
   }).catch((error) => {
     console.error(error);
   });
-
     // TODO: DELETE - pasar a función deleteBook(id)
     // DELETE FROM Books WHERE id = 5
     /*Book.destroy({
