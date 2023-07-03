@@ -37,10 +37,42 @@ const Book = sequelize.define("Books", {
   }
 });
 
+// Añadimos async para poder usar await cuando ejecutemos la función
+async function getBooks() {
+  return Book.findAll().then(res => {
+    // res podría ser null, en ese caso res.map no existe y arroja error
+    // por eso usamos res && res.map(...)
+    let books = (res && res.map(book => book?.dataValues)) ?? [];
+    return books
+  }).catch((error) => {
+    console.error('No se pudo obtener la lista de Books : ', error);
+  });
+}
+
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
    // Descomentar si queremos insertar datos de prueba
 
+   // Ejecutamos la función
+   getBooks().then(books => {
+    console.log(books)
+  }).catch((error) => {
+    console.error(error);
+  });
+
+    // TODO: GET - pasar a función getBook(id) o getBookById(id)
+    // SELECT * FROM Books WHERE id = 1
+    /*Book.findOne({
+      where: {
+          id : "1"
+      }
+    }).then(res => {
+        console.log(res?.dataValues ?? {})
+    }).catch((error) => {
+        console.error('No se ha podido encontrar el id : ', error);
+    });*/
+
+   // TODO: POST - pasar a función createBook()
    /*Book.create({
       title: "Clean Code 5",
       author: "Robert Cecil Martin",
@@ -53,46 +85,7 @@ sequelize.sync().then(() => {
         console.error('No se ha podido crear el nuevo libro: ', error);
     });*/
 
-    // Añadimos async para poder usar await cuando ejecutemos la función
-    async function getBooks() {
-      return Book.findAll().then(res => {
-        // res podría ser null, en ese caso res.map no existe y arroja error
-        // por eso usamos res && res.map(...)
-        let books = (res && res.map(book => book?.dataValues)) ?? [];
-        return books
-      }).catch((error) => {
-        console.error('No se pudo obtener la lista de Books : ', error);
-      });
-    }
-
-    // Ejecutamos la función
-    getBooks().then(books => {
-      console.log(books)
-    }).catch((error) => {
-      console.error(error);
-    });
-
-
-    // SELECT * FROM Books
-    /*Book.findAll().then(res => {
-      let books = res && res.map(book => book?.dataValues) ?? []
-      console.log(books)
-    }).catch((error) => {
-      console.error('Failed to retrieve data : ', error);
-    });
-    */
-
-    // SELECT * FROM Books WHERE id = 1
-    /*Book.findOne({
-      where: {
-          id : "1"
-      }
-    }).then(res => {
-        console.log(res?.dataValues ?? {})
-    }).catch((error) => {
-        console.error('No se ha podido encontrar el id : ', error);
-    });*/
-
+    // TODO: DELETE - pasar a función deleteBook(id)
     // DELETE FROM Books WHERE id = 5
     /*Book.destroy({
       where: {
@@ -104,14 +97,13 @@ sequelize.sync().then(() => {
         console.error('No se ha podido borrar el book : ', error);
     });*/
 
+    // TODO: PUT - pasar a función updateBook(id, data)
     // UPDATE Books SET title = "Clean Code 5" WHERE id = 2
     // Query que se ejecuta:
-    /*
-      UPDATE `Books` SET `title`=?,`updatedAt`=? WHERE `id` = ?
+    /* UPDATE `Books` SET `title`=?,`updatedAt`=? WHERE `id` = ?
     */
 
-    /*
-    Book.update(
+    /*Book.update(
       { title : "Clean Code NEW 2", 
         author: "Robert Cecil Martin NEW 2"
       },
