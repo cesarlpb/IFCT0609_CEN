@@ -61,6 +61,17 @@ async function getBookById(id) {
   });
 }
 
+async function createBook(newBook) {
+  // Truncamos el campo description a 500 caracteres
+  if(newBook?.dataValues?.description?.length > 500) {
+    newBook.dataValues.description = newBook.dataValues.description.substring(0, 500);
+  }
+  return Book.create(newBook?.dataValues).then(res => {
+    return res ?? {} // Nos devuelve el objeto creado -> nos ahorramos 1 query para comprobar si existe
+  }).catch((error) => {
+    console.error('No se ha podido crear el nuevo libro: ', error);
+  });
+}
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
    // Descomentar si queremos insertar datos de prueba
@@ -73,37 +84,26 @@ sequelize.sync().then(() => {
   // });
 
   // Ejecutamos la función getBookById() para obtener un book por id
-  getBookById(2).then(book => {
-    console.log(book)
+  // getBookById(2).then(book => {
+  //   console.log(book)
+  // }).catch((error) => {
+  //   console.error(error);
+  // });
+
+  // Ejecutamos la función createBook() para crear un nuevo book
+    // Primero, con el método build() creamos una instancia de Book -> aún no se guarda en la db, solo crea el nuevo objeto usando la clase Book de Sequelize
+  const newBook = Book.build({
+    title: "Clean Code NEW NEW NEW",
+    author: "Pepe",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus pellentesque magna, eget feugiat ligula aliquet mattis. Etiam bibendum, massa vitae pharetra pharetra, elit ante mollis nisl, ac laoreet ex ante at diam. Donec vehicula massa ut ante accumsan, nec rhoncus mi molestie. Quisque porta enim in mi vestibulum, at tincidunt ante suscipit. Integer placerat dolor id lacus sagittis ultricies sed in odio. Sed fringilla felis ut felis lobortis hendrerit. Etiam varius faucibus porttitor. Sed quis imperdiet eros. Nullam consequat neque nec pretium feugiat. Donec sapien ipsum, tristique eu odio nec, ullamcorper vestibulum ipsum. Praesent dignissim posuere ex vel varius. Cras aliquet luctus vehicula. Aenean varius luctus dapibus.",
+    release_date: "2023-07-03",
+    subject: 1
+  });
+  createBook(newBook).then(res => {
+    console.log(res?.dataValues)
   }).catch((error) => {
     console.error(error);
   });
-
-
-    // TODO: GET - pasar a función getBook(id) o getBookById(id)
-    // SELECT * FROM Books WHERE id = 1
-    /*Book.findOne({
-      where: {
-          id : "1"
-      }
-    }).then(res => {
-        console.log(res?.dataValues ?? {})
-    }).catch((error) => {
-        console.error('No se ha podido encontrar el id : ', error);
-    });*/
-
-   // TODO: POST - pasar a función createBook()
-   /*Book.create({
-      title: "Clean Code 5",
-      author: "Robert Cecil Martin",
-      description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn't have to be that way.",
-      release_date: "2021-12-14",
-      subject: 3
-    }).then(res => {
-        console.log(res) // resultado dek query
-    }).catch((error) => {
-        console.error('No se ha podido crear el nuevo libro: ', error);
-    });*/
 
     // TODO: DELETE - pasar a función deleteBook(id)
     // DELETE FROM Books WHERE id = 5
