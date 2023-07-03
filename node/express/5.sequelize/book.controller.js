@@ -73,7 +73,7 @@ sequelize.sync().then(() => {
     });*/
 
     // DELETE FROM Books WHERE id = 5
-    Book.destroy({
+    /*Book.destroy({
       where: {
         id: 5
       }
@@ -81,8 +81,28 @@ sequelize.sync().then(() => {
         console.log("El book se ha borrado correctamente" )
     }).catch((error) => {
         console.error('No se ha podido borrar el book : ', error);
-    });
+    });*/
 
+    // UPDATE Books SET title = "Clean Code 5" WHERE id = 2
+    // Query que se ejecuta:
+    /*
+      UPDATE `Books` SET `title`=?,`updatedAt`=? WHERE `id` = ?
+    */
+    Book.update(
+      { title : "Clean Code NEW 2", 
+        author: "Robert Cecil Martin NEW 2"
+      },
+      {
+        where: {
+          id: 2
+      }
+    }).then(() => {
+      console.log("El book se ha editado correctamente" )
+  }).catch((error) => {
+    console.error('No se ha podido actualizar el book : ', error);
+});
+
+// Tabla
 }).catch((error) => {
    console.error('No se ha podido crear la tabla: ', error);
 });
