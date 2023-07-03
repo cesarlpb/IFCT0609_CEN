@@ -49,16 +49,36 @@ async function getBooks() {
   });
 }
 
+async function getBookById(id) {
+  return Book.findOne({
+    where: {
+        id : id
+    }
+  }).then(res => {
+      return res?.dataValues ?? {}
+  }).catch((error) => {
+      console.error(`No se ha podido encontrar el Book con id : ${id}`, error);
+  });
+}
+
 sequelize.sync().then(() => {
    console.log("Tabla 'Books' creada correctamente.");
    // Descomentar si queremos insertar datos de prueba
 
-   // Ejecutamos la función
-   getBooks().then(books => {
-    console.log(books)
+   // Ejecutamos la función getBooks() para obtener la lista de books
+  //  getBooks().then(books => {
+  //   console.log(books)
+  // }).catch((error) => {
+  //   console.error(error);
+  // });
+
+  // Ejecutamos la función getBookById() para obtener un book por id
+  getBookById(2).then(book => {
+    console.log(book)
   }).catch((error) => {
     console.error(error);
   });
+
 
     // TODO: GET - pasar a función getBook(id) o getBookById(id)
     // SELECT * FROM Books WHERE id = 1
