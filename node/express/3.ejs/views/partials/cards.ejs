@@ -1,0 +1,23 @@
+<div class="py-5">
+  <h2 class="pt-3 pb-5"><%- tagline %></h2>
+  <div class="row">
+    <% mascots.forEach(function(mascot) { %>
+      <div class="col-sm-4">
+        <div class="card" style="width: 22rem;">
+          <img src="<%- mascot.url %>" height="300" class="card-img-top" alt="<%- mascot.alt %>">
+          <div class="card-body">
+            <p class="card-text">
+              <%# Limitamos el campo name a 30 chars y lo ponemos en mayúsculas usando JS en la etiqueta EJS %>
+              <strong><%= mascot.name.slice(0,30).toUpperCase() %></strong>
+              representing <%= mascot.organization %>,
+              born <%= mascot.birth_year %>
+            </p>
+          </div>
+      </div>
+      </div>
+    <% }); %>
+  </div>
+</div>  
+      
+
+  

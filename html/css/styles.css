@@ -1,0 +1,411 @@
+/* Hoja de estilos externa */
+body { 
+  background-color: beige; 
+  font-family:Arial, Helvetica, sans-serif;
+}
+h1 { color: brown; }
+h2 { 
+  color: #0092be; 
+  font-size: large;
+  text-decoration: underline;
+}
+h3 { 
+  color: #0092be; 
+  font-size: medium;
+  font-weight: normal;
+  text-decoration: underline;
+}
+p { 
+  /* un valor -> 4 lados */
+  padding: 20px;
+  
+  /* dos valores: 
+  arriba/abajo izq/der */
+  /* padding: 10px 20px; */
+
+  /* tres valores:
+  arriba izq/der abajo */
+  /* padding: 10px 20px 30px; */
+
+  /* cuatro valores
+  arriba der abajo izq */
+  /* padding: 10px 20px 30px 40px; */
+
+  color:rgb(75, 75, 75); 
+  
+  /* Podemos poner ancho, estilo y color
+  de borde por separado: */
+  /* 
+  border-width: 1px;
+  border-style: dotted;
+  border-color: lightgray; 
+  */
+
+  /* O podemos utilizar border: */
+  border: 2px solid burlywood;
+
+  border-radius: 10px;
+}
+div {
+  background-color: #e3e3e3;
+  border: 2px solid brown;
+  padding: 20px;
+  margin: 10px;
+}
+a {
+  color: #e34e26;
+  /* text-decoration: none; */
+}
+/* Usamos el id "mybtn" */
+#mybtn {
+  display: block;
+  border: 1px solid brown;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  background-color: burlywood;
+  padding: 10px;
+  margin: 10px auto;
+  width: 250px;
+}
+
+/* Usando una clase de https://cssbuttongenerator.com/ */
+
+.buttonClass {
+  display: block;
+  padding: 20px;
+  margin: 0px auto;
+  font-size:15px;
+  font-family:Arial;
+  width:200px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#599bb3;
+  font-weight:bold;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  box-shadow: 0px 10px 14px -7px #276873;
+  text-shadow: 0px 1px 0px #3d768a;
+  background:linear-gradient(#599bb3, #408c99);
+}
+  
+.buttonClass:hover {
+  background: linear-gradient(#408c99, #599bb3);
+}
+                
+/* Botón azul */
+
+.blueButton {
+  /* display -> inline = misma línea
+  block = salto de línea */
+  display: block;
+  /* Espaciados
+  padding = espacio interno
+  margin = espacio alrededor (del elemento) */
+  padding: 10px;
+  margin: 10px auto;
+  /* Tamaño y tipo de fuente */
+  font-size:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  /* Ancho y alto */
+  width:200px;
+  height:50px;
+  /* borde: ancho, color, radio, sombra */
+  border-width:1px;
+  border-color:#337bc4;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 4px 0px 0px #1564ad;
+  /* Formato de texto 
+  color, negritas, centrado, sombra */
+  color:#fff;
+    
+  text-align: center;
+  text-shadow: 0px 1px 0px #528ecc;
+  /* Color de fondo
+  Gradiente lineal */
+  background:linear-gradient(#79bbff, #378de5);
+  }
+/* Estilo por defecto en el enlace */
+.blueButton:link{
+  font-weight:bold;
+}
+/* Estilo al colocar cursor encima (hover) */
+.blueButton:hover {
+  top: 1px; /* hace que el botón se mueva un poco */
+  background: linear-gradient(#378de5, #79bbff);
+}
+/* Estilo cuando hemos visitado (abierto) el enlace */
+.blueButton:visited {
+  color: lightgray;
+}
+/* Estilo cuando está activo el enlace 
+mientras se está haciendo click (sin soltar)*/
+.blueButton:active {
+  color: black;
+}          
+
+.brownButton {
+  display: inline-block;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size:15px;
+  font-family:Arial;
+  width:100px;
+  /* height:50px; */
+  border-width:1px;
+  color:#ffffff;
+  border-color:#54381e;
+  /* border-radius: 100%; */
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:inset 0px 1px 0px 0px #a6827e;
+  text-shadow:inset 0px 1px 0px #54381e;
+  background:linear-gradient(#7d5d3b, #634b30);
+  }
+  
+.brownButton:hover {
+  background: linear-gradient(#634b30, #7d5d3b);
+}
+                
+/* HTML Images */
+
+.myimg{
+  display: inline-block;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 150px;
+}
+
+/* HTML Background Images */
+
+/* Párrafos */
+#myh1 {
+  color: aliceblue;
+}
+.myh2 {
+  width: 300px;
+  color: aliceblue;
+  /* background-color: lightgray; */
+  padding: 10px;
+}
+#para-1{
+  width: 425px;
+  border: 0px;
+  background-image: url('../img/paisaje.jpeg'); 
+  background-repeat: no-repeat;
+  color:aliceblue;
+}
+#para-2 {
+  width: 425px;
+  border: 0px;
+  background-image: url('../img/paisaje_0.9.png'); 
+  background-repeat: no-repeat;
+  color:aliceblue;
+}
+#para-3 {
+  width: 425px;
+  border: 0px;
+  background-image: url('../img/paisaje_0.5.png'); 
+  background-repeat: no-repeat;
+  color:black;
+}
+.mypara, #mydiv{
+  width: 425px;
+  border: 0;
+  color: aliceblue;
+}
+#mydiv{
+  margin: 0;
+}
+#mydiv2 {
+  width: 1900px; 
+  max-width: 100%; 
+  background-color: transparent;
+  border: 0;
+  margin: 0 auto;
+}
+body {
+  background-image: url('../img/bg_capa.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+/* Selector más específico para el <a> */
+.mypara a {
+  color: aliceblue;
+}
+
+/* Tablas */
+
+/* celdas <td> y encabezados <th> */
+td, th{
+  padding: 10px;
+}
+/* tags de la tabla */
+table, th, td {
+  border: 1px solid black;
+}
+/* ids de tabla 1 y tabla 2 */
+#mytable, #mytable2 {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+/* th de tabla 2 */
+#mytable2 th{
+  background-color: #8f7c66;
+} 
+/* celdas <td> de tabla 2 */
+#mytable2 td{
+  background-color: #be9c76;
+}
+/* Tabla 3 */
+#mytable3 th, #mytable3 td{
+  padding:10px;
+}
+#mytable3 th {
+  border-style:dashed;
+  border-width: 2px;
+  border-color: #1564ad;
+}
+#mytable3 td {
+  border-width: 3px;
+  border-color: rgb(87, 137, 156);
+  border-style:dotted;
+}
+/* Redondea todos los bordes
+más px es "más redondo" */
+#mytable3, #mytable3 th, #mytable3 td {
+  border-radius: 5px;
+  /* Si usamos collapse los border salen rectos */
+  /* border-collapse: collapse; */
+}
+
+/* Ejemplo de estilos con caption */
+caption{
+  text-align: center; /* por defecto centrado */
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+/* Padding y spacing */
+#mytable6 th, #mytable6 td {
+  padding: 10px;
+}
+#mytable6 {
+  border-spacing: 10px;
+}
+
+/* Estilos por filas con selector par o impar */
+/* 
+even == par   2, 4, 6...
+odd == impar  1, 3, 5...
+*/
+/* Filas impares */
+#mytable7 tr:nth-child(odd) {
+  background-color: #6bb6d1;
+}
+/* Filas pares */
+#mytable7 tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+/* SOLO encabezados de la tabla */
+#mytable7 th {
+  background-color: rgb(153, 153, 244);
+  color: rgb(14, 38, 58);
+}
+
+#mytable-col tr:nth-child(odd) {
+  background-color: #6bb6d1;
+}
+/* Filas pares */
+#mytable-col tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+.rowspan2{
+  background: linear-gradient(#6bb6d1, #D6EEEE);
+}
+
+/* Coloreamos columnas */
+#mytable8 td:nth-child(even), #mytable8 th:nth-child(even) {
+  background-color: #D6EEEE;
+}
+#mytable8 td:nth-child(odd), #mytable8 th:nth-child(odd) {
+  background-color: #6bb6d1;
+}
+/* Ante igualdad de "especificidad" en CSS
+gana en prioridad el selector de debajo */
+#mytable8 th:nth-child(even) {
+  background-color: lightgray;
+}
+
+#mytable9, #mytable9 tr, #mytable9 td, #mytable9 th{
+  border: unset;
+}
+#mytable9 {
+  border-collapse: collapse;
+}
+#mytable9 tr {
+  border-bottom: 1px solid black;
+  
+  /* Lo mismo que border en varias líneas */
+  /* border-color: white;
+  border-width: 3px;
+  border-style: dashed; */
+
+  /* Sombra */
+  /* box-shadow: 1px 1px 2px black; */
+
+}
+#mytable9 tr:hover{
+  background-color: #D6EEEE;
+}
+
+/* Listas */
+
+p,
+dt {
+    font-weight: bold;
+}
+
+dl,
+dd {
+    font-size: 0.9rem;
+}
+
+dd {
+    margin-bottom: 1em;
+}
+
+#mydl2 div{
+  background-color: unset;
+  border: unset;
+  border-bottom: 1px solid black;
+  padding: 0;
+}
+#mydl2 dt, #mydl2 dd{
+  width: 100px;
+  display: inline-block;
+}
+#mydl2 dd {
+  margin-left: 0;
+}
+#mydl dt::after, #mydl2 dt::after {
+  content: ": ";
+}

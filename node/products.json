@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "productName": "Plátanos",
+      "price": 1.99
+    },
+    {
+      "id": 2,
+      "productName": "Fresas",
+      "price": 2.99
+    },
+    {
+      "id": 3,
+      "name": "Sandías",
+      "price": 3.99
+    }, 
+    {
+      "id": 4,
+      "productName": "Melocotones",
+      "price": 4.99
+    },
+    {
+        "id": 5,
+        "productName": "Melones",
+        "price": 5.99
+    }
+  ]

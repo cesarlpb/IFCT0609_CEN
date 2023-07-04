@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS desde CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>Cliente</title>
+</head>
+<body>
+  <div class="container py-3">
+    <h1 class="text-center">Datos del servidor</h1>
+    <p class="">Estos datos vienen de los endpoints de Node. Hacemos una petición con fetch desde este HTMl y los presentamos como tablas.</p>
+    
+    <!-- Albumes -->
+    <div class="accordion mb-2">
+      <details class="accordion-item">
+        <summary class="accordion-button">
+          <div class="accordion-header">
+            Álbumes
+          </div>
+        </summary>
+        <div id="albumes" class="accordion-body">
+        </div>
+      </details>
+    </div>
+    
+    <!-- Artistas -->
+    <div class="accordion mb-2">
+      <details class="accordion-item">
+        <summary class="accordion-button">
+          <div class="accordion-header">
+            Artistas
+          </div>
+        </summary>
+        <div id="artistas" class="accordion-body">
+        </div>
+      </details>
+    </div>
+
+    <!-- Posts -->
+    <div class="accordion mb-2">
+      <details class="accordion-item">
+        <summary class="accordion-button">
+          <div class="accordion-header">
+            Posts
+          </div>
+        </summary>
+        <div id="posts" class="accordion-body">
+        </div>
+      </details>
+    </div>
+
+    <!-- Tracks -->
+    <div class="accordion mb-2">
+      <details class="accordion-item">
+        <summary class="accordion-button">
+          <div class="accordion-header">
+            Tracks
+          </div>
+        </summary>
+        <div id="tracks" class="accordion-body">
+        </div>
+      </details>
+    </div>
+
+    <!-- Usuarios -->
+    <div class="accordion mb-2">
+      <details class="accordion-item">
+        <summary class="accordion-button">
+          <div class="accordion-header">
+            Usuarios
+          </div>
+        </summary>
+        <div id="usuarios" class="accordion-body">
+        </div>
+      </details>
+    </div>
+    <!-- Posibles mejoras: 
+      - Hacer un bucle que lea endpoints (array) para generar los acordeones (div -> acordion)
+      - estilos
+      - Guardar los datos en localStorage para no tener que pedirlos cada vez que se actualiza la página
+    -->
+  </div>
+</body>
+  <script>
+    const endpoints = ["albumes", "artistas", "posts", "tracks", "usuarios"]
+    for(let i = 0; i < endpoints.length; i++){
+      let endpoint = endpoints[i]
+      let baseUrl = "http://localhost:8080"
+      let url = baseUrl + "/" + endpoint
+      pedirDatos(url, endpoint)
+    }
+    /** Función que hace una petición GET a una url y muestra los datos en el html 
+     * @param {String} url del endpoint
+     * @param {String} endpoint nombre del endpoint
+     * @returns {void}
+    */
+    function pedirDatos(url, endpoint){
+      // Fetch
+      fetch(url, {
+        method: 'GET',
+        headers: new Headers({
+            'Content-Type': 'application/json',
+        }),
+        mode: 'cors',
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then((arr) => {
+        let objetos = arr;
+        let html = generarTablaHTML(objetos, endpoint.toLocaleUpperCase(), endpoint)
+        let container = document.getElementById(endpoint)
+        container.innerHTML = html
+
+        /*objetos.map(function(objeto) {
+          console.log(JSON.stringify(objeto, null, 2))
+        });*/
+
+      })
+    }
+    /** Función que genera una tabla HTML a partir de un array de objetos
+     * @param {Array} datos Array de objetos
+     * @param {String} titulo Título de la tabla
+     * @returns {String} HTML de la tabla
+     */
+    function generarTablaHTML(datos, titulo, endpoint){
+      let titulos = Object.keys(datos[0]) // los nombres de columnas de la tabla -> al suponer que todos los objetos tienen los mismo campos podríamos usar una clase que los defina en cada caso
+      let html = ""
+      html += "<h2>" + titulo + "</h2>"
+      html += "<table class='table table-striped'>"  
+      html += "<tr>"
+      // bucle para añadir etiquetas de th / encabezados de tabla
+      for (let indice in titulos) {
+        html += "<th>" + titulos[indice] + "</th>"
+      }
+      html += "</tr>"
+
+      // bucle para añadir filas de datos
+      // devolvemos html de tabla
+      datos.forEach((objeto) => {
+        html += "<tr>"
+          for (let key in objeto){
+            if(endpoint == "albumes" && key == "fecha"){
+              html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
+            } else if(endpoint == "albumes" && key == "portada"){
+              html += "<td><img src='" + "media/portadas/" + objeto[key] + "' width='100px'></td>"
+            }else if(endpoint == "artistas" && key == "fechaNacimiento"){
+              if(objeto[key]){
+                html += "<td>" + new Date(objeto[key]).toLocaleDateString() + "</td>"
+              }else{
+                html += "<td></td>"
+              }
+            }else if(objeto[key] == null){
+              html += "<td></td>"
+            }else{
+              html += "<td>" + objeto[key] + "</td>"
+            }
+          }
+        html += "</tr>"
+      })
+      html += "</table>"
+      
+      return html
+    } 
+    
+  </script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script>
+        console.log("Hola desde el head!");
+    </script>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <p id="para">texto</p>
+
+    <div id="para-2"></div>
+    <div id="para-3"></div>
+    
+    <button type="button" onclick="document.write('Clicaste!')">Clickame</button>
+
+    <button onclick="window.print()">Imprimir</button>
+
+    <h2>Suma</h2>
+    <p id="resultado"></p>
+    <!-- Siempre que se pueda se colocan los scripts antes de </body> -->
+    <script>
+        // alert("Hola!");
+        // Ejemplos
+        console.log("Hola desde el body");
+        document.getElementById("para").innerText = "Aprendemos JS :)";
+    </script>
+    <script>
+        // innerHTML vs innerText
+        // Cuando innerHTML? 
+        // - Cuando necesitemos crear un elemento HTML dentro de otro
+        // - Cuando queremos 
+        document.getElementById("para-2").innerHTML = "<h2 class='myclass'>Esto es un h2</h2>";
+        // innerText
+        // Cuando?
+        // - Siempre que se pueda
+        // - Solo te pasa texto al elemento que seleccionas <-----
+        document.getElementById("para-3").innerText = "Esto es un texto";
+    </script>
+    <script>
+        // document.write()
+        // - Añade texto al final del documento sin etiqueta
+        // - Si se usa cuando se ha cargado el documento, borra todo y pone lo que tiene write("...")
+        document.write("Nuevo texto")
+    </script>
+    <script>
+        // Alert vs confirm vs prompt
+        // - Suele ser un aviso para el usuario
+        alert("Que sepas que pasa esto...")
+        // confirm - Aceptar y cancelar
+        // Se puede usar para que el usuario confirme
+        confirm("¿Estás de acuerdo con esto?")
+        // prompt - se le pide un dato al usuario
+        // Ese dato se puede usar con una variable
+        prompt("¿Cómo te llamas?")
+    </script>
+    <script>
+        // console.log()
+        // Se usa para debugear o para sacar datos que queramos confirmar mientras estamos desarrollar
+        console.log("Solo pasaba por aquí")
+    </script>
+    <script src="sumar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

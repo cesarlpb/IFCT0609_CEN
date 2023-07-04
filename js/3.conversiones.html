@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversiones</title>
+    <style>
+        code {
+            background-color: lightgray;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversiones</h1>
+    <h2>Number a String</h2>
+    <p>Siempre podemos convertir un número o una expresión algebraica a String.</p>
+    <p id="suma"></p>
+    <script>
+        let x = 5;
+        let y = 10;
+        document.getElementById("suma").innerText = "Resultado: " + String(x + y);
+    </script>
+    <h2>String a Number</h2>
+    <p>No siempre es posible hacer esta conversión, en caso de que falle recibimos <code>NaN</code>.</p>
+    <p id="para"></p>
+    <p id="para-2"></p>
+    <p id="piFloat"></p>
+    <p id="piInt"></p>
+    <p id="exp"></p>
+    <p id="fixed"></p>
+    <p id="precision"></p>
+    <script>
+        let char = 'a';
+        document.getElementById("para").innerText = "String a Number falla: " + Number(char);
+        document.getElementById("para-2").innerText = "String a Number correcto: " + Number("1.5");
+        document.getElementById("piFloat").innerText = "parseFloat: " + parseFloat("3.1415926535897932384626433");
+        document.getElementById("piInt").innerText = "parseInt: " + parseInt("3.1415926535897932384626433");
+        document.getElementById("exp").innerText = "toExponential: " + (3.1415926535897932384626433).toExponential(3);
+        document.getElementById("fixed").innerText = "toFixed: " + (3.1415926535897932384626433).toFixed(3);
+        document.getElementById("precision").innerText = "toPrecision: " + (3.1415926535897932384626433).toPrecision(4);
+    </script>
+    <h2>Date</h2>
+    <ul>
+        <p id="date"></p>
+        <p id="horaActual" style="border: 1px solid black; width: 100px; text-align: center;"></p>
+        <hr>
+        <li><code>getDate()</code>      Días de 1 a 31</li>
+        <p id="getDate"></p>
+        <li><code>getDay()</code>       Día de la semana del 0 al 6</li>
+        <p id="getDay"></p>
+        <li><code>getFullYear()</code>  Año en formato yyyy</li>
+        <p id="getFullYear"></p>
+        <li><code>getHours()</code>     Hora en formato 0-23</li>
+        <p id="getHours"></p>
+        <li><code>getMilliseconds()</code>  Milisegundos en formato 0-999</li>
+        <p id="getMilliseconds"></p>
+        <li><code>getMinutes()</code>   Minutos en formato 0-59</li>
+        <p id="getMinutes"></p>
+        <li><code>getMonth()</code>     Mes en formato 0-11</li>
+        <p id="getMonth"></p>
+        <li><code>getSeconds()</code>   Segundos en formato 0-59</li>
+        <p id="getSeconds"></p>
+        <li><code>getTime()</code>      Milisegundos desde el 1 de eneero de 1970</li>
+        <p id="getTime"></p>
+    </ul>
+
+    <script>
+        let fecha =  new Date()
+        document.getElementById("date").innerText = fecha
+        
+        let dia = fecha.getDate()
+        let diaSemana = fecha.getDay()
+        let año = fecha.getFullYear()
+        let hora = fecha.getHours()
+        let milisegundos = fecha.getMilliseconds()
+        let minutos = fecha.getMinutes()
+        let mes = fecha.getMonth()
+        let segundos = fecha.getSeconds()
+        let unixTime = fecha.getTime()
+
+        document.getElementById("getDate").innerText = dia
+        document.getElementById("getDay").innerText = diaSemana
+        document.getElementById("getFullYear").innerText = año
+        document.getElementById("getHours").innerText = hora
+        document.getElementById("getMilliseconds").innerText = milisegundos
+        document.getElementById("getMinutes").innerText = minutos
+        document.getElementById("getMonth").innerText = mes
+        document.getElementById("getSeconds").innerText = segundos
+        document.getElementById("getTime").innerText = unixTime
+
+        // función para actualizar hora cada segundo
+        setInterval(function(){
+            let date = new Date()
+            console.log(date.toLocaleTimeString()) 
+            let horaActual = date.toLocaleTimeString() // hh:mm:ss
+            document.getElementById("horaActual").innerText = horaActual
+        }, 1000); // <---- milisegundos
+    </script>
+
+    <h2>Date a Number</h2>
+    <p><code>getTime()</code> para pasar la fecha a Unix Time</p>
+    <p><a href="https://unixtime.org/" target="_blank">¿Qué es Unix Time?</a></p>
+    <h2>Number a Date</h2>
+    <p id="unixTime"></p>
+    <p id="unixTimeAFecha"></p>
+    <script>
+        let fecha2 = new Date().getTime() // unix time -> int
+        let unixTimeAFecha = new Date(fecha2)
+        document.getElementById("unixTime").innerText = fecha2
+        document.getElementById("unixTimeAFecha").innerText = unixTimeAFecha
+    </script>
+    <h2>Date a String</h2>
+    <p>Por defecto, si imprimimos una fecha sale como String.</p>
+    <h2>Boolean a Number</h2>
+    <p><code>false</code>se transforma a 0 y <code>true</code>se convierte a 1.</p>
+    <h2>Number a Boolean</h2>
+    <p>Conviertes todos los números a <code>true</code> y el cero a <code>false</code>.</p>
+</body>
+</html>

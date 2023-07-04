@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando Math JS</title>
+</head>
+<body>
+    
+    <!-- Usando el CDN de Math JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script>
+        // load math.js (using node.js)
+        // const { simplify, parse, derivative } = require('..')
+        // simplify an expression
+        console.log('simplify expressions')
+        console.log(math.simplify('3 + 2 / 4').toString()) // '7 / 2'
+        console.log(math.simplify('2x + 3x').toString()) // '5 * x'
+        console.log(math.simplify('2 * 3 * x', { x: 4 }).toString()) // '24'
+        console.log(math.simplify('x^2 + x + 3 + x^2').toString()) // '2 * x ^ 2 + x + 3'
+        console.log(math.simplify('x * y * -x / (x ^ 2)').toString()) // '-y'
+
+        // Suma
+        console.log("Suma")
+        console.log(math.add(2, 3)) // 5
+        console.log("Suma de nums: " + math.add(1, 2, 3, 4, 5)) // 15
+        let arr = [1, 2, 3, 4, 5] // suma 15
+        // Operador spread (...) -> convierte un array en una lista de argumentos para que una función los utilice
+        console.log("Suma de arr: " + math.add(...arr)) // 15
+        console.log("Media:")
+        console.log("Media con nums: " + math.mean(2, 3, 4, 5)) // 3.5
+        arr = [2, 3, 4, 5]
+        console.log("Media con arr: " + math.mean(arr)) // 3.5
+        console.log("Mediana:")
+        console.log(math.median(5, 2, 7))        // returns 5
+        console.log(math.median([3, -1, 5, 7]))  // returns 4
+        // Tambien existe math.mode
+        // Más info: https://mathjs.org/docs/reference/functions.html
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "mysql-conexion",
+  "version": "1.0.0",
+  "description": "Archivo para conectar a base de datos MySQL",
+  "main": "conexion.js",
+  "scripts": {
+  },
+  "author": "César P.",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

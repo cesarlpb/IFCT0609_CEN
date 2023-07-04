@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title id="title">Formulario para editar un usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container col-6 py-3">
+    <h1 id="h1">Editar usuario</h1>
+    <form action="/json/editar/:id" method="POST">
+      <!-- Campo oculto (hidden) que se en el middleware para cambiar de POST a PUT -->
+      <input type="hidden" name="_method" value="PUT">
+      <input id="id-input" type="hidden" name="id" value="">
+      <input type="text" class="form-control" name="name" placeholder="Nombre de usuario">
+      <br>
+      <input type="text" class="form-control" name="email" placeholder="Email">
+      <br>
+      <input type="submit" class="btn btn-primary" value="Editar">
+    </form>
+    </div>
+    <script>
+      // Leemos el id de las cookies:
+      let cookie = document.cookie;
+      let id = cookie.split('__id=')
+      if(id instanceof Array){
+        let str = id[1];
+        let idx = str.split(';')[0];
+        id = idx; // asignamos el valor correcto al id
+        // id deja de ser Array y es un string
+      }
+      // Añadimos este id al input oculto del formulario:
+      let idInput = document.querySelector('#id-input');
+      idInput.value = id;
+      // Leemos el formulario y le asignamos la ruta de edición:
+      let form = document.querySelector('form');
+      form.action = `/editar/${id}`;
+
+      // Actualizamos el h1 con el id del user
+      let title = document.querySelector('#title');
+      title.innerText = `Editar usuario ${id}`;
+      let h1 = document.querySelector('#h1');
+      h1.innerText = `Editar usuario ${id}`;
+    </script>
+  </body>
+</html>

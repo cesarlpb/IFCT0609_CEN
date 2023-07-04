@@ -1,0 +1,16 @@
+{
+  "name": "tutorial-express",
+  "version": "1.0.0",
+  "description": "Tutorial de https://www.tutorialspoint.com/expressjs/expressjs_environment.htm",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [
+    "express"
+  ],
+  "author": "César",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "urlencode": "^1.1.0"
+  }
+}

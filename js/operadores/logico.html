@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Lógicos</title>
+</head>
+<body>
+    <p>AND, OR, NOT</p>
+    <p>&&, ||, !</p>
+    <img src="./and, or, not.png" alt="AND, OR, NOT" width="300">
+    <script>
+        let condicion_1 = true
+        let condicion_2 = true
+        let condicion_3 = false
+        let condicion_4 = false
+        console.log("AND")
+        console.log(condicion_1, " && ", condicion_2, ": ", condicion_1 && condicion_2)
+        console.log(condicion_1, " && ", condicion_3, ": ", condicion_1 && condicion_3)
+        console.log(condicion_3, " && ", condicion_1, ": ", condicion_3 && condicion_1)
+        console.log(condicion_3, " && ", condicion_4, ": ", condicion_3 && condicion_4)
+        console.log("OR")
+        console.log(condicion_1, " && ", condicion_2, ": ", condicion_1 || condicion_2)
+        console.log(condicion_1, " && ", condicion_3, ": ", condicion_1 || condicion_3)
+        console.log(condicion_3, " && ", condicion_1, ": ", condicion_3 || condicion_1)
+        console.log(condicion_3, " && ", condicion_4, ": ", condicion_3 || condicion_4)
+        console.log("NOT")
+        console.log("! ", condicion_1, ": ", !condicion_1)
+        console.log("! ", condicion_3, ": ", !condicion_3)
+    </script>
+</body>
+</html>

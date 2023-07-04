@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Error 404</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+<body>
+  <div class="container p-3">
+    <h1 id="h1" class="text-danger">Error 404</h1>
+    <p id="mensaje">La página que buscas no se ha encontrado.</p>
+  </div>
+  <script>
+    let id = window.location.href.split("/")[5]
+    let mensaje = document.getElementById("mensaje")
+    if(id){
+      mensaje.innerText = `No existe el usuario con id ${id}`
+    }
+  </script>
+</body>
+</html>
