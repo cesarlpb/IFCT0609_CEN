@@ -1,0 +1,12 @@
+{
+  "name": "examenes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["node", "api"],
+  "author": "",
+  "license": "ISC"
+}
