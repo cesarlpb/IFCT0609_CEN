@@ -240,7 +240,7 @@ app.listen(3000, () => {
 2. Usando **React**, crea un formulario para que un usuario pueda crear un post. El post puede tener campos como título, contenido (texto) y etiquetas. Este post se podrá editar y revisar antes de enviar el formulario. Una vez creado el post, se debe poder enviar haciendo click. Si falta algún campo debe salir una aviso acorde y cuando se reciba el post correctamente en el backend, debemos notificar al usuario sobre esto.
 
 - [Solución en rama examen-3-cen](https://github.com/cesarlpb/learn-react/tree/examen-3-cen)
-- Release - zip
+- **Release (descarga ZIP):** **Release (descarga ZIP):** https://github.com/cesarlpb/IFCT0609_CEN/releases/download/examen-3-cen/examen-3.zip
 
 Ejemplo para un Tweet:
 
@@ -267,5 +267,6 @@ Ejemplo para un Tweet:
 
 3. Siguiendo el ejercicio anterior, se debe recibir el post creado en un endpoint, método POST, de Node. Este endpoint debe notificar sobre la creación del post en el response. Además, el endpoint enviará cualquier información necesaria para que el usuario pueda ver ese post creado. Adicionalmente, el usuario debería poder editar el post una vez creado. Este ejercicio depende del anterior y debe ir acorde al mismo para funcionar.
 
-Solución de Node
-Release - zip
+[Solución de Node](./server.js)
+
+**Release (descarga ZIP):** https://github.com/cesarlpb/IFCT0609_CEN/releases/download/examen-3-cen/examen-3.zip
