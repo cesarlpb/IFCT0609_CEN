@@ -6,7 +6,13 @@
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": ["node", "api"],
+  "keywords": [
+    "node",
+    "api"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
