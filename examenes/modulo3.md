@@ -1,6 +1,7 @@
 ## Examen del Módulo 3 - Node, React y Express
 
-Cuestionario: link
+[Formulario entrega 13 julio](https://forms.gle/6KraYwMHvHRmyv8EA)
+[Cuestionario](https://forms.gle/7WtivkZLeWo2JhQy6)
 
 ### Parte 1. Preguntas tipo test
 
